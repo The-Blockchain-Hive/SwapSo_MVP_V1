@@ -7,7 +7,7 @@ export default function Home() {
         <Navbar />
       </div>
       <div>        
-        <h1 className='font-bold' style={{fontSize:'40px', fontFamily:'cursive'}}>THE BLOCKCHAIN HIVE</h1>
+        <h1 className='font-bold' style={{fontSize:'40px', fontFamily:'cursive', marginTop:'20px'}}>THE BLOCKCHAIN HIVE</h1>
       </div>
     </main>
   )
