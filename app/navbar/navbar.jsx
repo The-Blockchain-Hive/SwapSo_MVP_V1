@@ -4,62 +4,38 @@ import { ethers } from "ethers";
 import Image from "next/image";
 import "./navbar.css";
 
-const checkIfWalletIsConnected = async () => {
-  try {
-    const { ethereum } = window;
-
-    if (!ethereum) {
-      console.log("Make sure you have MetaMask!");
-      return;
-    }
-
-    console.log("We have the ethereum object", ethereum);
-
-    const accounts = await ethereum.request({ method: "eth_accounts" });
-
-    if (accounts.length !== 0) {
-      const account = accounts[0];
-      console.log("Found an authorized account:", account);
-      setCurrentAccount(account);
-    } else {
-      console.log("No authorized account found");
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-const connectWallet = async () => {
-  try {
-    const { ethereum } = window;
-
-    if (!ethereum) {
-      alert("Get MetaMask!");
-      return;
-    }
-
-    const accounts = await ethereum.request({ 
-      method: "eth_requestAccounts",
-    });
-
-    console.log("Connected", accounts[0]);
-    setCurrentAccount(accounts[0]);
-  } catch (error) {
-    console.log(error);
-  }
-};
-// const provider = new ethers.providers.Web3Provider(window.ethereum);
-const disconnectWallet = async () => {
-  try {
-    // Null account triggers disconnect
-    await provider.send("eth_requestAccounts", []); 
-    setCurrentAccount(null);
-  } catch (error) {
-    console.log(error);
-  }
-}
 const Navbar = () => {
   const [currentAccount, setCurrentAccount] = useState("");
+
+  const checkIfWalletIsConnected = async () => {
+    try {
+      const { ethereum } = window;
+  
+      if (!ethereum) {
+        console.log("Make sure you have MetaMask!");
+        return;
+      }
+  
+      console.log("We have the ethereum object", ethereum);
+  
+      const accounts = await ethereum.request({ method: "eth_accounts" });
+  
+      if (accounts.length !== 0) {
+        const account = accounts[0];
+        console.log("Found an authorized account:", account);
+        setCurrentAccount(account);
+      } else {
+        console.log("No authorized account found");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+  const connectWallet = async () => {
+    const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+    setCurrentAccount(accounts[0]);
+  }
 
   useEffect(() => {
     checkIfWalletIsConnected();
@@ -98,16 +74,12 @@ const Navbar = () => {
       </ul>
 
       <div>
-      <button onClick={connectWallet}>
+      <button className="wallet" onClick={connectWallet}>
         {currentAccount ? (
-          <span>Connected: {currentAccount.slice(0,6)}...</span>  
+          <span>Connected: {currentAccount.slice(0,8)}...</span>  
         ) : (  
           <span>Connect Wallet</span>
         )}
-      </button>
-      
-      <button onClick={disconnectWallet}>
-    
       </button>
       </div>
     </nav>

@@ -66,7 +66,7 @@
   .button{
     align-items: self-end;
   }
-  .sign-in {
+  .wallet {
     background-color: #00E6AC;
     color: #F5F5F5;
     border-radius: 20px;
@@ -76,21 +76,7 @@
     transition: background-color 0.3s, color 0.3s;
   }
   
-  .sign-in:hover {
+  .wallet:hover {
     background-color: #0A3362; 
     color: #F5F5F5; 
-  }
-  .sign-up {
-    background-color: #00E6AC; 
-    color: #F5F5F5; 
-    border-radius: 20px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .sign-up:hover {
-    background-color: #0A3362; 
-    color: #F5F5F5;
   }
