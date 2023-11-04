@@ -1,18 +1,20 @@
 .navbar1 {
-    background-color: #1a054b; /* Royal Blue background  0A3362*/
+    background: #d6d0e1;
+    border-radius: 50px;
     width: 100%;
-    padding: 1.3rem 1.6rem;
+    padding: 0.3rem 1.6rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 50px rgb(18, 18, 53);
   }
 
   .logo {
     font-size: 24px;
-    color: #00E6AC;
+    color: #0f00e6;
     text-decoration: none;
     font-weight: bold;
+    margin-left: 20%;
   }
   
   .nav-links {
@@ -24,14 +26,14 @@
   }
   
   .nav-list {
+    font-size: 1rem;
     margin: 0 35px;
-    color: #F5F5F5;
+    color: #000000;
     text-decoration: none;
     font-weight: bold;
     position: relative;
-
   }
-  
+
   .nav-list.dropdown:hover .dropdown-content {
     display: block;
   }
@@ -67,7 +69,7 @@
     align-items: self-end;
   }
   .wallet {
-    background-color: #00E6AC;
+    background-color: #0026e6;
     color: #F5F5F5;
     border-radius: 20px;
     padding: 10px 20px;

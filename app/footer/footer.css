@@ -1,0 +1,80 @@
+/* Footer styles */
+.footer {
+    min-width: 100vw;
+    background-color: #000000;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+
+}
+.subfooter{
+    display: flex;
+    flex-direction: column;
+}
+.box{
+    padding-left: 7rem;
+}
+
+.footerHeading {
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.footerLinks {
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 1rem;
+    list-style: none;
+    padding: 0;
+}
+
+.footerLinks li {
+    margin-bottom: 10px;
+}
+
+.subscribeSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .inputContainer {
+    display: flex;
+    align-items: center;
+    background-color: white; /* Set the background color for the input container */
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 5px;
+  }
+  
+  .subscribeInput {
+    width: 100%; /* Adjust the input width */
+    border: none;
+    outline: none;
+  }
+  
+  .inputArrow {
+    padding: 0 5px;
+    color: #000000; /* Set arrow color */
+  }
+  
+  .subscribeButton {
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  .logo1{
+    margin-top: -4.25rem;
+  }
+.icons{
+    min-width: 100vw;
+    justify-content: space-around;
+    background-color: #000000;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+}

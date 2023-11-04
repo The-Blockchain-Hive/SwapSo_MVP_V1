@@ -1,6 +1,5 @@
 "use client"
 import React, { useState, useEffect } from "react"; 
-import { ethers } from "ethers";
 import Image from "next/image";
 import "./navbar.css";
 
@@ -42,13 +41,13 @@ const Navbar = () => {
   }, []);
 
   return (
+  <>
     <nav className="navbar1">
       <div>
-        <Image src="/logo.png" width={100} height={100} />
+        <Image  className="logo" src="/logo.png" width={100} height={100} />
       </div>
-
       <ul className="nav-links">
-        <li className="nav-list">Home</li>
+        <li className="nav-list"><a href="#">Home</a></li>
         <li className="nav-list dropdown">
           Courses
           <div className="dropdown-content">
@@ -76,13 +75,17 @@ const Navbar = () => {
       <div>
       <button className="wallet" onClick={connectWallet}>
         {currentAccount ? (
-          <span>Connected: {currentAccount.slice(0,8)}...</span>  
+          <span>{currentAccount.slice(0,8)}...</span>  
         ) : (  
           <span>Connect Wallet</span>
         )}
       </button>
       </div>
     </nav>
+    <div>
+
+    </div>
+    </>
   );
 };
 

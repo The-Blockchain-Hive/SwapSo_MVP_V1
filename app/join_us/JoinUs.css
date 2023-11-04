@@ -1,0 +1,27 @@
+.join_us{
+    display: flex;
+    flex: 1 1;
+    flex-direction: row;
+}
+.ca{
+    font-size: 25px;
+    background-color: #202020;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #00FFFF;
+    padding: 2%;
+    border-radius: 20px;
+    width: 35vw;
+    margin-right: 0.25rem;
+    justify-content: center;
+    text-align: center;
+}
+.educator{
+    font-size: 25px;
+    background-color: #202020;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #00FFFF;
+    padding: 2%;
+    border-radius: 20px;
+    width: 35vw;
+    text-align: center;
+}
