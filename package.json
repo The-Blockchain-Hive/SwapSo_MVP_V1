@@ -12,6 +12,7 @@
     "@thirdweb-dev/react": "^4.0.10",
     "@thirdweb-dev/sdk": "^4.0.9",
     "@walletconnect/types": "^2.10.4",
+    "emailjs-com": "^3.2.0",
     "ethers": "^5.7.2",
     "next": "14.0.0",
     "react": "^18",
