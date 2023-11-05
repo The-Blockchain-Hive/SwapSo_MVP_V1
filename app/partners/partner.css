@@ -1,0 +1,21 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+}
+.companies{
+    display: flex;
+    flex-direction: row;
+    min-width: 95%;
+    background-color: aquamarine;
+}
+/* .sub_companies{
+    display: flex;
+    flex-direction: row;
+} */
+.backers{
+    min-width: 95%;
+    background-color: aquamarine;
+    flex-direction: row;
+    min-width: 95%;
+}

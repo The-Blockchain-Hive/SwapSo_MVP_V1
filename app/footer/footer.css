@@ -16,9 +16,10 @@
     padding-left: 7rem;
 }
 
-.footerHeading {
+.FooterHeading {
     font-family: sans-serif;
     font-size: 20px;
+    color: #ddd;
 }
 
 .footerLinks {
