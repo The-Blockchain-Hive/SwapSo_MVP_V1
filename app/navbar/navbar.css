@@ -1,12 +1,17 @@
-.navbar1 {
+#navbar1 {
     background: #d6d0e1;
     border-radius: 50px;
-    width: 100%;
+    width: 90%;
     padding: 0.3rem 1.6rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 20px 50px rgb(18, 18, 53);
+  }
+  .sticky{
+    position: fixed;
+    right: 5%;
+    z-index: 1;
   }
 
   .logo {

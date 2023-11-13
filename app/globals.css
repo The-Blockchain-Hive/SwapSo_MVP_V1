@@ -11,7 +11,6 @@
     --background-initial-rgb: 0, 0, 0;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
-    --gradient-height: 100vh;
   }
 }
 
@@ -23,7 +22,6 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-    height: var(--gradient-height);
 }
 
 /* .gradient-bg {
@@ -35,6 +33,10 @@ body {
   margin-top: 1%;
   width: 90%;
   color: #323AA4
+}
+.about_us{
+  max-width: 70vw;
+  text-align: justify;
 }
 .join_us-main{
   margin-bottom: 10%;

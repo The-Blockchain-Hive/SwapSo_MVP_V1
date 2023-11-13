@@ -42,9 +42,9 @@ const Navbar = () => {
 
   return (
   <>
-    <nav className="navbar1">
+    <nav id="navbar1" className="sticky">
       <div>
-        <Image  className="logo" src="/logo.png" width={100} height={100} />
+        <Image className="logo" src="/logo.png" width={100} height={100} />
       </div>
       <ul className="nav-links">
         <li className="nav-list"><a href="#">Home</a></li>

@@ -1,9 +1,11 @@
+"use client"
 import React from "react";
 import Image from "next/image";
 import {FaTwitter, FaInstagram, FaLinkedin, FaDiscord, FaWhatsapp, FaTelegram} from 'react-icons/fa';
 import './footer.css';
 
 const Footer = () => {
+
 
     return(
         <main>
@@ -19,7 +21,7 @@ const Footer = () => {
                 </div>
                 <div className="box">
                 <div className="FooterHeading"> <h1 className="font-bold"> Quick Links</h1> </div>
-                <ul className="footerLinks">            
+                <ul className="footerLinks">     
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Courses</a></li>
                     <li><a href="#">MarketPlace</a></li>
@@ -28,7 +30,7 @@ const Footer = () => {
                 <div className="box">
                 <div className="FooterHeading"> <h1 className="font-bold">Resources</h1> </div>
                 <ul className="footerLinks">            
-                    <li><a href="#">CA</a></li>
+                    <li><a href="#">Campus Ambassador</a></li>
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">Events</a></li>
                 </ul>
@@ -44,7 +46,7 @@ const Footer = () => {
                 </div>
                 <div className="box"></div>
                 <div className="subscribeSection">
-                    <div className="footerHeading">Subscribe</div>
+                    <div className="footerHeading font-bold">Subscribe Our Newsletter</div>
                 <form>
                     <div className="inputContainer">
                         <input type="email" className="subscribeInput" placeholder="Enter your email" />

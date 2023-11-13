@@ -1,0 +1,32 @@
+.featured_main{
+    display: flex;
+    flex: 1 1;
+    flex-direction: row;
+    animation: slide 15s infinite;
+}
+
+.sub_main{
+    margin-top: 5%;
+    font-size: 20px;
+    background-color: #202020;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #00FFFF;
+    padding: 2%;
+    min-width: 22vw;
+    border-radius: 20px;
+    margin-right: 0.25rem;
+    justify-content: center;
+    text-align: center;
+}
+.sub_main:hover{
+    color: aquamarine;
+}
+/* 
+@keyframes slide {
+    0% {
+        transform: translateX(50);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+} */
