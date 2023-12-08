@@ -5,70 +5,72 @@ import Image from 'next/image';
 
 
 const Partner = () => {
-    const sliderRef = useRef(null);
 
-    useEffect(() => {
-      const slider = sliderRef.current;
-      const slides = slider.querySelectorAll('.sub_companies');
-      const slideWidth = slides[0].clientWidth;
-      const totalSlides = slides.length;
-  
-      let slideIndex = 0;
-      let translateX = 0;
-      let slideTimer = null;
-  
-      // Clone the slides and append them to the end
-      const clonedSlides = [...slides].map((slide) => slide.cloneNode(true));
-      clonedSlides.forEach((clonedSlide) => slider.appendChild(clonedSlide));
-  
-      const startSlideShow = () => {
-        slideTimer = setInterval(() => {
-          slideIndex++;
-  
-          if (slideIndex >= totalSlides) {
-            slideIndex = 0;
-            translateX = 0;
-            slider.style.transition = 'none';
-          } else {
-            translateX = -slideIndex * slideWidth;
-            slider.style.transition = 'transform 0.5s ease-in-out';
-          }
-  
-          slider.style.transform = `translateX(${translateX}px)`;
-        }, 1500);
-      };
-  
-      const stopSlideShow = () => {
-        clearInterval(slideTimer);
-      };
-  
-      // Attach event listeners for pausing and resuming slideshow
-      slider.addEventListener('mouseover', stopSlideShow);
-      slider.addEventListener('mouseout', startSlideShow);
-  
-      // Start the slideshow
-      startSlideShow();
-  
-      // Clean up by stopping the slideshow on component unmount
-      return () => {
-        clearInterval(slideTimer);
-      };
-    }, []);
     return(
         <main>
-            <div className="main">
-                <div className="companies" ref={sliderRef}>
-                    <div>
-                        <Image  className="sub_companies" src="/eliteweb3.png" width={100} height={100} />
+            <div className="slider">
+                <div className="slide-track">
+                    <div className="slide">
+                      <Image className="image" src="/eliteweb3.png" width={100} height={100} />
                     </div>
-                    <div>
-                        <Image  className="sub_companies" src="/microsoft.png" width={100} height={100} />
+                    <div className="slide">
+                      <Image className="image" src="/microsoft.png" width={100} height={100} />
                     </div>
-                    <div>
-                        <Image  className="sub_companies" src="/stackos.png" width={100} height={100} />
+                    <div className="slide">
+                      <Image className="image" src="/stackos.png" width={100} height={100} />
+                    </div>
+                    <div className="slide">
+                      <Image  className="image" src="/stackos.png" width={100} height={100} />
+                    </div>
+                    <div className="slide">
+                      <Image  className="image" src="/stackos.png" width={100} height={100} />
+                    </div>
+                    <div className="slide">
+                      <Image  className="image" src="/stackos.png" width={100} height={100} />
+                    </div>
+                    <div className="slide">
+                      <Image  className="image" src="/stackos.png" width={100} height={100} />
+                    </div>
+                    <div className="slide">
+                      <Image  className="image" src="/stackos.png" width={100} height={100} />
+                    </div>
+                    <div className="slide">
+                      <Image  className="image" src="/stackos.png" width={100} height={100} />
                     </div>
                 </div>
-                {/* <div className="backers">
+            </div>
+            <div className="slider">
+                <div className="slide-track">
+                    <div className="slide">
+                      <Image className="image" src="/eliteweb3.png" width={100} height={100} />
+                    </div>
+                    <div className="slide">
+                      <Image className="image" src="/microsoft.png" width={100} height={100} />
+                    </div>
+                    <div className="slide">
+                      <Image  className="image" src="/stackos.png" width={100} height={100} />
+                    </div>
+                    <div className="slide">
+                      <Image  className="image" src="/stackos.png" width={100} height={100} />
+                    </div>
+                    <div className="slide">
+                      <Image  className="image" src="/stackos.png" width={100} height={100} />
+                    </div>
+                    <div className="slide">
+                      <Image  className="image" src="/stackos.png" width={100} height={100} />
+                    </div>
+                    <div className="slide">
+                      <Image  className="image" src="/stackos.png" width={100} height={100} />
+                    </div>
+                    <div className="slide">
+                      <Image  className="image" src="/stackos.png" width={100} height={100} />
+                    </div>
+                    <div className="slide">
+                      <Image  className="image" src="/stackos.png" width={100} height={100} />
+                    </div>
+                </div>
+            </div>
+            {/* <div className="backers">
                     <div>
                         <Image  className="sub_backers" src="/advisor1.jpg" width={100} height={100} />
                     </div>
@@ -76,8 +78,6 @@ const Partner = () => {
                         <Image  className="sub_backers" src="/advisor2.png" width={100} height={100} />
                     </div>
                 </div> */}
-
-            </div>
         </main>
     )
 }

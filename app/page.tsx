@@ -1,9 +1,9 @@
-import Navbar from './navbar/navbar.jsx';
-import FeaturedIn from './featuredIn/featuredIn.jsx' 
-import Partner from './partners/partner.jsx';
-import JoinUs from './join_us/JoinUs.jsx';
-import ContactForm from './contact/contact.jsx';
-import Footer from './footer/footer.jsx';
+import Navbar from './Home/navbar.jsx';
+import FeaturedIn from './Home/featuredIn.jsx' 
+import Partner from './Home/partner.jsx';
+import JoinUs from './Home/JoinUs.jsx';
+import ContactForm from './Home/contact.jsx';
+import Footer from './Home/footer.jsx';
 
 export default function Home() {
   return (
@@ -21,9 +21,9 @@ export default function Home() {
         <div>
           <FeaturedIn />
         </div>
-      <div>
+      {/* <div>
         <Partner />
-      </div>
+      </div> */}
       <div className='join_us-main'>
         <JoinUs />
       </div>
