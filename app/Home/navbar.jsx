@@ -65,6 +65,7 @@ const Navbar = () => {
 
   return (
     <>
+      
       <nav id="navbar1" className="sticky">
         <div>
           <Image className="logo" src="/logo.png" width={100} height={100} />
@@ -112,6 +113,50 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      
+      
+      {/* <div className=" w-screen h-28 border-b-[1px] border-gray-500 text-white">
+        <div className="max-w-screen-2xl h-full mx-auto px-4 flex items-center justify-between"> 
+          <Image className=" justify-self-start" src="/logo.png" width={100} height={100}></Image>
+          <div className="justify-self-center">
+            <ul className="flex justify-self-center p-10">            
+              <li className="px-10 hover:text-[#0177B7] hover:ease-in-out duration-300 cursor-pointer text-xl"><a href="/">Market Place</a></li>
+              <li className="px-10 hover:text-[#0177B7] hover:ease-in-out duration-300 cursor-pointer text-xl"><a href="/">Home</a></li>
+              <li className="px-10 hover:text-[#0177B7] hover:ease-in-out duration-300 cursor-pointer text-xl"><a href="/">Courses</a></li>
+            </ul>
+          </div>
+          <div>
+          <div className="dropdown">
+            <button className="wallet" onClick={currentAccount ? toggleDropdown : connectWallet}>
+              {currentAccount ? (
+                <span>{currentAccount.slice(0, 8)}...</span>
+              ) : (
+                <span>Connect Wallet</span>
+              )}
+            </button>
+            {isDropdownOpen && (
+              <ul className="dropdown-menu">
+                <li>
+                  <button className="dropdown-item" onClick={copyAddressToClipboard}>
+                    Copy Address
+                  </button>
+                </li>
+                <li>
+                  <button className="dropdown-item" onClick={handleSettingsClick}>
+                    Settings
+                  </button>
+                </li>
+                <li>
+                  <button className="dropdown-item" onClick={handleLogoutClick}>
+                    Logout
+                  </button>
+                </li>
+              </ul>
+            )}
+          </div>
+        </div>
+        </div>
+      </div> */}
     </>
   );
 };

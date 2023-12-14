@@ -22,6 +22,21 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+
+    overflow-x: hidden;   
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+}
+
+/* Optional: Customize scrollbar track and handle appearance */
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: transparent;
 }
 
 /* .gradient-bg {
