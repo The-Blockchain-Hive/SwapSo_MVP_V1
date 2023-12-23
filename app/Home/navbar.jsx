@@ -5,64 +5,64 @@ import Link from "next/link";
 import "./navbar.css";
 
 const Navbar = () => {
-  const [currentAccount, setCurrentAccount] = useState("");
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  // const [currentAccount, setCurrentAccount] = useState("");
+  // const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const checkIfWalletIsConnected = async () => {
-    try {
-      const { ethereum } = window;
+  // const checkIfWalletIsConnected = async () => {
+  //   try {
+  //     const { ethereum } = window;
 
-      if (!ethereum) {
-        console.log("Make sure you have MetaMask!");
-        return;
-      }
+  //     if (!ethereum) {
+  //       console.log("Make sure you have MetaMask!");
+  //       return;
+  //     }
 
-      console.log("We have the ethereum object", ethereum);
+  //     console.log("We have the ethereum object", ethereum);
 
-      const accounts = await ethereum.request({ method: "eth_accounts" });
+  //     const accounts = await ethereum.request({ method: "eth_accounts" });
 
-      if (accounts.length !== 0) {
-        const account = accounts[0];
-        console.log("Found an authorized account:", account);
-        setCurrentAccount(account);
-      } else {
-        console.log("No authorized account found");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //     if (accounts.length !== 0) {
+  //       const account = accounts[0];
+  //       console.log("Found an authorized account:", account);
+  //       setCurrentAccount(account);
+  //     } else {
+  //       console.log("No authorized account found");
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  const connectWallet = async () => {
-    try {
-      const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
-      setCurrentAccount(accounts[0]);
-      setIsDropdownOpen(true); // Open the dropdown once connected
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const connectWallet = async () => {
+  //   try {
+  //     const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+  //     setCurrentAccount(accounts[0]);
+  //     setIsDropdownOpen(true); // Open the dropdown once connected
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen((prevState) => !prevState);
-  };
+  // const toggleDropdown = () => {
+  //   setIsDropdownOpen((prevState) => !prevState);
+  // };
 
-  const copyAddressToClipboard = () => {
-    // Logic to copy user's address to clipboard
-    // Example: navigator.clipboard.writeText(currentAccount);
-  };
+  // const copyAddressToClipboard = () => {
+  //   // Logic to copy user's address to clipboard
+  //   // Example: navigator.clipboard.writeText(currentAccount);
+  // };
 
-  const handleSettingsClick = () => {
-    // Handle settings action
-  };
+  // const handleSettingsClick = () => {
+  //   // Handle settings action
+  // };
 
-  const handleLogoutClick = () => {
-    // Handle logout action
-  };
+  // const handleLogoutClick = () => {
+  //   // Handle logout action
+  // };
 
-  useEffect(() => {
-    checkIfWalletIsConnected();
-  }, []);
+  // useEffect(() => {
+  //   checkIfWalletIsConnected();
+  // }, []);
 
   return (
     <>
@@ -85,14 +85,14 @@ const Navbar = () => {
 
         <div>
           <div className="dropdown">
-            <button className="wallet" onClick={currentAccount ? toggleDropdown : connectWallet}>
+             <button className="wallet" >{/*onClick={currentAccount ? toggleDropdown : connectWallet}>
               {currentAccount ? (
                 <span>{currentAccount.slice(0, 8)}...</span>
               ) : (
                 <span>Connect Wallet</span>
-              )}
+              )} */}
             </button>
-            {isDropdownOpen && (
+            {/* {isDropdownOpen && (
               <ul className="dropdown-menu">
                 <li>
                   <button className="dropdown-item" onClick={copyAddressToClipboard}>
@@ -110,7 +110,7 @@ const Navbar = () => {
                   </button>
                 </li>
               </ul>
-            )}
+            )} */}
           </div>
         </div>
       </nav>

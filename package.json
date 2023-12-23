@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --force",
     "start": "next start",
     "lint": "next lint"
   },
@@ -12,19 +12,17 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@thirdweb-dev/react": "^4.0.10",
-    "@thirdweb-dev/sdk": "^4.0.9",
+    "@thirdweb-dev/sdk": "^4.0.23",
     "@walletconnect/types": "^2.10.4",
-    "emailjs-com": "^3.2.0",
-    "ethers": "^5.7.2",
+    "emailjs-com": "^3.2.0",      
     "next": "^14.0.0",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.12.0",
     "react-slick": "^0.29.0",
     "react-useanimations": "^2.10.0",
-    "typewriter-effect": "^2.21.0",
-    "web3": "^4.2.1",
-    "web3-react": "^5.0.5"
+    "typewriter-effect": "^2.21.0"
+    
   },
   "devDependencies": {
     "@types/node": "^20",

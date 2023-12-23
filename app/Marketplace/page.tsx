@@ -46,7 +46,7 @@ const MarketPlace = () => {
 
     return(
         <main>
-        <div className=" bg-white py-5 mb-10">  
+        <div className="py-5 mb-10">  
           <SearchBar/>
         </div>
         <div className="flex justify-center py-5">
