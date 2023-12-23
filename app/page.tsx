@@ -6,18 +6,21 @@ import JoinUs from './Home/JoinUs.jsx';
 import ContactForm from './Home/contact.jsx';
 import Footer from './Home/footer.jsx';
 import Typewriter from 'typewriter-effect';
+import Card from './components/Card.js';
+
+
 
 export default function Home() {
-  
+    
   return (
-    <main className="">
+    <main className="bg-gradient-to-r from-grad-start to-grad-end">
         <div className='nav1'>
           <Navbar/>
         </div>
         
       <div className="flex items-center justify-self-start justify-start h-screen bg-transparent text-white">
-        <div className="w-1/2 h-1/2 px-12">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+        <div className="flex justify-between w-screen h-1/2 px-12">
+          <h1 className="text-6xl md:text-6xl lg:text-7xl font-bold leading-tight">
             Welcome To
             <br />
 
@@ -42,10 +45,10 @@ export default function Home() {
                     console.log('All strings were deleted');
                   })
                   .start();
-              }} />           
-              
+              }} />              
             
           </h1>
+          <Card/>
         </div>
     </div>
         

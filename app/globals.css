@@ -4,6 +4,20 @@
 
 
 
+
+@layer utilities {
+  .from-grad-start {
+    background: linear-gradient(90deg, #000B92 20%, black 20%);
+  }
+
+  .to-grad-end {
+    background: black;
+  }
+}
+
+
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     --max-height: 100vh;

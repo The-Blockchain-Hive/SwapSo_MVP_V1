@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import "./navbar.css";
 
 const Navbar = () => {
@@ -75,7 +76,7 @@ const Navbar = () => {
             <a href="#">Home</a>
           </li>
           <li className="nav-list">
-            <a href="#">Market Place</a>
+            <Link href='/Marketplace'>Market Place</Link>
           </li>
           <li className="nav-list">
             <a href="#">Courses</a>
