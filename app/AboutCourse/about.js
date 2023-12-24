@@ -6,7 +6,7 @@ export default function AboutSection() {
         "course": {
           "name": "React Mastery",
           "description": "Master React and build powerful web applications.",
-          "about": "In this comprehensive course, you'll learn the ins and outs of React and how to build modern web applications.",
+          "about": "Torem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeosTorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
           "tags": ["React", "JavaScript", "Web Development"],
           "imageUrl": "/path/to/hero-image.jpg",
           "learnTopics": ["React Basics", "State Management", "Component Lifecycle", "React Hooks", "API Integration"],
@@ -68,12 +68,14 @@ export default function AboutSection() {
       }
 
   return (
-    <section className="bg-white h-screen w-screen text-black p-8">
-      <div className="mx-auto my-auto">
+    <section className="bg-white flex flex-col flex-wrap p-20 justify-center h-max w-screen text-black">
+      <div className=" p-5 self-center">
         <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">About the Course</h2>        
       </div>
-      <div>
-        <p>{aboutCourseData.course.about}{aboutCourseData.course.about}{aboutCourseData.course.about}</p>
+      <div className='flex-1'>
+        <p className='p-5'>{aboutCourseData.course.about}</p>
+        <p className='p-5'>{aboutCourseData.course.about}</p>
+        <p className='p-5'>{aboutCourseData.course.about}</p>
       </div>
     </section>
   );

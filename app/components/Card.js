@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Link from 'next/link';
 import Image from 'next/image';
 
 
@@ -46,7 +46,7 @@ const Card = (props) => {
 			</div>
 		</div>	
 		<div className='flex justify-between px-4'>
-			<button className="bg-sky-700 font-extrabold p-2 m-4 rounded-xl">See more</button>
+			<Link href='/AboutCourse'><button className="bg-sky-700 font-extrabold p-2 m-4 rounded-xl">See more</button></Link>
 			<button className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl">Buy Course</button>
 		</div>
 		</div>

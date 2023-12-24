@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import Image from 'next/image';
+import { FaLinkedinIn } from 'react-icons/fa';
 
 export default function MentorSection () {
 
@@ -11,10 +13,10 @@ export default function MentorSection () {
           "imageUrl": "/path/to/hero-image.jpg",
           "learnTopics": ["React Basics", "State Management", "Component Lifecycle", "React Hooks", "API Integration"],
           "mentor": {
-            "image": "/path/to/mentor-image.jpg",
+            "image": "/advisor1.jpg",
             "name": "John Doe",
-            "description": "Experienced full-stack developer with a passion for teaching.",
-            "skills": ["React", "Node.js", "JavaScript", "HTML", "CSS"],
+            "description": "Mr. Metaverse 🌐 | Keynote speaker 🤵🏾‍♂️ | Afronaut futurist 🌍 | Helping Brands & Companies create value in the digital age ✨ | Top 30 most influential people in the Metaverse 🌌",
+            "skills": [" Work Experience: 10+ Years", " Teaching Experience: 10+ Years"],
             "linkedin": "https://www.linkedin.com/in/johndoe/"
           },
           "curriculum": [
@@ -68,32 +70,35 @@ export default function MentorSection () {
       }
 
   return (
-    <section className="bg-gray-800 text-white p-8">
-      <div className="max-w-3xl mx-auto flex items-center">
-        <div className="w-1/2">
-          <h2 className="text-3xl font-bold mb-4">Meet Your Mentor</h2>
-          <img src={aboutCourseData.course.mentor.image} alt={aboutCourseData.course.mentor.name} className="w-full h-3/4 mb-4 object-cover rounded-lg" />
-          <p className="text-gray-300 mb-4">{aboutCourseData.course.mentor.description}</p>
-          <div className="flex space-x-4">
-            {/* Mentor Skills */}
-            {aboutCourseData.course.mentor.skills.map((skill, index) => (
-              <div key={index} className="border border-white rounded-full p-2">
-                {skill}
-              </div>
-            ))}
+    <section className="bg-gray-800">
+      <div className="bg-gray-800 w-2/3 mx-auto text-white p-8 flex flex-col">
+        <div className="p-5 self-center">
+        <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">Meet Your Mentor</h2>
+        </div>
+        <div className='flex'> 
+          <Image width={500} height={100} src={aboutCourseData.course.mentor.image} alt={aboutCourseData.course.mentor.name} className="mr-4  mb-4 object-cover rounded-xl" />
+          <div className='flex flex-col justify-center space-y-8'>
+            <h3 className='text-xl font-semibold'>About Mentor</h3>      
+            <p className="text-gray-300 w-full mb-4">{aboutCourseData.course.mentor.description}</p>
+            <div className="flex space-x-4">
+              {/* Mentor Skills */}
+              {aboutCourseData.course.mentor.skills.map((skill, index) => (
+                <div key={index} className="border border-white rounded-full p-3">
+                  {skill}
+                </div>
+              ))}
+            </div>            
           </div>
         </div>
         <div className="w-1/2">
           {/* LinkedIn Link */}
-          <a href={aboutCourseData.course.mentor.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-300">
-            <svg className="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-              {/* LinkedIn Icon */}
-              <path d="M2 2v20h20V2H2zm17.5 4a3.5 3.5 0 10-7 0 3.5 3.5 0 007 0zm-2 6v8h-3v-7.5c0-1.73-1.57-3.5-3.5-3.5S7 9.77 7 11.5V18H4v-8h3v1.5C7 9.1 8.57 7 11 7s4 2.1 4 4.5V18h-3z" />
-            </svg>
+          <a href={aboutCourseData.course.mentor.linkedin} target="_blank" rel="noopener noreferrer" className="flex gap-2 items-center text-gray-300">
+            <FaLinkedinIn/>
             {aboutCourseData.course.mentor.name} on LinkedIn
           </a>
         </div>
-      </div>
+      </div> 
+     
     </section>
   );
 };

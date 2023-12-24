@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../components/Card";
-//import SearchBar from "../components/Searchbar";
+import SearchBar from "../components/Searchbar";
 import SectionDivider from "../components/SectionDivider";
 
 const MarketPlace = () => {
@@ -47,7 +47,7 @@ const MarketPlace = () => {
     return(
         <main>
         <div className="py-5 mb-10">  
-          {/* <SearchBar/> */}
+           <SearchBar/> 
         </div>
         <div className="flex justify-center py-5">
           <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">

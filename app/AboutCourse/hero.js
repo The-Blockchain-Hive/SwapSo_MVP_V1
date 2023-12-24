@@ -1,5 +1,6 @@
 import React from 'react'
-
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function  HeroSection(){
 
@@ -71,9 +72,9 @@ export default function  HeroSection(){
 
   return (
     <section className="bg-white text-black p-8">
-      <div className='flex h-screen w-screen justify-around'>
+      <div className='flex h-max w-screen justify-around'>
           <div className="w-1/2 flex flex-col gap-10 items-center">
-            <span className=" justify-self-start self-start font-extrabold text-gray-400">All Courses &gt; {aboutCourseData.course.name}</span>
+            <Link href='/'><span className=" justify-self-start self-start font-extrabold text-gray-400">All Courses &gt; {aboutCourseData.course.name}</span></Link>
             <div className="flex-1 w-full md:w-1/2">
               <div>
                 <h1 className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">{aboutCourseData.course.name}</h1>
@@ -95,8 +96,8 @@ export default function  HeroSection(){
             </div>
           </div>
          
-          <div className="ml-4 overflow-hidden rounded-lg">
-            <img src={aboutCourseData.course.imageUrl} alt={aboutCourseData.course.name} className="w-full px-20 h-1/2 object-cover" />
+          <div className="w-1/2 overflow-hidden rounded-lg">
+            <Image width={1000} height={1000} src={aboutCourseData.course.imageUrl} alt={aboutCourseData.course.name} className=" w-full pt-10 px-20 h-full object-cover"/>
           </div>
       </div>
       

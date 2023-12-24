@@ -5,9 +5,9 @@ export default function CurriculumSection  ()  {
    
 
   return (
-    <section className="bg-white p-8">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl font-bold mb-6">Course Curriculum</h2>
+    <section className="bg-gray-800 p-8">
+      <div className="max-w-3xl flex flex-col mx-auto">
+        <h2 className="text-4xl  text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500 mx-auto font-bold mb-6">Course Curriculum</h2>
         {/* Curriculum Dropdowns */}
         {/* {a.map((section, index) => (
           <div key={index} className="mb-6">
@@ -29,7 +29,7 @@ export default function CurriculumSection  ()  {
           </div>
         ))} */}
         {/* Download Curriculum Button */}
-        <button className="bg-blue-500 hover:bg-blue-600 text-white rounded-full py-2 px-6">
+        <button className="bg-blue-500 hover:bg-blue-600 mx-auto w-max text-white rounded-full py-2 px-6">
           Download Curriculum
         </button>
       </div>
