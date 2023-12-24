@@ -7,7 +7,7 @@ const Card = (props) => {
 	
   return (
 	<div>
-	  <div className=" w-[373px] h-max bg-white/40 bg-opacity-40 backdrop-blur-md drop-shadow-lg rounded-3xl text-neutral-300 m-1 flex flex-col">
+	  <div className=" w-[373px] h-max bg-white/40 bg-opacity-40 backdrop-blur-md drop-shadow-lg rounded-3xl text-neutral-300 m-1 flex flex-col hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">
 		
 		<Image src={props.imageURL} width={50} height={50} className=' object-cover w-full h-1/2 rounded-tr-3xl rounded-tl-3xl'></Image>		
 		<div class="flex justify-between p-4">
