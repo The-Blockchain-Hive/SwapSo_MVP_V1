@@ -8,7 +8,7 @@ const MarketPlace = () => {
   const courseData =  {
         "courses": [
           {
-            "imageURL": "./pexels.jpg",
+            "imageURL": "/pexels.jpg",
             "courseTitle": "Introduction to Programming",
             "courseDescription": "Learn the basics of programming with this comprehensive introductory course.",
             "courseDuration": "4 weeks",
@@ -16,15 +16,15 @@ const MarketPlace = () => {
             "courseExpiry": "2024-01-01"
           },
           {
-            "imageURL": "",
+            "imageURL": "/pexels.jpg",
             "courseTitle": "Web Development Fundamentals",
-            "courseDescription": "Explore the fundamentals of web development, including HTML, CSS, and JavaScript.",
+            "courseDescription": "Explore the fundamentals of web development, including HTML, CSS.",
             "courseDuration": "6 weeks",
             "coursePrice": "$79.99",
             "courseExpiry": "2024-02-15"
           },
           {
-            "imageURL": "",
+            "imageURL": "/pexels.jpg",
             "courseTitle": "Data Science Essentials",
             "courseDescription": "Dive into the world of data science and learn essential skills for data analysis.",
             "courseDuration": "8 weeks",
@@ -32,7 +32,7 @@ const MarketPlace = () => {
             "courseExpiry": "2024-03-30"
           },
           {
-            "imageURL": "",
+            "imageURL": "/pexels.jpg",
             "courseTitle": "Mobile App Development with React Native",
             "courseDescription": "Build cross-platform mobile apps using React Native framework.",
             "courseDuration": "10 weeks",

@@ -7,9 +7,9 @@ const Card = (props) => {
 	
   return (
 	<div>
-	  <div className=" w-[373px] h-[483px] bg-white/40 bg-opacity-40 backdrop-blur-md drop-shadow-lg rounded-3xl text-neutral-300 m-1 flex flex-col">
+	  <div className=" w-[373px] h-max bg-white/40 bg-opacity-40 backdrop-blur-md drop-shadow-lg rounded-3xl text-neutral-300 m-1 flex flex-col">
 		
-		<Image src={props.imageURL} className=' object-cover w-full h-1/2 rounded-tr-3xl rounded-tl-3xl'></Image>		
+		<Image src={props.imageURL} width={50} height={50} className=' object-cover w-full h-1/2 rounded-tr-3xl rounded-tl-3xl'></Image>		
 		<div class="flex justify-between p-4">
 			<p className="font-extrabold text-2xl">{props.courseTitle}</p>
 			<div class="flex items-center">
