@@ -8,7 +8,7 @@ const MarketPlace = () => {
   const courseData =  {
         "courses": [
           {
-            "imageURL": "",
+            "imageURL": "./pexels.jpg",
             "courseTitle": "Introduction to Programming",
             "courseDescription": "Learn the basics of programming with this comprehensive introductory course.",
             "courseDuration": "4 weeks",
