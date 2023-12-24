@@ -74,7 +74,7 @@ export default function  HeroSection(){
     <section className="bg-white text-black p-8">
       <div className='flex h-max w-screen justify-around'>
           <div className="w-1/2 flex flex-col gap-10 items-center">
-            <Link href='/'><span className=" justify-self-start self-start font-extrabold text-gray-400">All Courses &gt; {aboutCourseData.course.name}</span></Link>
+            <span className=" justify-self-start self-start font-extrabold text-gray-400"><Link href='/'>All Courses</Link> &gt; {aboutCourseData.course.name}</span>
             <div className="flex-1 w-full md:w-1/2">
               <div>
                 <h1 className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">{aboutCourseData.course.name}</h1>
