@@ -46,18 +46,11 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+        
         <div className="flex flex-row justify-between">
-          <div className="subscribe-section px-20">
-            <h3 className="text-xl font-semibold mb-4 md:text-lg">Subscribe</h3>
-            <form className="flex items-center">
-              <input type="email" placeholder="Enter your email" className="py-2 px-4 border border-gray-700 rounded-l text-black focus:outline-none" />
-              <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-r"><span className="flex"><FaArrowLeft className="self-center mr-2" size={15}/>Subscribe </span></button>
-            </form>
-          </div>
-          <div className="social-media-section px-20">
+        <div className="social-media-section px-20">
             <h3 className="text-xl font-semibold mb-4 md:text-lg">Follow Us</h3>
             <div className="flex space-x-10">
-              {/* Replace these links with your actual social media links */}
               <a href="https://twitter.com/theblock_chive"><FaTwitter size={32} /></a>
               <a href="https://www.instagram.com/theblockchainhive/"><FaInstagram size={32} /></a>
               <a href="https://www.linkedin.com/company/theblockchainhivee/"><FaLinkedin size={32} /></a>
@@ -65,6 +58,13 @@ const Footer = () => {
               <a href="https://chat.whatsapp.com/B7H7elZHya6HzlvQ0gXJS8"><FaWhatsapp size={32} /></a>
               <a href="https://chat.whatsapp.com/B7H7elZHya6HzlvQ0gXJS8"><FaTelegram size={32}/></a>
             </div>
+          </div>
+          <div className="subscribe-section px-20">
+            <h3 className="text-xl font-semibold mb-4 md:text-lg">Subscribe</h3>
+            <form className="flex items-center">
+              <input type="email" placeholder="Enter your email" className="py-2 px-4 border border-gray-700 rounded-l text-black focus:outline-none" />
+              <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-r"><span className="flex"><FaArrowLeft className="self-center mr-2" size={15}/>Subscribe </span></button>
+            </form>
           </div>
         </div>
       </div>

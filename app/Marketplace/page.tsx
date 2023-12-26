@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "../Home/navbar";
 import Card from "../components/Card";
 //import SearchBar from "../components/Searchbar";
 import SectionDivider from "../components/SectionDivider";
@@ -46,6 +47,9 @@ const MarketPlace = () => {
 
     return(
         <main>
+          <div className='nav1'>
+          <Navbar/>
+        </div>
         <div className="py-5 mb-10">  
           {/* <SearchBar/> */}
         </div>

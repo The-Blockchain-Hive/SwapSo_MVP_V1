@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image';
 
 export default function MentorSection () {
 
@@ -11,9 +12,9 @@ export default function MentorSection () {
           "imageUrl": "/path/to/hero-image.jpg",
           "learnTopics": ["React Basics", "State Management", "Component Lifecycle", "React Hooks", "API Integration"],
           "mentor": {
-            "image": "/path/to/mentor-image.jpg",
+            "image": "teddy.jpg",
             "name": "John Doe",
-            "description": "Experienced full-stack developer with a passion for teaching.",
+            "description": "Mr. Metaverse 🌐 | Keynote speaker 🤵🏾‍♂️ | Afronaut futurist 🌍 | Helping Brands & Companies create value in the digital age ✨ | Top 30 most influential people in the Metaverse 🌌",
             "skills": ["React", "Node.js", "JavaScript", "HTML", "CSS"],
             "linkedin": "https://www.linkedin.com/in/johndoe/"
           },
@@ -68,13 +69,17 @@ export default function MentorSection () {
       }
 
   return (
-    <section className="bg-gray-800 text-white p-8">
-      <div className="max-w-3xl mx-auto flex items-center">
-        <div className="w-1/2">
-          <h2 className="text-3xl font-bold mb-4">Meet Your Mentor</h2>
-          <img src={aboutCourseData.course.mentor.image} alt={aboutCourseData.course.mentor.name} className="w-full h-3/4 mb-4 object-cover rounded-lg" />
-          <p className="text-gray-300 mb-4">{aboutCourseData.course.mentor.description}</p>
-          <div className="flex space-x-4">
+    <section className="bg-white text-black p-8">
+      <h2 className="text-5xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-700">Meet Your Mentor</h2>
+      <div className="flex items-center justify-center mt-16">
+        <div className="w-1/2 ml-96">
+          <img 
+            src={aboutCourseData.course.mentor.image} 
+            alt={aboutCourseData.course.mentor.name} 
+            className="w-full h-auto mb-4 object-cover rounded-lg"
+            style={{maxWidth:'300px'}}
+          />
+          <div className="flex flex-wrap space-x-4">
             {/* Mentor Skills */}
             {aboutCourseData.course.mentor.skills.map((skill, index) => (
               <div key={index} className="border border-white rounded-full p-2">
@@ -83,8 +88,9 @@ export default function MentorSection () {
             ))}
           </div>
         </div>
-        <div className="w-1/2">
+        <div className="w-1/2 mr-96">
           {/* LinkedIn Link */}
+          <p className="mb-40 text-xl">{aboutCourseData.course.mentor.description}</p>
           <a href={aboutCourseData.course.mentor.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-300">
             <svg className="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
               {/* LinkedIn Icon */}

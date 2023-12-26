@@ -1,8 +1,10 @@
 #navbar1 {
-    background: #d6d0e1;
+    background: #ffffff;
+    opacity: 0.7;
     border-radius: 50px;
-    width: 90%;
-    padding: 0.3rem 1.6rem;
+    width: 80%;
+    margin-top: 5vh;
+    padding: 0.01rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -10,16 +12,16 @@
   }
   .sticky{
     position: fixed;
-    right: 5%;
+    right: 10%;
     z-index: 1;
   }
 
-  .logo {
-    font-size: 24px;
+  .logo1 {
     color: #0f00e6;
+    width: 10rem !important;
+    height: auto !important; 
     text-decoration: none;
     font-weight: bold;
-    margin-left: 20%;
   }
   
   .nav-links {
@@ -31,9 +33,9 @@
   }
   
   .nav-list {
-    font-size: 1rem;
+    font-size: 1.25rem;
     margin: 0 35px;
-    color: #000000;
+    color: #000;
     text-decoration: none;
     font-weight: bold;
     position: relative;

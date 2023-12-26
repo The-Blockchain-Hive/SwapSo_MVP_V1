@@ -68,12 +68,10 @@ const Navbar = () => {
     <>
       
       <nav id="navbar1" className="sticky">
-        <div>
-          <Image className="logo" src="/logo.png" width={100} height={100} />
-        </div>
+          {/* <Image className="logo1" src="/logo.png" width={100} height={100} /> */}
         <ul className="nav-links">
           <li className="nav-list">
-            <a href="#">Home</a>
+            <a href="/">Home</a>
           </li>
           <li className="nav-list">
             <Link href='/Marketplace'>Market Place</Link>
