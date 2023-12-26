@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link';
 import Image from 'next/image';
 
 
@@ -6,9 +7,9 @@ const Card = (props) => {
 	
   return (
 	<div>
-	  <div className=" w-[373px] h-[483px] bg-white/40 bg-opacity-40 backdrop-blur-md drop-shadow-lg rounded-3xl text-neutral-300 m-1 flex flex-col">
+	  <div className=" w-[373px] h-max bg-white/40 bg-opacity-40 backdrop-blur-md drop-shadow-lg rounded-3xl text-neutral-300 m-1 flex flex-col hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">
 		
-		<Image src={props.imageURL} className=' object-cover w-full h-1/2 rounded-tr-3xl rounded-tl-3xl'></Image>		
+		<Image src={props.imageURL} width={50} height={50} className=' object-cover w-full h-1/2 rounded-tr-3xl rounded-tl-3xl'></Image>		
 		<div class="flex justify-between p-4">
 			<p className="font-extrabold text-2xl">{props.courseTitle}</p>
 			<div class="flex items-center">
@@ -45,7 +46,7 @@ const Card = (props) => {
 			</div>
 		</div>	
 		<div className='flex justify-between px-4'>
-			<button className="bg-sky-700 font-extrabold p-2 m-4 rounded-xl">See more</button>
+			<Link href='/AboutCourse'><button className="bg-sky-700 font-extrabold p-2 m-4 rounded-xl">See more</button></Link>
 			<button className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl">Buy Course</button>
 		</div>
 		</div>

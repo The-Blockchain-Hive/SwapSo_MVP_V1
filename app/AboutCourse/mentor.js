@@ -99,7 +99,8 @@ export default function MentorSection () {
             {aboutCourseData.course.mentor.name} on LinkedIn
           </a>
         </div>
-      </div>
+      </div> 
+     
     </section>
   );
 };
