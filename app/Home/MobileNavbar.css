@@ -1,0 +1,76 @@
+.mobile__navbar {
+    position: fixed;
+    z-index: 1;
+    background-color: #0b0d39;
+    position: sticky;
+    top: 0px;
+    padding-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  
+  .mobile__navbar, .mobile__inner__navbar {
+    width: 100%;
+  }
+  
+  .mobile__navbar, .mobile__inner__navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  
+  .mobile__inner__navbar {
+    background-color: #1a1c46;
+    border-radius: 15px;
+    height: 10%;
+  }
+  
+  .right_navbar, .left_navbar {
+    width: 47%;
+  }
+  
+  .tbh__logo {
+    width: 40px;
+    float: left;
+  }
+  
+  .navbar__icon, .close__icon {
+    padding: 4px;
+    width: 43px;
+    float: right;
+    border-radius: 5px;
+  }
+  
+  .close__icon {
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+  
+  .mobile__navbar__menu {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    background-color: #1a1c46;
+    height: -moz-fit-content;
+    height: fit-content;
+    opacity: 100%;
+  }
+  
+  .inner__mobile__navbar__menu li a {
+    opacity: 100%;
+    background-color: #1a1c46;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: rgb(253, 253, 253);
+    padding-left: 6%;
+    font-size: 20px;
+    margin: 5px;
+    text-align: left;
+  }/*# sourceMappingURL=MobileNavbar.css.map */

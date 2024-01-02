@@ -1,10 +1,38 @@
 "use client"
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect , useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "./navbar.css";
 
 const Navbar = () => {
+  const navbarRef = useRef(null);
+  let lastScrollTop = 0;
+  const delta = 5;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (typeof window === 'undefined') return; // Check if running on the server
+
+      const currentScroll = window.scrollY || 0;
+      const navbar = navbarRef.current;
+
+      if (!navbar) return;
+
+      if (Math.abs(lastScrollTop - currentScroll) <= delta) return;
+
+      if (currentScroll > lastScrollTop && currentScroll > navbar.offsetHeight) {
+        navbar.style.transform = 'translateY(-100%)';
+      } else {
+        navbar.style.transform = 'translateY(0)';
+      }
+
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   // const [currentAccount, setCurrentAccount] = useState("");
   // const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -67,8 +95,8 @@ const Navbar = () => {
   return (
     <>
       
-      <nav id="navbar1" className="sticky">
-          {/* <Image className="logo1" src="/logo.png" width={100} height={100} /> */}
+      <nav id="navbar1" className="sticky mx-auto" ref={navbarRef}>
+          <Image className="logo1" src="/official_logo.png" width={100} height={100} />
         <ul className="nav-links">
           <li className="nav-list">
             <a href="/">Home</a>
@@ -77,17 +105,18 @@ const Navbar = () => {
             <Link href='/Marketplace'>Market Place</Link>
           </li>
           <li className="nav-list">
-            <a href="#">Courses</a>
+            <a href="/">Courses</a>
           </li>
         </ul>
 
         <div>
           <div className="dropdown">
-             <button className="wallet" >{/*onClick={currentAccount ? toggleDropdown : connectWallet}>
+             <button className="wallet" >
+             <span>Connect Wallet</span>{/*onClick={currentAccount ? toggleDropdown : connectWallet}>
               {currentAccount ? (
                 <span>{currentAccount.slice(0, 8)}...</span>
               ) : (
-                <span>Connect Wallet</span>
+                //span
               )} */}
             </button>
             {/* {isDropdownOpen && (

@@ -61,10 +61,10 @@ const Footer = () => {
           </div>
           <div className="subscribe-section px-20">
             <h3 className="text-xl font-semibold mb-4 md:text-lg">Subscribe</h3>
-            <form className="flex items-center">
+            {/* <form className="flex items-center">
               <input type="email" placeholder="Enter your email" className="py-2 px-4 border border-gray-700 rounded-l text-black focus:outline-none" />
               <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-r"><span className="flex"><FaArrowLeft className="self-center mr-2" size={15}/>Subscribe </span></button>
-            </form>
+            </form> */}
           </div>
         </div>
       </div>
