@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../Home/navbar";
 import Card from "../components/Card";
-import SearchBar from "../components/Searchbar";
+import SearchBar from "../components/SearchBar";
 import SectionDivider from "../components/SectionDivider";
 
 const MarketPlace = () => {
