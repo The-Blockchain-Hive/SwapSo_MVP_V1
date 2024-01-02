@@ -31,7 +31,7 @@ export default function Home() {
   }, []);
     
   return (
-    <main className="gradient-bg">
+        <main className="gradient-bg">
       <video 
       autoPlay 
       muted 
@@ -87,17 +87,17 @@ export default function Home() {
         </div>
       </div>
         {/* <div className='mt-24'>
-          <FeaturedIn />
+            <FeaturedIn />
         </div> */}
         <div>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-100">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-100">
           Our Mission
         </h2>
         </div>
       {/* <div>
         <Partner />
-      </div> */}  
-      <div className='join_us-main'>
+      </div> */}
+            <div className='join_us-main'>
         <JoinUs />
       </div>
       <div>
@@ -105,5 +105,5 @@ export default function Home() {
       </div>
       <Footer />
     </main>
-  )
+      )
 }
