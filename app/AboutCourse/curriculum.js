@@ -1,98 +1,141 @@
-import React from 'react'
+'use client'
+  import React, { useState } from 'react';
 
-export default function CurriculumSection  ()  {
-  // var aboutCourseData ={
-  //   "course": {
-  //     "name": "React Mastery",
-  //     "description": "Master React and build powerful web applications.",
-  //     "about": "In this comprehensive course, you'll learn the ins and outs of React and how to build modern web applications.",
-  //     "tags": ["React", "JavaScript", "Web Development"],
-  //     "imageUrl": "/path/to/hero-image.jpg",
-  //     "learnTopics": ["React Basics", "State Management", "Component Lifecycle", "React Hooks", "API Integration"],
-  //     "mentor": {
-  //       "image": "/path/to/mentor-image.jpg",
-  //       "name": "John Doe",
-  //       "description": "Experienced full-stack developer with a passion for teaching.",
-  //       "skills": ["React", "Node.js", "JavaScript", "HTML", "CSS"],
-  //       "linkedin": "https://www.linkedin.com/in/johndoe/"
-  //     },
-  //     "curriculum": [
-  //       {
-  //         "section": {
-  //           "title": "Getting Started",
-  //           "subsections": [
-  //             {
-  //               "title": "Introduction to React",
-  //               "subtopics": ["Setting up the environment", "Understanding JSX", "Creating your first component"]
-  //             },
-  //             {
-  //               "title": "Components and Props",
-  //               "subtopics": ["Functional components", "Class components", "Props and PropTypes"]
-  //             }
-  //           ]
-  //         }
-  //       },
-  //       {
-  //         "section": {
-  //           "title": "State Management",
-  //           "subsections": [
-  //             {
-  //               "title": "Local State",
-  //               "subtopics": ["useState hook", "Updating state", "Handling forms"]
-  //             },
-  //             {
-  //               "title": "Global State",
-  //               "subtopics": ["Context API", "State management libraries"]
-  //             }
-  //           ]
-  //         }
-  //       },
-  //       {
-  //         "section": {
-  //           "title": "Advanced React",
-  //           "subsections": [
-  //             {
-  //               "title": "React Hooks",
-  //               "subtopics": ["useEffect", "useContext", "Custom hooks"]
-  //             },
-  //             {
-  //               "title": "Routing in React",
-  //               "subtopics": ["React Router", "Navigation patterns"]
-  //             }
-  //           ]
-  //         }
-  //       }
-  //     ]
-  //   }
-  // } 
+  // Use the aboutCourseData variable as the source of data
+const CourseCurriculum = () => {
 
+  const [openSections, setOpenSections] = useState([]);
+  
+  const toggleSection = (index) => {
+    const isOpen = openSections.includes(index);
+    if (isOpen) {
+      setOpenSections(openSections.filter((item) => item !== index));
+    } else {
+      setOpenSections([...openSections, index]);
+    }
+  };
+  
+  // Declare the aboutCourseData variable here
+  let aboutCourseData = {
+    "course": {
+      "name": "React Mastery",
+      "description": "Master React and build powerful web applications.",
+      "about": "In this comprehensive course, you'll learn the ins and outs of React and how to build modern web applications.",
+      "tags": ["React", "JavaScript", "Web Development"],
+      "imageUrl": "/path/to/hero-image.jpg",
+      "learnTopics": ["React Basics", "State Management", "Component Lifecycle", "React Hooks", "API Integration"],
+      "mentor": {
+        "image": "/path/to/mentor-image.jpg",
+        "name": "John Doe",
+        "description": "Experienced full-stack developer with a passion for teaching.",
+        "skills": ["React", "Node.js", "JavaScript", "HTML", "CSS"],
+        "linkedin": "https://www.linkedin.com/in/johndoe/"
+      },
+      "curriculum": [
+        {
+          "section": {
+            "title": "Getting Started",
+            "subsections": [
+              {
+                "title": "Introduction to React",
+                "subtopics": ["Setting up the environment", "Understanding JSX", "Creating your first component"]
+              },
+              {
+                "title": "Components and Props",
+                "subtopics": ["Functional components", "Class components", "Props and PropTypes"]
+              }
+            ]
+          }
+        },
+        {
+          "section": {
+            "title": "State Management",
+            "subsections": [
+              {
+                "title": "Local State",
+                "subtopics": ["useState hook", "Updating state", "Handling forms"]
+              },
+              {
+                "title": "Global State",
+                "subtopics": ["Context API", "State management libraries"]
+              }
+            ]
+          }
+        },
+        {
+          "section": {
+            "title": "Advanced React",
+            "subsections": [
+              {
+                "title": "React Hooks",
+                "subtopics": ["useEffect", "useContext", "Custom hooks"]
+              },
+              {
+                "title": "Routing in React",
+                "subtopics": ["React Router", "Navigation patterns"]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  };
+  
+  // Use the aboutCourseData variable instead of the course prop
   return (
-    <div></div>
-    // <section className="bg-white p-8">
-    //  <div className="max-w-3xl mx-auto">
-    //     <h2 className="text-center text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-700">Course Curriculum</h2>
-    //     {aboutCourseData.curriculum.map((section, index) => (
-    //       <div key={index} className="mb-6">
-    //         <div className="text-lg font-semibold mb-2">{section.section.title}</div>
-    //         {section.section.subsections.map((subsection, subIndex) => (
-    //           <div key={subIndex} className="mb-2">
-    //             <div className="cursor-pointer text-blue-500 hover:underline">{subsection.title}</div>
-    //             <div className="ml-4">
-    //               {subsection.subtopics.map((subtopic, subtopicIndex) => (
-    //                 <div key={subtopicIndex} className="text-sm text-gray-500 ml-4">
-    //                   {subtopic}
-    //                 </div>
-    //               ))}
-    //             </div>
-    //           </div>
-    //         ))}
-    //       </div>
-    //     ))}
-    //     {/* Download Curriculum Button */}
-    //     <button className="bg-blue-500 hover:bg-blue-600 text-white rounded-full py-2 px-6">
-    //       Download Curriculum
-    //     </button>
-    //   </div>
-    // </section>
-  );
+    <div className="bg-white text-black mx-auto text-center p-8">
+    <div>
+      <h3 className="text-3xl font-semibold mb-6">Curriculum</h3>
+      {aboutCourseData.course.curriculum.map((section, sectionIndex) => (
+        <div key={sectionIndex} className="mb-6">
+          <h4
+            onClick={() => toggleSection(sectionIndex)}
+            className="cursor-pointer text-xl font-semibold mb-3 flex items-center"
+          >
+            <span>{section.section.title}</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className={`ml-2 h-4 w-4 transition-transform ${
+                openSections.includes(sectionIndex) ? 'transform rotate-180' : ''
+              }`}
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              onClick={() => toggleSection(sectionIndex)}
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a1 1 0 01-.707-.293l-8-8a1 1 0 111.414-1.414L10 15.586l6.293-6.293a1 1 0 111.414 1.414l-7.999 8A1 1 0 0110 18z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </h4>
+          {openSections.includes(sectionIndex) && (
+            <div>
+              {section.section.subsections.map((subsection, subIndex) => (
+                <div key={subIndex} className="ml-4">
+                  <h5
+                    onClick={() => toggleSection(`${sectionIndex}.${subIndex}`)}
+                    className="cursor-pointer text-lg font-medium mb-2"
+                  >
+                    {subsection.title}
+                  </h5>
+                  {openSections.includes(`${sectionIndex}.${subIndex}`) && (
+                    <ul className="list-disc ml-4">
+                      {subsection.subtopics.map((subtopic, subtopicIndex) => (
+                        <li key={subtopicIndex} className="mb-1">
+                          {subtopic}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+);
 };
+export default CourseCurriculum;

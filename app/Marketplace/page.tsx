@@ -1,4 +1,5 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
 import Navbar from "../Home/navbar";
 import Card from "../components/Card";
 import SearchBar from "../components/Searchbar";
@@ -9,7 +10,7 @@ const MarketPlace = () => {
   const courseData =  {
         "courses": [
           {
-            "imageURL": "/pexels.jpg",
+            "imageURL": "/meta.png",
             "courseTitle": "Introduction to Programming",
             "courseDescription": "Learn the basics of programming with this comprehensive introductory course.",
             "courseDuration": "4 weeks",
@@ -17,7 +18,7 @@ const MarketPlace = () => {
             "courseExpiry": "2024-01-01"
           },
           {
-            "imageURL": "/pexels.jpg",
+            "imageURL": "/metaverse2.png",
             "courseTitle": "Web Development Fundamentals",
             "courseDescription": "Explore the fundamentals of web development, including HTML, CSS.",
             "courseDuration": "6 weeks",
@@ -25,7 +26,7 @@ const MarketPlace = () => {
             "courseExpiry": "2024-02-15"
           },
           {
-            "imageURL": "/pexels.jpg",
+            "imageURL": "/js1.png",
             "courseTitle": "Data Science Essentials",
             "courseDescription": "Dive into the world of data science and learn essential skills for data analysis.",
             "courseDuration": "8 weeks",
@@ -33,7 +34,7 @@ const MarketPlace = () => {
             "courseExpiry": "2024-03-30"
           },
           {
-            "imageURL": "/pexels.jpg",
+            "imageURL": "/js2.png",
             "courseTitle": "Mobile App Development with React Native",
             "courseDescription": "Build cross-platform mobile apps using React Native framework.",
             "courseDuration": "10 weeks",
@@ -46,12 +47,12 @@ const MarketPlace = () => {
       
 
     return(
-        <main>
-          <div className='nav1'>
+        <main className="bg-gradient-to-b from-blue-1125 to-blue-1150">
+          {/* <div className='nav1'>
           <Navbar/>
-        </div>
+        </div> */}
         <div className="py-5 mb-10">  
-           <SearchBar/> 
+          <SearchBar/> 
         </div>
         <div className="flex justify-center py-5">
           <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">
