@@ -21,7 +21,7 @@ export default function Home() {
       setIsMobile(window.innerWidth <= 1000);
     };
 
-    handleResize(); // Check on initial render
+    handleResize();
 
     window.addEventListener('resize', handleResize);
 
