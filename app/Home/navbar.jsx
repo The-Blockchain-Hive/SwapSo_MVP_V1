@@ -30,6 +30,12 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+
+    const navbar = navbarRef.current;
+    if (navbar) {
+      navbar.style.transition = 'transform 0.3s ease';
+    }
+    
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

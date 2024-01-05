@@ -45,7 +45,7 @@ export default function Home() {
         </div>
         
       <div className="flex flex-col items-center justify-center h-screen bg-transparent text-white">
-        <div className="flex flex-col items-center justify-center justify-center  w-screen h-1/2 px-12">
+        <div className="flex flex-col items-center justify-center  w-screen h-1/2 px-12">
           <h1 className="s:text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight m-16 md:m-32 lg:m-48 xl:m-32">
             <Typewriter
               options={{              
@@ -65,7 +65,7 @@ export default function Home() {
               }} />
           </h1>
           {/* <Card/> */}
-          <h1 className='text-2xl text-center w-2/4 text-justify'>An Edtech platform where you can buy courses, learn and resell to earn from it</h1>
+          <h1 className='text-2xl text-center w-2/4'>An Edtech platform where you can buy courses, learn and resell to earn from it</h1>
         </div>
       </div> 
       <div className="relative">
@@ -80,7 +80,7 @@ export default function Home() {
         <div className='mt-32'>
           <h2 className="text-6xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-100">About Us</h2>
           <div className='w-full mx-auto mb-12 mt-32 aspect-w-16 aspect-h-9'>
-            <h1 className='text-center w-2/4 text-justify text-2xl mx-auto mt-12'>
+            <h1 className='text-center w-2/4 text-2xl mx-auto mt-12'>
               The Blockchain Hive - an initiative by IIT Bombay students is a platform which is building a decentralised educational system where education will be customized and self-owned. Incentivizing users for their capabilities while learning will increase their efficiency of learning as well as generate more skilled people.
             </h1>
           </div>
