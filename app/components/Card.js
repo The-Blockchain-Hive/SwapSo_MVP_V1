@@ -1,9 +1,17 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import PopUp from './PopUp';
 
 
 const Card = (props) => {
+
+	const [isPopupVisible, setIsPopupVisible] = useState(false);
+
+	const togglePopup = () => {
+		setIsPopupVisible(!isPopupVisible);
+	}
 	
   return (
 	<div>
@@ -47,8 +55,9 @@ const Card = (props) => {
 		</div>	
 		<div className='flex justify-between px-4'>
 			<Link href='/AboutCourse'><button className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl">See more</button></Link>
-			<button className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl">Buy Course</button>
+			<button onClick={togglePopup} className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl">Buy Course</button>
 		</div>
+		{isPopupVisible && <PopUp handleClose={togglePopup} />}
 		</div>
 	</div>
   )

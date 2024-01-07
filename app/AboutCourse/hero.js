@@ -10,7 +10,7 @@ export default function  HeroSection(){
           "description": "Master React and build powerful web applications.",
           "about": "In this comprehensive course, you'll learn the ins and outs of React and how to build modern web applications.",
           "tags": ["React", "JavaScript", "Web Development"],
-          "imageUrl": '/pexels.jpg',
+          "imageUrl": '/js.png',
           "learnTopics": ["React Basics", "State Management", "Component Lifecycle", "React Hooks", "API Integration"],
           "mentor": {
             "image": "/path/to/mentor-image.jpg",
@@ -95,7 +95,7 @@ export default function  HeroSection(){
             </div>
           </div>
          
-          <div className="overflow-hidden rounded-xl w-1/3 mt-28 mr-24">
+          <div className="overflow-hidden rounded-xl w-2/5 mt-28">
             <img src={aboutCourseData.course.imageUrl} alt={aboutCourseData.course.name} className="w-full px-20 h-auto object-cover" />
           </div>
       </div>

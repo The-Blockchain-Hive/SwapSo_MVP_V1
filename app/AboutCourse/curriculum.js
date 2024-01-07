@@ -85,7 +85,7 @@ const CourseCurriculum = () => {
   return (
     <div className="bg-white text-black mx-auto text-center p-8">
     <div>
-      <h3 className="text-3xl font-semibold mb-6">Curriculum</h3>
+    <h2 className="text-center text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-700 mb-10">Curriculum</h2>        
       {aboutCourseData.course.curriculum.map((section, sectionIndex) => (
         <div key={sectionIndex} className="mb-6">
           <h4
