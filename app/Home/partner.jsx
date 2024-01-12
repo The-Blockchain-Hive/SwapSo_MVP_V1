@@ -7,77 +7,76 @@ import Image from 'next/image';
 const Partner = () => {
 
     return(
-        <main>
+            <main className="body1">
+            <h2 className="text-6xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-100"> Our Partners</h2>
             <div className="slider">
                 <div className="slide-track">
                     <div className="slide">
-                      <Image className="image" src="/eliteweb3.png" width={100} height={100} />
+                        <Image className="logo2" src="/stackos1.png" width={250} height={100} /> 
                     </div>
                     <div className="slide">
-                      <Image className="image" src="/microsoft.png" width={100} height={100} />
+                        <Image className="logo2" src="/decloud.png" width={250} height={100} />
                     </div>
                     <div className="slide">
-                      <Image className="image" src="/stackos.png" width={100} height={100} />
+                        <Image className="logo2" src="/stackos1.png" width={150} height={100} />
                     </div>
                     <div className="slide">
-                      <Image  className="image" src="/stackos.png" width={100} height={100} />
+                        <Image className="logo2" src="/blvckpixel.svg" width={250} height={100} />
                     </div>
                     <div className="slide">
-                      <Image  className="image" src="/stackos.png" width={100} height={100} />
+                        <Image className="logo2" src="/stackos1.png" width={250} height={100} /> 
                     </div>
                     <div className="slide">
-                      <Image  className="image" src="/stackos.png" width={100} height={100} />
+                        <Image className="logo2" src="/decloud.png" width={250} height={100} />
                     </div>
                     <div className="slide">
-                      <Image  className="image" src="/stackos.png" width={100} height={100} />
+                        <Image className="logo2" src="/stackos1.png" width={250} height={100} />
                     </div>
                     <div className="slide">
-                      <Image  className="image" src="/stackos.png" width={100} height={100} />
-                    </div>
-                    <div className="slide">
-                      <Image  className="image" src="/stackos.png" width={100} height={100} />
+                        <Image className="logo2" src="/blvckpixel.svg" width={250} height={100} />
                     </div>
                 </div>
             </div>
-            <div className="slider">
-                <div className="slide-track">
+            <div className="slider-2">
+                <div className="slide-track-2">
                     <div className="slide">
-                      <Image className="image" src="/eliteweb3.png" width={100} height={100} />
+                        <Image className="logo3" src="/Vishnu.png" width={400} height={100} /> 
+                        <h1>Vishnu Korde</h1>                      
                     </div>
                     <div className="slide">
-                      <Image className="image" src="/microsoft.png" width={100} height={100} />
+                        <Image className="logo3" src="/advisor1.jpg" width={100} height={100} />
+                        <h1>Teddy Pahagbia</h1>
                     </div>
                     <div className="slide">
-                      <Image  className="image" src="/stackos.png" width={100} height={100} />
+                        <Image className="logo3" src="/Kamlesh.jpg" width={100} height={100} />
+                        <h1>Kamlesh Nagware</h1>
+                    </div>
+                    
+                    <div className="slide">
+                        <Image className="logo3" src="/jayjit.jpeg" width={100} height={100} />
+                        <h1>Jayjit Biswas</h1>
+                    </div>
+                    
+                    <div className="slide">
+                        <Image className="logo3" src="/Vishnu.png" width={400} height={100} /> 
+                        <h1>Vishnu Korde</h1>                      
                     </div>
                     <div className="slide">
-                      <Image  className="image" src="/stackos.png" width={100} height={100} />
+                        <Image className="logo3" src="/advisor1.jpg" width={100} height={100} />
+                        <h1>Teddy Pahabgia</h1>
                     </div>
                     <div className="slide">
-                      <Image  className="image" src="/stackos.png" width={100} height={100} />
+                        <Image className="logo3" src="/Kamlesh.jpg" width={100} height={100} />
+                        <h1>Kamlesh Nagware</h1>
                     </div>
+                    
                     <div className="slide">
-                      <Image  className="image" src="/stackos.png" width={100} height={100} />
+                        <Image className="logo3" src="/jayjit.jpeg" width={100} height={100} />
+                        <h1>Jayjit Biswas</h1>
                     </div>
-                    <div className="slide">
-                      <Image  className="image" src="/stackos.png" width={100} height={100} />
-                    </div>
-                    <div className="slide">
-                      <Image  className="image" src="/stackos.png" width={100} height={100} />
-                    </div>
-                    <div className="slide">
-                      <Image  className="image" src="/stackos.png" width={100} height={100} />
-                    </div>
+                    
                 </div>
             </div>
-            {/* <div className="backers">
-                    <div>
-                        <Image  className="sub_backers" src="/advisor1.jpg" width={100} height={100} />
-                    </div>
-                    <div>
-                        <Image  className="sub_backers" src="/advisor2.png" width={100} height={100} />
-                    </div>
-                </div> */}
         </main>
     )
 }

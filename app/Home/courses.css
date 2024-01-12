@@ -1,0 +1,5 @@
+.cards{
+    box-shadow: 0 10px 90px rgb(1, 1, 151);
+    transform: rotateX(3deg) rotateY(3deg) scaleZ(2);
+    touch-action: pan-y;
+}

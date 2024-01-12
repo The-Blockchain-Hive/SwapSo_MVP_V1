@@ -1,15 +1,12 @@
 #navbar1 {
-  margin-left: 10%;
-    background: #000000;
-    opacity: 0.9;
-    border-radius: 50px;
-    width: 80%;
-    margin-top: 1vh;
-    padding: 2rem 1rem;
+    background: #000;
+    opacity: 0.8;
+    width: 100%;
+    padding: 1.5rem 0.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 20px 50px rgb(57, 57, 151);
+    box-shadow: 0 20px 50px rgb(2, 2, 42);
   }
   .sticky{
     position: fixed;

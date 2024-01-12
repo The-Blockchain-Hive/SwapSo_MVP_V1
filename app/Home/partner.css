@@ -1,61 +1,99 @@
-main{
-    margin-top: 3rem;
-    display: flex;
-    flex-direction: row;
-    flex: 1 1;
+.body1 {
+    min-height: 60vh;
+    display: grid;
+    place-items: center;
 }
 
 .slider {
-    height: 250px;
+    align-items: center;
+    height: auto;
     margin: auto;
     position: relative;
     width: 90%;
     display: grid;
     place-items: center;
+    overflow: hidden;
 }
+
 .slide-track {
     display: flex;
-    width: calc(250px * 18);
-    animation: scroll 40s linear infinite;
+    width: calc(300px*8);
+    animation: scroll 20s linear infinite;
 }
+
+.slide-track:hover {
+    animation-play-state: paused;
+}
+
 @keyframes scroll {
-    0% {
+
+    0%{
         transform: translateX(0);
     }
-    100% {
-        transform: translateX(calc(-250px * 9));
+    100%{
+        transform: translateX(calc(-300px*4));
     }
 }
-.slide{
-    height: 200px;
-    width: 250px;
+.slide-track-2 {
     display: flex;
+    width: calc(300px*8);
+    animation: scroll2 20s linear infinite;
+}
+
+.slide {
+    margin: 20px;
+    height: auto;
+    width: 300px;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    /* box-shadow: 0 10px 50px rgb(1,151, 1); */
     align-items: center;
     padding: 15px;
     perspective: 100px;
 }
-.image{
-    width: 100%;
+
+.slider-2 {
+    height: auto;
+    margin: auto;
+    position: relative;
+    width: 90%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.slide h1 {
+    position: absolute;
+    right: 15%;
+    transform: translateY(-100%);
+    color: #fff;
+    padding-bottom: 0.7rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+.logo2{
+    border-radius: 60px;
+    width:auto !important;
+    height: auto !important;
     transition: transform 1s;
 }
-.image:hover {
-    transform: translateZ(20px);
+.logo3{
+    border-radius: 60px;
+    width:25% !important;
+    height: auto !important;
+    transition: transform 1s;
 }
-.slider::before,
-.slider::after{
-    background: linear-gradient(to right, rgba(0, 0, 0, 1)0%, rgba(0, 0, 0, 0) 100%);
-    content: '';
-    height: 100%;
-    position: absolute;
-    width: 1%;
-    z-index: 2;
+
+.logo2:hover{
+    transform: translateZ(5px);
 }
-.slider::before {
-    left: 0;
-    top: 0;
-}
-.slider::after{
-    right: 0;
-    left: 0;
-    transform: rotateZ(180deg);
+@keyframes scroll2 {
+
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(calc(-300px*4));
+    }
 }
