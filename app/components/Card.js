@@ -13,6 +13,13 @@ const Card = (props) => {
 	const togglePopup = () => {
 		setIsPopupVisible(!isPopupVisible);
 	}
+	const handlePurchase = () => {
+		// Perform the logic to handle the purchase
+		console.log("Course purchased:", props.courseTitle);
+	
+		// Close the popup after purchase
+		setIsPopupVisible(false);
+	  };
 	
   return (
 	<div>
@@ -60,7 +67,7 @@ const Card = (props) => {
 			<Link href='/AboutCourse'><button className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl">See more</button></Link>
 			<button onClick={togglePopup} className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl">Buy Course</button>
 		</div>
-		{isPopupVisible && <PopUp handleClose={togglePopup} />}
+		{isPopupVisible && <PopUp handleClose={handlePurchase} />}
 		</div>
 	</div>
   )

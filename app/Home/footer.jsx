@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#00000] w-screen text-white pt-8 pb-5">
       <div className="container">
-        <div className="flex flex-row text-lg w-screen justify-between px-10 gap-8 md:flex-col md:text-sm">
+        <div className="flex flex-wrap  text-lg w-screen justify-between px-10 gap-8 md:flex-col md:text-sm">
           <Image src={logo} width={200} height={200} className="m-0 p-0"/>
           <div className="company-section">
             <h3 className="text-xl font-semibold mb-4 md:text-lg">Company</h3>
@@ -60,7 +60,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="subscribe-section px-20">
-            <h3 className="text-xl font-semibold mb-4 md:text-lg">Subscribe</h3>
+            {/* <h3 className="text-xl font-semibold mb-4 md:text-lg">Subscribe</h3> */}
             {/* <form className="flex items-center">
               <input type="email" placeholder="Enter your email" className="py-2 px-4 border border-gray-700 rounded-l text-black focus:outline-none" />
               <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-r"><span className="flex"><FaArrowLeft className="self-center mr-2" size={15}/>Subscribe </span></button>

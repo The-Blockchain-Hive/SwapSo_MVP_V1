@@ -1,6 +1,7 @@
 'use client'
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../Home/navbar";
+import Navbar2 from '../Home/MobileNavbar.jsx';
 import Card from "../components/Card";
 import SearchBar from "../components/SearchBar";
 import SectionDivider from "../components/SectionDivider";
@@ -41,42 +42,82 @@ const MarketPlace = () => {
             "coursePrice": "$119.99",
             "courseExpiry": "2024-04-20"
           }
-          // Add more courses as needed
         ]
       }
-      
-
-    return(
+      const [isMobile, setIsMobile] = useState(false);
+      const [showMarketPlace, setShowMarketPlace] = useState(true);
+      const [showYourListings, setShowYourListings] = useState(false);
+    
+      useEffect(() => {
+        const handleResize = () => {
+          setIsMobile(window.innerWidth <= 1000);
+        };
+    
+        handleResize();
+    
+        window.addEventListener('resize', handleResize);
+    
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
+    
+      const toggleMarketPlace = () => {
+        setShowMarketPlace(true);
+        setShowYourListings(false);
+      };
+    
+      const toggleYourListings = () => {
+        setShowMarketPlace(false);
+        setShowYourListings(true);
+      };
+    
+      return (
         <main className="bg-gradient-to-b from-blue-1125 to-blue-1150">
-          {/* <div className='nav1'>
-          <Navbar/>
-        </div> */}
-        <div className="py-5 mb-10">  
-          <SearchBar/> 
-        </div>
-        <div className="flex justify-center py-5">
-          <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">
-            Course Marketplace
-          </h1>
-        </div>
-        <div className="bg-transparent">
-          <SectionDivider label="Your Listings" />      
-        </div>                    
-        <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
-            {courseData.courses.map((course, index) => (
-              <Card key={index} {...course} />
-              ))
-            }
-        </div>
-        <div className="bg-transparent">
-          <SectionDivider label="Market Place" />      
-        </div>
-        <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
-            {courseData.courses.map((course, index) => (
-              <Card key={index} {...course} />
-              ))
-            }
-        </div>
+          <div className='nav1'>
+            {isMobile ? <Navbar2 /> : <Navbar />}
+          </div>
+          <div className="py-5 mb-10">
+            <SearchBar />
+          </div>
+          <div className="flex justify-center py-5">
+            <button
+              onClick={toggleMarketPlace}
+              className={`text-white px-3 py-1 rounded-md ${showMarketPlace ? 'bg-blue-500' : 'bg-gray-400'}`}
+            >
+              Market Place
+            </button>
+            <button
+              onClick={toggleYourListings}
+              className={`ml-4 text-white px-3 py-1 rounded-md ${showYourListings ? 'bg-blue-500' : 'bg-gray-400'}`}
+            >
+              Your Listings
+            </button>
+          </div>
+          {showMarketPlace && (
+            <div>
+              <div className="bg-transparent">
+                <SectionDivider label="Market Place" />
+              </div>
+              <div className="w-screen flex flex-wrap gap-5 justify-center py-5">
+                {courseData.courses.map((course, index) => (
+                  <Card key={index} {...course} />
+                ))}
+              </div>
+            </div>
+          )}
+          {showYourListings && (
+            <div>
+              <div className="bg-transparent">
+                <SectionDivider label="Your Listings" />
+              </div>
+              <div className="w-screen flex flex-wrap gap-5 justify-center py-5">
+                {courseData.courses.map((course, index) => (
+                  <Card key={index} {...course} />
+                ))}
+              </div>
+            </div>
+          )}
         </main>
     )
 }

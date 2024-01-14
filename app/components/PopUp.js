@@ -1,13 +1,20 @@
 import React, { useState } from 'react'
 
-const PopUp = ({ handleClose }) => {
+function PopUp({ handleClose, handlePurchase, courses }) {
+
+    
+
+    const handlePay = () => {
+        console.log("Course purchased!");
+        handleClose();
+    };
 
     const [selectedTimeframe, setselectedTimeframe] = useState('1 week');
     const [Price, setPrice] = useState(5);
 
     const handleTimeframeChange = (e) => {
         setselectedTimeframe(e.target.value);
-        switch(e.target.value) {
+        switch (e.target.value) {
             case '1 week':
                 setPrice(5);
                 break;
@@ -21,7 +28,7 @@ const PopUp = ({ handleClose }) => {
                 setPrice(20);
                 break;
         }
-    }
+    };
 
     return (
         <div class="flex justify-between p-4">
@@ -32,7 +39,7 @@ const PopUp = ({ handleClose }) => {
                         </button>
                     </div>
                     <div className="h-[46px] px-[63px] pt-4 pb-[15px] left-[259px] top-[213px] absolute bg-blue-600 rounded-[5px] justify-center items-center inline-flex">
-                        <button className="text-justify text-white text-xl font-medium font-['Inter'] leading-[17px]">Pay ${Price}</button>
+                        <button onClick={handlePay} className="text-justify text-white text-xl font-medium font-['Inter'] leading-[17px]">Pay ${Price}</button>
                     </div>
                     <div className="left-[397px] top-[181px] absolute text-justify text-black text-base font-medium font-['Inter'] leading-[17px]"> </div>
                     <div className="left-[22px] top-[31px] absolute text-justify text-black text-xl font-medium font-['Inter'] leading-[17px]">Basics of Metaverse</div>
@@ -48,9 +55,9 @@ const PopUp = ({ handleClose }) => {
                         {/* <div className="text-justify text-gray-900 text-base font-medium font-['Inter'] leading-[17px]">1 week</div> */}
                         <div>
                             <select
-                            value={selectedTimeframe}
-                            onChange={handleTimeframeChange}
-                            className="text-justify text-gray-900 text-base font-medium font-['Inter'] leading-[17px] border border-gray-300 rounded-md p-2"
+                                value={selectedTimeframe}
+                                onChange={handleTimeframeChange}
+                                className="text-justify text-gray-900 text-base font-medium font-['Inter'] leading-[17px] border border-gray-300 rounded-md p-2"
                             >
                                 <option value="1 week">1 week</option>
                                 <option value="2 weeks">2 weeks</option>

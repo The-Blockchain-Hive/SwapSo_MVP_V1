@@ -11,7 +11,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (typeof window === 'undefined') return; // Check if running on the server
+      if (typeof window === 'undefined') return;
 
       const currentScroll = window.scrollY || 0;
       const navbar = navbarRef.current;
@@ -108,10 +108,10 @@ const Navbar = () => {
             <a href="/">Home</a>
           </li>
           <li className="nav-list">
-            <Link href='/Marketplace'>Market Place</Link>
+            <Link href='/Courses'>Courses</Link>
           </li>
           <li className="nav-list">
-            <a href="/">Courses</a>
+            <Link href="/MarketPlace">Market Place</Link>
           </li>
         </ul>
 

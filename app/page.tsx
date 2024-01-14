@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Navbar from './Home/navbar.jsx';
 import Navbar2 from './Home/MobileNavbar.jsx';
 import Courses from './Home/courses.jsx';
+import TrackPath from './Home/TrackPath.jsx';
 import FeaturedIn from './Home/featuredIn.jsx' 
 import Partner from './Home/partner.jsx';
 import JoinUs from './Home/JoinUs.jsx';
@@ -76,14 +77,6 @@ export default function Home() {
 
       <h2 className="text-6xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-100">About Us</h2>
       <div className="relative">
-        {/* <video
-        autoPlay
-        muted
-        loop
-        className="absolute inset-0 w-full h-full object-cover z-[-1]"
-        >
-        <source src="/about_us.mp4" type="video/mp4" />
-        </video> */}
         <div className='mt-32 w-full mx-auto rounded-lg text-center flex flex-row md:flex-col sm:flex-col'>
           <div className='w-full ml-24 md:w-1/2 overflow-hidden'>
             <Image src="/about.png" width={500} height={100} alt={''} />
@@ -96,28 +89,29 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div>
+      <div className='mt-16'>
         <Courses />
-      </div>
-        
+      </div>        
         {/* <div className='mt-24'>
             <FeaturedIn />
         </div> */}
-        <div className='mt-12'>
+      <div className='mt-12'>
         <h2 className="text-6xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-100"> Track Path</h2>
-      <video
-        autoPlay
-        muted
-        loop
-        className=" w-full object-cover z-[-1]"
+        <video
+          autoPlay
+          muted
+          loop
+          className=" w-full object-cover z-[-1]"
         >
-        <source src="/trackpath.mp4" type="video/mp4" />
+          <source src="/trackpath.mp4" type="video/mp4" />
         </video>
+        {/* <TrackPath /> */}
       </div>
+
       <div className='mt-24'>
         <Partner />
       </div>
-            <div className='join_us-main'>
+      <div className='join_us-main'>
         <JoinUs />
       </div>
       <div>
