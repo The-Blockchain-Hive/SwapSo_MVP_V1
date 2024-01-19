@@ -60,7 +60,7 @@ function MobileNavbar() {
     <nav className="mobile__navbar">
       <div className='mobile__inner__navbar'>
         <div className="left_navbar">
-          <Image className="logo1" src="/official_logo.png" width={100} height={100} />
+          <Image className="logo1" src="/official_logo.png" alt='logo' width={100} height={100} />
         </div>
         <div className='right_navbar'>
           <button className='navbar__icon' onClick={handleMenuToggle}>
@@ -75,8 +75,8 @@ function MobileNavbar() {
           </button>
           <ul className="inner__mobile__navbar__menu no-bullet">
             <li><Link onClick={handleMenuClose} href="/">Home</Link></li>
-            <li><Link onClick={handleMenuClose} href="/courses">Courses</Link></li>
-            <li><Link onClick={handleMenuClose} href="/marketplace">Market Place</Link></li>
+            <li><Link onClick={handleMenuClose} href="/Courses">Courses</Link></li>
+            <li><Link onClick={handleMenuClose} href="/Marketplace">Market Place</Link></li>
           </ul>
           <div>
           <div className="dropdown">

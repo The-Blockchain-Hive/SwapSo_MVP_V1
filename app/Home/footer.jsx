@@ -10,7 +10,7 @@ const Footer = () => {
     <footer className="bg-[#00000] w-screen text-white pt-8 pb-5">
       <div className="container">
         <div className="flex flex-wrap  text-lg w-screen justify-between px-10 gap-8 md:flex-col md:text-sm">
-          <Image src={logo} width={200} height={200} className="m-0 p-0"/>
+          <Image src={logo} width={200} height={200} alt="logo" className="m-0 p-0"/>
           <div className="company-section">
             <h3 className="text-xl font-semibold mb-4 md:text-lg">Company</h3>
             <ul>

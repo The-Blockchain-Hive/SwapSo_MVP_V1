@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import ReactPlayer from 'react-player';
 
 const MiniSidebar = ({ currentModule, navigateToModule }) => (
@@ -60,7 +61,7 @@ const VideoCoursePage = () => {
             <div className="w-64 h-screen bg-white text-blue-500">
               <div className="flex justify-between items-center p-4">
                 <button onClick={toggleSidebar}>&#9776;</button>
-                <img src="/logo.png" alt="Course Icon" className="w-14 h-14" />
+                <Image src="/logo.png" alt="Course Icon" className="w-14 h-14" />
               </div>
               <div className="p-4">
                 <div className="h-2 my-10 border-solid border-2 border-blue-400 bg-blue-400" style={{ width: `${(currentModule - 1) * 25}%` }}></div>

@@ -73,7 +73,7 @@ export default function MentorSection () {
       <h2 className="text-5xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-700">Meet Your Mentor</h2>
       <div className="flex items-center justify-center mt-16">
         <div className="w-1/2 ml-96">
-          <img 
+          <Image 
             src={aboutCourseData.course.mentor.image} 
             alt={aboutCourseData.course.mentor.name} 
             className="w-full h-auto mb-4 object-cover rounded-lg"

@@ -96,7 +96,7 @@ export default function  HeroSection(){
           </div>
          
           <div className="overflow-hidden rounded-xl w-2/5 mt-28">
-            <img src={aboutCourseData.course.imageUrl} alt={aboutCourseData.course.name} className="w-full px-20 h-auto object-cover" />
+            <Image src={aboutCourseData.course.imageUrl} alt={aboutCourseData.course.name} className="w-full px-20 h-auto object-cover" />
           </div>
       </div>
       
