@@ -51,10 +51,10 @@ const Navbar = () => {
             <a href="/">Home</a>
           </li>
           <li className="nav-list">
-            <Link href='/courses'>Courses</Link>
+            <Link href='/Courses'>Courses</Link>
           </li>
           <li className="nav-list">
-            <Link href="/marketplace">Market Place</Link>
+            <Link href="/Marketplace">Market Place</Link>
           </li>
         </ul>
 
