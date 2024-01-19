@@ -7,11 +7,13 @@ import SectionDivider from "../components/SectionDivider";
 
 const MarketPlace = () => {
 
+
   const [purchasedCourses, setPurchasedCourses] = useState([]);
 
   const courseData =  {
         "courses": [
           {
+            "id": "1",
             "imageURL": "/meta.png",
             "courseTitle": "Introduction to Programming",
             "courseDescription": "Learn the basics of programming with this comprehensive introductory course.",
@@ -20,6 +22,7 @@ const MarketPlace = () => {
             "courseExpiry": "2024-01-01"
           },
           {
+            "id": "2",
             "imageURL": "/metaverse2.png",
             "courseTitle": "Web Development Fundamentals",
             "courseDescription": "Explore the fundamentals of web development, including HTML, CSS.",
@@ -28,6 +31,7 @@ const MarketPlace = () => {
             "courseExpiry": "2024-02-15"
           },
           {
+            "id": "3",
             "imageURL": "/js1.png",
             "courseTitle": "Data Science Essentials",
             "courseDescription": "Dive into the world of data science and learn essential skills for data analysis.",
@@ -36,6 +40,7 @@ const MarketPlace = () => {
             "courseExpiry": "2024-03-30"
           },
           {
+            "id": "4",
             "imageURL": "/js2.png",
             "courseTitle": "Mobile App Development with React Native",
             "courseDescription": "Build cross-platform mobile apps using React Native framework.",
@@ -43,11 +48,10 @@ const MarketPlace = () => {
             "coursePrice": "$119.99",
             "courseExpiry": "2024-04-20"
           }
-          // Add more courses as needed
         ]
       }
-    
       
+
 
     return(
         <main className="bg-gradient-to-b from-blue-1125 to-blue-1150">
@@ -66,8 +70,8 @@ const MarketPlace = () => {
           <SectionDivider label="Purchased Courses" />      
         </div>                    
         <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
-            {courseData.courses.map((course, index) => (
-              <Card key={index} {...course} />
+            {purchasedCourses.map((course, index) => (
+              <Card key={index} course={course} courseData={courseData} />
               ))
             }
         </div>
@@ -76,7 +80,7 @@ const MarketPlace = () => {
         </div>
         <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
             {courseData.courses.map((course, index) => (
-              <Card key={index} {...course} />
+              <Card key={index} {...course} courseData={courseData} />
               ))
             }
         </div>

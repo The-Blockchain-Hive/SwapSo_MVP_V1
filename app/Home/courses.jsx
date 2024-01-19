@@ -39,7 +39,7 @@ const Courses = () => {
     return (
         <main>
             <div>
-            <h2 className="text-6xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-100"> Highlight Courses</h2>
+            <h2 className="text-5xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-100"> Highlight Courses</h2>
             <div className="mt-8 w-screen flex flex-wrap gap-5 justify-center py-5">
             {courseData.courses.map((course, index) => (
               <Card key={index} {...course} />

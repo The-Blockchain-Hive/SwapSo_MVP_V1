@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 
-function PopUp({ handleClose, handlePurchase, courses }) {
+function PopUp({ handleClose, isPopupVisible, handlePurchase }) {
 
     
 
-    const handlePay = () => {
+    const handlePay = (purchasedCourses) => {
         console.log("Course purchased!");
+        console.log(purchasedCourses);
         handleClose();
     };
 

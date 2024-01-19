@@ -7,6 +7,46 @@ import PopUp from './PopUp';
 
 
 const Card = (props) => {
+	const courseData =  {
+        "courses": [
+          {
+            "id": "1",
+            "imageURL": "/meta.png",
+            "courseTitle": "Introduction to Programming",
+            "courseDescription": "Learn the basics of programming with this comprehensive introductory course.",
+            "courseDuration": "4 weeks",
+            "coursePrice": "$49.99",
+            "courseExpiry": "2024-01-01"
+          },
+          {
+            "id": "2",
+            "imageURL": "/metaverse2.png",
+            "courseTitle": "Web Development Fundamentals",
+            "courseDescription": "Explore the fundamentals of web development, including HTML, CSS.",
+            "courseDuration": "6 weeks",
+            "coursePrice": "$79.99",
+            "courseExpiry": "2024-02-15"
+          },
+          {
+            "id": "3",
+            "imageURL": "/js1.png",
+            "courseTitle": "Data Science Essentials",
+            "courseDescription": "Dive into the world of data science and learn essential skills for data analysis.",
+            "courseDuration": "8 weeks",
+            "coursePrice": "$99.99",
+            "courseExpiry": "2024-03-30"
+          },
+          {
+            "id": "4",
+            "imageURL": "/js2.png",
+            "courseTitle": "Mobile App Development with React Native",
+            "courseDescription": "Build cross-platform mobile apps using React Native framework.",
+            "courseDuration": "10 weeks",
+            "coursePrice": "$119.99",
+            "courseExpiry": "2024-04-20"
+          }
+        ]
+      }
 
 	const [isPopupVisible, setIsPopupVisible] = useState(false);
 
@@ -14,12 +54,8 @@ const Card = (props) => {
 		setIsPopupVisible(!isPopupVisible);
 	}
 	const handlePurchase = () => {
-		// Perform the logic to handle the purchase
-		console.log("Course purchased:", props.courseTitle);
-	
-		// Close the popup after purchase
 		setIsPopupVisible(false);
-	  };
+	};
 	
   return (
 	<div>
@@ -67,7 +103,7 @@ const Card = (props) => {
 			<Link href='/AboutCourse'><button className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl">See more</button></Link>
 			<button onClick={togglePopup} className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl">Buy Course</button>
 		</div>
-		{isPopupVisible && <PopUp handleClose={handlePurchase} />}
+		{isPopupVisible && <PopUp handleClose={handlePurchase} isPopupVisible={isPopupVisible} />}
 		</div>
 	</div>
   )
