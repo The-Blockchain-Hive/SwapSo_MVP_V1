@@ -3,3 +3,8 @@
     transform: rotateX(3deg) rotateY(3deg) scaleZ(2);
     touch-action: pan-y;
 }
+
+h2 {
+    padding: 15px; 
+  }
+  

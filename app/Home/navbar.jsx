@@ -3,12 +3,13 @@ import React, { useState, useEffect , useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "./navbar.css";
+import { useWeb3Modal } from '@web3modal/wagmi/react'
 
 const Navbar = () => {
   const navbarRef = useRef(null);
   let lastScrollTop = 0;
   const delta = 5;
-
+  const { open } = useWeb3Modal()
   useEffect(() => {
     const handleScroll = () => {
       if (typeof window === 'undefined') return;
@@ -117,14 +118,8 @@ const Navbar = () => {
 
         <div>
           <div className="dropdown">
-             <button className="wallet" >
-             <span>Connect Wallet</span>{/*onClick={currentAccount ? toggleDropdown : connectWallet}>
-              {currentAccount ? (
-                <span>{currentAccount.slice(0, 8)}...</span>
-              ) : (
-                //span
-              )} */}
-            </button>
+          <w3m-button />
+          {/* <button onClick={() => open()}>Connect Wallet</button> */}
             {/* {isDropdownOpen && (
               <ul className="dropdown-menu">
                 <li>
