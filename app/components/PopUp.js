@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 
-function PopUp({ handleClose, isPopupVisible, handlePurchase }) {
+function PopUp({ handleClose, isPopupVisible, handlePurchase, course }) {
 
     
 
-    const handlePay = (purchasedCourses) => {
+    const handlePay = () => {
         console.log("Course purchased!");
-        console.log(purchasedCourses);
+        console.log(course);
+    
+        // Add the selected course to the purchased courses
+    
         handleClose();
-    };
+      };
+      
 
     const [selectedTimeframe, setselectedTimeframe] = useState('1 week');
     const [Price, setPrice] = useState(5);
@@ -16,16 +20,16 @@ function PopUp({ handleClose, isPopupVisible, handlePurchase }) {
     const handleTimeframeChange = (e) => {
         setselectedTimeframe(e.target.value);
         switch (e.target.value) {
-            case '1 week':
+            case '1 day':
                 setPrice(5);
                 break;
-            case '2 weeks':
+            case '2 days':
                 setPrice(10);
                 break;
-            case '3 weeks':
+            case '3 days':
                 setPrice(15);
                 break;
-            case '4 weeks':
+            case '4 days':
                 setPrice(20);
                 break;
         }
@@ -60,10 +64,10 @@ function PopUp({ handleClose, isPopupVisible, handlePurchase }) {
                                 onChange={handleTimeframeChange}
                                 className="text-justify text-gray-900 text-base font-medium font-['Inter'] leading-[17px] border border-gray-300 rounded-md p-2"
                             >
-                                <option value="1 week">1 week</option>
-                                <option value="2 weeks">2 weeks</option>
-                                <option value="3 weeks">3 weeks</option>
-                                <option value="4 weeks">4 weeks</option>
+                                <option value="1 day">1 day</option>
+                                <option value="2 days">2 days</option>
+                                <option value="3 days">3 days</option>
+                                <option value="4 days">4 days</option>
                             </select>
                             <div className="text-justify text-gray-900 text-base font-medium font-['Inter'] leading-[17px]">
                                 Selected Timeframe: {selectedTimeframe}

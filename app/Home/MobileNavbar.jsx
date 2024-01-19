@@ -5,6 +5,7 @@ import './MobileNavbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { useWeb3Modal } from '@web3modal/wagmi/react'
 
 library.add(faBars, faTimes);
 
@@ -22,6 +23,8 @@ function MobileNavbar() {
   const navbarRef = useRef(null);
   let lastScrollTop = 0;
   const delta = 5;
+
+  const { open } = useWeb3Modal()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,9 +75,14 @@ function MobileNavbar() {
           </button>
           <ul className="inner__mobile__navbar__menu no-bullet">
             <li><Link onClick={handleMenuClose} href="/">Home</Link></li>
-            <li><Link onClick={handleMenuClose} href="/Courses">Courses</Link></li>
-            <li><Link onClick={handleMenuClose} href="/MarketPlace">Market Place</Link></li>
+            <li><Link onClick={handleMenuClose} href="/courses">Courses</Link></li>
+            <li><Link onClick={handleMenuClose} href="/marketplace">Market Place</Link></li>
           </ul>
+          <div>
+          <div className="dropdown">
+          <w3m-button />
+          </div>
+        </div>
         </div>
       )}
     </nav>

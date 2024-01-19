@@ -1,6 +1,7 @@
 'use client'
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../Home/navbar";
+import Navbar2 from "../Home/MobileNavbar";
 import Card from "../components/Card";
 import SearchBar from "../components/SearchBar";
 import SectionDivider from "../components/SectionDivider";
@@ -50,14 +51,27 @@ const MarketPlace = () => {
           }
         ]
       }
-      
+      const [isMobile, setIsMobile] = useState(false);
+      useEffect(() => {
+        const handleResize = () => {
+          setIsMobile(window.innerWidth <= 1000);
+        };
+    
+        handleResize();
+    
+        window.addEventListener('resize', handleResize);
+    
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
 
 
     return(
         <main className="bg-gradient-to-b from-blue-1125 to-blue-1150">
-          {/* <div className='nav1'>
-          <Navbar/>
-        </div> */}
+          <div className='nav1'>
+            {isMobile ? <Navbar2 /> : <Navbar />}
+          </div>
         <div className="py-5 mb-10">  
           <SearchBar/> 
         </div>

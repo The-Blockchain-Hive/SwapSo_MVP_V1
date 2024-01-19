@@ -7,6 +7,16 @@ import SearchBar from "../components/SearchBar";
 import SectionDivider from "../components/SectionDivider";
 
 const MarketPlace = () => {
+  const[isPopupVisible, setIsPopupVisible] = useState(false);
+
+  // const togglePopup = () => {
+  //   setIsPopupVisible(!isPopupVisible);
+  // };
+
+  // const handlePurchase = () => {
+  //   setIsPopupVisible(false);
+  // }
+  
 
   const courseData =  {
         "courses": [
@@ -71,9 +81,11 @@ const MarketPlace = () => {
         setShowMarketPlace(false);
         setShowYourListings(true);
       };
+
+      
     
       return (
-        <main className="bg-gradient-to-b from-blue-1125 to-blue-1150">
+        <main className={`bg-gradient-to-b from-blue-1125 to-blue-1150 ${isPopupVisible ? 'blurred' : ''}`}>
           <div className='nav1'>
             {isMobile ? <Navbar2 /> : <Navbar />}
           </div>
@@ -118,6 +130,7 @@ const MarketPlace = () => {
               </div>
             </div>
           )}
+          
         </main>
     )
 }

@@ -31,12 +31,10 @@ const Timer = () => {
   // Call the function initially
   calculateRemainingTime();
 
-  // You can set an interval to update the remaining time periodically
   useEffect(() => {
     const interval = setInterval(() => {
       calculateRemainingTime();
-    }, 1000 * 60); // Update every minute
-
+    }, 1000 * 60); 
     return () => clearInterval(interval);
   }, []);
 

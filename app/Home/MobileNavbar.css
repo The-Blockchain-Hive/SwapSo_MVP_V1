@@ -54,6 +54,7 @@
     top: 0px;
     width: 100%;
     background-color: #000;
+    opacity: 0.8;
     height: -moz-fit-content;
     height: fit-content;
     opacity: 100%;

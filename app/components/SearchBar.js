@@ -23,7 +23,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-8 rounded shadow bg-transparent backdrop-filter backdrop-blur-md bg-opacity-20">
+    <div className="max-w-xl mx-auto p-8 rounded shadow bg-transparent backdrop-filter backdrop-blur-md bg-opacity-20 mt-24">
       <div className="flex items-center">
         {/* Search Bar */}
         <input
