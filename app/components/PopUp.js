@@ -1,18 +1,45 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import NewCard from './newCard';
 
-function PopUp({ handleClose, isPopupVisible, handlePurchase, course }) {
+function PopUp({ handleClose, course }) {
 
-    
 
-    const handlePay = () => {
+    const [isPurchaseComplete, setPurchaseComplete] = useState(false);
+    const [courseCopyArray, setCourseCopyArray] = useState([]);
+
+    function handlePay() {
         console.log("Course purchased!");
         console.log(course);
-    
-        // Add the selected course to the purchased courses
-    
+        const {id, imageURL, courseTitle, courseDescription, courseDuration} = course;
+        const courseCopy = {
+            id,
+            imageURL,
+            courseTitle,
+            courseDescription,
+            courseDuration,
+            Timer: '3 days remaining',
+            button: 'Sell Course',
+        };
+        console.log(courseCopy);
+        setPurchaseComplete(true);
         handleClose();
-      };
-      
+        const {Timer, button} = courseCopy;
+        const CardArray = {
+            'newArray': [
+                {
+                    "id": id,// assign the value of the courseCopy to the parameters here
+                    "imageURL"  :imageURL,
+                    "courseTitle" :courseTitle,
+                    "courseDescription":courseDescription,
+                    "courseDuration":courseDuration,
+                    "Timer": Timer,
+                    "button": button,
+                }
+            ]
+        }
+        console.log(CardArray);
+    }
+    
 
     const [selectedTimeframe, setselectedTimeframe] = useState('1 week');
     const [Price, setPrice] = useState(5);
@@ -35,9 +62,10 @@ function PopUp({ handleClose, isPopupVisible, handlePurchase, course }) {
         }
     };
 
+
     return (
-        <div class="flex justify-between p-4">
-            <div class="flex items-center">
+        <div className="flex justify-between p-4">
+            <div className="flex items-center">
                 <div className="w-[486px] h-[276px] relative bg-white rounded-2xl">
                     <div className="w-[205px] h-[46px] px-[69px] pt-4 pb-[15px] left-[22px] top-[213px] absolute rounded-[5px] border border-red-600 justify-center items-center inline-flex">
                         <button onClick={handleClose} className="text-red px-4 py-2 rounded-md text-justify text-red-600 text-xl font-medium font-['Inter'] leading-[17px]">Cancel

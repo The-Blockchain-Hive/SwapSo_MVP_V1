@@ -13,11 +13,8 @@ const Card = (props) => {
 	const togglePopup = () => {
 		setIsPopupVisible(!isPopupVisible);
 	}
-	const [purchasedCourses, setPurchasedCourses] = useState([]);
-	const handlePurchase = (selectedCourse) => {
+	const handlePurchase = () => {
 		setIsPopupVisible(false);
-		setPurchasedCourses((prevCourses) => [...prevCourses, selectedCourse]);
-		console.log(purchasedCourses);
 	};
 	
 	

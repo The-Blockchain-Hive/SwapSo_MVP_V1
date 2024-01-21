@@ -3,14 +3,15 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../Home/navbar";
 import Navbar2 from "../Home/MobileNavbar";
 import Card from "../components/Card";
+import PopUp from "../components/PopUp";
+import NewCard from "../components/newCard";
 import SearchBar from "../components/SearchBar";
 import SectionDivider from "../components/SectionDivider";
 
 const MarketPlace = () => {
 
-
-  const [purchasedCourses, setPurchasedCourses] = useState([]);
-
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+       
   const courseData =  {
         "courses": [
           {
@@ -51,6 +52,7 @@ const MarketPlace = () => {
           }
         ]
       }
+      
       const [isMobile, setIsMobile] = useState(false);
       useEffect(() => {
         const handleResize = () => {
@@ -65,6 +67,14 @@ const MarketPlace = () => {
           window.removeEventListener('resize', handleResize);
         };
       }, []);
+
+      const handlePurchase = () => {
+        setIsPopupVisible(true);
+      }
+
+      const handleClose = () => {
+        setIsPopupVisible(false);
+      }
 
 
     return(
@@ -81,13 +91,10 @@ const MarketPlace = () => {
           </h1>
         </div>
         <div className="bg-transparent">
-          <SectionDivider label="Purchased Courses" />      
-        </div>                    
+          <SectionDivider label="My Courses" />      
+        </div>                 
         <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
-            {purchasedCourses.map((course, index) => (
-              <Card key={index} course={course} courseData={courseData} />
-              ))
-            }
+              <NewCard />
         </div>
         <div className="bg-transparent">
           <SectionDivider label="Market Place" />      
