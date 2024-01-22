@@ -9,11 +9,13 @@ import PopUp from './PopUp';
 const Card = (props) => {
 
 	const [isPopupVisible, setIsPopupVisible] = useState(false);
+	const [purchasedCourses, setPurchasedCourses] = useState([]);
 
 	const togglePopup = () => {
 		setIsPopupVisible(!isPopupVisible);
 	}
 	const handlePurchase = () => {
+		setPurchasedCourses([...purchasedCourses, props]);
 		setIsPopupVisible(false);
 	};
 	
@@ -67,7 +69,7 @@ const Card = (props) => {
 		{isPopupVisible && (
 		<div className='fixed inset-0 z-100 backdrop-filter backdrop-blur-md flex items-center justify-center'> 
 		<PopUp
-		 handleClose={handlePurchase} isPopupVisible={isPopupVisible} course={props} />
+		 handleClose={handlePurchase} onCoursePurchase={props.onCoursePurchase} isPopupVisible={isPopupVisible} course={props} />
 		</div>
 )}
 		</div>

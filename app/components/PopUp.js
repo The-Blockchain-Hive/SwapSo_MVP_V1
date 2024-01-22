@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NewCard from './newCard';
 
-function PopUp({ handleClose, course }) {
+function PopUp({ handleClose, course, onCoursePurchase  }) {
 
 
     const [isPurchaseComplete, setPurchaseComplete] = useState(false);
@@ -21,6 +21,9 @@ function PopUp({ handleClose, course }) {
             button: 'Sell Course',
         };
         console.log(courseCopy);
+        if (typeof onCoursePurchase === 'function') {
+            onCoursePurchase(courseCopy);
+          }
         setPurchaseComplete(true);
         handleClose();
         const {Timer, button} = courseCopy;

@@ -7,6 +7,7 @@ import PopUp from "../components/PopUp";
 import NewCard from "../components/newCard";
 import SearchBar from "../components/SearchBar";
 import SectionDivider from "../components/SectionDivider";
+import MyCourses from "../components/MyCourses";
 
 const MarketPlace = () => {
 
@@ -68,13 +69,33 @@ const MarketPlace = () => {
         };
       }, []);
 
-      const handlePurchase = () => {
+      type CourseCopyType = {
+        id: string;
+        imageURL: string;
+        courseTitle: string;
+        courseDescription: string;
+        courseDuration: string;
+        Timer: string;
+        button: string;
+        // ... other properties
+      };
+
+      const [purchasedCourses, setPurchasedCourses] = useState<CourseCopyType[]>([]);
+
+      const handleCoursePurchase = (courseCopy: CourseCopyType) => {
+        setPurchasedCourses((prevCourses) => [...prevCourses, courseCopy]);
+      };
+
+      const handlePurchase = () => {        
         setIsPopupVisible(true);
       }
 
       const handleClose = () => {
         setIsPopupVisible(false);
       }
+
+     
+
 
 
     return(
@@ -94,14 +115,16 @@ const MarketPlace = () => {
           <SectionDivider label="My Courses" />      
         </div>                 
         <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
-              <NewCard />
+              <MyCourses purchasedCourses={purchasedCourses}/>
         </div>
         <div className="bg-transparent">
           <SectionDivider label="Market Place" />      
         </div>
         <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
             {courseData.courses.map((course, index) => (
-              <Card key={index} {...course} courseData={courseData} />
+              <Card onCoursePurchase={handleCoursePurchase} 
+                    key={index} {...course} 
+                    courseData={courseData} />
               ))
             }
         </div>
