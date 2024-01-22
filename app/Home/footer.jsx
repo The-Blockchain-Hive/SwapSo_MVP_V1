@@ -1,7 +1,5 @@
 "use client"
 import React from "react";
-import Image from "next/image";
-import logo from "../../public/logo.png";
 import {FaTwitter, FaInstagram, FaLinkedin, FaDiscord, FaWhatsapp, FaTelegram, FaArrowAltCircleLeft, FaArrowLeft} from 'react-icons/fa';
 // components/Footer.js
 
@@ -9,8 +7,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#00000] w-screen text-white pt-8 pb-5">
       <div className="container">
-        <div className="flex flex-wrap  text-lg w-screen justify-between px-10 gap-8 md:flex-col md:text-sm">
-          <Image src={logo} width={200} height={200} alt="logo" className="m-0 p-0"/>
+        <div className="flex flex-wrap  text-lg w-screen justify-between px-10 gap-8 md:flex-row md:text-sm">
           <div className="company-section">
             <h3 className="text-xl font-semibold mb-4 md:text-lg">Company</h3>
             <ul>
@@ -31,7 +28,7 @@ const Footer = () => {
           <div className="resources-section">
             <h3 className="text-xl font-semibold mb-4 md:text-lg">Resources</h3>
             <ul>
-              <li><a href="/ambassador" className="hover:text-gray-300 hover:ease-in-out duration-300">Campus Ambassador</a></li>
+              <li><a href="/ambassador" className="hover:text-gray-300 hover:ease-in-out duration-300 text-wrap">Campus Ambassador</a></li>
               <li><a href="/blog" className="hover:text-gray-300 hover:ease-in-out duration-300">Blog</a></li>
               <li><a href="/events" className="hover:text-gray-300 hover:ease-in-out duration-300">Events</a></li>
             </ul>
@@ -46,11 +43,11 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        
-        <div className="flex flex-row justify-between">
+        <div className=" flex-row flex-wrap">
+        <div className="flex flex-row flex-wrap justify-between">
         <div className="social-media-section px-20">
             <h3 className="text-xl font-semibold mb-4 md:text-lg">Follow Us</h3>
-            <div className="flex space-x-10">
+            <div className="flex space-x-10 flex flex-row">
               <a href="https://twitter.com/theblock_chive"><FaTwitter size={32} /></a>
               <a href="https://www.instagram.com/theblockchainhive/"><FaInstagram size={32} /></a>
               <a href="https://www.linkedin.com/company/theblockchainhivee/"><FaLinkedin size={32} /></a>
@@ -60,11 +57,12 @@ const Footer = () => {
             </div>
           </div>
           <div className="subscribe-section px-20">
-            {/* <h3 className="text-xl font-semibold mb-4 md:text-lg">Subscribe</h3> */}
-            {/* <form className="flex items-center">
-              <input type="email" placeholder="Enter your email" className="py-2 px-4 border border-gray-700 rounded-l text-black focus:outline-none" />
-              <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-r"><span className="flex"><FaArrowLeft className="self-center mr-2" size={15}/>Subscribe </span></button>
-            </form> */}
+            <h3 className="text-xl font-semibold mb-4 md:text-lg">Subscribe</h3>
+            <form className="flex items-center inputContainer">
+            <input type="email" className="subscribeInput" placeholder="Enter your email" />
+          <div className="inputArrow"><button type="submit" className="subscribeButton">➔</button></div>
+            </form>
+          </div>
           </div>
         </div>
       </div>

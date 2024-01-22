@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../Home/navbar";
 import Navbar2 from "../Home/MobileNavbar";
 import Card from "../components/Card";
-import PopUp from "../components/PopUp";
-import NewCard from "../components/newCard";
 import SearchBar from "../components/SearchBar";
 import SectionDivider from "../components/SectionDivider";
 import MyCourses from "../components/MyCourses";
@@ -85,17 +83,6 @@ const MarketPlace = () => {
       const handleCoursePurchase = (courseCopy: CourseCopyType) => {
         setPurchasedCourses((prevCourses) => [...prevCourses, courseCopy]);
       };
-
-      const handlePurchase = () => {        
-        setIsPopupVisible(true);
-      }
-
-      const handleClose = () => {
-        setIsPopupVisible(false);
-      }
-
-     
-
 
 
     return(

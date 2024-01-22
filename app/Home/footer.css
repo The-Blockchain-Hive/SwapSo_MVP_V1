@@ -1,3 +1,23 @@
+.inputContainer {
+  display: flex;
+  align-items: center;
+  background-color: white; /* Set the background color for the input container */
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 5px;
+}
+.subscribeButton {
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.inputArrow {
+  padding: 0 5px;
+  color: #000000; /* Set arrow color */
+ }
 /* Footer styles
 .footer {
     min-width: 100vw;
@@ -54,10 +74,7 @@
     outline: none;
   }
   /*
-  .inputArrow {
-    padding: 0 5px;
-    color: #000000; /* Set arrow color */
- /* }
+
   /*
   .subscribeButton {
     background-color: #000000;
