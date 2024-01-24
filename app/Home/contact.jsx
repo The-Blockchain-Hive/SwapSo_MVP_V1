@@ -2,14 +2,15 @@
 import React, { useState, useRef } from 'react';
 import { FaEnvelope, FaMapMarker } from 'react-icons/fa';
 import { IoMdCall } from 'react-icons/io';
-import emailjs from 'emailjs-com';
-import './contact.css';
 
+import './contact.css';
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState('Send Message');
+
+
   const formRef = useRef();
 
   const sendEmail = async (e) => {

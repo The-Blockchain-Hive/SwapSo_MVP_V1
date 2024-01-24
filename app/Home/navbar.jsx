@@ -3,13 +3,13 @@ import React, { useState, useEffect , useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "./navbar.css";
-import { useWeb3Modal } from '@web3modal/wagmi/react'
+import { ConnectButton } from '@rainbow-me/rainbowkit'
 
 const Navbar = () => {
   const navbarRef = useRef(null);
   let lastScrollTop = 0;
   const delta = 5;
-  const { open } = useWeb3Modal()
+  
   useEffect(() => {
     const handleScroll = () => {
       if (typeof window === 'undefined') return;
@@ -60,7 +60,7 @@ const Navbar = () => {
 
         <div>
           <div className="dropdown">
-          <w3m-button />
+            <ConnectButton />
           </div>
         </div>
       </nav>
