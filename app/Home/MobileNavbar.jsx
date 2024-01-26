@@ -6,7 +6,6 @@ import './MobileNavbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { useWeb3Modal } from '@web3modal/wagmi/react'
 
 library.add(faBars, faTimes);
 
@@ -25,7 +24,7 @@ function MobileNavbar() {
   let lastScrollTop = 0;
   const delta = 5;
 
-  const { open } = useWeb3Modal()
+
 
   useEffect(() => {
     const handleScroll = () => {

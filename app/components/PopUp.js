@@ -1,69 +1,76 @@
-import React, { useState } from 'react';
-import NewCard from './newCard';
+import React, { useState } from "react";
+import NewCard from "./newCard";
+import { useDataContext } from "../context/DataContextProvider";
+function PopUp({ handleClose, course, onCoursePurchase }) {
+  const [isPurchaseComplete, setPurchaseComplete] = useState(false);
+  const [courseCopyArray, setCourseCopyArray] = useState([]);
 
-function PopUp({ handleClose, course, onCoursePurchase  }) {
+  const { address, chain, payFees } = useDataContext();
 
-    const [isPurchaseComplete, setPurchaseComplete] = useState(false);
-    const [courseCopyArray, setCourseCopyArray] = useState([]);
-
-    function handlePay() {
-        console.log("Course purchased!");
-        console.log(course);
-        const {id, imageURL, courseTitle, courseDescription, courseDuration} = course;
-        const courseCopy = {
-            id,
-            imageURL,
-            courseTitle,
-            courseDescription,
-            courseDuration,
-            Timer: '3 days remaining',
-            button: 'Sell Course',
-        };
-        console.log(courseCopy);
-        if (typeof onCoursePurchase === 'function') {
-            onCoursePurchase(courseCopy);
-          }
-        setPurchaseComplete(true);
-        handleClose();
-        const {Timer, button} = courseCopy;
-        const CardArray = {
-            'newArray': [
-                {
-                    "id": id,// assign the value of the courseCopy to the parameters here
-                    "imageURL"  :imageURL,
-                    "courseTitle" :courseTitle,
-                    "courseDescription":courseDescription,
-                    "courseDuration":courseDuration,
-                    "Timer": Timer,
-                    "button": button,
-                }
-            ]
-        }
-        console.log(CardArray);
-    }
-    
-
-    const [selectedTimeframe, setselectedTimeframe] = useState('1 day');
-    const [Price, setPrice] = useState(5);
-
-    const handleTimeframeChange = (e) => {
-        setselectedTimeframe(e.target.value);
-        switch (e.target.value) {
-            case '1 day':
-                setPrice(5);
-                break;
-            case '2 days':
-                setPrice(10);
-                break;
-            case '3 days':
-                setPrice(15);
-                break;
-            case '4 days':
-                setPrice(20);
-                break;
-        }
+  
+  async function handlePay() {
+    console.log("Course purchased!");
+    console.log(course);
+    const { id, imageURL, courseTitle, courseDescription, courseDuration } =
+      course;
+    const courseCopy = {
+      id,
+      imageURL,
+      courseTitle,
+      courseDescription,
+      courseDuration,
+      Timer: "3 days remaining",
+      button: "Sell Course",
     };
+    console.log(courseCopy);
+    if (typeof onCoursePurchase === "function") {
+      onCoursePurchase(courseCopy);
+    }
+    if(!address){
+        alert("Please connect wallet");
+        return;
+    }
 
+    await payFees(Price);
+    setPurchaseComplete(true);
+    handleClose();
+    const { Timer, button } = courseCopy;
+    const CardArray = {
+      newArray: [
+        {
+          id: id, // assign the value of the courseCopy to the parameters here
+          imageURL: imageURL,
+          courseTitle: courseTitle,
+          courseDescription: courseDescription,
+          courseDuration: courseDuration,
+          Timer: Timer,
+          button: button,
+        },
+      ],
+    };
+    console.log(CardArray);
+  }
+
+  const [selectedTimeframe, setselectedTimeframe] = useState("1 week");
+  const [Price, setPrice] = useState(5);
+
+  const handleTimeframeChange = (e) => {
+    setselectedTimeframe(e.target.value);
+    switch (e.target.value) {
+      case "1 day":
+        setPrice(5);
+        break;
+      case "2 days":
+        setPrice(10);
+        break;
+      case "3 days":
+        setPrice(15);
+        break;
+      case "4 days":
+        setPrice(20);
+        break;
+    }
+  };
 
     return (
         <div className="flex justify-between p-4">
