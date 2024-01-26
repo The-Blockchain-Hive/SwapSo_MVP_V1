@@ -21,7 +21,7 @@ export default function Home() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 1000);
+      setIsMobile(window.innerWidth <= 768);
     };
 
     handleResize();
@@ -41,7 +41,7 @@ export default function Home() {
         <div className='flex flex-row'>
           <div className="flex flex-col items-center justify-center h-screen bg-transparent text-white w-screen">
             <div className="flex flex-col items-center justify-center w-full h-1/2 px-12 sm:mt-28 xl:mr-96">
-              <h1 className="sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl font-bold leading-tight sm:m-16 md:m-32 lg:m-24 xl:m-8 xl:mr-48">
+              <h1 className="text-4xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl font-bold leading-tight sm:m-16 md:m-32 lg:m-24 xl:m-8 xl:mr-48">
                 <Typewriter
                   options={{
                   autoStart: true,
@@ -81,7 +81,7 @@ export default function Home() {
           <div className='w-screen sm:w-2/3 lg:ml-12 xl:ml-24 mx-auto md:w-1/2 overflow-hidden'>
             <Image src="/about.png" width={500} height={100} alt={''} />
           </div>
-          <div className='w-screen mx-auto sm:w-1/2 md:w-1/2 lg:w-1/2 lg:mr-16 xl:w-1/2 xl:mr-16'>
+          <div className='w-2/3 mx-auto sm:w-1/2 md:w-1/2 lg:w-1/2 lg:mr-32 xl:w-1/2 xl:mr-32'>
             <h1 className='text-bold text-indigo-500 text-5xl mb-4'>SWAPSO</h1>
             <h1 className='text-center mx-auto mt-16 text-1xl text-justify'>
               Swapso - an initiative by IIT Bombay students is a platform which is building a decentralised educational system where education will be customized and self-owned. Incentivizing users for their capabilities while learning will increase their efficiency of learning as well as generate more skilled people.

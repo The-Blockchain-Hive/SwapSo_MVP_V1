@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import SellPopUp from './SellPopUp';
 
 const NewCard = (courseCopy) => {
+
+	const [isPopupVisible, setIsPopupVisible] = useState(false);
+	const [purchasedCourses, setPurchasedCourses] = useState([]);
+
+	const togglePopup = () => {
+		setIsPopupVisible(!isPopupVisible);
+	}
+
+	const handlePurchase = () => {
+		setPurchasedCourses([...purchasedCourses, courseCopy]);
+		setIsPopupVisible(false);
+	}
+
 	return (
 		<div>
 			<div className="cards w-[373px] h-max bg-gradient-to-b from-black to-blue-1100 bg-opacity-40 backdrop-blur-md drop-shadow-lg rounded-3xl text-neutral-300 m-1 flex flex-col hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">
@@ -50,8 +64,15 @@ const NewCard = (courseCopy) => {
 				</div>
 				<div className='flex justify-between px-4'>
 					<Link href='/'><button className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl">Learn</button></Link>
-					<button className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl">Sell Course</button>
+					<button onClick={togglePopup} className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl">Sell Course</button>
 				</div>
+				{isPopupVisible && (
+		        <div className='fixed inset-0 z-100 backdrop-filter backdrop-blur-md flex items-center justify-center'> 
+		            <SellPopUp
+					 handleClose={handlePurchase} onCoursePurchase={courseCopy.onCoursePurchase} isPopupVisible={isPopupVisible} course={courseCopy} 
+					/>
+				</div>
+				)}
 			</div>
 		</div>
 	);

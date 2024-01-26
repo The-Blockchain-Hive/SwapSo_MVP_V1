@@ -3,6 +3,7 @@ import React, { useState, useEffect , useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "./navbar.css";
+import { FaUser } from 'react-icons/fa';
 import { useWeb3Modal } from '@web3modal/wagmi/react'
 
 const Navbar = () => {
@@ -54,13 +55,15 @@ const Navbar = () => {
             <Link href='/Courses'>Courses</Link>
           </li>
           <li className="nav-list">
-            <Link href="/MarketPlace">Market Place</Link>
+            <Link href="/Marketplace">Market Place</Link>
           </li>
         </ul>
-
+        {/* <div>
+         <Link href="/"><button>Sign In</button></Link>
+        </div> */}
         <div>
           <div className="dropdown">
-          <w3m-button />
+          <w3m-button /> 
           </div>
         </div>
       </nav>

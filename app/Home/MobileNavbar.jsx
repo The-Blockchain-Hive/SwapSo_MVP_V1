@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { FaUser } from 'react-icons/fa';
 import Image from 'next/image';
 import Link from 'next/link';
 import './MobileNavbar.css';
@@ -76,7 +77,8 @@ function MobileNavbar() {
           <ul className="inner__mobile__navbar__menu no-bullet">
             <li><Link onClick={handleMenuClose} href="/">Home</Link></li>
             <li><Link onClick={handleMenuClose} href="/Courses">Courses</Link></li>
-            <li><Link onClick={handleMenuClose} href="/MarketPlace">Market Place</Link></li>
+            <li><Link onClick={handleMenuClose} href="/Marketplace">Market Place</Link></li>
+            {/* <li><Link onClick={handleMenuClose} href="/">Sign In</Link></li> */}
           </ul>
           <div>
           <div className="dropdown">

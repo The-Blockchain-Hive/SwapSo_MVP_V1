@@ -60,7 +60,7 @@ const MarketPlace = () => {
     
       useEffect(() => {
         const handleResize = () => {
-          setIsMobile(window.innerWidth <= 1000);
+          setIsMobile(window.innerWidth <= 768);
         };
     
         handleResize();
@@ -92,7 +92,7 @@ const MarketPlace = () => {
           <div className="py-5 mb-10">
             <SearchBar />
           </div>
-          <div className="flex justify-center py-5">
+          <div className="flex justify-center">
             <button
               onClick={toggleMarketPlace}
               className={`text-white px-3 py-1 rounded-md ${showMarketPlace ? 'bg-blue-500' : 'bg-gray-400'}`}
