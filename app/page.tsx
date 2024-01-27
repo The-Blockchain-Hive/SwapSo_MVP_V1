@@ -1,18 +1,14 @@
 "use client"
-import React, { useRef, useState, useEffect} from 'react';
+import React, { useState, useEffect} from 'react';
 import Image from 'next/image';
 import Navbar from './Home/navbar.jsx';
 import Navbar2 from './Home/MobileNavbar.jsx';
 import Courses from './Home/courses.jsx';
-import TrackPath from './Home/TrackPath.jsx';
-import FeaturedIn from './Home/featuredIn.jsx' 
 import Partner from './Home/partner.jsx';
 import JoinUs from './Home/JoinUs.jsx';
 import ContactForm from './Home/contact.jsx';
 import Footer from './Home/footer.jsx';
 import Typewriter from 'typewriter-effect';
-import Card from './components/Card.js';
-
 
 
 export default function Home() {
@@ -63,7 +59,7 @@ export default function Home() {
             <h1 className='text-xl text-justify text-center w-1/2 xl:mr-48'>
               Platform where you can buy courses, learn and resell to earn from it!
             </h1>
-            <div className="bg-cyan-950 text-cyan-400 border border-cyan-400 border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group mt-8 font-bold xl:mr-48"><button className="bg-cyan-400 shadow-cyan-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)] ml-20"></button>Blogs ➔</div>
+            <div className="bg-cyan-950 text-cyan-400 border border-cyan-400 border-b-4 font-medium overflow-hidden relative px-8 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group mt-8 font-bold xl:mr-48"><button className="bg-cyan-400 shadow-cyan-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)] ml-20"></button>Blogs ➔</div>
           </div>
         </div>
         <video
@@ -79,13 +75,15 @@ export default function Home() {
       <h2 className="text-6xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-100">About Us</h2>
       <div className="relative">
         <div className='mt-32 w-full mx-auto rounded-lg text-center flex flex-col xl:flex-row lg:flex-row'>
-          <div className='w-screen sm:w-2/3 lg:ml-12 xl:ml-24 mx-auto md:w-1/2 overflow-hidden'>
+          <div className='w-screen sm:w-2/3 lg:ml-12 xl:ml-32 mx-auto md:w-1/2 overflow-hidden'>
             <Image src="/about.png" width={500} height={100} alt={''} />
           </div>
-          <div className='w-2/3 mx-auto sm:w-1/2 md:w-1/2 lg:w-1/2 lg:mr-32 xl:w-1/2 xl:mr-32'>
-            <h1 className='text-bold text-indigo-500 text-5xl mb-4'>SWAPSO</h1>
-            <h1 className='text-center mx-auto mt-16 text-1xl text-justify'>
-              Swapso - an initiative by IIT Bombay students is a platform which is building a decentralised educational system where education will be customized and self-owned. Incentivizing users for their capabilities while learning will increase their efficiency of learning as well as generate more skilled people.
+          <div className='w-2/3 mx-auto sm:w-1/2 md:w-1/2 lg:w-1/2 lg:mr-32 xl:w-1/2 xl:mr-48'>
+            <h1 className='text-bold text-indigo-500 text-5xl mb-4'>
+              SWAPSO
+            </h1>
+            <h1 className='text-center text-xl mx-auto mt-16 text-1xl text-justify'>
+              A platform by the learners, for the learners which focuses on increasing completion rates in the edtech industry and incentivizes aka reward people for quick completion of courses.Tailored for skill development courses created by top educators.
             </h1>
           </div>
         </div>
