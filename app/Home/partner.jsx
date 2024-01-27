@@ -11,69 +11,68 @@ const Partner = () => {
             <div className="slider">
                 <div className="slide-track">
                     <div className="slide">
-                        <Image className="logo2" src="/stackos1.png" width={250} height={100} alt="stackos" /> 
+                        <Image className="logo2 ml-4" src="/stackos1.png" width={150} height={100} alt="stackos" /> 
                     </div>
                     <div className="slide">
-                        <Image className="logo2" src="/decloud.png" width={250} height={100} alt="decloud"  />
+                        <Image className="logo2" src="/decloud.png" width={150} height={100} alt="decloud"  />
                     </div>
                     <div className="slide">
-                        <Image className="logo2" src="/stackos1.png" width={150} height={100} alt="stackos1"  />
+                        <Image className="logo2 ml-4" src="/stackos1.png" width={150} height={100} alt="stackos1"  />
                     </div>
                     <div className="slide">
-                        <Image className="logo2" src="/blvckpixel.svg" width={250} height={100} alt="blackpixel"  />
+                        <Image className="logo2" src="/blvckpixel.svg" width={150} height={100} alt="blackpixel"  />
                     </div>
                     <div className="slide">
-                        <Image className="logo2" src="/stackos1.png" width={250} height={100} alt="stackos2"  /> 
+                        <Image className="logo2 ml-4" src="/stackos1.png" width={150} height={100} alt="stackos2"  /> 
                     </div>
                     <div className="slide">
-                        <Image className="logo2" src="/decloud.png" width={250} height={100} alt="decloud2"  />
+                        <Image className="logo2" src="/decloud.png" width={150} height={100} alt="decloud2"  />
                     </div>
                     <div className="slide">
-                        <Image className="logo2" src="/stackos1.png" width={250} height={100} alt="stackos3"  />
+                        <Image className="logo2 ml-4" src="/stackos1.png" width={150} height={100} alt="stackos3"  />
                     </div>
                     <div className="slide">
-                        <Image className="logo2" src="/blvckpixel.svg" width={250} height={100} alt="blackpixel1"  />
+                        <Image className="logo2" src="/blvckpixel.svg" width={150} height={100} alt="blackpixel1"  />
                     </div>
                 </div>
             </div>
             <div className="slider-2">
                 <div className="slide-track-2">
-                    <div className="slide">
+                    <div className="slide1 hover:bg-gradient-to-r from-red-400 via-purple-400 to-cyan-400">
                         <Image className="logo3" src="/Vishnu.png" width={400} height={100} alt="vishnu" /> 
-                        <h1>Vishnu Korde</h1>                      
+                        <h1 className="hover:text-black">Vishnu Korde <br /> Founder, <br /> Stackos</h1>                      
                     </div>
-                    <div className="slide">
+                    <div className="slide1 hover:bg-gradient-to-r from-red-400 via-purple-400 to-cyan-400">
                         <Image className="logo3" src="/advisor1.jpg" width={100} height={100} alt="teddy" />
-                        <h1>Teddy Pahagbia</h1>
+                        <h1 className="hover:text-black">Teddy Pahagbia <br /> Founder, <br /> BLVCK PiXEL</h1>
                     </div>
-                    <div className="slide">
+                    <div className="slide1 hover:bg-gradient-to-r from-red-400 via-purple-400 to-cyan-400">
                         <Image className="logo3" src="/Kamlesh.jpg" width={100} height={100} alt="kamlesh" />
-                        <h1>Kamlesh Nagware</h1>
+                        <h1 className="hover:text-black">Kamlesh Nagware <br /> Co-founder, <br /> FSV Capital</h1>
                     </div>
                     
-                    <div className="slide">
+                    <div className="slide1 hover:bg-gradient-to-r from-red-400 via-purple-400 to-cyan-400">
                         <Image className="logo3" src="/jayjit.jpeg" width={100} height={100} alt="jayjit" />
-                        <h1>Jayjit Biswas</h1>
+                        <h1 className="hover:text-black">Jayjit Biswas <br />Founder, <br /> Elite Web3 Forum</h1>
                     </div>
                     
-                    <div className="slide">
+                    <div className="slide1 hover:bg-gradient-to-r from-red-400 via-purple-400 to-cyan-400">
                         <Image className="logo3" src="/Vishnu.png" width={400} height={100} alt="vishnu" /> 
-                        <h1>Vishnu Korde</h1>                      
+                        <h1 className="hover:text-black">Vishnu Korde <br /> Founder, <br /> Stackos</h1>                      
                     </div>
-                    <div className="slide">
+                    <div className="slide1 hover:bg-gradient-to-r from-red-400 via-purple-400 to-cyan-400">
                         <Image className="logo3" src="/advisor1.jpg" width={100} height={100} alt="teddy" />
-                        <h1>Teddy Pahabgia</h1>
+                        <h1 className="hover:text-black">Teddy Pahagbia <br /> Founder, <br /> BLVCK PiXEL</h1>
                     </div>
-                    <div className="slide">
+                    <div className="slide1 hover:bg-gradient-to-r from-red-400 via-purple-400 to-cyan-400">
                         <Image className="logo3" src="/Kamlesh.jpg" width={100} height={100} alt="kamlesh" />
-                        <h1>Kamlesh Nagware</h1>
+                        <h1 className="hover:text-black">Kamlesh Nagware <br /> Co-founder, <br/> FSV Capital</h1>
                     </div>
                     
-                    <div className="slide">
+                    <div className="slide1 hover:bg-gradient-to-r from-red-400 via-purple-400 to-cyan-400">
                         <Image className="logo3" src="/jayjit.jpeg" width={100} height={100} alt="jayjit" />
-                        <h1>Jayjit Biswas</h1>
-                    </div>
-                    
+                        <h1 className="hover:text-black">Jayjit Biswas <br />Founder, <br /> Elite Web3 Forum</h1>
+                    </div>                    
                 </div>
             </div>
         </main>

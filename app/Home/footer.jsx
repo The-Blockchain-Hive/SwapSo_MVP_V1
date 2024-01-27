@@ -45,9 +45,8 @@ const Footer = () => {
         </div>
         <div className=" flex-row flex-wrap">
         <div className="flex flex-row flex-wrap justify-between">
-        <div className="social-media-section px-20">
-            <h3 className="text-xl font-semibold mb-4 md:text-lg">Follow Us</h3>
-            <div className="flex space-x-10 flex flex-row">
+        <div className="social-media-section px-20 mt-8">
+            <div className="flex space-x-10 flex flex-row flex-wrap">
               <a href="https://twitter.com/theblock_chive"><FaTwitter size={32} /></a>
               <a href="https://www.instagram.com/theblockchainhive/"><FaInstagram size={32} /></a>
               <a href="https://www.linkedin.com/company/theblockchainhivee/"><FaLinkedin size={32} /></a>
@@ -56,11 +55,10 @@ const Footer = () => {
               <a href="https://chat.whatsapp.com/B7H7elZHya6HzlvQ0gXJS8"><FaTelegram size={32}/></a>
             </div>
           </div>
-          <div className="subscribe-section px-20">
-            <h3 className="text-xl font-semibold mb-4 md:text-lg">Subscribe</h3>
-            <form className="flex items-center inputContainer">
-            <input type="email" className="subscribeInput" placeholder="Enter your email" />
-          <div className="inputArrow"><button type="submit" className="subscribeButton">➔</button></div>
+          <div className="px-20 mt-8 rounded-lg">
+            <form className="flex items-center rounded-lg">
+              <input type="email" placeholder="Enter your email" color="black" />
+              <button type="submit" className="text-blue-900">➔</button>
             </form>
           </div>
           </div>

@@ -124,9 +124,9 @@ const MarketPlace = () => {
                 <SectionDivider label="Your Listings" />
               </div>
               <div className="w-screen flex flex-wrap gap-5 justify-center py-5">
-                {courseData.courses.map((course, index) => (
+                {/* {courseData.courses.map((course, index) => (
                   <Card key={index} {...course} />
-                ))}
+                ))} */}
               </div>
             </div>
           )}

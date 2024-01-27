@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 
 const Timer = () => {
 
-  // Function to calculate remaining time for each course
   const calculateRemainingTime = () => {
     const currentDate = new Date();
 
@@ -14,12 +13,14 @@ const Timer = () => {
       const daysRemaining = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
       const hoursRemaining = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutesRemaining = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+      const secondsRemaining = Math.floor((timeDifference % (1000 * 60 * 60 * 60)) / (1000 * 60));
 
       return {
         ...course,
         daysRemaining,
         hoursRemaining,
-        minutesRemaining
+        minutesRemaining,
+        secondsRemaining
       };
     });
 

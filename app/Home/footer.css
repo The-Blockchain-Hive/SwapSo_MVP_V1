@@ -1,9 +1,8 @@
-.inputContainer {
+/* .inputContainer {
   display: flex;
   align-items: center;
-  background-color: white; /* Set the background color for the input container */
-  border: 1px solid #ddd;
-  border-radius: 20px;
+  background-color: white; 
+  border-radius: 50px;
   padding: 5px;
 }
 .subscribeButton {
@@ -13,11 +12,11 @@
   border-radius: 20px;
   padding: 10px 20px;
   cursor: pointer;
-}
-.inputArrow {
+} */
+/* .inputArrow {
   padding: 0 5px;
-  color: #000000; /* Set arrow color */
- }
+  color: #000000; 
+ } */
 /* Footer styles
 .footer {
     min-width: 100vw;

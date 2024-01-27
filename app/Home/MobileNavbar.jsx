@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FaUser } from 'react-icons/fa';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 import Image from 'next/image';
 import Link from 'next/link';
 import './MobileNavbar.css';
@@ -81,7 +81,7 @@ function MobileNavbar() {
           </ul>
           <div>
           <div className="dropdown">
-          <w3m-button />
+            <ConnectButton />
           </div>
         </div>
         </div>

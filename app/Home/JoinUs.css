@@ -10,12 +10,11 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #fff;
     padding: 2%;
-    min-width: 40vw;
     border-radius: 20px;
-    margin-right: 0.25rem;
+    margin-right: 5vw;
     justify-content: center;
     text-align: center;
-    box-shadow: 0 20px 50px rgb(1, 1, 151);
+    box-shadow: 0 10px 10px rgb(1, 1, 151);
 }
 
 .educator{
@@ -23,9 +22,11 @@
     background-color: #000103;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #fff;
-    min-width: 40vw;
     padding: 2%;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 20px 50px rgb(1, 1, 151);
+    box-shadow: 0 10px 10px rgb(1, 1, 151);
+}
+.h1:hover{
+    color: blue;
 }
