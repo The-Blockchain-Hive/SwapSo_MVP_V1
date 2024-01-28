@@ -67,7 +67,7 @@ const TrackPath = () => {
             <p className="font-bold">Stage 3</p>
               <ul className="">
                 <li>B2B Integration API</li>
-                <ul className=""> Onboarding Institutes for 
+                <ul className="text-bold"> Onboarding Institutes for:
                   <li>Running Electives</li>
                   <li>Blockchain based certification</li>
                   <li>Onchain identity for students</li>

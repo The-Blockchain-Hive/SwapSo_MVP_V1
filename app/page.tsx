@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Navbar from './Home/navbar.jsx';
 import Navbar2 from './Home/MobileNavbar.jsx';
 import Courses from './Home/courses.jsx';
+import TrackPath from './Home/Trackpath.jsx';
 import Partner from './Home/partner.jsx';
 import JoinUs from './Home/JoinUs.jsx';
 import ContactForm from './Home/contact.jsx';
@@ -46,9 +47,6 @@ export default function Home() {
                 onInit={(typewriter) => {
                 typewriter.typeString(
                   '<span style="color: #b31c96; background-image: -webkit-linear-gradient(0deg, #b31c96 26%, #1e2dbd 100%, #6f54a4 47%); background-clip: text; -webkit-background-clip: text; text-align: center; text-fill-color: transparent; -webkit-text-fill-color: transparent">BUY.LEARN.EARN</span>')
-                    .callFunction(() => {
-                console.log('String typed out!');
-              })
                 .pauseFor(2500)
                 .deleteAll()
                 .pauseFor(1500)
@@ -103,8 +101,7 @@ export default function Home() {
         </div> */}
       <div className='mt-12'>
         <h2 className="text-6xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-100"> Track Path</h2>
-        
-        {/* <TrackPath /> */}
+        <TrackPath />
       </div>
 
       <div className='mt-24'>
