@@ -15,6 +15,7 @@
     width: 100%;
   }
   
+
   .mobile__navbar, .mobile__inner__navbar {
     display: flex;
     justify-content: center;
@@ -74,4 +75,4 @@
     font-size: 20px;
     margin: 5px;
     text-align: left;
-  }/*# sourceMappingURL=MobileNavbar.css.map */
+  }

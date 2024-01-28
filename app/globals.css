@@ -16,26 +16,19 @@
 
 
 
-@media (prefers-color-scheme: dark) {
   :root {
-    --max-height: 100vh;
-    --foreground-rgb: 0, 0, 0;
+    --foreground-rgb: 255, 255, 255;
     --background-initial-rgb: 0, 0, 0;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
 
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-
-    overflow-x: hidden;   
+      #000, #000
+  )
 }
 
 body::-webkit-scrollbar {
@@ -50,6 +43,8 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
+
+
 
 /* .gradient-bg {
   background: linear-gradient(to bottom, #323aa4, #000000); 
