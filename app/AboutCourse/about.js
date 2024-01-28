@@ -72,8 +72,8 @@ export default function AboutSection() {
   <div className="mx-auto my-auto">
     <h2 className="text-center text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-700 mb-10">About the Course</h2>        
   </div>
-  <div className='w-2/4 mx-auto mb-12'>
-    <p className='text-center text-justify text-2xl mx-8'>{aboutCourseData.course.about}{aboutCourseData.course.about}{aboutCourseData.course.about}</p> {/* Adjusted margins */}
+  <div className='w-4/5 lg:w-1/2 xl:w-1/2 mx-auto mb-12'>
+    <p className='text-center text-justify text-md md:text-xl lg:text-2xl xl:text-2xl mx-8'>{aboutCourseData.course.about}{aboutCourseData.course.about}{aboutCourseData.course.about}</p>
   </div>
 </section>
 

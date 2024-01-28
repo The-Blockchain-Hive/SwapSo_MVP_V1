@@ -74,11 +74,18 @@ export default function Home() {
 
       <h2 className="text-6xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-100">About Us</h2>
       <div className="relative">
-        <div className='mt-32 w-full mx-auto rounded-lg text-center flex flex-col xl:flex-row lg:flex-row'>
-          <div className='w-screen sm:w-2/3 lg:ml-12 xl:ml-32 mx-auto md:w-1/2 overflow-hidden'>
-            <Image src="/about.png" width={500} height={100} alt={''} />
+        <div className='mt-16 w-full mx-auto rounded-lg text-center flex flex-col xl:flex-row lg:flex-row'>
+          <div className='w-screen lg:ml-12 xl:ml-32 mx-auto md:w-1/2 overflow-hidden'>
+            <video
+              autoPlay
+              muted
+              loop
+              className=" w-full z-[-1]"
+            >
+              <source src="/trackpath.mp4" type="video/mp4" />
+            </video>
           </div>
-          <div className='w-2/3 mx-auto sm:w-1/2 md:w-1/2 lg:w-1/2 lg:mr-32 xl:w-1/2 xl:mr-48'>
+          <div className='w-2/3 lg:mt-16 xl:mt-16 mx-auto sm:w-1/2 md:w-1/2 lg:w-1/2 lg:mr-32 xl:w-1/2 xl:mr-48'>
             <h1 className='text-bold text-indigo-500 text-5xl mb-4'>
               SWAPSO
             </h1>
@@ -96,14 +103,7 @@ export default function Home() {
         </div> */}
       <div className='mt-12'>
         <h2 className="text-6xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-100"> Track Path</h2>
-        <video
-          autoPlay
-          muted
-          loop
-          className=" w-full object-cover z-[-1]"
-        >
-          <source src="/trackpath.mp4" type="video/mp4" />
-        </video>
+        
         {/* <TrackPath /> */}
       </div>
 
