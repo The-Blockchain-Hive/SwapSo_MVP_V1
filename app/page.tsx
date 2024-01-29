@@ -54,10 +54,10 @@ export default function Home() {
               }} />
             </h1>
             {/* <Card/> */}
-            <h1 className='text-xl text-justify text-center w-1/2 xl:mr-48'>
+            <h1 className='text-xl text-justify  w-1/2 xl:mr-48'>
               Platform where you can buy courses, learn and resell to earn from it!
             </h1>
-            <div className="bg-cyan-950 text-cyan-400 border border-cyan-400 border-b-4 font-medium overflow-hidden relative px-8 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group mt-8 font-bold xl:mr-48"><button className="bg-cyan-400 shadow-cyan-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)] ml-20"></button>Blogs ➔</div>
+            <div className="bg-cyan-950 text-cyan-400 border border-cyan-400 border-b-4  overflow-hidden relative px-8 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group mt-8 font-bold xl:mr-48"><button className="bg-cyan-400 shadow-cyan-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)] ml-20"></button>Blogs ➔</div>
           </div>
         </div>
         <video
@@ -87,7 +87,7 @@ export default function Home() {
             <h1 className='text-bold text-indigo-500 text-5xl mb-4'>
               SWAPSO
             </h1>
-            <h1 className='text-center text-xl mx-auto mt-16 text-1xl text-justify'>
+            <h1 className=' text-xl mx-auto mt-16 text-1xl text-justify'>
               A platform by the learners, for the learners which focuses on increasing completion rates in the edtech industry and incentivizes aka reward people for quick completion of courses.Tailored for skill development courses created by top educators.
             </h1>
           </div>
