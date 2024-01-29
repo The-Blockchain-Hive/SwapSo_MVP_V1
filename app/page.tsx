@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Navbar from './Home/navbar.jsx';
 import Navbar2 from './Home/MobileNavbar.jsx';
 import Courses from './Home/courses.jsx';
-import TrackPath from './Home/Trackpath.jsx';
+import TrackPath from './Home/TrackPath.jsx';
 import Partner from './Home/partner.jsx';
 import JoinUs from './Home/JoinUs.jsx';
 import ContactForm from './Home/contact.jsx';
