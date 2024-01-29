@@ -5,6 +5,7 @@ import Navbar2 from "../Home/MobileNavbar";
 import Card from "../components/Card";
 import SearchBar from "../components/SearchBar";
 import SectionDivider from "../components/SectionDivider";
+import Timer from "../components/timer";
 import MyCourses from "../components/MyCourses";
 
 const MarketPlace = () => {

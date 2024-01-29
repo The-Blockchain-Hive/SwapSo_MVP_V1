@@ -45,7 +45,7 @@ const Navbar = () => {
     <>
       
       <nav id="navbar1" className="sticky mx-auto" ref={navbarRef}>
-          <Image className="logo1" src="/newlogo.svg" alt="logo" width={150} height={100} />
+          <Image className="logo1" src="/newlogo.svg" alt="" width={150} height={100} />
         <ul className="nav-links">
           <li className="nav-list">
             <a href="/">Home</a>

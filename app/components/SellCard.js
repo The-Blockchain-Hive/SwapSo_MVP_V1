@@ -1,26 +1,11 @@
-import React, { useState } from 'react';
-import Timer from './timer';
-import Link from 'next/link';
+import React from 'react';
 import Image from 'next/image';
-import SellPopUp from './SellPopUp';
+import Link from 'next/link';
 
-const NewCard = (courseCopy) => {
+const SellCard = (courseCopy) => {
 
-	const [isPopupVisible, setIsPopupVisible] = useState(false);
-	const [purchasedCourses, setPurchasedCourses] = useState([]);
-	const [selectedTimeframe, setselectedTimeframe] = useState("1");
-
-	const togglePopup = () => {
-		setIsPopupVisible(!isPopupVisible);
-	}
-
-	const handlePurchase = () => {
-		setPurchasedCourses([...purchasedCourses, courseCopy]);
-		setIsPopupVisible(false);
-	}
-
-	return (
-		<div>
+    return (
+        <div>
 			<div className="cards w-[373px] h-max bg-gradient-to-b from-black to-blue-1100 bg-opacity-40 backdrop-blur-md drop-shadow-lg rounded-3xl text-neutral-300 m-1 flex flex-col hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">
 				<div>
 					<Image src={courseCopy.imageURL} width={300} height={100} alt='courses' className='object-cover object-top w-full h-1/2 rounded-tr-3xl rounded-tl-3xl' />
@@ -48,35 +33,28 @@ const NewCard = (courseCopy) => {
 				</div>
 				<p className="px-4 py-2">{courseCopy.courseDescription}</p>
 				<div className='flex flex-wrap justify-between px-4'>
-				<div className='rounded-full mt-2 px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500'>
-            			<Timer selectedTimeframe={selectedTimeframe} />
-          			</div>
-					<div className='mt-2 bg-white px-4 w-max  text-black rounded-full'>
+					<div className=' bg-white px-4 w-max  text-black rounded-full'>
 						<span>{courseCopy.courseDuration}</span>
 					</div>
-					<div className='mt-2 rounded-full px-4 w-max bg-transparent outline'>
+					<div className='rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500'>
+						<span>{courseCopy.coursePrice}</span>
+					</div>
+					<div className='rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500'>
+						<span>{courseCopy.Timer}</span>
+					</div>
+					<div className='rounded-full px-4 w-max bg-transparent outline'>
 						<span>50$</span>
 					</div>
-					{/* <div className='rounded-full px-4 mt-3 w-max bg-transparent outline'>
+					<div className='rounded-full px-4 mt-3 w-max bg-transparent outline'>
 						<span>{courseCopy.courseExpiry}</span>
-					</div> */}
+					</div>
 				</div>
 				<div className='flex justify-between px-4'>
 					<Link href='/'><button className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl">Learn</button></Link>
-					<button onClick={togglePopup} className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl">Sell Course</button>
 				</div>
-				{isPopupVisible && (
-		        <div className='fixed inset-0 z-100 backdrop-filter backdrop-blur-md flex items-center justify-center'> 
-		            <SellPopUp
-					 handleClose={handlePurchase} onCoursePurchase={courseCopy.onCoursePurchase} isPopupVisible={isPopupVisible} course={courseCopy} 
-					/>
-				</div>
-				)}
 			</div>
 		</div>
-	);
+    );
 };
-export default NewCard;
-//Next steps to do
-//Pass the object courseCopy inside an array
-//Then try to update the <NewCard /> component inside the courses.tsx on popup visible..
+
+export default SellCard;

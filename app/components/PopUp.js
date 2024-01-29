@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import NewCard from "./newCard";
+import React, { useState, useEffect } from "react";
 import { useDataContext } from "../context/DataContextProvider";
+
 function PopUp({ handleClose, course, onCoursePurchase }) {
+  
   const [isPurchaseComplete, setPurchaseComplete] = useState(false);
   const [courseCopyArray, setCourseCopyArray] = useState([]);
 
@@ -34,24 +35,10 @@ function PopUp({ handleClose, course, onCoursePurchase }) {
     await payFees(Price);
     setPurchaseComplete(true);
     handleClose();
-    const { Timer, button } = courseCopy;
-    const CardArray = {
-      newArray: [
-        {
-          id: id, // assign the value of the courseCopy to the parameters here
-          imageURL: imageURL,
-          courseTitle: courseTitle,
-          courseDescription: courseDescription,
-          courseDuration: courseDuration,
-          Timer: Timer,
-          button: button,
-        },
-      ],
-    };
-    console.log(CardArray);
   }
 
-  const [selectedTimeframe, setselectedTimeframe] = useState("1 week");
+  const [selectedDay, setselectedDay] = useState('1 day')
+  const [selectedTimeframe, setselectedTimeframe] = useState('1 day');
   const [Price, setPrice] = useState(5);
 
   const handleTimeframeChange = (e) => {
@@ -59,14 +46,18 @@ function PopUp({ handleClose, course, onCoursePurchase }) {
     switch (e.target.value) {
       case "1 day":
         setPrice(5);
+        setselectedDay(1);
         break;
       case "2 days":
+        setselectedDay(2);
         setPrice(10);
         break;
       case "3 days":
+        setselectedDay(3);
         setPrice(15);
         break;
       case "4 days":
+        setselectedDay(4);
         setPrice(20);
         break;
     }

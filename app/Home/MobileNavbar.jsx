@@ -25,7 +25,7 @@ function MobileNavbar() {
     <nav className="mobile__navbar">
       <div className='mobile__inner__navbar'>
         <div className="left_navbar">
-          <Image className="logo1" src="/newlogo.svg" alt='logo1' width={100} height={100} />
+          <Image className="logo1" src="/newlogo.svg" alt='' width={100} height={100} />
         </div>
         <div className='right_navbar'>
           <button className='navbar__icon' onClick={handleMenuToggle}>
