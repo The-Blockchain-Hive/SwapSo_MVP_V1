@@ -8,6 +8,8 @@ import SectionDivider from "../components/SectionDivider";
 import MyCourses from "../components/MyCourses.tsx";
 import { getDocs, collection, doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase.js"; 
+import Timer from "../components/timer";
+
 
 const MarketPlace = () => {
 

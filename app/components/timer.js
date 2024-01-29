@@ -1,47 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from 'react';
 
-
-const Timer = () => {
-
-  const calculateRemainingTime = () => {
-    const currentDate = new Date();
-
-    const updatedCourses = initialCourseData.courses.map(course => {
-      const expiryDate = new Date(course.courseExpiry);
-      const timeDifference = expiryDate - currentDate;
-
-      const daysRemaining = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-      const hoursRemaining = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutesRemaining = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-      const secondsRemaining = Math.floor((timeDifference % (1000 * 60 * 60 * 60)) / (1000 * 60));
-
-      return {
-        ...course,
-        daysRemaining,
-        hoursRemaining,
-        minutesRemaining,
-        secondsRemaining
-      };
-    });
-
-    setCourseData({
-      courses: updatedCourses
-    });
-  };
-
-  // Call the function initially
-  calculateRemainingTime();
+const Timer = ({ selectedTimeframe }) => {
+  const [timeLeft, setTimeLeft] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      calculateRemainingTime();
-    }, 1000 * 60); 
-    return () => clearInterval(interval);
-  }, []);
+    const daysInSelectedTimeframe = parseInt(selectedTimeframe)
+    const timeframeInSeconds = daysInSelectedTimeframe * 24 * 60 * 60;
+    setTimeLeft(timeframeInSeconds);
+    console.log("selected timeframe:", selectedTimeframe);
+    console.log("time in seconds", timeframeInSeconds);
+    const countdown = setInterval(() => {
+      setTimeLeft((prevTime) => (prevTime <= 0 ? 0 : prevTime - 1));
+    }, 1000);
+
+    return () => clearInterval(countdown);
+  }, [selectedTimeframe]);
+
+  const days = Math.floor(timeLeft / (60 * 60 * 24));
+  const hours = Math.floor(((timeLeft % (60 * 60 * 24)) / (60 * 60)));
+  const minutes = Math.floor((timeLeft % (60 * 60)) / 60);
+  const seconds = timeLeft % 60;
 
   return (
-    <main className="bg-gradient-to-b from-blue-1125 to-blue-1150">
-    </main>
+    <div>
+      {days} D : {hours} H : {minutes} M : {seconds} S  remaining
+    </div>
   );
 };
 

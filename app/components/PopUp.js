@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import NewCard from "./newCard";
+import React, { useState, useEffect } from "react";
 import { useDataContext } from "../context/DataContextProvider";
 import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase.js";
@@ -30,7 +29,8 @@ function PopUp({ handleClose, currentCourse }) {
     handleClose();
   }
 
-  const [selectedTimeframe, setselectedTimeframe] = useState("1 week");
+  const [selectedDay, setselectedDay] = useState('1 day')
+  const [selectedTimeframe, setselectedTimeframe] = useState('1 day');
   const [Price, setPrice] = useState(5);
 
   const handleTimeframeChange = (e) => {
@@ -38,14 +38,18 @@ function PopUp({ handleClose, currentCourse }) {
     switch (e.target.value) {
       case "1 day":
         setPrice(5);
+        setselectedDay(1);
         break;
       case "2 days":
+        setselectedDay(2);
         setPrice(10);
         break;
       case "3 days":
+        setselectedDay(3);
         setPrice(15);
         break;
       case "4 days":
+        setselectedDay(4);
         setPrice(20);
         break;
     }
