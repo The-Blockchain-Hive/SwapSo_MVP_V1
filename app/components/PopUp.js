@@ -1,54 +1,33 @@
 import React, { useState } from "react";
 import NewCard from "./newCard";
 import { useDataContext } from "../context/DataContextProvider";
-function PopUp({ handleClose, course, onCoursePurchase }) {
-  const [isPurchaseComplete, setPurchaseComplete] = useState(false);
-  const [courseCopyArray, setCourseCopyArray] = useState([]);
+import { UserAuth } from "../context/AuthContext";
+import { db } from "../firebase.js";
+import { doc, collection, serverTimestamp, setDoc } from "firebase/firestore"; 
+
+function PopUp({ handleClose, currentCourse }) {  
 
   const { address, chain, payFees } = useDataContext();
-
+  const { user } = UserAuth();
   
-  async function handlePay() {
-    console.log("Course purchased!");
-    console.log(course);
-    const { id, imageURL, courseTitle, courseDescription, courseDuration } =
-      course;
-    const courseCopy = {
-      id,
-      imageURL,
-      courseTitle,
-      courseDescription,
-      courseDuration,
-      Timer: "3 days remaining",
-      button: "Sell Course",
-    };
-    console.log(courseCopy);
-    if (typeof onCoursePurchase === "function") {
-      onCoursePurchase(courseCopy);
-    }
-    if(!address){
-        alert("Please connect wallet");
-        return;
+  async function handlePay(course) {
+    const userId = user.uid;
+    console.log("user id: ",userId);
+    console.log("Course: ",course);
+    const userRef = doc(db, "Users", userId);
+    const coursesRef = collection(userRef, "My_Courses");
+
+    try {
+      await setDoc(doc(coursesRef,userId), {
+        ...course,
+        purchaseDate: serverTimestamp(),
+      });
+      console.log("course pushed to my courses")
+    } catch (error) {
+      console.log(error);
     }
 
-    await payFees(Price);
-    setPurchaseComplete(true);
     handleClose();
-    const { Timer, button } = courseCopy;
-    const CardArray = {
-      newArray: [
-        {
-          id: id, // assign the value of the courseCopy to the parameters here
-          imageURL: imageURL,
-          courseTitle: courseTitle,
-          courseDescription: courseDescription,
-          courseDuration: courseDuration,
-          Timer: Timer,
-          button: button,
-        },
-      ],
-    };
-    console.log(CardArray);
   }
 
   const [selectedTimeframe, setselectedTimeframe] = useState("1 week");
@@ -81,7 +60,7 @@ function PopUp({ handleClose, course, onCoursePurchase }) {
                         </button>
                     </div>
                     <div className="w-[130px] md:w-[130px] lg:w-[145px] xl:w-[145px] h-[46px] px-[63px] pt-4 pb-[15px] left-[175px] md:left-[200px] lg:left-[225px] xl:left-[225px] top-[213px] absolute bg-blue-600 rounded-[5px] justify-center items-center inline-flex">
-                        <button onClick={handlePay} className="text-justify text-white text-xl font-medium font-['Inter'] leading-[17px]">Pay ${Price}</button>
+                        <button onClick={()=> {handlePay(currentCourse)}} className="text-justify text-white text-xl font-medium font-['Inter'] leading-[17px]">Pay ${Price}</button>
                     </div>
                     <div className="left-[397px] top-[181px] absolute text-justify text-black text-base font-medium font-['Inter'] leading-[17px]"> </div>
                     <div className="left-[22px] top-[31px] absolute text-justify text-black text-xl font-medium font-['Inter'] leading-[17px]">Basics of Metaverse</div>

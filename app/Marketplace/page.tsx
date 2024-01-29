@@ -2,9 +2,12 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../Home/navbar";
 import Navbar2 from '../Home/MobileNavbar.jsx';
-import Card from "../components/Card";
+import SellCard from "../components/SellCard.tsx";
 import SearchBar from "../components/SearchBar";
+import MyListings from "../components/MyListings.tsx"
 import SectionDivider from "../components/SectionDivider";
+import { getDocs, collection, doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase.js"; 
 
 const MarketPlace = () => {
   const[isPopupVisible, setIsPopupVisible] = useState(false);
@@ -17,43 +20,45 @@ const MarketPlace = () => {
   //   setIsPopupVisible(false);
   // }
   
+  interface Course {    
+    
+    AboutCourse: string;
+    CourseName: string;
+    short_desc: string;
+    CourseDuration: number;
+    CourseEducator: string;
+    EducatorImgUrl: string;
+    EducatorSocials: string;
+    Educator_desc: string;
+    PricePerDay: number;
+    WhatLearn: string;
+    listingPrice: number;
+    
+  }
 
-  const courseData =  {
-        "courses": [
-          {
-            "imageURL": "/meta.png",
-            "courseTitle": "Introduction to Programming",
-            "courseDescription": "Learn the basics of programming with this comprehensive introductory course.",
-            "courseDuration": "4 weeks",
-            "coursePrice": "$49.99",
-            "courseExpiry": "2024-01-01"
-          },
-          {
-            "imageURL": "/metaverse2.png",
-            "courseTitle": "Web Development Fundamentals",
-            "courseDescription": "Explore the fundamentals of web development, including HTML, CSS.",
-            "courseDuration": "6 weeks",
-            "coursePrice": "$79.99",
-            "courseExpiry": "2024-02-15"
-          },
-          {
-            "imageURL": "/js1.png",
-            "courseTitle": "Data Science Essentials",
-            "courseDescription": "Dive into the world of data science and learn essential skills for data analysis.",
-            "courseDuration": "8 weeks",
-            "coursePrice": "$99.99",
-            "courseExpiry": "2024-03-30"
-          },
-          {
-            "imageURL": "/js2.png",
-            "courseTitle": "Mobile App Development with React Native",
-            "courseDescription": "Build cross-platform mobile apps using React Native framework.",
-            "courseDuration": "10 weeks",
-            "coursePrice": "$119.99",
-            "courseExpiry": "2024-04-20"
-          }
-        ]
-      }
+  const [coursesData, setCoursesData] = useState<Course[]>([]);
+
+
+  const fetchData = async () => {
+    try {
+      console.log("Fetching data");
+      const coursesSnapshot = await getDocs(collection(db, "Marketplace"));
+
+      const courses = coursesSnapshot.docs.map((doc) => {
+        const ids = doc.id;
+        const courseData = doc.data() as Course;
+        return { ids, ...courseData };
+      });
+
+      setCoursesData(courses);
+      console.log(courses);  
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error;
+    }
+  };
+
+
       const [isMobile, setIsMobile] = useState(false);
       const [showMarketPlace, setShowMarketPlace] = useState(true);
       const [showYourListings, setShowYourListings] = useState(false);
@@ -64,6 +69,7 @@ const MarketPlace = () => {
         };
     
         handleResize();
+        fetchData();
     
         window.addEventListener('resize', handleResize);
     
@@ -111,25 +117,36 @@ const MarketPlace = () => {
               <div className="bg-transparent">
                 <SectionDivider label="Market Place" />
               </div>
-              <div className="w-screen flex flex-wrap gap-5 justify-center py-5">
+              {/* <div className="w-screen flex flex-wrap gap-5 justify-center py-5">
                 {courseData.courses.map((course, index) => (
                   <Card key={index} {...course} />
                 ))}
-              </div>
+              </div> */}
             </div>
           )}
           {showYourListings && (
-            <div>
-              <div className="bg-transparent">
-                <SectionDivider label="Your Listings" />
-              </div>
-              <div className="w-screen flex flex-wrap gap-5 justify-center py-5">
-                {/* {courseData.courses.map((course, index) => (
-                  <Card key={index} {...course} />
-                ))} */}
-              </div>
-            </div>
+            <div><div className="bg-transparent">
+            <SectionDivider label="Your Listings"/>                
+          </div>
+          <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
+            <MyListings/>
+          </div></div>            
+              
           )}
+          {showMarketPlace&&(
+          <div className="w-screen flex flex-wrap gap-5 justify-center py-5">
+              {coursesData.map((course, index) => (
+                <SellCard           
+                  CourseImgUrl="https://picsum.photos/200/300"             
+                      key={index} {...course} 
+                      />
+                ))
+              }
+              </div>
+              )}
+              
+            
+          
           
         </main>
     )

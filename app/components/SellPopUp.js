@@ -1,13 +1,50 @@
 import React, { useState } from 'react';
+import { UserAuth } from "../context/AuthContext";
+import { db } from "../firebase.js";
+import { doc, collection, deleteDoc, serverTimestamp, setDoc } from "firebase/firestore"; 
 
-const SellPopUp = ({handleClose}) => {
+const SellPopUp = ({handleClose, currentCourse}) => {
 
     const [listingAmount, setListingAmount] = useState('');
     const [courseComment, setCourseComment] = useState('');
 
-    const handleSell = () => {
+    const { user } = UserAuth();
+
+    const handleSell = async(course) => {
         console.log('Course Sold', listingAmount);
         console.log(courseComment);
+
+        const userId = user.uid;
+        console.log("user id: ",userId);
+        console.log("Course: ",course);
+        
+        const userRef = doc(db, "Users", userId);
+        const marketRef = collection(userRef, "My_Listings");
+        const coursesRef = collection(userRef,"My_Courses");
+        try {
+            await setDoc(doc(marketRef,userId), {
+              ...course,
+              listedDate: serverTimestamp(),
+              listingPrice: listingAmount,
+              listingComment: courseComment
+            });
+            console.log("course pushed to my listing");
+
+            await setDoc(doc(db,"Marketplace",userId),{
+                ...course,
+              listedDate: serverTimestamp(),
+              listingPrice: listingAmount,
+              listingComment: courseComment
+            });
+            console.log("course added to MarketPlace")
+
+            await deleteDoc(doc(coursesRef,userId));
+            console.log("course deleted from My Courses ")
+
+          } catch (error) {
+            console.log(error);
+          }
+
         handleClose();
     }
     const handleAmountChange = (event) => {
@@ -23,7 +60,7 @@ const SellPopUp = ({handleClose}) => {
         <button onClick={handleClose} className="text-justify text-red-600 text-xl font-medium font-['Inter'] leading-[17px]">Cancel</button>
     </div>
     <div className="w-[130px] md:w-[130px] lg:w-[145px] xl:w-[145px] h-[46px] px-[63px] pt-4 pb-[15px] left-[220px] md:left-[200px] lg:left-[200px] xl:left-[200px] top-[230px] absolute bg-blue-600 rounded-[5px] justify-center items-center inline-flex">
-    <button onClick={handleSell} className="text-justify text-white text-xl font-medium font-['Inter'] leading-[17px]">List</button>
+    <button onClick={()=> {handleSell(currentCourse)}} className="text-justify text-white text-xl font-medium font-['Inter'] leading-[17px]">List</button>
     </div>
     <div className="left-[397px] top-[181px] absolute text-justify text-black text-base font-medium font-['Inter'] leading-[17px]"> </div>
     <div className="left-[22px] top-[29px] absolute text-justify text-black text-xl font-medium font-['Inter'] leading-[17px]">Basics of Metaverse</div>

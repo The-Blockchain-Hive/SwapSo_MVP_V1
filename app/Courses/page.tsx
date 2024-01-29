@@ -2,61 +2,60 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../Home/navbar";
 import Navbar2 from "../Home/MobileNavbar";
-import Card from "../components/Card";
+import Card from "../components/Card.tsx";
 import SearchBar from "../components/SearchBar";
 import SectionDivider from "../components/SectionDivider";
-import MyCourses from "../components/MyCourses";
+import MyCourses from "../components/MyCourses.tsx";
+import { getDocs, collection, doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase.js"; 
 
 const MarketPlace = () => {
 
   const [isPopupVisible, setIsPopupVisible] = useState(false);
-       
-  const courseData =  {
-        "courses": [
-          {
-            "id": "1",
-            "imageURL": "/meta.png",
-            "courseTitle": "Introduction to Programming",
-            "courseDescription": "Learn the basics of programming with this comprehensive introductory course.",
-            "courseDuration": "4 weeks",
-            "coursePrice": "$49.99",
-            "courseExpiry": "2024-01-01"
-          },
-          {
-            "id": "2",
-            "imageURL": "/metaverse2.png",
-            "courseTitle": "Web Development Fundamentals",
-            "courseDescription": "Explore the fundamentals of web development, including HTML, CSS.",
-            "courseDuration": "6 weeks",
-            "coursePrice": "$79.99",
-            "courseExpiry": "2024-02-15"
-          },
-          {
-            "id": "3",
-            "imageURL": "/js1.png",
-            "courseTitle": "Data Science Essentials",
-            "courseDescription": "Dive into the world of data science and learn essential skills for data analysis.",
-            "courseDuration": "8 weeks",
-            "coursePrice": "$99.99",
-            "courseExpiry": "2024-03-30"
-          },
-          {
-            "id": "4",
-            "imageURL": "/js2.png",
-            "courseTitle": "Mobile App Development with React Native",
-            "courseDescription": "Build cross-platform mobile apps using React Native framework.",
-            "courseDuration": "10 weeks",
-            "coursePrice": "$119.99",
-            "courseExpiry": "2024-04-20"
-          }
-        ]
-      }
+
+  interface Course {    
+    
+    AboutCourse: string;
+    CourseName: string;
+    short_desc: string;
+    CourseDuration: number;
+    CourseEducator: string;
+    EducatorImgUrl: string;
+    EducatorSocials: string;
+    Educator_desc: string;
+    PricePerDay: number;
+    WhatLearn: string;
+    
+  }
+
+  const [coursesData, setCoursesData] = useState<Course[]>([]);
+
+  const fetchData = async () => {
+    try {
+      const coursesSnapshot = await getDocs(collection(db, "Courses"));
+
+      const courses = coursesSnapshot.docs.map((doc) => {
+        const ids = doc.id;
+        const courseData = doc.data() as Course;
+        return { ids, ...courseData };
+      });
+
+      setCoursesData(courses);
+      console.log(courses);  
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error;
+    }
+  };
+
       
       const [isMobile, setIsMobile] = useState(false);
       useEffect(() => {
         const handleResize = () => {
           setIsMobile(window.innerWidth <= 768);
         };
+
+        fetchData();
     
         handleResize();
     
@@ -67,20 +66,11 @@ const MarketPlace = () => {
         };
       }, []);
 
-      type CourseCopyType = {
-        id: string;
-        imageURL: string;
-        courseTitle: string;
-        courseDescription: string;
-        courseDuration: string;
-        Timer: string;
-        button: string;
-        // ... other properties
-      };
+      
 
-      const [purchasedCourses, setPurchasedCourses] = useState<CourseCopyType[]>([]);
+      const [purchasedCourses, setPurchasedCourses] = useState<Course[]>([]);
 
-      const handleCoursePurchase = (courseCopy: CourseCopyType) => {
+      const handleCoursePurchase = (courseCopy: Course) => {
         setPurchasedCourses((prevCourses) => [...prevCourses, courseCopy]);
       };
 
@@ -91,7 +81,8 @@ const MarketPlace = () => {
             {isMobile ? <Navbar2 /> : <Navbar />}
           </div>
         <div className="py-5 mb-10">  
-          <SearchBar/> 
+          <SearchBar/>
+          {/* <button onClick={fetchData}>Testing</button>  */}
         </div>
         <div className="flex justify-center py-5">
           <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">
@@ -102,16 +93,17 @@ const MarketPlace = () => {
           <SectionDivider label="My Courses" />      
         </div>                 
         <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
-              <MyCourses purchasedCourses={purchasedCourses}/>
+              <MyCourses/>
         </div>
         <div className="bg-transparent">
           <SectionDivider label="Market Place" />      
         </div>
         <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
-            {courseData.courses.map((course, index) => (
-              <Card onCoursePurchase={handleCoursePurchase} 
+            {coursesData.map((course, index) => (
+              <Card             
+              CourseImgUrl="https://picsum.photos/200/300"             
                     key={index} {...course} 
-                    courseData={courseData} />
+                    />
               ))
             }
         </div>
