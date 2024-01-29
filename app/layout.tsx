@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { WagmiConfig } from "wagmi";
-
+import { AuthContextProvider } from "./context/AuthContext";
 import "@rainbow-me/rainbowkit/styles.css";
 import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { wagmiConfig, chains } from "./utils/wallet-utils";
@@ -21,9 +21,9 @@ export default function RootLayout({
       <body className={inter.className}>
       <WagmiConfig config={wagmiConfig}>
       <RainbowKitProvider chains={chains}>
-    
+      <AuthContextProvider> 
            <DataContextProvider>{children} </DataContextProvider> 
-     
+      </AuthContextProvider>
       </RainbowKitProvider>
     </WagmiConfig>
       </body>

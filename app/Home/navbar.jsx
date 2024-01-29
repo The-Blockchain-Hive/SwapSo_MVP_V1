@@ -3,12 +3,22 @@ import React, { useState, useEffect , useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "./navbar.css";
+import { UserAuth } from "../context/AuthContext";
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 
 const Navbar = () => {
   const navbarRef = useRef(null);
+  const {  user,LogOut } = UserAuth();
   let lastScrollTop = 0;
   const delta = 5;
+
+  const handleSignOut = async () => {
+    try {
+    await LogOut();
+    } catch (error) {
+    console.log(error);
+    }
+};
   
   useEffect(() => {
     const handleScroll = () => {
@@ -57,12 +67,13 @@ const Navbar = () => {
             <Link href="/Marketplace">Market Place</Link>
           </li>
         </ul>
-        {/* <div>
-         <Link href="/"><button>Sign In</button></Link>
-        </div> */}
+        { <div>
+         {!(user)?
+            (<button><a href="/login">Sign in</a></button>):(<button onClick={handleSignOut}>Sign Out</button>)}
+        </div> }
         <div>
           <div className="dropdown">
-            <ConnectButton />
+            <ConnectButton/>            
           </div>
         </div>
       </nav>
