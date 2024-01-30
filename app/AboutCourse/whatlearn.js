@@ -8,7 +8,7 @@ export default function WhatWillYouLearnSection ()  {
           "description": "Welcome to Web3 Concepts- : Your Guide to the New Internet Realm. This specially designed course aims to transport you into the world of Web3, the next generation of the internet. Whether you're a beginner stepping into the digital realm or a tech enthusiast looking to keep up with the internet's evolution, we have got you covered. By the end of this course, you won’t just understand Web3 — you'll be poised to contribute to this new era of digital evolution. ",
           "tags": ["React", "JavaScript", "Web Development"],
           "imageUrl": "/path/to/hero-image.jpg",
-          "learnTopics": ["Decentralization", "Cryptocurrencies", "Smart Contracts", "DApps & DAOs", "Web3 Storage & IPFS", "Web3 Infrastructure"],
+          "learnTopics": ["Cryptography", "Hyperledger", "Solidity", "Bitcoin ", "Ethereum", "Smart Contracts "],
           "mentor": {
             "image": "/path/to/mentor-image.jpg",
             "name": "John Doe",

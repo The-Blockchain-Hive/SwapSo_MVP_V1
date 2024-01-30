@@ -21,7 +21,7 @@ const VideoCoursePage = () => {
   const [currentModule, setCurrentModule] = useState(1);
   const totalModules = 4;
 
-  const videoUrl = "https://www.youtube.com/watch?v=qP9U9NEaQHE"; // Replace with your video URL
+  const videoUrl = "https://youtu.be/Tksx5BnOj60"; // Replace with your video URL
 
   function navigateToModule(moduleNumber) {
     setCurrentModule(moduleNumber);

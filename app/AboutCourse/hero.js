@@ -6,11 +6,11 @@ export default function  HeroSection(){
 
     var aboutCourseData ={
         "course": {
-          "name": "Web 3 Wizard",
-          "description": "Dive into the future of the internet; start with Web3 basics and ascend to becoming a wizard of the decentralized digital world.",
+          "name": "Blockchain Bonanza",
+          "description": "In this course, take an exciting stroll with us through the world of Blockchain - discovering how it's changing things around us",
           "about": "In this comprehensive course, you'll learn the ins and outs of React and how to build modern web applications.",
           "tags": ["Decentralization", "Smart Contracts", "DApps & DAOs"],
-          "imageUrl": '/js.png',
+          "imageUrl": '/blockchain.jpg',
           "learnTopics": ["React Basics", "State Management", "Component Lifecycle", "React Hooks", "API Integration"],
           "mentor": {
             "image": "/path/to/mentor-image.jpg",
