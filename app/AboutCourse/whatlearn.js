@@ -5,11 +5,10 @@ export default function WhatWillYouLearnSection ()  {
     var aboutCourseData ={
         "course": {
           "name": "React Mastery",
-          "description": "Master React and build powerful web applications.",
-          "about": "In this comprehensive course, you'll learn the ins and outs of React and how to build modern web applications.",
+          "description": "Welcome to Web3 Concepts- : Your Guide to the New Internet Realm. This specially designed course aims to transport you into the world of Web3, the next generation of the internet. Whether you're a beginner stepping into the digital realm or a tech enthusiast looking to keep up with the internet's evolution, we have got you covered. By the end of this course, you won’t just understand Web3 — you'll be poised to contribute to this new era of digital evolution. ",
           "tags": ["React", "JavaScript", "Web Development"],
           "imageUrl": "/path/to/hero-image.jpg",
-          "learnTopics": ["React Basics", "State Management", "Component Lifecycle", "React Hooks", "API Integration", "React Libraries"],
+          "learnTopics": ["Decentralization", "Cryptocurrencies", "Smart Contracts", "DApps & DAOs", "Web3 Storage & IPFS", "Web3 Infrastructure"],
           "mentor": {
             "image": "/path/to/mentor-image.jpg",
             "name": "John Doe",

@@ -13,10 +13,10 @@ export default function MentorSection () {
           "learnTopics": ["React Basics", "State Management", "Component Lifecycle", "React Hooks", "API Integration"],
           "mentor": {
             "image": "teddy.jpg",
-            "name": "John Doe",
-            "description": "Mr. Metaverse 🌐 | Keynote speaker 🤵🏾‍♂️ | Afronaut futurist 🌍 | Helping Brands & Companies create value in the digital age ✨ | Top 30 most influential people in the Metaverse 🌌",
-            "skills": ["React", "Node.js", "JavaScript", "HTML", "CSS"],
-            "linkedin": "https://www.linkedin.com/in/johndoe/"
+            "name": "Harsh Ghodkar",
+            "description": "Blockchain Developer | Participant at  Summer of Bitcoin program | former member of Solana Labs |   Won 15+ blockchain hackathons |  Winner of Eth Global events |  Developer Relations Engineer at Web3Auth | Crafted Solana Curriculum ",
+            "skills": ["Blockchain", "Node.js", "Solidity"],
+            "linkedin": "https://www.linkedin.com/in/harsh-ghodkar/"
           },
           "curriculum": [
             {
@@ -90,12 +90,8 @@ export default function MentorSection () {
         </div>
         <div className="w-1/2 mr-96">
           {/* LinkedIn Link */}
-          <p className="mb-40 text-xl">{aboutCourseData.course.mentor.description}</p>
+          <p className="mb-4 text-xl">{aboutCourseData.course.mentor.description}</p>
           <a href={aboutCourseData.course.mentor.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-300">
-            <svg className="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-              {/* LinkedIn Icon */}
-              <path d="M2 2v20h20V2H2zm17.5 4a3.5 3.5 0 10-7 0 3.5 3.5 0 007 0zm-2 6v8h-3v-7.5c0-1.73-1.57-3.5-3.5-3.5S7 9.77 7 11.5V18H4v-8h3v1.5C7 9.1 8.57 7 11 7s4 2.1 4 4.5V18h-3z" />
-            </svg>
             {aboutCourseData.course.mentor.name} on LinkedIn
           </a>
         </div>

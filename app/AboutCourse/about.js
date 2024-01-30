@@ -6,7 +6,7 @@ export default function AboutSection() {
     "course": {
       "name": "React Mastery",
       "description": "Master React and build powerful web applications.",
-      "about": "In this comprehensive course, you'll learn the ins and outs of React and how to build modern web applications.",
+      "about": "Welcome to Web3 Concepts- : Your Guide to the New Internet Realm. This specially designed course aims to transport you into the world of Web3, the next generation of the internet. Whether you're a beginner stepping into the digital realm or a tech enthusiast looking to keep up with the internet's evolution, we have got you covered. By the end of this course, you won’t just understand Web3 — you'll be poised to contribute to this new era of digital evolution. ",
       "tags": ["React", "JavaScript", "Web Development"],
       "imageUrl": "/path/to/hero-image.jpg",
       "learnTopics": ["React Basics", "State Management", "Component Lifecycle", "React Hooks", "API Integration"],
@@ -73,7 +73,7 @@ export default function AboutSection() {
     <h2 className="text-center text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-700 mb-10">About the Course</h2>        
   </div>
   <div className='w-4/5 lg:w-1/2 xl:w-1/2 mx-auto mb-12'>
-    <p className='text-center text-justify text-md md:text-xl lg:text-2xl xl:text-2xl mx-8'>{aboutCourseData.course.about}{aboutCourseData.course.about}{aboutCourseData.course.about}</p>
+    <p className='text-center text-justify text-md md:text-xl lg:text-2xl xl:text-2xl mx-8'>{aboutCourseData.course.about}</p>
   </div>
 </section>
 

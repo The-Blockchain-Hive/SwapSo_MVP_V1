@@ -45,7 +45,7 @@ const VideoCoursePage = () => {
         <div className="bg-white shadow w-64 space-y-4 py-7 px-5 relative" onClick={() => setSidebarOpen(false)}>
           <div className="flex justify-between items-center">
             <div className="flex items-center">
-              <Image src="/logo.png" width={50} height={50} />
+              <Image src="/logo.png" width={50} height={50} alt='noe' />
               <h3 className="text-2xl font-semibold text-gray-700 ml-3">Modules</h3>
             </div>
           </div>
@@ -70,9 +70,10 @@ const VideoCoursePage = () => {
         </div>
       ) : (
         <div className="bg-white shadow w-20 flex flex-col items-center justify-between py-3 px-2 space-y-4">
-          <Image src="/logo.png" width={50} height={50} onClick={() => setSidebarOpen(true)} /> 
+          <Image src="/logo.png" width={50} height={50} onClick={() => setSidebarOpen(true)} alt='noe'/> 
           {[...Array(totalModules)].map((_, i) => (
             <div
+            key={i}
               className={`font-bold p-1 border-2 border-black rounded-full w-6 h-6 flex items-center justify-center cursor-pointer ${i+1 === currentModule ? 'bg-green-500 text-white' : 'text-black'}`} 
               onClick={() => navigateToModule(i+1)}
             >
