@@ -6,6 +6,7 @@ import { doc, collection, serverTimestamp, setDoc } from "firebase/firestore";
 
 function PopUp({ handleClose, currentCourse }) {  
 
+  // const [isPurchaseComplete, setPurchaseComplete] = useState(false);
   const { address, chain, payFees } = useDataContext();
   const { user } = UserAuth();
   
@@ -15,6 +16,19 @@ function PopUp({ handleClose, currentCourse }) {
     console.log("Course: ",course);
     const userRef = doc(db, "Users", userId);
     const coursesRef = collection(userRef, "My_Courses");
+
+
+    //in case transaction has to be made...
+    // if (typeof onCoursePurchase === "function") {
+    //   onCoursePurchase(courseCopy);
+    // }
+    // if(!address){
+    //     alert("Please connect wallet");
+    //     return;
+    // }
+
+    // await payFees(Price);
+    // setPurchaseComplete(true);
 
     try {
       await setDoc(doc(coursesRef,userId), {

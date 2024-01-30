@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Timer from './timer';
 import Link from 'next/link';
 import Image from 'next/image';
 import SellPopUp from './SellPopUp';
@@ -23,6 +24,7 @@ interface CardProps {
 
 	const [isPopupVisible, setIsPopupVisible] = useState(false);
 	const [currentCourse, setCurrentCourse] = useState<CardProps | null>(null);
+	const [selectedTimeframe, setselectedTimeframe] = useState("1");
 
 	const togglePopup = () => {
 		setCurrentCourse(props);
@@ -68,8 +70,8 @@ interface CardProps {
 					<div className='rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500'>
 						<span>${props.PricePerDay}/Week</span>
 					</div>
-					<div className='rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500'>
-						{/* <span>{Timer}</span> */}
+					<div className='mt-2 rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500'>
+					<Timer selectedTimeframe={selectedTimeframe} />
 					</div>
 					{/* <div className='rounded-full px-4 w-max bg-transparent outline'>
 						<span>50$</span>
