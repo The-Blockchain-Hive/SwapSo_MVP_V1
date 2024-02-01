@@ -22,6 +22,7 @@ const MarketPlace = () => {
     short_desc: string;
     CourseDuration: number;
     CourseEducator: string;
+    CourseImgUrl: number;
     EducatorImgUrl: string;
     EducatorSocials: string;
     Educator_desc: string;
@@ -102,8 +103,7 @@ const MarketPlace = () => {
         </div>
         <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
             {coursesData.map((course, index) => (
-              <Card             
-              CourseImgUrl="https://picsum.photos/200/300"             
+              <Card                        
                     key={index} {...course} 
                     />
               ))

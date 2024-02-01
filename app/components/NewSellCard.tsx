@@ -6,9 +6,9 @@ import SellPopUp from './SellPopUp';
 interface CardProps {    
     
     AboutCourse: string;
-    CourseName: string;
-	CourseImgUrl: string;
+    CourseName: string;	
     short_desc: string;
+	CourseImgUrl: number;
     CourseDuration: number;
     CourseEducator: string;
     EducatorImgUrl: string;
@@ -32,12 +32,13 @@ interface CardProps {
 	const handlePurchase = (course: CardProps) => {			
 		setIsPopupVisible(false);
 	};
+	const imgUrl = `/${props.CourseImgUrl}.png`;
 
 	return (
 		<div>
 			<div className="cards w-[373px] h-max bg-gradient-to-b from-black to-blue-1100 bg-opacity-40 backdrop-blur-md drop-shadow-lg rounded-3xl text-neutral-300 m-1 flex flex-col hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">
 				<div>
-					<Image src={props.CourseImgUrl} width={300} height={100} alt='courses' className='object-cover object-top w-full h-1/2 rounded-tr-3xl rounded-tl-3xl' />
+					<Image src={imgUrl} width={300} height={100} alt='courses' className='object-cover object-top w-full h-1/2 rounded-tr-3xl rounded-tl-3xl' />
 					<div className='w-full h-1/2 rounded-tr-3xl rounded-tl-3xl'></div>
 				</div>
 				<div className="flex justify-between p-4">
