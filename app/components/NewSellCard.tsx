@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import SellPopUp from './SellPopUp';
+import Timer from './timer';
 
 interface CardProps {    
     
@@ -70,7 +71,7 @@ interface CardProps {
 						<span>${props.PricePerDay}/Week</span>
 					</div>
 					<div className='rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500'>
-						{/* <span>{Timer}</span> */}
+						<Timer selectedTimeframe={undefined} />
 					</div>
 					{/* <div className='rounded-full px-4 w-max bg-transparent outline'>
 						<span>50$</span>
@@ -81,7 +82,7 @@ interface CardProps {
 				</div>
 				<div className='flex justify-between px-4'>
 					<Link href='/LearnCourse'><button className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl">Learn</button></Link>
-					<button onClick={togglePopup} className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl">Sell Course</button>
+					<button onClick={togglePopup} className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl">Withdraw</button>
 				</div>
 				{isPopupVisible && (
 		        <div className='fixed inset-0 z-100 backdrop-filter backdrop-blur-md flex items-center justify-center'> 

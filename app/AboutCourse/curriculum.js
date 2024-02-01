@@ -49,7 +49,7 @@ const CourseCurriculum = () => {
         },
         {
           "section": {
-            "title": "State Management",
+            "title": "Cryptocurrencies",
             "subsections": [
               {
                 "title": "Local State",
@@ -64,7 +64,7 @@ const CourseCurriculum = () => {
         },
         {
           "section": {
-            "title": "Advanced React",
+            "title": "Smart Contracts",
             "subsections": [
               {
                 "title": "React Hooks",
