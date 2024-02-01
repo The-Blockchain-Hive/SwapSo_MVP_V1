@@ -10,7 +10,7 @@ interface CardProps {
     
     AboutCourse: string;
     CourseName: string;
-	CourseImgUrl: string;
+	CourseImgUrl: number;
     short_desc: string;
     CourseDuration: number;
     CourseEducator: string;
@@ -36,19 +36,21 @@ interface CardProps {
 	const handlePurchase = (course: CardProps) => {			
 		setIsPopupVisible(false);
 	};
+
+	const imgUrl = `/${props.CourseImgUrl}.png`;
 	
 	
   return (
 	<div>
 	  <div className="cards w-[310px] sm:w-[350px] md:w-[350px] lg:w-[373px] xl:w-[373px] h-max bg-gradient-to-b from-black to-blue-1100 bg-opacity-40 backdrop-blur-md drop-shadow-lg rounded-3xl text-neutral-300 m-1 flex flex-col hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">
 	  <div>
+	  
 			<Image
-			  src={props.CourseImgUrl}
+			  src={imgUrl}
 			  width={300} 
 			  height={100} 
 			  alt='courses' 
-			  className='object-cover object-top w-full h-1/2 rounded-tr-3xl rounded-tl-3xl'
-			  loading='lazy'
+			  className='object-cover object-top w-full h-1/2 rounded-tr-3xl rounded-tl-3xl'			  
 			 />
 			<div className='w-full h-1/2 rounded-tr-3xl rounded-tl-3xl'></div>
 		</div>
