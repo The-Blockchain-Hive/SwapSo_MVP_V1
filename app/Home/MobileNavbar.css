@@ -1,5 +1,6 @@
 .mobile__navbar {
-    position: fixed;
+    position: relative;
+    opacity: 0.9;
     z-index: 1;
     background-color: #000;
     position: sticky;
@@ -59,9 +60,10 @@
     height: -moz-fit-content;
     height: fit-content;
     opacity: 100%;
+    align-items: center;
   }
   
-  .inner__mobile__navbar__menu li a {
+  .inner__mobile__navbar__menu li {
     opacity: 100%;
     background-color: #000;
     height: -moz-fit-content;

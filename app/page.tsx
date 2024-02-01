@@ -1,12 +1,13 @@
 "use client"
 import React, { useState, useEffect} from 'react';
-import Image from 'next/image';
+import Link from 'next/link';
 import Navbar from './Home/navbar.jsx';
 import Navbar2 from './Home/MobileNavbar.jsx';
 import Courses from './Home/courses.jsx';
 import TrackPath from './Home/TrackPath.jsx';
 import Partner from './Home/partner.jsx';
 import JoinUs from './Home/JoinUs.jsx';
+import CardEff from './Home/cardseffect.jsx';
 import ContactForm from './Home/contact.jsx';
 import Footer from './Home/footer.jsx';
 import Typewriter from 'typewriter-effect';
@@ -29,6 +30,7 @@ export default function Home() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
     
   return (
       <main className="gradient-bg">
@@ -57,7 +59,10 @@ export default function Home() {
             <h1 className='text-xl text-justify  w-1/2 xl:mr-48'>
               Platform where you can buy courses, learn and resell to earn from it!
             </h1>
-            <div className="bg-cyan-950 text-cyan-400 border border-cyan-400 border-b-4  overflow-hidden relative px-8 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group mt-8 font-bold xl:mr-48"><button className="bg-cyan-400 shadow-cyan-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)] ml-20"></button>Blogs ➔</div>
+            <div className="bg-cyan-950 text-cyan-400 border border-cyan-400 border-b-4  overflow-hidden relative px-8 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group mt-8 font-bold xl:mr-48">
+              <button className="bg-cyan-400 shadow-cyan-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)] ml-20">
+                </button><Link href="https://blogs.swapso.io" target='_blank'>Blogs ➔</Link>
+              </div>
           </div>
         </div>
         <video
@@ -93,9 +98,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className='mt-16'>
-        <Courses />
-      </div>        
+      <h2 className="text-6xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-100 p-5"> Highlight Courses</h2>
+      <CardEff />
         {/* <div className='mt-24'>
             <FeaturedIn />
         </div> */}

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { UserAuth } from "../context/AuthContext";
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -19,6 +20,50 @@ function MobileNavbar() {
   const handleMenuClose = () => {
     setIsMenuOpen(false);
   };
+
+  const navbarRef = useRef(null);
+  const {  user,LogOut } = UserAuth();
+  let lastScrollTop = 0;
+  const delta = 5;
+
+  const handleSignOut = async () => {
+    try {
+    await LogOut();
+    } catch (error) {
+    console.log(error);
+    }
+};
+
+  useEffect (() => {
+    const handleScroll = () => {
+      if (typeof window === 'undefined') return;
+
+      const currentScroll = window.scrollY || 0;
+      const navbar = navbarRef.current;
+
+      if (!navbar) return;
+
+      if (Math.abs(lastScrollTop - currentScroll) <= delta) return;
+
+      if (currentScroll > lastScrollTop && currentScroll > navbar.offsetHeight) {
+        navbar.style.transform = 'translateY(-100%)';
+      } else {
+        navbar.style.transform = 'translateY(0)';
+      }
+
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    const navbar = navbarRef.current;
+    if (navbar) {
+      navbar.style.transition = 'transform 0.3s ease';
+    }
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
 
 
   return (
@@ -42,7 +87,10 @@ function MobileNavbar() {
             <li><Link onClick={handleMenuClose} href="/">Home</Link></li>
             <li><Link onClick={handleMenuClose} href="/Courses">Courses</Link></li>
             <li><Link onClick={handleMenuClose} href="/Marketplace">Market Place</Link></li>
-            {/* <li><Link onClick={handleMenuClose} href="/">Sign In</Link></li> */}
+            { <div>
+         {!(user)?
+            (<button className='ml-12'><a href="/login">Sign in</a></button>):(<button className='ml-12' onClick={handleSignOut}>Sign Out</button>)}
+        </div> }
           </ul>
           <div>
           <div className="dropdown">

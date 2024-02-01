@@ -1,5 +1,6 @@
 "use client"
 import React from "react";
+import Link from "next/link";
 import {FaTwitter, FaInstagram, FaLinkedin, FaDiscord, FaWhatsapp, FaTelegram, FaArrowAltCircleLeft, FaArrowLeft} from 'react-icons/fa';
 // components/Footer.js
 
@@ -29,7 +30,7 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4 md:text-lg">Resources</h3>
             <ul>
               <li><a href="/ambassador" className="hover:text-gray-300 hover:ease-in-out duration-300 text-wrap">Campus Ambassador</a></li>
-              <li><a href="/blog" className="hover:text-gray-300 hover:ease-in-out duration-300">Blog</a></li>
+              <li><a href="/blog" className="hover:text-gray-300 hover:ease-in-out duration-300"><Link href="https://blogs.swapso.io" target='_blank'>Blogs</Link></a></li>
               <li><a href="/events" className="hover:text-gray-300 hover:ease-in-out duration-300">Events</a></li>
             </ul>
           </div>
