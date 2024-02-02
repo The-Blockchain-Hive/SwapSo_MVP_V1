@@ -30,7 +30,7 @@
   }
   
   .nav-list {
-    font-size: 1.25rem;
+    font-size: 1.25rem !important;
     margin: 0 35px;
     color: #fff;
     text-decoration: none;

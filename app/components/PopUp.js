@@ -51,20 +51,20 @@ function PopUp({ handleClose, currentCourse }) {
     setselectedTimeframe(e.target.value);
     switch (e.target.value) {
       case "1 day":
-        setPrice(5);
+        setPrice(1);
         setselectedDay(1);
         break;
       case "2 days":
         setselectedDay(2);
-        setPrice(10);
+        setPrice(2);
         break;
       case "3 days":
         setselectedDay(3);
-        setPrice(15);
+        setPrice(3);
         break;
       case "4 days":
         setselectedDay(4);
-        setPrice(20);
+        setPrice(4);
         break;
     }
   };
@@ -115,7 +115,7 @@ function PopUp({ handleClose, currentCourse }) {
                     <div className="px-[9px] pt-[9px] pb-2.5 left-[22px] top-[62px] absolute bg-gradient-to-r from-green-300 via-orange-100 to-white rounded-[3px] border border-neutral-400 justify-center items-center inline-flex">
                         <div className="text-justify text-black text-base font-normal font-['Inter'] leading-[17px]">Course duration : 10 hrs</div>
                     </div>
-                    <div className="w-[374px] left-[22px] top-[184px] absolute text-red-600 text-xs font-normal font-['Inter'] leading-[17px]">mostly students take 3 weeks to complete this course</div>
+                    <div className="w-[374px] left-[22px] top-[195px] absolute text-red-600 text-xs font-normal font-['Inter'] leading-[17px]">mostly students take 3 weeks to complete this course</div>
                     <div className="w-[108px] py-[11px] left-[141px] top-[130px] absolute bg-gradient-to-r from-orange-100 via-white to-blue-700 rounded border border-neutral-400 justify-center items-center inline-flex">
                         <div className="text-justify text-gray-900 text-base font-medium font-['Inter'] leading-[17px]">${Price}</div>
                     </div>

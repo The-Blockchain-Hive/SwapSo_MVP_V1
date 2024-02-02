@@ -69,6 +69,8 @@ export default function Home() {
           autoPlay
           muted
           loop
+          playsInline
+          controls={false}
           height="100vh"
           className="absolute z-[-1] w-full lg:w-1/2 lg:mr-64 mx-auto xl:w-1/2 object-cover md:h-full lg:h-3/4 xl:h-3/4 lg:mt-32 xl:mt-32 right-0">
           <source src="/cubic.mp4" type="video/mp4" />
@@ -83,16 +85,18 @@ export default function Home() {
               autoPlay
               muted
               loop
-              className=" w-full z-[-1]"
+              playsInline
+              controls={false}
+              className="w-full z-[-1]"
             >
-              <source src="/trackpath.mp4" type="video/mp4" />
+              <source src="/about.mp4" type="video/mp4" />
             </video>
           </div>
-          <div className='w-2/3 lg:mt-16 xl:mt-16 mx-auto sm:w-1/2 md:w-1/2 lg:w-1/2 lg:mr-32 xl:w-1/2 xl:mr-48'>
-            <h1 className='text-bold text-indigo-500 text-5xl mb-4'>
+          <div className='w-2/3 lg:mt-16 xl:mt-24 mx-auto sm:w-1/2 md:w-1/2 lg:w-1/2 lg:mr-32 xl:w-2/3 xl:mr-80'>
+            {/* <h1 className='font-bold text-indigo-500 text-5xl mb-4'>
               SWAPSO
-            </h1>
-            <h1 className=' text-xl mx-auto mt-16 text-1xl text-justify'>
+            </h1> */}
+            <h1 className='text-md text-gray-300 mx-auto text-justify'>
               A platform by the learners, for the learners which focuses on increasing completion rates in the edtech industry and incentivizes aka reward people for quick completion of courses.Tailored for skill development courses created by top educators.
             </h1>
           </div>
@@ -103,8 +107,8 @@ export default function Home() {
         {/* <div className='mt-24'>
             <FeaturedIn />
         </div> */}
-      <div className='mt-12'>
         <h2 className="text-6xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-100"> Track Path</h2>
+      <div className='mt-12'>
         <TrackPath />
       </div>
 

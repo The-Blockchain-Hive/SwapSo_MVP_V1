@@ -76,8 +76,8 @@ interface CardProps {
 		</div>
 		<p className="px-4 py-2">{props.short_desc}</p>
 		<div className='flex flex-wrap justify-between px-4'>
-			<div className=' bg-white px-4 w-max  text-black rounded-full'>
-				<span>${props.PricePerDay}/week</span>
+			<div className=' bg-white px-4 w-max text-black rounded-full'>
+				<span>${props.PricePerDay}/day</span>
 			</div>
 			{/* <div className='rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500'>
 				<span></span>
