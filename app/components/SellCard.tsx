@@ -16,7 +16,7 @@ interface CardProps {
     PricePerDay: number;
     WhatLearn: string;
 	listingPrice: number;	
-    
+    listingComment: string;
   }
 
   const SellCard: React.FC<CardProps> = (props) => {
@@ -51,19 +51,19 @@ interface CardProps {
 				<p className="px-4 py-2">{props.short_desc}</p>
 				<div className='flex flex-wrap justify-between px-4'>
 					<div className=' bg-white px-4 w-max  text-black rounded-full'>
-						<span>{props.CourseDuration}</span>
+						<span>{props.CourseDuration} Hours Total</span>
 					</div>
 					<div className='rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500'>
-						<span>{props.listingPrice}</span>
+						<span>Selling Price: {props.listingPrice}$</span>
 					</div>
 					<div className='rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500'>
 						{/* <span>{Timer}</span> */}
 					</div>
-					<div className='rounded-full px-4 w-max bg-transparent outline'>
-						<span>50$</span>
+					<div className=' m-2 rounded-full px-4 w-max bg-transparent outline'>
+						<span>${props.PricePerDay}/week</span>
 					</div>
 					<div className='rounded-full px-4 mt-3 w-max bg-transparent outline'>
-						{/* <span>{courseExpiry}</span> */}
+						<span>{props.listingComment}</span>
 					</div>
 				</div>
 				<div className='flex justify-between px-4'>
