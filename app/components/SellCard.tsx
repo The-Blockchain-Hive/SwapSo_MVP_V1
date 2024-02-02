@@ -16,7 +16,7 @@ interface CardProps {
     PricePerDay: number;
     WhatLearn: string;
 	listingPrice: number;	
-    
+    listingComment: string;
   }
 
   const SellCard: React.FC<CardProps> = (props) => {
@@ -63,7 +63,7 @@ interface CardProps {
 						<span>${props.PricePerDay}/week</span>
 					</div>
 					<div className='rounded-full px-4 mt-3 w-max bg-transparent outline'>
-						{/* <span>{courseExpiry}</span> */}
+						<span>{props.listingComment}</span>
 					</div>
 				</div>
 				<div className='flex justify-between px-4'>
