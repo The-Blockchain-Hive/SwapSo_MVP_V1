@@ -37,6 +37,12 @@ interface CardProps {
 		setIsPopupVisible(false);
 	};
 
+	const handleAboutClick = () => {
+		// Use Next.js router to navigate to the AboutCourse page with query parameters
+		window.location.href = `/AboutCourse?CourseName=${props.CourseName}`;
+	  };
+	
+
 	const imgUrl = `/${props.CourseImgUrl}.png`;
 	
 	
@@ -90,7 +96,7 @@ interface CardProps {
 			</div> */}
 		</div>	
 		<div className='flex justify-between px-4'>
-			<Link href='/AboutCourse'><button className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl">About</button></Link>
+			<Link href='/AboutCourse'><button onClick={handleAboutClick} className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl">About</button></Link>
 			<button onClick={togglePopup} className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl">Buy Course</button>
 		</div>
 		{isPopupVisible && (

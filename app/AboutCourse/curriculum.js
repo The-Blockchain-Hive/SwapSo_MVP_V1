@@ -2,7 +2,7 @@
   import React, { useState } from 'react';
 
   // Use the aboutCourseData variable as the source of data
-const CourseCurriculum = () => {
+const CourseCurriculum = (props) => {
 
   const [openSections, setOpenSections] = useState([]);
   

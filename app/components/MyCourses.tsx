@@ -9,6 +9,7 @@ interface Course {
   AboutCourse: string;
   CourseName: string;
   short_desc: string;
+  CourseImgUrl: number;
   CourseDuration: number;
   CourseEducator: string;
   EducatorImgUrl: string;
@@ -54,8 +55,7 @@ const MyCourses = () => {
     <div>      
       {/* <button onClick={}>Testing 2</button> */}
       {coursesData.map((course, index) => (
-              <NewCard             
-                CourseImgUrl="https://picsum.photos/200/300"             
+              <NewCard                       
                     key={index} {...course} 
                     />
               ))
