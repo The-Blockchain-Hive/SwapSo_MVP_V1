@@ -89,7 +89,7 @@ const MarketPlace = () => {
         </div>
         <div className="flex justify-center py-5">
           <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">
-            Course Marketplace
+            Courses
           </h1>
         </div>
         <div className="bg-transparent">
@@ -99,7 +99,7 @@ const MarketPlace = () => {
               <MyCourses/>
         </div>
         <div className="bg-transparent">
-          <SectionDivider label="Market Place" />      
+          <SectionDivider label="All Courses" />      
         </div>
         <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
             {coursesData.map((course, index) => (

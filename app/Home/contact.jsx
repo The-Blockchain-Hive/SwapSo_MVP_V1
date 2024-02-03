@@ -75,7 +75,7 @@ const ContactForm = () => {
         </div>
         <div className="contact-info-item">
           <FaEnvelope />
-          <p>karan.theblockchainhive@gmail.com</p>
+          <p>contact@swapso.io</p>
         </div>
         <div className="contact-info-item">
           <FaMapMarker />

@@ -46,15 +46,9 @@
   
   
   .container .card .face.face1 .content{
-    opacity: .01;
+    opacity: 1;
     transition:  0.5s;
     text-align: center;
-    
-     
-    
-    
-   
-  
   }
   
   .container .card:hover .face.face1 .content{
@@ -73,8 +67,6 @@
     font-size: 1em;
     color: white;
     text-align: center;
-    
-  
   }
   
   .container .card .face.face1 .content a{
