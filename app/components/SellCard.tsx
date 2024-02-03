@@ -54,7 +54,7 @@ interface CardProps {
 						<span>{props.CourseDuration} Hours Total</span>
 					</div>
 					<div className='rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500'>
-						<span>Selling Price: {props.listingPrice}$/Day</span>
+						<span>Selling Price: {props.listingPrice}$</span>
 					</div>
 {/* 					
 					<div className=' m-2 rounded-full px-4 w-max bg-transparent outline'>

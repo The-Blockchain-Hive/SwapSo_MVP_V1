@@ -27,6 +27,7 @@ interface CardProps {
 
 	const [isPopupVisible, setIsPopupVisible] = useState(false);
 	const [currentCourse, setCurrentCourse] = useState<CardProps | null>(null);
+	const [selectedTimeframe, setselectedTimeframe] = useState("1");
 
 	const { user } = UserAuth();
 	
@@ -96,7 +97,7 @@ interface CardProps {
 						<span>${props.PricePerDay}/Day</span>
 					</div>
 					<div className='rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500'>
-						<Timer selectedTimeframe={undefined} />
+						<Timer selectedTimeframe={selectedTimeframe} />
 					</div>
 					{/* <div className='rounded-full px-4 w-max bg-transparent outline'>
 						<span>50$</span>
