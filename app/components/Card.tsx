@@ -100,7 +100,7 @@ interface CardProps {
 		</div>
 		{isPopupVisible && (
 		<div className='fixed inset-0 z-100 backdrop-filter backdrop-blur-md flex items-center justify-center'> 
-		<PopUp handleClose={handlePurchase} currentCourse={currentCourse}></PopUp>
+		<PopUp handleClose={handlePurchase} currentCourse={currentCourse} courseName={currentCourse?. CourseName || ''}></PopUp>
 		  
 		</div>
 )}
