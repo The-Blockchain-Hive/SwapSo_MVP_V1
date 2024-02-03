@@ -3,6 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import SellPopUp from './SellPopUp';
 import Timer from './timer';
+import { getDocs, collection, serverTimestamp, deleteDoc, doc, setDoc } from "firebase/firestore";
+import { UserAuth } from "../context/AuthContext";
+import { db } from "../firebase.js";
 
 interface CardProps {    
     
@@ -25,14 +28,36 @@ interface CardProps {
 	const [isPopupVisible, setIsPopupVisible] = useState(false);
 	const [currentCourse, setCurrentCourse] = useState<CardProps | null>(null);
 
-	const togglePopup = () => {
-		setCurrentCourse(props);
-		setIsPopupVisible(!isPopupVisible);
-	}
+	const { user } = UserAuth();
+	
 
-	const handlePurchase = (course: CardProps) => {			
-		setIsPopupVisible(false);
-	};
+	async function toggleWithdraw (course: CardProps){
+		const userId = user.uid;
+	
+		const userRef = doc(db, "Users", userId);
+		const marketRef = collection(userRef, "My_Listings");
+		const coursesRef = collection(userRef,"My_Courses");
+	
+		try {
+			await setDoc(doc(coursesRef,userId), {
+			  ...course,
+			  withdrawDate: serverTimestamp(),			  			  
+			});
+
+			await deleteDoc(doc(marketRef,userId));
+            console.log("course deleted from My Listings");
+
+			await deleteDoc(doc(db,"Marketplace",userId));
+			console.log("Course Deleted from Marketplace");
+
+	}catch(error){
+		console.log(error);
+	}
+}
+
+	// const handlePurchase = (course: CardProps) => {			
+	// 	setIsPopupVisible(false);
+	// };
 	const imgUrl = `/${props.CourseImgUrl}.png`;
 
 	return (
@@ -82,14 +107,14 @@ interface CardProps {
 				</div>
 				<div className='flex justify-between px-4'>
 					<Link href='/LearnCourse'><button className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl">Learn</button></Link>
-					<button onClick={togglePopup} className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl">Withdraw</button>
+					<button onClick={()=>toggleWithdraw(props)} className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl">Withdraw</button>
 				</div>
-				{isPopupVisible && (
+				{/* {isPopupVisible && (
 		        <div className='fixed inset-0 z-100 backdrop-filter backdrop-blur-md flex items-center justify-center'> 
 		            <SellPopUp
 					 handleClose={handlePurchase} currentCourse={currentCourse} />
 				</div>
-				)}
+				)} */}
 			</div>
 		</div>
 	);
