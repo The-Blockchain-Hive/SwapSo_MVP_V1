@@ -54,21 +54,19 @@ interface CardProps {
 						<span>{props.CourseDuration} Hours Total</span>
 					</div>
 					<div className='rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500'>
-						<span>Selling Price: {props.listingPrice}$</span>
+						<span>Selling Price: {props.listingPrice}$/Day</span>
 					</div>
-					<div className='rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500'>
-						{/* <span>{Timer}</span> */}
-					</div>
+{/* 					
 					<div className=' m-2 rounded-full px-4 w-max bg-transparent outline'>
-						<span>${props.PricePerDay}/week</span>
-					</div>
+						<span>${props.PricePerDay}/Day</span>
+					</div> */}
 					<div className='rounded-full px-4 mt-3 w-max bg-transparent outline'>
 						<span>{props.listingComment}</span>
 					</div>
 				</div>
 				<div className='flex justify-between px-4'>
-					<Link href='/'><button className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl">Learn</button></Link>
-					<button className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl">Sell Course</button>
+					<Link href='/'><button className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl w-full">About</button></Link>
+					<button className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl w-1/3">Buy</button>
 				</div>
 			</div>
 		</div>

@@ -46,7 +46,7 @@ const TrackPath = () => {
         {/* stack 1 */}
         <div className="col-span-4 w-full h-full">
           <div className="w-full h-full bg-gradient-to-b from-black to-blue-1100 rounded-xl p-2 md:pl-4">
-            <h1 className="text-white text-xl font-medium py-2 text-center"> STAGE1</h1>
+            <h1 className="text-white text-xl font-bold py-2 text-center"> STAGE1</h1>
             <ul className="list-disc ml-4">
               <li> Launching MVP</li>
               <li>Simplifying payment</li>
@@ -68,7 +68,7 @@ const TrackPath = () => {
           </div>
           <div className="col-span-4 w-full h-full">
           <div className="w-full h-full bg-gradient-to-b from-black to-blue-1100 rounded-xl p-2 md:pl-4">
-            <h1 className="text-white text-xl font-medium py-2 text-center"> STAGE 2</h1>
+            <h1 className="text-white text-xl font-bold py-2 text-center"> STAGE 2</h1>
             <ul className="list-disc ml-4">
               <li>Setting up an education based NGO</li>
               <li>Educator KPIs and rating system</li>
@@ -80,7 +80,7 @@ const TrackPath = () => {
           {/* stack3 */}
           <div className="col-span-4 w-full h-full">
           <div className="w-full h-full bg-gradient-to-b from-black to-blue-1100 rounded-xl p-2 md:pl-4">
-            <h1 className="text-white text-xl font-medium py-2 text-center"> STAGE 3</h1>
+            <h1 className="text-white text-xl font-bold py-2 text-center"> STAGE 3</h1>
             <ul className="list-disc ml-4">
               <li>Running Electives</li>
               <li>Blockchain based certification</li>
@@ -101,7 +101,7 @@ const TrackPath = () => {
           </div>
           <div className="col-span-4 w-full h-full">
           <div className="w-full h-full bg-gradient-to-b from-black to-blue-1100 rounded-xl p-2 md:pl-4">
-            <h1 className="text-white text-xl font-medium py-2 text-center"> STAGE 4</h1>
+            <h1 className="text-white text-xl font-bold py-2 text-center"> STAGE 4</h1>
             <ul className="list-disc ml-4">
               <li>Onboarding Industry partners to hire top talent. </li>
               <li>Onchain Scholarship for top students. </li>
@@ -111,7 +111,7 @@ const TrackPath = () => {
           {/* stack5 */}
           <div className="col-span-4 w-full h-full">
           <div className="w-full h-full bg-gradient-to-b from-black to-blue-1100 rounded-xl p-2 md:pl-4">
-            <h1 className="text-white text-xl font-medium py-2 text-center"> STAGE 5</h1>
+            <h1 className="text-white text-xl font-bold py-2 text-center"> STAGE 5</h1>
             <ul className="list-disc ml-4">
               <li>Open learning protocol</li>
               <li>Accountability protocol</li>
@@ -131,7 +131,7 @@ const TrackPath = () => {
           </div>
           <div className="col-span-4 w-full h-full">
           <div className="w-full h-full bg-gradient-to-b from-black to-blue-1100 rounded-xl p-2 md:pl-4">
-            <h1 className="text-white text-xl font-medium py-2 text-center"> STAGE 6</h1>
+            <h1 className="text-white text-xl font-bold py-2 text-center"> STAGE 6</h1>
             <ul className="list-disc ml-4">
               <li>We will Keep building the future</li>
             </ul>

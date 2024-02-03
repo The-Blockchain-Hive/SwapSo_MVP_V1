@@ -69,12 +69,10 @@ const Navbar = () => {
         </ul>
         { <div>
          {!(user)?
-            (<button><a href="/login">Sign in</a></button>):(<button onClick={handleSignOut}>Sign Out</button>)}
+            (<button className="sign-in"><a href="/login">Sign in</a></button>):(<button onClick={handleSignOut}>Sign Out</button>)}
         </div> }
-        <div>
           <div className="dropdown">
-            <ConnectButton/>            
-          </div>
+            <ConnectButton/>       
         </div>
       </nav>
     </>
