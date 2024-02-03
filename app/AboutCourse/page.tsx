@@ -1,6 +1,6 @@
 // components/CoursePage.js
 'use client'
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Suspense} from 'react';
 import HeroSection from './hero';
 import AboutSection from './about';
 import WhatWillYouLearnSection from './whatlearn';
@@ -60,14 +60,14 @@ const CoursePage = () => {
 
 
   return (
-    <div>
+    <Suspense>
       {/* <button onClick={fetchData}>Test</button> */}
       <HeroSection coursesData={coursesData}/>
       <AboutSection coursesData={coursesData}/>
       <WhatWillYouLearnSection coursesData={coursesData}/>
       <MentorSection coursesData={coursesData}/>
       {/* <CurriculumSection coursesData={coursesData}/>  */}
-    </div>
+    </Suspense>
   );
 };
 

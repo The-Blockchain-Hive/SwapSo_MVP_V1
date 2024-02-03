@@ -3,6 +3,9 @@ const nextConfig = {
     images: {
         
      },
+     experimental: {
+        missingSuspenseWithCSRBailout: false,
+    },
 }
 
 module.exports = nextConfig
