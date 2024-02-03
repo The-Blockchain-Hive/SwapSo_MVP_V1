@@ -11,7 +11,7 @@ import { db } from "../firebase.js";
 import Timer from "../components/timer";
 
 
-const MarketPlace = () => {
+const Courses = () => {
 
   const [isPopupVisible, setIsPopupVisible] = useState(false);
 
@@ -112,4 +112,4 @@ const MarketPlace = () => {
         </main>
     )
 }
-export default MarketPlace;
+export default Courses;

@@ -138,8 +138,7 @@ const MarketPlace = () => {
           <div className="w-screen flex flex-wrap gap-5 justify-center py-5">
               {coursesData.map((course, index) => (
                 <SellCard                            
-                      key={index} {...course} 
-                      />
+                  listingComment={""} key={index} {...course}                      />
                 ))
               }
               </div>

@@ -19,7 +19,6 @@ interface CardProps {
     Educator_desc: string;
     PricePerDay: number;
     WhatLearn: string;	
-    
   }
 
   const Card: React.FC<CardProps> = (props) => {

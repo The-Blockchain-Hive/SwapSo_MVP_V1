@@ -68,7 +68,7 @@ interface CardProps {
 						<span>{props.CourseDuration} Hours Total</span>
 					</div>
 					<div className='rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500'>
-						<span>${props.PricePerDay}/Week</span>
+						<span>${props.PricePerDay}/Day</span>
 					</div>
 					<div className='rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500'>
 						<Timer selectedTimeframe={undefined} />
