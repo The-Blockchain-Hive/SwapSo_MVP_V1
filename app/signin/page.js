@@ -2,13 +2,13 @@
 'use client'
 import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { UserAuth } from "../context/AuthContext";
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const Router = useRouter();
+  const Router = useRouter();
   const { user, googleSignIn, logOut, Login } = UserAuth();
 
   const handleLogin = async (e) => {
