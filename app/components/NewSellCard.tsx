@@ -102,9 +102,9 @@ interface CardProps {
 					{/* <div className='rounded-full px-4 w-max bg-transparent outline'>
 						<span>50$</span>
 					</div> */}
-					<div className='rounded-full px-4 mt-3 w-max bg-transparent outline'>
-						{/* <span>{courseExpiry}</span> */}
-					</div>
+					{/* <div className='rounded-full px-4 mt-3 w-max bg-transparent outline'>
+						{/* <span>{courseExpiry}</span> /}
+					</div> */}
 				</div>
 				<div className='flex justify-between px-4'>
 					<Link href='/LearnCourse'><button className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl">Learn</button></Link>

@@ -2,13 +2,13 @@
 'use client'
 import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { UserAuth } from "../context/AuthContext";
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const Router = useRouter();
+  const Router = useRouter();
   const { user, googleSignIn, logOut, Login } = UserAuth();
 
   const handleLogin = async (e) => {
@@ -82,7 +82,7 @@ const LoginPage = () => {
                       <input type="checkbox" className="form-checkbox" />
                       <span className="text-gray-400 ml-2">Keep me signed in</span>
                     </label>
-<Link href="/reset-password" className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out">Forgot Password?</Link>
+<Link href="/forgetpassword" className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out">Forgot Password?</Link>
                   </div>
                 </div>
               </div>
