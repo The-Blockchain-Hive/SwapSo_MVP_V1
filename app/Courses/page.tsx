@@ -44,7 +44,7 @@ const Courses = () => {
       });
 
       setCoursesData(courses);
-      console.log(courses);  
+      // console.log(courses);
     } catch (error) {
       console.error('Error fetching data:', error);
       throw error;

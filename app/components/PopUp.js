@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Timer from "./timer.js";
 import { useDataContext } from "../context/DataContextProvider";
 import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase.js";
@@ -12,8 +13,8 @@ function PopUp({ handleClose, currentCourse, courseName }) {
   
   async function handlePay(course) {
     const userId = user.uid;
-    console.log("user id: ",userId);
-    console.log("Course: ",course);
+    // console.log("user id: ",userId);
+    // console.log("Course: ",course);
     const userRef = doc(db, "Users", userId);
     const coursesRef = collection(userRef, "My_Courses");
 
@@ -99,6 +100,7 @@ function PopUp({ handleClose, currentCourse, courseName }) {
                     <div className="w-[108px] h-[40px] py-[11px] left-[160px] top-[133px] absolute bg-gradient-to-r from-orange-100 via-white to-blue-700 rounded border border-neutral-400 justify-center items-center inline-flex">
                         <div className="text-justify text-gray-900 text-base font-medium font-['Inter'] leading-[17px]">${Price}</div>
                     </div>
+                    <Timer selectedTimeframe = {selectedTimeframe} />
                 </div>
             </div>
         </div>

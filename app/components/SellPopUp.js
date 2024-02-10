@@ -12,11 +12,11 @@ const SellPopUp = ({handleClose, currentCourse}) => {
 
     const handleSell = async(course) => {
         console.log('Course Sold', listingAmount);
-        console.log(courseComment);
+        // console.log(courseComment);
 
         const userId = user.uid;
-        console.log("user id: ",userId);
-        console.log("Course: ",course);
+        // console.log("user id: ",userId);
+        // console.log("Course: ",course);
         
         const userRef = doc(db, "Users", userId);
         const marketRef = collection(userRef, "My_Listings");

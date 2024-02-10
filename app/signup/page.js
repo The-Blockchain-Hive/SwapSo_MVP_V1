@@ -45,7 +45,7 @@ const SignUpPage = () => {
     if (!loading) {
       Router.push('/');
     }
-  }, [user]);
+  }, [user, Router, loading]);
 
   return (
     <section className="relative">

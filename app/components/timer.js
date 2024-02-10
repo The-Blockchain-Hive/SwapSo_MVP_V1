@@ -7,8 +7,8 @@ const Timer = ({ selectedTimeframe }) => {
     const daysInSelectedTimeframe = parseInt(selectedTimeframe)
     const timeframeInSeconds = daysInSelectedTimeframe * 24 * 60 * 60;
     setTimeLeft(timeframeInSeconds);
-    console.log("selected timeframe:", selectedTimeframe);
-    console.log("time in seconds", timeframeInSeconds);
+    // console.log("selected timeframe:", selectedTimeframe);
+    // console.log("time in seconds", timeframeInSeconds);
     const countdown = setInterval(() => {
       setTimeLeft((prevTime) => (prevTime <= 0 ? 0 : prevTime - 1));
     }, 1000);

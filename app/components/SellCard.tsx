@@ -73,6 +73,3 @@ interface CardProps {
 	);
 };
 export default SellCard;
-//Next steps to do
-//Pass the object courseCopy inside an array
-//Then try to update the <NewCard /> component inside the courses.tsx on popup visible..
