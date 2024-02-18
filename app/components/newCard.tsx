@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Timer from './timer';
+import Timer from './timer.tsx';
 import Link from 'next/link';
 import Image from 'next/image';
 import SellPopUp from './SellPopUp';
@@ -16,15 +16,18 @@ interface CardProps {
     EducatorSocials: string;
     Educator_desc: string;
     PricePerDay: number;
-    WhatLearn: string;	
+    WhatLearn: string;
     
   }
+  interface TimerProps{
+	selectedTimeframe: string;
+  } 
 
-  const NewCard: React.FC<CardProps> = (props) => {
+  interface NewCardProps extends CardProps, TimerProps {}
+  const NewCard: React.FC<NewCardProps> = (props) => {
 
 	const [isPopupVisible, setIsPopupVisible] = useState(false);
 	const [currentCourse, setCurrentCourse] = useState<CardProps | null>(null);
-	const [selectedTimeframe, setselectedTimeframe] = useState("1");
 
 	const togglePopup = () => {
 		setCurrentCourse(props);
@@ -36,6 +39,8 @@ interface CardProps {
 	};
 
 	const imgUrl = `/${props.CourseImgUrl}.png`;
+	// console.log(' time frame of new card',props.selectedTimeframe);
+
 
 	return (
 		<div>
@@ -73,7 +78,7 @@ interface CardProps {
 						<span>${props.PricePerDay}/Day</span>
 					</div>
 					<div className='mt-2 rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500'>
-					<Timer selectedTimeframe={selectedTimeframe} />
+					<Timer selectedTimeframe={props.selectedTimeframe} />
 					</div>
 					{/* <div className='rounded-full px-4 w-max bg-transparent outline'>
 						<span>50$</span>

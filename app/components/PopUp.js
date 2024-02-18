@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Timer from "./timer.js";
-import { useDataContext } from "../context/DataContextProvider";
-import { UserAuth } from "../context/AuthContext";
+import Timer from "./timer.tsx";
+import { useDataContext } from "../context/DataContextProvider.jsx";
+import { UserAuth } from "../context/AuthContext.js";
 import { db } from "../firebase.js";
-import { doc, collection, serverTimestamp, setDoc } from "firebase/firestore"; 
+import { doc, collection, serverTimestamp, setDoc } from "firebase/firestore";
+// import NewCard from "./newCard.tsx";
+
 
 function PopUp({ handleClose, currentCourse, courseName }) {  
 
@@ -52,11 +54,12 @@ function PopUp({ handleClose, currentCourse, courseName }) {
       setselectedTimeframe(inputDays.toString())
       const calculatedPrice = inputDays * 1;
       setPrice(calculatedPrice);
-      selectedDay(inputDays);
+      setselectedDay(inputDays);
     }
   
 
     return (
+        <>
         <div className="flex justify-between p-4">
             <div className="flex items-center">
                 <div className="w-[310px] md:w-[350px] lg:w-[400px] xl:w-[400px] h-[276px] relative bg-white rounded-2xl">
@@ -104,6 +107,8 @@ function PopUp({ handleClose, currentCourse, courseName }) {
                 </div>
             </div>
         </div>
+        {/* <NewCard selectedTimeframe={selectedTimeframe} /> */}
+        </>
 
     );
 }

@@ -7,8 +7,10 @@ import SearchBar from "../components/SearchBar";
 import SectionDivider from "../components/SectionDivider";
 import MyCourses from "../components/MyCourses.tsx";
 import { getDocs, collection, doc, setDoc } from "firebase/firestore";
-import { db } from "../firebase.js"; 
+import { db } from "../firebase.js";
+import Head from 'next/head';
 import Timer from "../components/timer";
+
 
 
 const Courses = () => {
@@ -30,6 +32,11 @@ const Courses = () => {
     WhatLearn: string;
     
   }
+
+  interface TimerProps{
+    selectedTimeframe: string
+  }
+  
 
   const [coursesData, setCoursesData] = useState<Course[]>([]);
 
@@ -76,10 +83,15 @@ const Courses = () => {
       const handleCoursePurchase = (courseCopy: Course) => {
         setPurchasedCourses((prevCourses) => [...prevCourses, courseCopy]);
       };
+      // console.log('Main page', selectedTimeframe);
 
 
     return(
         <main className="bg-gradient-to-b from-blue-1125 to-blue-1150">
+        <Head>
+        <title>Courses</title>
+        <meta name="Courses Page description" content="On the courses page the course listed by the platform is available for the users to buy." />
+        </Head>
           <div className='nav1'>
             {isMobile ? <Navbar2 /> : <Navbar />}
           </div>
@@ -87,19 +99,16 @@ const Courses = () => {
           <SearchBar/>
           {/* <button onClick={fetchData}>Testing</button>  */}
         </div>
-        <div className="flex justify-center py-5">
-          <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">
-            Courses
-          </h1>
-        </div>
+        
         <div className="bg-transparent">
           <SectionDivider label="My Courses" />      
         </div>                 
         <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
-              <MyCourses/>
+              <MyCourses />
         </div>
         <div className="bg-transparent">
-          <SectionDivider label="All Courses" />      
+          <SectionDivider label="All Courses" />  
+          {/* <Timer selectedTimeframe={selectedTimeframe} />   */}
         </div>
         <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
             {coursesData.map((course, index) => (

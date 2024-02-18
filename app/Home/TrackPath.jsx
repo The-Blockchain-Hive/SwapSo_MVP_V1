@@ -50,7 +50,7 @@ const TrackPath = () => {
             <ul className="list-disc ml-4">
               <li> Launching MVP</li>
               <li>Simplifying payment</li>
-              <li>Gain initial 10,000 validators</li>
+              <li>Gain initial 10,000 users</li>
               <li>Implement Blockchain based degrees in Universities.</li>
             </ul>
           </div>
@@ -82,7 +82,6 @@ const TrackPath = () => {
           <div className="w-full h-full bg-gradient-to-b from-black to-blue-1100 rounded-xl p-2 md:pl-4">
             <h1 className="text-white text-xl font-bold py-2 text-center"> STAGE 3</h1>
             <ul className="list-disc ml-4">
-              <li>Running Electives</li>
               <li>Blockchain based certification</li>
               <li>Onchain identity for students</li>
             </ul>
@@ -104,7 +103,7 @@ const TrackPath = () => {
             <h1 className="text-white text-xl font-bold py-2 text-center"> STAGE 4</h1>
             <ul className="list-disc ml-4">
               <li>Onboarding Industry partners to hire top talent. </li>
-              <li>Onchain Scholarship for top students. </li>
+              <li>Onchain Scholarships for top students. </li>
             </ul>
           </div>
         </div>

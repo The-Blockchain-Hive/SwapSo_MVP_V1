@@ -43,23 +43,3 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
-
-
-
-/* .gradient-bg {
-  background: linear-gradient(to bottom, #323aa4, #000000); 
-      --background-start-rgb: 50, 58, 164;
-  height: 100vh;
-} */
-/* .nav1{
-  margin-top: 1%;
-  width: 90%;
-  color: #323AA4
-}
-.about_us{
-  max-width: 70vw;
-  text-align: justify;
-}
-.join_us-main{
-  margin-bottom: 10%;
-} */

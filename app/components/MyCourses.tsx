@@ -19,8 +19,8 @@ interface Course {
   WhatLearn: string;
   
 }
-
-const MyCourses = () => {
+// import this down { selectedTimeframe }: { selectedTimeframe: string }
+  const MyCourses = () => {
 
   const [coursesData, setCoursesData] = useState<Course[]>([]);
   const { user } = UserAuth();
@@ -49,6 +49,7 @@ const MyCourses = () => {
   useEffect(()=>{
      fetchData();
   },[])
+  // console.log('my courses time frame',selectedTimeframe);
 
 
   return (
@@ -56,8 +57,7 @@ const MyCourses = () => {
       {/* <button onClick={}>Testing 2</button> */}
       {coursesData.map((course, index) => (
               <NewCard                       
-                    key={index} {...course} 
-                    />
+          selectedTimeframe="" key={index} {...course}                    />
               ))
             }
     </div>

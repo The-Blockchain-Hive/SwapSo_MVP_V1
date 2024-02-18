@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-const Timer = ({ selectedTimeframe }) => {
-  const [timeLeft, setTimeLeft] = useState(0);
+interface TimerProps {
+  selectedTimeframe: string;
+}
+
+
+const Timer: React.FC<TimerProps> = ({ selectedTimeframe }) => {  const [timeLeft, setTimeLeft] = useState(0);
 
   useEffect(() => {
     const daysInSelectedTimeframe = parseInt(selectedTimeframe)

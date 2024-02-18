@@ -10,6 +10,7 @@ import JoinUs from './Home/JoinUs.jsx';
 import CardEffect from './Home/cardseffect.jsx';
 import ContactForm from './Home/contact.jsx';
 import Footer from './Home/footer.jsx';
+import Head from 'next/head';
 import Typewriter from 'typewriter-effect';
 
 
@@ -34,6 +35,10 @@ export default function Home() {
     
   return (
       <main className="gradient-bg">
+        <Head>
+        <title>Home Page</title>
+        <meta name="description" content="Home Page provides a brief introduction and gives a go through of our startup." />
+      </Head>
         <div className='nav1'>
         {isMobile ? <Navbar2 /> : <Navbar />}
         </div>
