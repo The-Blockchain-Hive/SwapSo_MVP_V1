@@ -48,12 +48,12 @@ const Footer = () => {
         <div className="flex flex-row flex-wrap justify-between">
         <div className="social-media-section px-20 mt-8">
             <div className="flex space-x-10 flex flex-row flex-wrap">
-              <a href="https://twitter.com/theblock_chive"><FaTwitter size={32} /></a>
-              <a href="https://www.instagram.com/theblockchainhive/"><FaInstagram size={32} /></a>
-              <a href="https://www.linkedin.com/company/theblockchainhivee/"><FaLinkedin size={32} /></a>
-              <a href="https://discord.com/invite/6CjRfUSds7"><FaDiscord size={32} /></a>
-              <a href="https://chat.whatsapp.com/B7H7elZHya6HzlvQ0gXJS8"><FaWhatsapp size={32} /></a>
-              <a href="https://chat.whatsapp.com/B7H7elZHya6HzlvQ0gXJS8"><FaTelegram size={32}/></a>
+              <a href="https://twitter.com/theblock_chive" aria-label="Twitter"><FaTwitter size={32} /></a>
+              <a href="https://www.instagram.com/theblockchainhive/" aria-label="Instagram"><FaInstagram size={32} /></a>
+              <a href="https://www.linkedin.com/company/theblockchainhivee/" aria-label="LinkedIn"><FaLinkedin size={32} /></a>
+              <a href="https://discord.com/invite/6CjRfUSds7" aria-label="Discord"><FaDiscord size={32} /></a>
+              <a href="https://chat.whatsapp.com/B7H7elZHya6HzlvQ0gXJS8" aria-label="Whatsapp"><FaWhatsapp size={32} /></a>
+              <a href="https://chat.whatsapp.com/B7H7elZHya6HzlvQ0gXJS8" aria-label="Telegram"><FaTelegram size={32}/></a>
             </div>
           </div>
           <div className="px-20 mt-8 rounded-lg">

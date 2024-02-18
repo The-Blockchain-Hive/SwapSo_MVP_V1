@@ -63,12 +63,6 @@
      
   }
   
-  .container .card .face.face1 .content h3{
-    font-size: 1em;
-    color: white;
-    text-align: center;
-  }
-  
   .container .card .face.face1 .content a{
      transition: .5s;
   }
@@ -90,7 +84,7 @@
       transform: translateY(0);
   }
   
-  .container .card .face.face2 .content p, a{
+  .container .card .face.face2 .content{
     font-size: 10pt;
     margin: 0 ;
     padding: 0;

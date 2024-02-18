@@ -51,7 +51,7 @@ const TrackPath = () => {
               <li> Launching MVP</li>
               <li>Simplifying payment</li>
               <li>Gain initial 10,000 users</li>
-              <li>Implement Blockchain based degrees in Universities.</li>
+              <li>Implement Blockchain courses in Universities.</li>
             </ul>
           </div>
         </div>

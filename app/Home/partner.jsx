@@ -50,6 +50,10 @@ const Partner = () => {
                         <Image className="logo3" src="/Kamlesh.jpg" width={100} height={100} alt="kamlesh" />
                         <h1 className="hover:text-black">Kamlesh Nagware <br /> Co-founder, <br /> FSV Capital</h1>
                     </div>
+                    <div className="slide1 hover:bg-gradient-to-r from-red-400 via-purple-400 to-cyan-400">
+                        <Image className="logo3" src="/AparnaRao.jpg" width={400} height={100} alt="Aparna" />
+                        <h1 className="hover:text-black">Aparna Rao<br /> Director, <br/> Sricone Consulting</h1>
+                    </div>
                     
                     <div className="slide1 hover:bg-gradient-to-r from-red-400 via-purple-400 to-cyan-400">
                         <Image className="logo3" src="/jayjit.jpeg" width={100} height={100} alt="jayjit" />
@@ -68,7 +72,10 @@ const Partner = () => {
                         <Image className="logo3" src="/Kamlesh.jpg" width={100} height={100} alt="kamlesh" />
                         <h1 className="hover:text-black">Kamlesh Nagware <br /> Co-founder, <br/> FSV Capital</h1>
                     </div>
-                    
+                    <div className="slide1 hover:bg-gradient-to-r from-red-400 via-purple-400 to-cyan-400">
+                        <Image className="logo3" src="/AparnaRao.jpg" width={400} height={100} alt="Aparna" />
+                        <h1 className="hover:text-black">Aparna Rao<br /> Director, <br/> Sricone Consulting</h1>
+                    </div>     
                     <div className="slide1 hover:bg-gradient-to-r from-red-400 via-purple-400 to-cyan-400">
                         <Image className="logo3" src="/jayjit.jpeg" width={100} height={100} alt="jayjit" />
                         <h1 className="hover:text-black">Jayjit Biswas <br />Founder, <br /> Elite Web3 Forum</h1>

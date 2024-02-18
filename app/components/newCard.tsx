@@ -88,7 +88,7 @@ interface CardProps {
 					</div>
 				</div>
 				<div className='flex justify-between px-4'>
-					<Link href='/LearnCourse'><button className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl">Learn</button></Link>
+					<Link href='/LearnCourse'><button className="bg-blue-400 font-extrabold p-2 m-4 rounded-xl">Learn</button></Link>
 					<button onClick={togglePopup} className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl">Sell Course</button>
 				</div>
 				{isPopupVisible && (
