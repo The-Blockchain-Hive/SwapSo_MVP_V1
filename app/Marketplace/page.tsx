@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import Navbar from "../Home/navbar";
+import { metadata } from "./metadata.ts";
 import Navbar2 from '../Home/MobileNavbar.jsx';
 import SellCard from "../components/SellCard.tsx";
 import SearchBar from "../components/SearchBar";
@@ -8,7 +9,6 @@ import MyListings from "../components/MyListings.tsx"
 import SectionDivider from "../components/SectionDivider";
 import { getDocs, collection, doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase.js";
-import Head from 'next/head';
 
 const MarketPlace = () => {
   const[isPopupVisible, setIsPopupVisible] = useState(false);
@@ -94,10 +94,10 @@ const MarketPlace = () => {
     
       return (
         <main className={`bg-gradient-to-b from-blue-1125 to-blue-1150 ${isPopupVisible ? 'blurred' : ''}`}>
-        <Head>
-        <title>Market Place</title>
-        <meta name="Market Place description" content="On the Market Place page all the courses listed by the users are visible." />
-        </Head>
+          <head>
+            <title>{metadata.title}</title>
+            <meta name="description" content={metadata.description} />
+          </head>
           <div className='nav1'>
             {isMobile ? <Navbar2 /> : <Navbar />}
           </div>

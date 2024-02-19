@@ -6,6 +6,8 @@ const nextConfig = {
      experimental: {
         missingSuspenseWithCSRBailout: false,
     },
+    productionBrowserSourceMaps: true,
+
 }
 
 module.exports = nextConfig

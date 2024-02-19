@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect} from 'react';
 import Link from 'next/link';
+import { metadata } from './metadata.ts';
 import Navbar from './Home/navbar.jsx';
 import Navbar2 from './Home/MobileNavbar.jsx';
 import TrackPath from './Home/TrackPath.jsx';
@@ -9,7 +10,6 @@ import JoinUs from './Home/JoinUs.jsx';
 import CardEffect from './Home/cardseffect.jsx';
 import ContactForm from './Home/contact.jsx';
 import Footer from './Home/footer.jsx';
-import Head from 'next/head';
 import Typewriter from 'typewriter-effect';
 
 export default function Home() {
@@ -28,17 +28,17 @@ export default function Home() {
   
   return (
       <main className="gradient-bg">
-        <Head>
-        <title>Home Page</title>
-        <meta name="description" content="Home Page provides a brief introduction and gives a go through of our startup." />
-      </Head>
+        <head>
+            <title>{metadata.title}</title>
+            <meta name="description" content={metadata.description} />
+          </head>
         <div className='nav1'>
         {isMobile ? <Navbar2 /> : <Navbar />}
         </div>
         <div className='flex flex-row'>
           <div className="flex flex-col items-center justify-center h-screen bg-transparent text-white w-screen">
             <div className="flex flex-col items-center justify-center w-full h-1/2 px-12 sm:mt-28 xl:mr-96">
-              <h1 className="text-4xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl font-bold leading-tight sm:m-16 md:m-32 lg:m-24 xl:m-8 xl:mr-64">
+              <h1 className="text-4xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl font-bold leading-tight sm:m-16 md:m-32 lg:m-24 xl:m-8 xl:mr-48">
                 <Typewriter
                   options={{
                   autoStart: true,
@@ -54,7 +54,7 @@ export default function Home() {
               }} />
             </h1>
             {/* <Card/> */}
-            <h1 className='text-xl text-justify w-2/3 md:w-1/2 lg:w-1/2 xl:w-1/2 xl:mr-48'>
+            <h1 className='text-xl text-justify w-2/3 md:w-1/2 lg:w-1/2 xl:w-1/2 xl:mr-40'>
               A platform by IIT Bombay scholars where you can buy courses, learn and resell to earn from it!
             </h1>
             <div className="bg-cyan-950 text-cyan-400 border border-cyan-400 border-b-4  overflow-hidden relative px-8 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group mt-8 font-bold xl:mr-48">

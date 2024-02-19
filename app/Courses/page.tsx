@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useEffect } from "react";
+import{ metadata } from './metadata.ts';
 import Navbar from "../Home/navbar";
 import Navbar2 from "../Home/MobileNavbar";
 import Card from "../components/Card.tsx";
@@ -8,7 +9,6 @@ import SectionDivider from "../components/SectionDivider";
 import MyCourses from "../components/MyCourses.tsx";
 import { getDocs, collection, doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase.js";
-import Head from 'next/head';
 import Timer from "../components/timer";
 
 
@@ -88,10 +88,10 @@ const Courses = () => {
 
     return(
         <main className="bg-gradient-to-b from-blue-1125 to-blue-1150">
-        <Head>
-        <title>Courses</title>
-        <meta name="Courses Page description" content="On the courses page the course listed by the platform is available for the users to buy." />
-        </Head>
+          <head>
+            <title>{metadata.title}</title>
+            <meta name="description" content={metadata.description} />
+          </head>
           <div className='nav1'>
             {isMobile ? <Navbar2 /> : <Navbar />}
           </div>
