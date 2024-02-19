@@ -6,7 +6,7 @@ const nextConfig = {
      experimental: {
         missingSuspenseWithCSRBailout: false,
     },
-    productionBrowserSourceMaps: true,
+      productionBrowserSourceMaps: true,
 
 }
 

@@ -16,7 +16,7 @@ const CardEffect = () => {
        <div className="face face2">
          <div className="content">
            <p className="font-bold"> In this course, take an exciting stroll with us through the world of Blockchain - discovering how it&apos;s changing things around us</p>
-           <a href="/Courses" title="Read more about Blockchain course" >Read More</a>
+           <a href="/Courses">Read more about Blockchain course</a>
          </div>
        </div>
     </div>
@@ -31,7 +31,7 @@ const CardEffect = () => {
        <div className="face face2">
          <div className="content">
            <p className="font-bold"> Dive into the future of the internet; start with Web3 basics and ascend to becoming a wizard of the decentralized digital world.</p>
-           <a href="/Courses" title="Read more about Web 3 concepts course" >Read More</a>
+           <a href="/Courses">Read More about Web3 Concepts</a>
          </div>
        </div>
     </div>
@@ -47,7 +47,7 @@ const CardEffect = () => {
        <div className="face face2">
          <div className="content">
            <p className="font-bold"> An entrepreneur&apos;s Guide: learn the art required for successful startup building</p>
-           <a href="/Courses" title="Read more about Entrepreneurship course">Read More</a>
+           <a href="/Courses">Read more about Entrepreneurship course</a>
          </div>
        </div>
     </div>
