@@ -15,34 +15,31 @@ function PopUp({ handleClose, currentCourse, courseName }) {
   
   async function handlePay(course) {
     const userId = user.uid;
-    // console.log("user id: ",userId);
-    // console.log("Course: ",course);
     const userRef = doc(db, "Users", userId);
-    const coursesRef = collection(userRef, "My_Courses");
-
-
-    //in case transaction has to be made...
-    // if (typeof onCoursePurchase === "function") {
-    //   onCoursePurchase(courseCopy);
-    // }
-    // if(!address){
-    //     alert("Please connect wallet");
-    //     return;
-    // }
-
-    // await payFees(Price);
-    // setPurchaseComplete(true);
-
+    const coursesRef = collection(userRef, "My_Courses"); // Subcollection for courses
+  
     try {
-      await setDoc(doc(coursesRef,userId), {
-        ...course,
+      // Add a new document for each purchased course
+      await setDoc(doc(coursesRef), {       
+        courseName: course.CourseName,
+        AboutCourse: course.AboutCourse,
+        CourseName: course.CourseName,
+	    CourseImgUrl: course.CourseImgUrl,
+        short_desc: course.short_desc,
+        CourseDuration: course.CourseDuration,
+        CourseEducator: course.CourseEducator,
+        EducatorImgUrl: course.EducatorImgUrl,
+        EducatorSocials: course.EducatorSocials,
+        Educator_desc: course.Educator_desc,
+        PricePerDay: course.PricePerDay,
+        WhatLearn: course.WhatLearn,	 
         purchaseDate: serverTimestamp(),
       });
-      console.log("course pushed to my courses")
+      console.log("course pushed to my courses");
     } catch (error) {
       console.log(error);
     }
-
+  
     handleClose();
   }
   const [Price, setPrice] = useState(5);

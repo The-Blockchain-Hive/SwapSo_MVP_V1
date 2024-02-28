@@ -28,23 +28,25 @@ interface Course {
   const fetchData = async () => {
     try {
       const userId = user.uid;
-      const userRef = doc(db,"Users",userId);      
-
-      const coursesSnapshot = await getDocs(collection(userRef,"My_Courses"));
-
-      const courses = coursesSnapshot.docs.map((doc) => {
-        const ids = doc.id;
-        const courseData = doc.data() as Course;
-        return { ids, ...courseData };
+      const userRef = doc(db, "Users", userId);
+      const coursesRef = collection(userRef, "My_Courses");
+  
+      // Fetch all courses for the user
+      const querySnapshot = await getDocs(coursesRef);
+      const coursessData: Course[] = querySnapshot.docs.map((doc) => {
+        const courseId = doc.id; // Get the ID of the document
+        const courseData = doc.data() as Course; // Cast to Course type
+        return { id: courseId, ...courseData }; // Combine ID and course data
       });
-
-      setCoursesData(courses);
-      // console.log(courses);  
+  
+      setCoursesData(coursessData);
+      // console.log(coursesData);  
     } catch (error) {
       console.error('Error fetching data:', error);
       throw error;
     }
   };
+  
 
   useEffect(()=>{
      fetchData();
