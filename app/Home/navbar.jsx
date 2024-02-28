@@ -8,7 +8,7 @@ import { ConnectButton } from '@rainbow-me/rainbowkit'
 
 const Navbar = () => {
   const navbarRef = useRef(null);
-  const {  user,LogOut } = UserAuth();
+  const { user,LogOut } = UserAuth();
   let lastScrollTop = 0;
   const delta = 5;
 

@@ -7,7 +7,7 @@ const Partner = () => {
 
     return(
             <main className="body1">
-            <h2 className="text-6xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-100"> Our Partners</h2>
+            <h2 className="text-6xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-100"> Our Supporters</h2>
             <div className="slider">
                 <div className="slide-track">
                     <div className="slide">
@@ -17,23 +17,29 @@ const Partner = () => {
                         <Image className="logo2" src="/decloud.png" width={150} height={100} alt="decloud"  />
                     </div>
                     <div className="slide">
-                        <Image className="logo2 ml-4" src="/stackos1.png" width={150} height={100} alt="stackos1"  />
+                        <Image className="logo2 ml-4" src="/startupIndia.png" width={150} height={100} alt="StartupIndia"  />
                     </div>
                     <div className="slide">
                         <Image className="logo2" src="/blvckpixel.svg" width={150} height={100} alt="blackpixel"  />
                     </div>
+                    {/* <div className="slide">
+                        <Image className="logo2 mb-12" src="/WISE.png" width={200} height={100} alt="WISE"  />
+                    </div> */}
                     <div className="slide">
-                        <Image className="logo2 ml-4" src="/stackos1.png" width={150} height={100} alt="stackos2"  /> 
+                        <Image className="logo2 ml-4" src="/stackos1.png" width={150} height={100} alt="stackos1"  /> 
                     </div>
                     <div className="slide">
-                        <Image className="logo2" src="/decloud.png" width={150} height={100} alt="decloud2"  />
+                        <Image className="logo2" src="/decloud.png" width={150} height={100} alt="decloud1"  />
                     </div>
                     <div className="slide">
-                        <Image className="logo2 ml-4" src="/stackos1.png" width={150} height={100} alt="stackos3"  />
+                        <Image className="logo2 ml-4" src="/startupIndia.png" width={150} height={100} alt="StartupIndia1"  />
                     </div>
                     <div className="slide">
                         <Image className="logo2" src="/blvckpixel.svg" width={150} height={100} alt="blackpixel1"  />
                     </div>
+                    {/* <div className="slide">
+                        <Image className="logo2 mb-4" src="/WISE.png" width={200} height={100} alt="WISE1"  />
+                    </div> */}
                 </div>
             </div>
             <div className="slider-2">

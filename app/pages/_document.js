@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { policy } from '../public/csp';
+import policy from '../public/csp';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -11,6 +11,17 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-BCHGD3LJE8"></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-BCHGD3LJE8');
+              `,
+            }}
+          />
           <link rel="icon" href="/favicon.ico" />
           <meta httpEquiv="Content-Security-Policy" content={policy} />
         </Head>
@@ -22,4 +33,5 @@ class MyDocument extends Document {
     );
   }
 }
+
 export default MyDocument;

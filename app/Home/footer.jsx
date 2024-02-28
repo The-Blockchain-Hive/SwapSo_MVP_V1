@@ -13,7 +13,7 @@ const Footer = () => {
             <ul>
               <li><a href="/about" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">About Us</a></li>
               <li><a href="/team" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Team</a></li>
-              <li><a href="/mission" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Mission</a></li>
+              {/* <li><a href="/mission" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Mission</a></li> */}
               <li><a href="/partners" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Partners</a></li>
             </ul>
           </div>
