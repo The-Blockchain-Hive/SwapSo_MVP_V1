@@ -33,12 +33,6 @@ export default function WaitingList() {
                 placeholder="Your email..." 
                 className="ml-8 w-96 mt-16 rounded-md text-black"
                 />
-                <input 
-                type="number" 
-                name="phone"
-                placeholder="Phone no..." 
-                className="ml-8 w-96 mt-16 rounded-md text-black"
-                />
                 <button
                  className="bg-blue-1100 p-2 rounded-md mt-12 ml-36"
                  type="submit"
