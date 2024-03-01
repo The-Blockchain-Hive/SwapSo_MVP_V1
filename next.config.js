@@ -1,16 +1,21 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-    images: {
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {
+//   webpack: (config) => {
+//     config.resolve.alias['@'] = path.resolve(__dirname);
+//     config.plugins.push(new Dotenv({ silent: true }));
+//     return config;
+//   },
+//     images: {
         
-     },
-     experimental: {
-        missingSuspenseWithCSRBailout: false,
-    },
-      productionBrowserSourceMaps: true,
+//      },
+//      experimental: {
+//         missingSuspenseWithCSRBailout: false,
+//     },
+//       productionBrowserSourceMaps: true,
 
-}
+// }
 
-module.exports = nextConfig
+// module.exports = nextConfig
 
 
 // /**
@@ -27,3 +32,22 @@ module.exports = nextConfig
 //    }
    
 //    module.exports = nextConfig
+
+
+const path = require('path');
+const Dotenv = require('dotenv-webpack');
+
+module.exports = {
+  webpack: (config) => {
+    config.resolve.alias['@'] = path.resolve(__dirname);
+    config.plugins.push(new Dotenv({ silent: true }));
+    return config;
+  },
+  images: {
+
+  },
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
+  productionBrowserSourceMaps: true,
+};
