@@ -20,7 +20,8 @@ function PopUp({ handleClose, currentCourse, courseName }) {
   
     try {
       // Add a new document for each purchased course
-      await setDoc(doc(coursesRef), {       
+      await setDoc(doc(coursesRef), {
+        courseId: course.CourseId,       
         courseName: course.CourseName,
         AboutCourse: course.AboutCourse,
         CourseName: course.CourseName,
