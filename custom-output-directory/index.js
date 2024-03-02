@@ -146,6 +146,10 @@ const config = {
         "fromEnvVar": null,
         "value": "windows",
         "native": true
+      },
+      {
+        "fromEnvVar": null,
+        "value": "rhel-openssl-1.0.x"
       }
     ],
     "previewFeatures": [],
@@ -171,8 +175,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\r\n    provider = \"prisma-client-js\"\r\n    output   = \"../custom-output-directory\"\r\n}\r\n\r\ndatasource db {\r\n    provider = \"postgresql\"\r\n    url = env(\"DATABASE_URL\")\r\n}\r\n\r\nmodel User {\r\n    id          Int         @id @default(autoincrement())\r\n    email       String      @unique\r\n    name        String?\r\n    active      Boolean     @default(false)\r\n    createdAt   DateTime    @default(now())\r\n    ActivateToken ActivateToken[]\r\n}\r\n\r\nmodel ActivateToken {\r\n    id          Int         @id @default(autoincrement())\r\n    token       String      @unique\r\n    activatedAt DateTime?\r\n    createdAt   DateTime    @default(now())\r\n\r\n    user User @relation(fields: [userId], references: [id])\r\n    userId Int\r\n}",
-  "inlineSchemaHash": "e5e576b5046d0bd7629ceb8cf222e4e99a805301b3414f4cc55917ba3bafbe4f",
+  "inlineSchema": "generator client {\r\n    provider = \"prisma-client-js\"\r\n    output   = \"../custom-output-directory\"\r\n    binaryTargets = [\"native\", \"rhel-openssl-1.0.x\"]\r\n}\r\n\r\ndatasource db {\r\n    provider = \"postgresql\"\r\n    url = env(\"DATABASE_URL\")\r\n}\r\n\r\nmodel User {\r\n    id          Int         @id @default(autoincrement())\r\n    email       String      @unique\r\n    name        String?\r\n    active      Boolean     @default(false)\r\n    createdAt   DateTime    @default(now())\r\n    ActivateToken ActivateToken[]\r\n}\r\n\r\nmodel ActivateToken {\r\n    id          Int         @id @default(autoincrement())\r\n    token       String      @unique\r\n    activatedAt DateTime?\r\n    createdAt   DateTime    @default(now())\r\n\r\n    user User @relation(fields: [userId], references: [id])\r\n    userId Int\r\n}",
+  "inlineSchemaHash": "eb935b95b4a7173e030e9d68dfa4831d8db15a290c8776e4f8c574f46846a6fb",
   "copyEngine": true
 }
 
@@ -212,6 +216,10 @@ Object.assign(exports, Prisma)
 // file annotations for bundling tools to include these files
 path.join(__dirname, "query_engine-windows.dll.node");
 path.join(process.cwd(), "custom-output-directory/query_engine-windows.dll.node")
+
+// file annotations for bundling tools to include these files
+path.join(__dirname, "libquery_engine-rhel-openssl-1.0.x.so.node");
+path.join(process.cwd(), "custom-output-directory/libquery_engine-rhel-openssl-1.0.x.so.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "custom-output-directory/schema.prisma")
