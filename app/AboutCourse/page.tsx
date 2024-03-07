@@ -55,7 +55,7 @@ const CoursePage = () => {
 
   useEffect(()=>{
     fetchData();
-  },[])
+  },[coursesData])
  
 
 

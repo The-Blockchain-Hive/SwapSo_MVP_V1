@@ -7,7 +7,7 @@ import PopUp from './PopUp';
 
 
 interface CardProps {    
-    
+    CourseId: string;
     AboutCourse: string;
     CourseName: string;
 	CourseImgUrl: number;

@@ -5,7 +5,7 @@ import { getDocs, collection, doc, setDoc } from "firebase/firestore";
 import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase.js";
 interface Course {    
-    
+  CourseId: string;  
   AboutCourse: string;
   CourseName: string;
   short_desc: string;

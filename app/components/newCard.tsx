@@ -5,7 +5,7 @@ import Image from 'next/image';
 import SellPopUp from './SellPopUp';
 
 interface CardProps {    
-    
+    CourseId: string;
     AboutCourse: string;
     CourseName: string;
 	CourseImgUrl: number;
@@ -29,7 +29,7 @@ interface CardProps {
 	const [isPopupVisible, setIsPopupVisible] = useState(false);
 	const [currentCourse, setCurrentCourse] = useState<CardProps | null>(null);
 
-	const togglePopup = () => {
+	function togglePopup(){
 		setCurrentCourse(props);
 		setIsPopupVisible(!isPopupVisible);
 	}
@@ -89,7 +89,7 @@ interface CardProps {
 				</div>
 				<div className='flex justify-between px-4'>
 					<Link href='/LearnCourse'><button className="bg-blue-400 font-extrabold p-2 m-4 rounded-xl">Learn</button></Link>
-					<button onClick={togglePopup} className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl">Sell Course</button>
+					<button onClick={()=>{togglePopup()}} className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl">Sell Course</button>
 				</div>
 				{isPopupVisible && (
 		        <div className='fixed inset-0 z-100 backdrop-filter backdrop-blur-md flex items-center justify-center'> 

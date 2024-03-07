@@ -12,6 +12,7 @@ const SellPopUp = ({handleClose, currentCourse}) => {
 
     const handleSell = async(course) => {
         console.log('Course Sold', listingAmount);
+        console.log(course);
         // console.log(courseComment);
 
         const userId = user.uid;
@@ -21,8 +22,9 @@ const SellPopUp = ({handleClose, currentCourse}) => {
         const userRef = doc(db, "Users", userId);
         const marketRef = collection(userRef, "My_Listings");
         const coursesRef = collection(userRef,"My_Courses");
+
         try {
-            await setDoc(doc(marketRef,userId), {
+            await setDoc(doc(marketRef,course.id),{
               ...course,
               listedDate: serverTimestamp(),
               listingPrice: listingAmount,
@@ -30,7 +32,7 @@ const SellPopUp = ({handleClose, currentCourse}) => {
             });
             console.log("course pushed to my listing");
 
-            await setDoc(doc(db,"Marketplace",userId),{
+            await setDoc(doc(db,"Marketplace",course.id),{
                 ...course,
               listedDate: serverTimestamp(),
               listingPrice: listingAmount,
@@ -38,7 +40,7 @@ const SellPopUp = ({handleClose, currentCourse}) => {
             });
             console.log("course added to MarketPlace")
 
-            await deleteDoc(doc(coursesRef,userId));
+            await deleteDoc(doc(coursesRef,course.id));
             console.log("course deleted from My Courses ")
 
           } catch (error) {

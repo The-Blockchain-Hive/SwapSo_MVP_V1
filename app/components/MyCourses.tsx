@@ -5,7 +5,7 @@ import { getDocs, collection, doc, setDoc } from "firebase/firestore";
 import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase.js";
 interface Course {    
-    
+  CourseId: string;  
   AboutCourse: string;
   CourseName: string;
   short_desc: string;
@@ -50,12 +50,12 @@ interface Course {
 
   useEffect(()=>{
      fetchData();
-  },[])
+  },[coursesData])
   // console.log('my courses time frame',selectedTimeframe);
 
 
   return (
-    <div>      
+    <div className='flex gap-4'>      
       {/* <button onClick={}>Testing 2</button> */}
       {coursesData.map((course, index) => (
               <NewCard                       

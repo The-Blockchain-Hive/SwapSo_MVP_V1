@@ -112,9 +112,8 @@ const Courses = () => {
         </div>
         <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
             {coursesData.map((course, index) => (
-              <Card                        
-                    key={index} {...course} 
-                    />
+              <Card                    
+                CourseId={""} key={index} {...course}                    />
               ))
             }
         </div>

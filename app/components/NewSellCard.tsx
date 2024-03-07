@@ -8,7 +8,7 @@ import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase.js";
 
 interface CardProps {    
-    
+    CourseId: string;
     AboutCourse: string;
     CourseName: string;	
     short_desc: string;

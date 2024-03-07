@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 interface CardProps {    
-    
+    CourseId: string;
     AboutCourse: string;
     CourseName: string;
 	CourseImgUrl: number;
