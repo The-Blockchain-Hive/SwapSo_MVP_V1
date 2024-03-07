@@ -1005,6 +1005,7 @@ export namespace Prisma {
     id: number | null
     email: string | null
     name: string | null
+    phone: string | null
     active: boolean | null
     createdAt: Date | null
   }
@@ -1013,6 +1014,7 @@ export namespace Prisma {
     id: number | null
     email: string | null
     name: string | null
+    phone: string | null
     active: boolean | null
     createdAt: Date | null
   }
@@ -1021,6 +1023,7 @@ export namespace Prisma {
     id: number
     email: number
     name: number
+    phone: number
     active: number
     createdAt: number
     _all: number
@@ -1039,6 +1042,7 @@ export namespace Prisma {
     id?: true
     email?: true
     name?: true
+    phone?: true
     active?: true
     createdAt?: true
   }
@@ -1047,6 +1051,7 @@ export namespace Prisma {
     id?: true
     email?: true
     name?: true
+    phone?: true
     active?: true
     createdAt?: true
   }
@@ -1055,6 +1060,7 @@ export namespace Prisma {
     id?: true
     email?: true
     name?: true
+    phone?: true
     active?: true
     createdAt?: true
     _all?: true
@@ -1150,6 +1156,7 @@ export namespace Prisma {
     id: number
     email: string
     name: string | null
+    phone: string
     active: boolean
     createdAt: Date
     _count: UserCountAggregateOutputType | null
@@ -1177,6 +1184,7 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     name?: boolean
+    phone?: boolean
     active?: boolean
     createdAt?: boolean
     ActivateToken?: boolean | User$ActivateTokenArgs<ExtArgs>
@@ -1187,6 +1195,7 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     name?: boolean
+    phone?: boolean
     active?: boolean
     createdAt?: boolean
   }
@@ -1206,6 +1215,7 @@ export namespace Prisma {
       id: number
       email: string
       name: string | null
+      phone: string
       active: boolean
       createdAt: Date
     }, ExtArgs["result"]["user"]>
@@ -1606,6 +1616,7 @@ export namespace Prisma {
     readonly id: FieldRef<"User", 'Int'>
     readonly email: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
+    readonly phone: FieldRef<"User", 'String'>
     readonly active: FieldRef<"User", 'Boolean'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
   }
@@ -2930,6 +2941,7 @@ export namespace Prisma {
     id: 'id',
     email: 'email',
     name: 'name',
+    phone: 'phone',
     active: 'active',
     createdAt: 'createdAt'
   };
@@ -3050,6 +3062,7 @@ export namespace Prisma {
     id?: IntFilter<"User"> | number
     email?: StringFilter<"User"> | string
     name?: StringNullableFilter<"User"> | string | null
+    phone?: StringFilter<"User"> | string
     active?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     ActivateToken?: ActivateTokenListRelationFilter
@@ -3059,6 +3072,7 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     name?: SortOrderInput | SortOrder
+    phone?: SortOrder
     active?: SortOrder
     createdAt?: SortOrder
     ActivateToken?: ActivateTokenOrderByRelationAggregateInput
@@ -3071,6 +3085,7 @@ export namespace Prisma {
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     name?: StringNullableFilter<"User"> | string | null
+    phone?: StringFilter<"User"> | string
     active?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     ActivateToken?: ActivateTokenListRelationFilter
@@ -3080,6 +3095,7 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     name?: SortOrderInput | SortOrder
+    phone?: SortOrder
     active?: SortOrder
     createdAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -3096,6 +3112,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"User"> | number
     email?: StringWithAggregatesFilter<"User"> | string
     name?: StringNullableWithAggregatesFilter<"User"> | string | null
+    phone?: StringWithAggregatesFilter<"User"> | string
     active?: BoolWithAggregatesFilter<"User"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
@@ -3160,6 +3177,7 @@ export namespace Prisma {
   export type UserCreateInput = {
     email: string
     name?: string | null
+    phone: string
     active?: boolean
     createdAt?: Date | string
     ActivateToken?: ActivateTokenCreateNestedManyWithoutUserInput
@@ -3169,6 +3187,7 @@ export namespace Prisma {
     id?: number
     email: string
     name?: string | null
+    phone: string
     active?: boolean
     createdAt?: Date | string
     ActivateToken?: ActivateTokenUncheckedCreateNestedManyWithoutUserInput
@@ -3177,6 +3196,7 @@ export namespace Prisma {
   export type UserUpdateInput = {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
     active?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     ActivateToken?: ActivateTokenUpdateManyWithoutUserNestedInput
@@ -3186,6 +3206,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
     active?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     ActivateToken?: ActivateTokenUncheckedUpdateManyWithoutUserNestedInput
@@ -3195,6 +3216,7 @@ export namespace Prisma {
     id?: number
     email: string
     name?: string | null
+    phone: string
     active?: boolean
     createdAt?: Date | string
   }
@@ -3202,6 +3224,7 @@ export namespace Prisma {
   export type UserUpdateManyMutationInput = {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
     active?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -3210,6 +3233,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
     active?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -3342,6 +3366,7 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     name?: SortOrder
+    phone?: SortOrder
     active?: SortOrder
     createdAt?: SortOrder
   }
@@ -3354,6 +3379,7 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     name?: SortOrder
+    phone?: SortOrder
     active?: SortOrder
     createdAt?: SortOrder
   }
@@ -3362,6 +3388,7 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     name?: SortOrder
+    phone?: SortOrder
     active?: SortOrder
     createdAt?: SortOrder
   }
@@ -3819,6 +3846,7 @@ export namespace Prisma {
   export type UserCreateWithoutActivateTokenInput = {
     email: string
     name?: string | null
+    phone: string
     active?: boolean
     createdAt?: Date | string
   }
@@ -3827,6 +3855,7 @@ export namespace Prisma {
     id?: number
     email: string
     name?: string | null
+    phone: string
     active?: boolean
     createdAt?: Date | string
   }
@@ -3850,6 +3879,7 @@ export namespace Prisma {
   export type UserUpdateWithoutActivateTokenInput = {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
     active?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -3858,6 +3888,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
     active?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

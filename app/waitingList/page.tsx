@@ -1,5 +1,7 @@
 import React from "react";
-import { prisma } from '@/prisma'
+import { prisma } from '@/prisma';
+import { ToastContainer,toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function WaitingList() {
 
@@ -11,36 +13,50 @@ export default function WaitingList() {
             data: {
                name: data.get('name') as string,
                email: data.get('email') as string,
+               phone: data.get('contact') as string,
             }
         })
     }
+    const message = () => {
+        alert("You have been added to the wait list successfully.")
+    }
 
     return (
-        <div className="h-screen w-screen justify-center items-center bg-slate-100">
-            <h1 className="text-black">Join our Waiting List!!!</h1>
-            <p className="text-black">Hello</p>
-            <form action={registerUser}>
-            <div className="h-1/2 w-2/3 bg-blue-900 mx-auto mt-48 rounded-lg">
+        <div className="h-screen flex justify-center items-center bg-black">
+    <div className="text-center">
+        <h1 className="text-gray-500 text-2xl">Join the waitlist to</h1>
+        <h1 className="text-2xl">Experience the World&apos;s <span className="text-blue-200"> 1st Decentralized</span><span className="text-blue-300"> EdTech Platform</span></h1>
+        <form action={registerUser} className="mt-8">
+            <div className="flex flex-col items-center">
                 <input 
-                type="text" 
-                name="name"
-                placeholder="write your name..." 
-                className="ml-8 w-96 mt-16 rounded-md text-black"
+                    type="text" 
+                    name="name"
+                    placeholder="Name" 
+                    className="w-80 mt-4 rounded-md text-white bg-gray-900 p-2"
                 />
                 <input 
-                type="email" 
-                name="email"
-                placeholder="Your email..." 
-                className="ml-8 w-96 mt-16 rounded-md text-black"
+                    type="tel" 
+                    name="contact"
+                    placeholder="Phone Number" 
+                    className="w-80 mt-4 rounded-md text-white bg-gray-900 p-2"
                 />
+                <input 
+                    type="email" 
+                    name="email"
+                    placeholder="Email Address" 
+                    className="w-80 mt-4 rounded-md text-white bg-gray-900 p-2"
+                /> 
                 <button
-                 className="bg-blue-1100 p-2 rounded-md mt-12 ml-36"
-                 type="submit"
+                    className="w-80 bg-gray-900 p-2 rounded-md mt-8 text-blue-400 transform transition-transform hover:scale-105"
+                    type="submit"
                 >
-                    Join waiting list
+                    Join waiting list ➔
                 </button>
+                <p className="mt-12 text-gray-500">500+ joined till now</p>
             </div>
-            </form>
-        </div>
+        </form>
+    </div>
+</div>
+
     )
 }
