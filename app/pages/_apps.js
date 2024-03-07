@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import '../public/google-analytics.js';
 import "../globals.css";
 
 export default function MyApp({ Component, pageProps }) {
@@ -11,6 +12,6 @@ export default function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <Component {...pageProps} /> 
+    <Component {...pageProps} />
   );
 }
