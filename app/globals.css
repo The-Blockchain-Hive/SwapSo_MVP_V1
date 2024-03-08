@@ -13,7 +13,11 @@
   }
 } */
 
-
+@layer utilities {
+  .font-comfortaa {
+    font-family: 'Comfortaa', cursive;
+  }
+}
 
 
   :root {
