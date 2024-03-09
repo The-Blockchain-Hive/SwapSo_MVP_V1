@@ -53,6 +53,7 @@ export default function WaitingList() {
                     Join waiting list ➔
                 </button>
                 <p className="mt-12 text-gray-500">500+ joined till now</p>
+                <button className="bg-blue-900 rounded-lg p-2 mt-4 transform transition-transform hover:scale-105 hover:opacity-90"><a href="https://swapso.io/">Return Back to Home Page</a></button>
             </div>
         </form>
     </div>
