@@ -50,7 +50,7 @@ export default function WaitingList() {
         //         console.log('Email sent successfully:', body);
         //     }
         // });
-        redirect('https://swapso.io/mqqwe%$message-1$%qq2332');
+        redirect('https://swapso.io/mqqwe%25$message-1$%25qq2332');
     }
 
 
