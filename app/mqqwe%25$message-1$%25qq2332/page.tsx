@@ -1,8 +1,24 @@
-import React from 'react';
+'use client'
+import React, { useState, useEffect } from 'react';
+import Confetti from 'react-confetti';
+
 
 export default function Message() {
+  const width = window.innerWidth;
+
+  const [showConfetti, setShowConfetti] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowConfetti(false);
+    }, 5000);
+
+  return () => clearTimeout(timer)
+  }, []);
+
   return (
     <div className="h-screen flex justify-center items-center bg-black">
+      {showConfetti && <Confetti width={width}/>}
       <div className="flex flex-col items-center">
         <div>
           <h1 className="text-2xl text-green-500">
