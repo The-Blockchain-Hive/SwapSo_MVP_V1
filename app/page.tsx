@@ -33,7 +33,7 @@ export default function Home() {
             <meta name="description" content={metadata.description} />
           </head>
           <div className="bg-black bg-opacity-90 text-slate-400 text-center text-2xl p-3 border-white-2 border-t-0 fixed top-0 left-0 right-0 z-50 font-comfortaa">
-      Our waiting list is live... <a href="https://swapso.io/wl" className="text-pink-500 hover:text-pink-300">Join now!</a>
+      Our waiting list is live... <a href="/wl" className="text-pink-500 hover:text-pink-300">Join now!</a>
     </div>
 
         <div className='nav1 mt-12'>
@@ -63,7 +63,7 @@ export default function Home() {
             </h1>
             <div className="bg-cyan-950 text-cyan-400 border border-cyan-400 border-b-4  overflow-hidden relative px-8 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group mt-8 font-bold xl:mr-48">
               <button className="bg-cyan-400 shadow-cyan-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)] ml-20">name
-                </button><Link href="https://swapso.io/wl" target='_blank'>Join Waitlist</Link>
+                </button><Link href="/wl" target='_blank'>Join Waitlist</Link>
               </div>
           </div>
         </div>

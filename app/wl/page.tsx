@@ -1,10 +1,13 @@
 import React from "react";
-import Mailgun from 'mailgun-js';
-import formData from 'form-data';
 import {metadata} from './metadata';
 import { prisma } from '@/prisma';
-import { randomUUID } from "crypto";
 import { redirect } from "next/navigation";
+import { Prisma } from "@prisma/client";
+// import { randomUUID } from "crypto";
+// import Mailgun from 'mailgun-js';
+// import formData from 'form-data';
+
+
 
 // const API_KEY = process.env.MAILGUN_API_KEY || ''
 // const DOMAIN = process.env.MAILGUN_DOMAIN || ''
@@ -16,6 +19,7 @@ export default function WaitingList() {
         'use server'
         console.log('DATA', data)
         
+        try{
 
         const user = await prisma.user.create({
             data: {
@@ -24,7 +28,18 @@ export default function WaitingList() {
                phone: data.get('contact') as string,
             }
         })
-//       <------------ TOKEN GENERATION ---------------->
+        redirect('/mqqwe%25$message-1$%25qq2332');
+
+    } catch(error) {
+        if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002') {
+            redirect('/email-already-registered');
+        } else {
+            // Handle other errors
+            redirect('/mqqwe%25$message-1$%25qq2332');
+        }
+    }
+    }
+    //       <------------ TOKEN GENERATION ----------------> to be included inside the try block
 
         // const token = await prisma.activateToken.create({
         //     data: {
@@ -32,7 +47,7 @@ export default function WaitingList() {
         //         userId: user.id,
         //     }
         // })
-//       <------------ SENDING VERIFICATION EMAIL ---------------->
+//       <------------ SENDING VERIFICATION EMAIL ----------------> to be included inside the try block
 
 
         // const mailgun = new Mailgun({ apiKey: API_KEY, domain: DOMAIN })
@@ -50,8 +65,6 @@ export default function WaitingList() {
         //         console.log('Email sent successfully:', body);
         //     }
         // });
-        redirect('https://swapso.io/mqqwe%25$message-1$%25qq2332');
-    }
 
 
     return (
