@@ -1,6 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import Script from 'next/script';
-import policy from '../public/csp';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -26,7 +25,6 @@ class MyDocument extends Document {
             `}
           </Script>
           <link rel="icon" href="/favicon.ico" />
-          <meta httpEquiv="Content-Security-Policy" content={policy} />
         </Head>
         <body>
           <Main />

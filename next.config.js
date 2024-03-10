@@ -51,19 +51,6 @@ module.exports = {
     missingSuspenseWithCSRBailout: false,
   },
   productionBrowserSourceMaps: true,
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'Content-Security-Policy',
-            value: "script-src 'self' 'unsafe-inline' 'unsafe-eval' *.google-analytics.com",
-          },
-        ],
-      },
-    ];
-  },
   async rewrites() {
     return {
       beforeFiles: [
