@@ -10,6 +10,7 @@ import MyCourses from "../components/MyCourses.tsx";
 import { getDocs, collection, doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase.js";
 import Timer from "../components/timer";
+import Script from "next/script";
 
 
 
@@ -92,6 +93,16 @@ const Courses = () => {
             <title>{metadata.title}</title>
             <meta name="description" content={metadata.description} />
           </head>
+          <Script id="ga-script" async src="https://www.googletagmanager.com/gtag/js?id=G-BCHGD3LJE8"></Script>
+      <Script id="ga-script">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-BCHGD3LJE8');
+        `}
+      </Script>
           <div className='nav1'>
             {isMobile ? <Navbar2 /> : <Navbar />}
           </div>

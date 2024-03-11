@@ -11,6 +11,7 @@ import CardEffect from './Home/cardseffect.jsx';
 import ContactForm from './Home/contact.jsx';
 import Footer from './Home/footer.jsx';
 import Typewriter from 'typewriter-effect';
+import Script from 'next/script';
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -25,6 +26,8 @@ export default function Home() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  
   
   return (
       <main className="gradient-bg">
@@ -35,7 +38,16 @@ export default function Home() {
           <div className="bg-black bg-opacity-90 text-slate-400 text-center text-2xl p-3 border-white-2 border-t-0 fixed top-0 left-0 right-0 z-50 font-comfortaa">
       Our waiting list is live... <a href="/wl" className="text-pink-500 hover:text-pink-300">Join now!</a>
     </div>
+    <Script id="ga-script" async src="https://www.googletagmanager.com/gtag/js?id=G-BCHGD3LJE8"></Script>
+      <Script id="ga-script">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
+          gtag('config', 'G-BCHGD3LJE8');
+        `}
+      </Script>
         <div className='nav1 mt-12'>
         {isMobile ? <Navbar2 /> : <Navbar />}
         </div>
