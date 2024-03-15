@@ -114,7 +114,7 @@ const Courses = () => {
         <div className="bg-transparent">
           <SectionDivider label="My Courses" />      
         </div>                 
-        <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
+        <div className="w-screen flex flex-wrap justify-center py-5 ">
               <MyCourses />
         </div>
         <div className="bg-transparent">

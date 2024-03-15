@@ -55,11 +55,12 @@ interface Course {
 
 
   return (
-    <div className='flex gap-4'>      
+    <div className='flex flex-wrap justify-center gap-4 py-5'>      
       {/* <button onClick={}>Testing 2</button> */}
       {coursesData.map((course, index) => (
               <NewCard                       
-          selectedTimeframe="" key={index} {...course}                    />
+          selectedTimeframe="" key={index} {...course}
+          />
               ))
             }
     </div>
