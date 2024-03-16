@@ -74,14 +74,14 @@ export default function WaitingList() {
             <title>{metadata.title}</title>
             <meta name="description" content={metadata.description} />
           </head>
-          <Script id="ga-script" async src="https://www.googletagmanager.com/gtag/js?id=G-BCHGD3LJE8"></Script>
+          <Script id="ga-script" async src="https://www.googletagmanager.com/gtag/js?id=G-21492NPCH3"></Script>
       <Script id="ga-script">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'G-BCHGD3LJE8');
+          gtag('config', 'G-21492NPCH3');
         `}
       </Script>
     <div className="text-center">
