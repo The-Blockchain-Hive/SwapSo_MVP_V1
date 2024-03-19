@@ -78,7 +78,7 @@ interface CardProps {
 						<span>${props.PricePerDay}/Day</span>
 					</div>
 					<div className='mt-2 rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500'>
-					<Timer selectedTimeframe={props.selectedTimeframe} />
+					<Timer selectedTimeframe='1' />
 					</div>
 					{/* <div className='rounded-full px-4 w-max bg-transparent outline'>
 						<span>50$</span>

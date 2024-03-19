@@ -59,7 +59,7 @@ interface Course {
       {/* <button onClick={}>Testing 2</button> */}
       {coursesData.map((course, index) => (
               <NewCard                       
-          selectedTimeframe="" key={index} {...course}
+          selectedTimeframe="1" key={index} {...course}
           />
               ))
             }

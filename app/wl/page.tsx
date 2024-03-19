@@ -33,7 +33,7 @@ export default function WaitingList() {
 
     } catch(error) {
         if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002') {
-            redirect('/email-already-registered');
+            redirect('/mqqwe%25$message-1$%25qq2332');
         } else {
             // Handle other errors
             redirect('/mqqwe%25$message-1$%25qq2332');
