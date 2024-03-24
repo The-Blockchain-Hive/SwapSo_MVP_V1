@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Swapso NFT Course Marketplace
 
-## Getting Started
+Welcome to the Swapso - NFT Course Marketplace. This repository hosts the codebase for our innovative platform that allows users to buy and sell courses as non-fungible tokens (NFTs) within the Swapso ecosystem. Our marketplace revolutionizes the educational industry by offering a secure, transparent, and flexible platform for learners and course creators.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 1. Buy and Sell Courses
+- Users can purchase courses using Swapso tokens, acquiring ownership of the course in the form of NFTs.
+- Buying a course mints a new NFT representing ownership, enabling users to access the course content.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Time-based Ownership
+- Users have the flexibility to set the duration of ownership for purchased courses.
+- If a user decides to sell a course before the ownership duration expires, the remaining duration is listed on the marketplace.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Earning Opportunities
+- Users can earn from their course ownership by selling courses at a higher value or earning royalties from subsequent transactions.
+- The platform provides opportunities for users to monetize their participation in the marketplace.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### 4. Smart Contract Integration
+- Smart contracts govern the creation, transfer, and management of NFTs within the Swapso NFT Course Marketplace.
+- These contracts ensure secure and transparent transactions, enhancing the reliability of the platform.
 
-## Learn More
+## Get in Touch
 
-To learn more about Next.js, take a look at the following resources:
+If you have any questions, suggestions, or feedback, please feel free to [contact us](mailto:karan.theblockchainhive@gmail.com ). We'd love to hear from you!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Thank you for your interest in the Swapso.

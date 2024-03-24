@@ -27,6 +27,15 @@ contract CourseSell is ERC721URIStorage, ICourseSell {
     mapping(address => uint256[]) public userCourses;
     uint private _courseId;
 
+    // errors Custom
+
+    error NotCourseOwner(string  message);
+    error CourseExpired(string  message);
+    error NotNFTHolder(string  message);
+    error InvalidCourseId(string  message);
+    error InvalidDuration(string  message);
+    error InvalidPrice(string  message);
+
     modifier onlyOwner() {
         require(msg.sender == owner, "Only owner can call this function");
         _;
@@ -34,22 +43,23 @@ contract CourseSell is ERC721URIStorage, ICourseSell {
 
     function sellCourse(uint _cId, uint _price) external returns (bool) {
         Course storage _course = courses[_cId];
-        require(
-            _course.holder == msg.sender,
-            "you are not Owner of this Course"
-        );
 
-        require(_course.duration < block.timestamp, "Course is Expire");
+        if (_course.holder != msg.sender) {
+            revert NotCourseOwner("You are not the owner of this course");
+        }
+        if (_course.duration > block.timestamp) {
+            revert CourseExpired("Course is Expire");
+        }
         uint startTime = _course.startTime;
         uint duration = _course.duration;
         uint remainingTime = duration - (block.timestamp - startTime);
         uint newCourseDuration = remainingTime;
         _course.duration = newCourseDuration;
 
-        require(
-            ownerOf(_course.nftId) == msg.sender,
-            "You are not the owner of this NFT"
-        );
+        if (ownerOf(_course.nftId) != msg.sender) {
+            revert NotNFTHolder("You are not the holder of this NFT");
+        }
+
         _safeTransfer(msg.sender, owner, _course.nftId, "");
         _course.holder = address(0);
         _course.startTime = 0;
@@ -61,9 +71,11 @@ contract CourseSell is ERC721URIStorage, ICourseSell {
     }
 
     function buyCourse(uint _cId) external returns (uint) {
-        require(_cId < _courseId, "Invalid course ID");
-        Course storage _course = courses[_cId];
+        if (_cId > _courseId) {
+            revert InvalidCourseId("Invalid Course ID");
+        }
 
+        Course storage _course = courses[_cId];
         if (_course.reSell) {
             uint amount = _course.price;
             require(
@@ -115,8 +127,13 @@ contract CourseSell is ERC721URIStorage, ICourseSell {
         uint _price,
         uint _duration
     ) external onlyOwner returns (bool) {
-        require(_price > 0, "Price must be greater than 0");
-        require(_duration > 0, "Duration must be greater than 0");
+        if (_duration <= 0) {
+            revert InvalidDuration("Duration must be greater than 0");
+        }
+        if (_price <= 0) {
+            revert InvalidPrice("Price must be greater than 0");
+        }
+
         Course storage newCourse = courses[_courseId];
         newCourse.id = _courseId;
         newCourse.holder = address(0);
@@ -143,4 +160,3 @@ contract CourseSell is ERC721URIStorage, ICourseSell {
         }
     }
 }
-
