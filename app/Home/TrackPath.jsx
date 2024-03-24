@@ -1,44 +1,8 @@
 import React, { useEffect, useRef } from "react";
+import Image from "next/image";
 
 const TrackPath = () => {
-
-  // const sliderRef = useRef(null);
-
-    
-  // useEffect(() => {
-
-  //   const slider = sliderRef.current;
-  //   const slides = slider.querySelectorAll('.upcoming-slide');
-
-  //   let slideIndex = 0;
-  //   let slideTimer = null;
-
-  //   const startSlideShow = () => {
-  //     slideTimer = setInterval(() => {
-  //       slideIndex++;
-  //       slider.style.transform = `translateX(-${slideIndex * 100}%)`;
-
-  //       if (slideIndex === slides.length - 1) {
-  //         slideIndex = -1;
-  //       }
-  //     }, 3000);
-  //   };
-
-  //   const stopSlideShow = () => {
-  //     clearInterval(slideTimer);
-  //   };
-
-  //   slider.addEventListener('mouseout', stopSlideShow);
-  //   slider.addEventListener('mouseover', startSlideShow);
-
-  //   startSlideShow();
-
-  //   return () => {
-  //     clearInterval(slideTimer);
-  //   };
-  // }, []);
-
-
+  
 
   return (
     <div className="body2 w-full flex justify-center items-center">
@@ -143,42 +107,3 @@ const TrackPath = () => {
 };
 
 export default TrackPath;
-{/* <div className="upcoming-slide">
-            <h2>Stage 2</h2>
-              <ul className="">
-                <li>Setting up an education based NGO</li>
-                <li>Educator KPIs and rating system</li>
-                <li>Smart contract based revenue sharing</li>
-              </ul>
-            </div>
-            <div className="upcoming-slide">
-            <h2>Stage 3</h2>
-              <ul className="">
-                <li>B2B Integration API</li>
-                <ul className="text-bold"> Onboarding Institutes for:
-                  <li>Running Electives</li>
-                  <li>Blockchain based certification</li>
-                  <li>Onchain identity for students</li>
-                </ul>
-              </ul>
-            </div>
-            <div className="upcoming-slide">
-            <h2>Stage 4</h2>
-              <ul className="">
-                <li>Onboarding Industry partners to hire top talent. </li>
-                <li>Onchain Scholarship for top students. </li>
-              </ul>
-            </div>
-            <div className="upcoming-slide">
-            <h2>Stage 5</h2>
-              <ul className="">
-                <li>Open learning protocol</li>
-                <li>Accountability protocol</li>
-              </ul>
-            </div>
-            <div className="upcoming-slide">
-            <h2>Stage 6</h2>
-              <ul className="">
-                <li>We will Keep building the future</li>
-              </ul>
-            </div> */}
