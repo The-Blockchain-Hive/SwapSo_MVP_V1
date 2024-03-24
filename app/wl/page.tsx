@@ -29,14 +29,14 @@ export default function WaitingList() {
                phone: data.get('contact') as string,
             }
         })
-        redirect('/mqqwe%25$message-1$%25qq2332');
+        redirect('/successful');
 
     } catch(error) {
         if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002') {
-            redirect('/mqqwe%25$message-1$%25qq2332');
+            redirect('/successful');
         } else {
             // Handle other errors
-            redirect('/mqqwe%25$message-1$%25qq2332');
+            redirect('/successful');
         }
     }
     }

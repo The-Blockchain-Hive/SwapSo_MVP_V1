@@ -52,15 +52,17 @@ const MyCourses = () => {
 
 
   return (
-    <div>      
-      {/* <button onClick={}>Testing 2</button> */}
-      {coursesData.map((course, index) => (
-              <NewSellCard                      
-                    key={index} {...course} 
-                    />
-              ))
-            }
-    </div>
+    <div>
+        {coursesData.length === 0 ? (
+        <p className='font-bold text-3xl font-comfortaa'>NOTHING LISTED </p>
+        ) : (
+      coursesData.map((course, index) => (
+        <NewSellCard
+          key={index} {...course}
+        />
+      ))
+    )}
+  </div>
   );
 };
 

@@ -55,14 +55,17 @@ interface Course {
 
 
   return (
-    <div className='flex flex-wrap justify-center gap-4 py-5'>      
-      {/* <button onClick={}>Testing 2</button> */}
-      {coursesData.map((course, index) => (
+    <div className='flex flex-wrap justify-center gap-4 py-5'>
+      {coursesData.length === 0 ? (
+        <p className='text-3xl text-purple-700 font-comfortaa'>Uh-oh! Your course cart is empty</p>
+       ) : (     
+      coursesData.map((course, index) => (
               <NewCard                       
           selectedTimeframe="1" key={index} {...course}
           />
               ))
-            }
+       )
+      }
     </div>
   );
 };

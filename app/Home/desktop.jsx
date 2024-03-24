@@ -1,5 +1,5 @@
 import React from 'react'
-import useWindowSize from '../mqqwe%25$message-1$%25qq2332/useWindowSize';
+import useWindowSize from '../successful/useWindowSize';
 import Image from "next/image";
 
 export default function Desktop() {

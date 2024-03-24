@@ -145,7 +145,7 @@ const MarketPlace = () => {
             <div><div className="bg-transparent">
             <SectionDivider label="Your Listings"/>                
           </div>
-          <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
+          <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 h-screen">
             <MyListings/>
           </div></div>            
               
