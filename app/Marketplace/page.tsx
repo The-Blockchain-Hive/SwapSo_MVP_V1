@@ -118,13 +118,13 @@ const MarketPlace = () => {
           <div className="flex justify-center">
             <button
               onClick={toggleMarketPlace}
-              className={`text-white px-3 py-1 rounded-md ${showMarketPlace ? 'bg-blue-500' : 'bg-gray-400'}`}
+              className={`text-white px-3 py-1 rounded-md ${showMarketPlace ? 'bg-blue-700' : 'bg-gray-400'}`}
             >
               Market Place
             </button>
             <button
               onClick={toggleYourListings}
-              className={`ml-4 text-white px-3 py-1 rounded-md ${showYourListings ? 'bg-blue-500' : 'bg-gray-400'}`}
+              className={`ml-4 text-white px-3 py-1 rounded-md ${showYourListings ? 'bg-blue-700' : 'bg-gray-400'}`}
             >
               Your Listings
             </button>
@@ -134,11 +134,6 @@ const MarketPlace = () => {
               <div className="bg-transparent">
                 <SectionDivider label="Market Place" />
               </div>
-              {/* <div className="w-screen flex flex-wrap gap-5 justify-center py-5">
-                {courseData.courses.map((course, index) => (
-                  <Card key={index} {...course} />
-                ))}
-              </div> */}
             </div>
           )}
           {showYourListings && (

@@ -11,7 +11,7 @@ const TrackPath = () => {
         <div className="col-span-4 w-full h-full">
           <div className="w-full h-full bg-gradient-to-b from-black to-blue-1100 rounded-xl p-2 md:pl-4">
             <h1 className="text-white text-xl font-bold py-2 text-center">Q1-2024</h1>
-            <ul className="list-disc ml-4">
+            <ul className="list-disc ml-4 font-comfortaa">
               <li>Initial Website Launch</li>
               <li>Initial Course Onboarding</li>
               <li>Swapso EdTech Launch</li>
@@ -32,7 +32,7 @@ const TrackPath = () => {
           <div className="col-span-4 w-full h-full">
           <div className="w-full h-full bg-gradient-to-b from-black to-blue-1100 rounded-xl p-2 md:pl-4">
             <h1 className="text-white text-xl font-bold py-2 text-center">Q2-2024</h1>
-            <ul className="list-disc ml-4">
+            <ul className="list-disc ml-4 font-comfortaa">
               <li>Swapso Ecosystem Lite Paper</li>
               <li>EdTech model expansion</li>
             </ul>
@@ -43,9 +43,9 @@ const TrackPath = () => {
           <div className="col-span-4 w-full h-full">
           <div className="w-full h-full bg-gradient-to-b from-black to-blue-1100 rounded-xl p-2 md:pl-4">
             <h1 className="text-white text-xl font-bold py-2 text-center"> Q3-2024</h1>
-            <ul className="list-disc ml-4">
+            <ul className="list-disc ml-4 font-comfortaa">
               <li>Tokenomics announcement</li>
-              <li>Start Building on Layer 2 Blockchain</li>
+              <li>Start Building a L2 Blockchain</li>
               <li>EdTech model expansion</li>
             </ul>
           </div>
@@ -64,7 +64,7 @@ const TrackPath = () => {
           <div className="col-span-4 w-full h-full">
           <div className="w-full h-full bg-gradient-to-b from-black to-blue-1100 rounded-xl p-2 md:pl-4">
             <h1 className="text-white text-xl font-bold py-2 text-center"> Q4-2024</h1>
-            <ul className="list-disc ml-4">
+            <ul className="list-disc ml-4 font-comfortaa">
               <li>Testnet Launch</li>
               <li>University Partnerships</li>
             </ul>
@@ -74,7 +74,7 @@ const TrackPath = () => {
           <div className="col-span-4 w-full h-full">
           <div className="w-full h-full bg-gradient-to-b from-black to-blue-1100 rounded-xl p-2 md:pl-4">
             <h1 className="text-white text-xl font-bold py-2 text-center">Q1-2025</h1>
-            <ul className="list-disc ml-4">
+            <ul className="list-disc ml-4 font-comfortaa">
               <li>Token Public Launch</li>
               <li>Staking pool announcement</li>
               <li>Scholarship pool announcement</li>
@@ -96,7 +96,7 @@ const TrackPath = () => {
           <div className="col-span-4 w-full h-full">
           <div className="w-full h-full bg-gradient-to-b from-black to-blue-1100 rounded-xl p-2 md:pl-4">
             <h1 className="text-white text-xl font-bold py-2 text-center"> Q2-2025</h1>
-            <ul className="list-disc ml-4">
+            <ul className="list-disc ml-4 font-comfortaa">
               <li>Mainnet Launch</li>
               <li>On-chain Certification</li>
               <li>Centralized Exchange (CEX) Listing</li>
@@ -107,7 +107,7 @@ const TrackPath = () => {
           <div className="col-span-4 w-full h-full">
           <div className="w-full h-full bg-gradient-to-b from-black to-blue-1100 rounded-xl p-2 md:pl-4">
             <h1 className="text-white text-xl font-bold py-2 text-center"> Q3-2025</h1>
-            <ul className="list-disc ml-4">
+            <ul className="list-disc ml-4 font-comfortaa">
               <li>Launch Smart wallets</li>
             </ul>
           </div>
@@ -126,7 +126,7 @@ const TrackPath = () => {
         <div className="col-span-4 w-full h-full">
           <div className="w-full h-full bg-gradient-to-b from-black to-blue-1100 rounded-xl p-2 md:pl-4">
             <h1 className="text-white text-xl font-bold py-2 text-center"> Q4-2025</h1>
-            <ul className="list-disc ml-4">
+            <ul className="list-disc ml-4 font-comfortaa">
               <li>On-chain Univeristy Trials</li>
               <li>S-pay Launch</li>
               <li>Token Trading Launch</li>

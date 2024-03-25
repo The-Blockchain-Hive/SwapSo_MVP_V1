@@ -17,6 +17,8 @@ import Script from "next/script";
 const Courses = () => {
 
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [showMyCourses, setShowMyCourses] = useState(true);
+  const [showAllCourses, setShowAllCourses] = useState(false);
 
   interface Course {    
     
@@ -86,6 +88,15 @@ const Courses = () => {
       };
       // console.log('Main page', selectedTimeframe);
 
+      const toggleMyCourses = () => {
+        setShowMyCourses(true);
+        setShowAllCourses(false);
+      }
+
+      const toggleAllCourses = () => {
+        setShowMyCourses(false);
+        setShowAllCourses(true);
+      }
 
     return(
         <main className="bg-gradient-to-b from-blue-1125 to-blue-1150">
@@ -110,17 +121,26 @@ const Courses = () => {
           <SearchBar/>
           {/* <button onClick={fetchData}>Testing</button>  */}
         </div>
-        
-        <div className="bg-transparent">
-          <SectionDivider label="My Courses" />      
-        </div>                 
-        <div className="w-screen flex flex-wrap justify-center py-5 ">
+        <div className="flex justify-center">
+            <button
+              onClick={toggleMyCourses}
+              className={`text-white px-3 py-1 rounded-md ${showMyCourses ? 'bg-blue-700' : 'bg-gray-400'}`}
+            >
+              My Courses
+            </button>
+            <button
+              onClick={toggleAllCourses}
+              className={`ml-4 text-white px-3 py-1 rounded-md ${showAllCourses ? 'bg-blue-700' : 'bg-gray-400'}`}
+            >
+              All Courses
+            </button>
+          </div>
+          {showMyCourses && (            
+        <div className="w-screen flex flex-wrap justify-center py-5 h-screen">
               <MyCourses />
         </div>
-        <div className="bg-transparent">
-          <SectionDivider label="All Courses" />  
-          {/* <Timer selectedTimeframe={selectedTimeframe} />   */}
-        </div>
+          )}
+        {showAllCourses && (
         <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
             {coursesData.map((course, index) => (
               <Card                    
@@ -128,6 +148,7 @@ const Courses = () => {
               ))
             }
         </div>
+        )}
         </main>
     )
 }

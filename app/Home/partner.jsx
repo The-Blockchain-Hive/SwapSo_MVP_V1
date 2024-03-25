@@ -42,7 +42,7 @@ const Partner = () => {
                     </div> */}
                 </div>
             </div>
-            <div className="slider-2">
+            {/* <div className="slider-2">
                 <div className="slide-track-2">
                     <div className="slide1 hover:bg-gradient-to-r from-red-400 via-purple-400 to-cyan-400">
                         <Image className="logo3" src="/Vishnu.png" width={400} height={100} alt="vishnu" /> 
@@ -69,7 +69,7 @@ const Partner = () => {
                         <h1 className="hover:text-black">Aparna Rao<br /> Director, <br/> Sricone Consulting</h1>
                     </div>                    
                 </div>
-            </div>
+            </div> */}
         </main>
     )
 }
