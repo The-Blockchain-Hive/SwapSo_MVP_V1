@@ -1,5 +1,6 @@
 import React from "react";
 import {metadata} from './metadata';
+import Button from'./button';
 import { prisma } from '@/prisma';
 import { redirect } from "next/navigation";
 import { Prisma } from "@prisma/client";
@@ -29,14 +30,14 @@ export default function WaitingList() {
                phone: data.get('contact') as string,
             }
         })
-        redirect('/successful');
+        // redirect('/successful');
 
     } catch(error) {
         if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002') {
-            redirect('/successful');
+            // redirect('/successful');
         } else {
             // Handle other errors
-            redirect('/successful');
+            // redirect('/successful');
         }
     }
     }
@@ -110,12 +111,13 @@ export default function WaitingList() {
                     className="w-80 mt-4 rounded-md text-white bg-gray-900 p-2"
                     required
                 /> 
-                <button
+                {/* <button
                     className="w-80 bg-gray-900 p-2 rounded-md mt-8 text-blue-400 transform transition-transform hover:scale-105 hover:bg-purple-900"
                     type="submit"
                 >
                     Join waiting list ➔
-                </button>
+                </button> */}
+                <Button />
                 <p className="mt-12 text-gray-500">500+ joined till now</p>
                 <button className="bg-blue-900 rounded-lg p-2 mt-4 transform transition-transform hover:scale-105 hover:opacity-90"><a href="https://swapso.io/">Return Back to Home Page</a></button>
             </div>
