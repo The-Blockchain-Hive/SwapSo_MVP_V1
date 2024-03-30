@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import PopUp from './PopUp';
 
-
 interface CardProps {    
     CourseId: string;
     AboutCourse: string;
