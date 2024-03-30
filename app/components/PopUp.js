@@ -81,7 +81,6 @@ function PopUp({ handleClose, currentCourse, courseName }) {
 
     handleClose();
 }
-  
 
     return (
         <>

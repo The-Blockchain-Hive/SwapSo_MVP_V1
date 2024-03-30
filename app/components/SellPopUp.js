@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase.js";
-import { doc, collection, deleteDoc, serverTimestamp, setDoc } from "firebase/firestore"; 
+import { doc, collection, deleteDoc, serverTimestamp, setDoc } from "firebase/firestore";
+import { ethers } from 'ethers';
+import Abi from './abi.json'
 
 const SellPopUp = ({handleClose, currentCourse}) => {
 
+
+  const [provider, setProvider] = useState(null);
+  const [signer, setSigner] = useState(null);
+  const [contract, setContract] = useState(null);
     const [listingAmount, setListingAmount] = useState('');
     const [courseComment, setCourseComment] = useState('');
 
@@ -13,12 +19,8 @@ const SellPopUp = ({handleClose, currentCourse}) => {
     const handleSell = async(course) => {
         console.log('Course Sold', listingAmount);
         console.log(course);
-        // console.log(courseComment);
 
-        const userId = user.uid;
-        // console.log("user id: ",userId);
-        // console.log("Course: ",course);
-        
+        const userId = user.uid;        
         const userRef = doc(db, "Users", userId);
         const marketRef = collection(userRef, "My_Listings");
         const coursesRef = collection(userRef,"My_Courses");
@@ -43,6 +45,21 @@ const SellPopUp = ({handleClose, currentCourse}) => {
             await deleteDoc(doc(coursesRef,course.id));
             console.log("course deleted from My Courses ")
 
+        // Update ethers provider and contract
+        const contractAddress = '0x1029d2eb463f1e310e74e7694e725ace17485b0a';
+        const tempProvider = new ethers.providers.Web3Provider(window.ethereum);
+        const tempSigner = tempProvider.getSigner();
+        const tempContract = new ethers.Contract(contractAddress, Abi, tempSigner);
+
+        // Assign the contract object to the state variables or use it directly
+        setProvider(tempProvider);
+        setSigner(tempSigner);
+        setContract(tempContract);
+
+        // Call the contract function
+        const tx = await tempContract.sellCourse(course.id, listingAmount);
+        await tx.wait();
+
           } catch (error) {
             console.log(error);
           }
@@ -50,7 +67,7 @@ const SellPopUp = ({handleClose, currentCourse}) => {
         handleClose();
     }
     const handleAmountChange = (event) => {
-        setListingAmount(event.target.value);
+        let listingAmount = setListingAmount(event.target.value);
       };
       const handleCommentChange = (event) => {
         setCourseComment(event.target.value);
