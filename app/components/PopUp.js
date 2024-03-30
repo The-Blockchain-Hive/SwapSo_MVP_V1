@@ -4,6 +4,8 @@ import { useDataContext } from "../context/DataContextProvider.jsx";
 import { UserAuth } from "../context/AuthContext.js";
 import { db } from "../firebase.js";
 import { doc, collection, serverTimestamp, setDoc } from "firebase/firestore";
+import { ethers } from "ethers";
+import Abi from './abi.json';
 // import NewCard from "./newCard.tsx";
 
 
@@ -12,48 +14,73 @@ function PopUp({ handleClose, currentCourse, courseName }) {
   // const [isPurchaseComplete, setPurchaseComplete] = useState(false);
   const { address, chain, payFees } = useDataContext();
   const { user } = UserAuth();
-  
-  async function handlePay(course) {
-    const userId = user.uid;
-    const userRef = doc(db, "Users", userId);
-    const coursesRef = collection(userRef, "My_Courses"); // Subcollection for courses
-  
-    try {
-      // Add a new document for each purchased course
-      await setDoc(doc(coursesRef), {
-        courseId: course.CourseId,       
-        courseName: course.CourseName,
-        AboutCourse: course.AboutCourse,
-        CourseName: course.CourseName,
-	    CourseImgUrl: course.CourseImgUrl,
-        short_desc: course.short_desc,
-        CourseDuration: course.CourseDuration,
-        CourseEducator: course.CourseEducator,
-        EducatorImgUrl: course.EducatorImgUrl,
-        EducatorSocials: course.EducatorSocials,
-        Educator_desc: course.Educator_desc,
-        PricePerDay: course.PricePerDay,
-        WhatLearn: course.WhatLearn,	 
-        purchaseDate: serverTimestamp(),
-      });
-      console.log("course pushed to my courses");
-    } catch (error) {
-      console.log(error);
-    }
-  
-    handleClose();
-  }
+  const [provider, setProvider] = useState(null);
+  const [signer, setSigner] = useState(null);
+  const [contract, setContract] = useState(null);
+
+
   const [Price, setPrice] = useState(5);
   const [selectedDay, setselectedDay] = useState('1 day')
   const [selectedTimeframe, setselectedTimeframe] = useState('1');
 
   const handleTimeframeChange = (e) => {
-      const inputDays = parseInt(e.target.value);
-      setselectedTimeframe(inputDays.toString())
-      const calculatedPrice = inputDays * 1;
-      setPrice(calculatedPrice);
-      setselectedDay(inputDays);
+	  const inputDays = parseInt(e.target.value);
+	  setselectedTimeframe(inputDays.toString())
+	  const calculatedPrice = inputDays * 1;
+	  setPrice(calculatedPrice);
+	  setselectedDay(inputDays);
+	}
+
+  async function handlePay(course, selectedTimeframe, price) {
+    try {
+        const userId = user.uid;
+        const userRef = doc(db, "Users", userId);
+        const coursesRef = collection(userRef, "My_Courses");
+        
+        // Add course to My_Courses collection
+        await setDoc(doc(coursesRef), {
+            courseId: course.CourseId,
+            courseName: course.CourseName,
+            AboutCourse: course.AboutCourse,
+            CourseName: course.CourseName,
+            CourseImgUrl: course.CourseImgUrl,
+            short_desc: course.short_desc,
+            CourseDuration: course.CourseDuration,
+            CourseEducator: course.CourseEducator,
+            EducatorImgUrl: course.EducatorImgUrl,
+            EducatorSocials: course.EducatorSocials,
+            Educator_desc: course.Educator_desc,
+            PricePerDay: course.PricePerDay,
+            WhatLearn: course.WhatLearn,
+            purchaseDate: serverTimestamp(),
+        });
+        
+        console.log("Course added to My_Courses collection");
+		console.log('Selected Time:', selectedTimeframe);
+		console.log('price:', price)
+
+        // Update ethers provider and contract
+        const contractAddress = '0x1029d2eb463f1e310e74e7694e725ace17485b0a';
+        const tempProvider = new ethers.providers.Web3Provider(window.ethereum);
+        const tempSigner = tempProvider.getSigner();
+        const tempContract = new ethers.Contract(contractAddress, Abi, tempSigner);
+
+        // Assign the contract object to the state variables or use it directly
+        setProvider(tempProvider);
+        setSigner(tempSigner);
+        setContract(tempContract);
+
+        // Call the contract function
+        const tx = await tempContract.addCourse(price, selectedTimeframe);
+        await tx.wait();
+
+        console.log('Purchase successful');
+    } catch (error) {
+        console.error("Error purchasing course:", error);
     }
+
+    handleClose();
+}
   
 
     return (
@@ -113,230 +140,3 @@ function PopUp({ handleClose, currentCourse, courseName }) {
 export default PopUp;
 
 // smart contract address: 0x1029d2eb463f1e310e74e7694e725ace17485b0a
-// abi: "abi": [
-					// 	{
-					// 		"inputs": [],
-					// 		"name": "AccessControlBadConfirmation",
-					// 		"type": "error"
-					// 	},
-					// 	{
-					// 		"inputs": [
-					// 			{
-					// 				"internalType": "address",
-					// 				"name": "account",
-					// 				"type": "address"
-					// 			},
-					// 			{
-					// 				"internalType": "bytes32",
-					// 				"name": "neededRole",
-					// 				"type": "bytes32"
-					// 			}
-					// 		],
-					// 		"name": "AccessControlUnauthorizedAccount",
-					// 		"type": "error"
-					// 	},
-					// 	{
-					// 		"anonymous": false,
-					// 		"inputs": [
-					// 			{
-					// 				"indexed": true,
-					// 				"internalType": "bytes32",
-					// 				"name": "role",
-					// 				"type": "bytes32"
-					// 			},
-					// 			{
-					// 				"indexed": true,
-					// 				"internalType": "bytes32",
-					// 				"name": "previousAdminRole",
-					// 				"type": "bytes32"
-					// 			},
-					// 			{
-					// 				"indexed": true,
-					// 				"internalType": "bytes32",
-					// 				"name": "newAdminRole",
-					// 				"type": "bytes32"
-					// 			}
-					// 		],
-					// 		"name": "RoleAdminChanged",
-					// 		"type": "event"
-					// 	},
-					// 	{
-					// 		"anonymous": false,
-					// 		"inputs": [
-					// 			{
-					// 				"indexed": true,
-					// 				"internalType": "bytes32",
-					// 				"name": "role",
-					// 				"type": "bytes32"
-					// 			},
-					// 			{
-					// 				"indexed": true,
-					// 				"internalType": "address",
-					// 				"name": "account",
-					// 				"type": "address"
-					// 			},
-					// 			{
-					// 				"indexed": true,
-					// 				"internalType": "address",
-					// 				"name": "sender",
-					// 				"type": "address"
-					// 			}
-					// 		],
-					// 		"name": "RoleGranted",
-					// 		"type": "event"
-					// 	},
-					// 	{
-					// 		"anonymous": false,
-					// 		"inputs": [
-					// 			{
-					// 				"indexed": true,
-					// 				"internalType": "bytes32",
-					// 				"name": "role",
-					// 				"type": "bytes32"
-					// 			},
-					// 			{
-					// 				"indexed": true,
-					// 				"internalType": "address",
-					// 				"name": "account",
-					// 				"type": "address"
-					// 			},
-					// 			{
-					// 				"indexed": true,
-					// 				"internalType": "address",
-					// 				"name": "sender",
-					// 				"type": "address"
-					// 			}
-					// 		],
-					// 		"name": "RoleRevoked",
-					// 		"type": "event"
-					// 	},
-					// 	{
-					// 		"inputs": [],
-					// 		"name": "DEFAULT_ADMIN_ROLE",
-					// 		"outputs": [
-					// 			{
-					// 				"internalType": "bytes32",
-					// 				"name": "",
-					// 				"type": "bytes32"
-					// 			}
-					// 		],
-					// 		"stateMutability": "view",
-					// 		"type": "function"
-					// 	},
-					// 	{
-					// 		"inputs": [
-					// 			{
-					// 				"internalType": "bytes32",
-					// 				"name": "role",
-					// 				"type": "bytes32"
-					// 			}
-					// 		],
-					// 		"name": "getRoleAdmin",
-					// 		"outputs": [
-					// 			{
-					// 				"internalType": "bytes32",
-					// 				"name": "",
-					// 				"type": "bytes32"
-					// 			}
-					// 		],
-					// 		"stateMutability": "view",
-					// 		"type": "function"
-					// 	},
-					// 	{
-					// 		"inputs": [
-					// 			{
-					// 				"internalType": "bytes32",
-					// 				"name": "role",
-					// 				"type": "bytes32"
-					// 			},
-					// 			{
-					// 				"internalType": "address",
-					// 				"name": "account",
-					// 				"type": "address"
-					// 			}
-					// 		],
-					// 		"name": "grantRole",
-					// 		"outputs": [],
-					// 		"stateMutability": "nonpayable",
-					// 		"type": "function"
-					// 	},
-					// 	{
-					// 		"inputs": [
-					// 			{
-					// 				"internalType": "bytes32",
-					// 				"name": "role",
-					// 				"type": "bytes32"
-					// 			},
-					// 			{
-					// 				"internalType": "address",
-					// 				"name": "account",
-					// 				"type": "address"
-					// 			}
-					// 		],
-					// 		"name": "hasRole",
-					// 		"outputs": [
-					// 			{
-					// 				"internalType": "bool",
-					// 				"name": "",
-					// 				"type": "bool"
-					// 			}
-					// 		],
-					// 		"stateMutability": "view",
-					// 		"type": "function"
-					// 	},
-					// 	{
-					// 		"inputs": [
-					// 			{
-					// 				"internalType": "bytes32",
-					// 				"name": "role",
-					// 				"type": "bytes32"
-					// 			},
-					// 			{
-					// 				"internalType": "address",
-					// 				"name": "callerConfirmation",
-					// 				"type": "address"
-					// 			}
-					// 		],
-					// 		"name": "renounceRole",
-					// 		"outputs": [],
-					// 		"stateMutability": "nonpayable",
-					// 		"type": "function"
-					// 	},
-					// 	{
-					// 		"inputs": [
-					// 			{
-					// 				"internalType": "bytes32",
-					// 				"name": "role",
-					// 				"type": "bytes32"
-					// 			},
-					// 			{
-					// 				"internalType": "address",
-					// 				"name": "account",
-					// 				"type": "address"
-					// 			}
-					// 		],
-					// 		"name": "revokeRole",
-					// 		"outputs": [],
-					// 		"stateMutability": "nonpayable",
-					// 		"type": "function"
-					// 	},
-					// 	{
-					// 		"inputs": [
-					// 			{
-					// 				"internalType": "bytes4",
-					// 				"name": "interfaceId",
-					// 				"type": "bytes4"
-					// 			}
-					// 		],
-					// 		"name": "supportsInterface",
-					// 		"outputs": [
-					// 			{
-					// 				"internalType": "bool",
-					// 				"name": "",
-					// 				"type": "bool"
-					// 			}
-					// 		],
-					// 		"stateMutability": "view",
-					// 		"type": "function"
-					// 	}
-					// ],
