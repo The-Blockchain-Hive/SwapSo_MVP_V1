@@ -11,34 +11,34 @@ const Footer = () => {
           <div className="company-section">
             <h3 className="text-xl font-semibold mb-4 md:text-lg">Company</h3>
             <ul>
-              <li><a href="/about" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">About Us</a></li>
+              <li><a href="/" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">About Us</a></li>
               <li><a href="/team" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Team</a></li>
               {/* <li><a href="/mission" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Mission</a></li> */}
-              <li><a href="/partners" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Partners</a></li>
+              <li><a href="/" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Partners</a></li>
             </ul>
           </div>
           <div className="quick-links-section">
             <h3 className="text-xl font-semibold mb-4 md:text-lg">Quick Links</h3>
             <ul>
               <li><a href="/" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Home</a></li>
-              <li><a href="/courses" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Courses</a></li>
-              <li><a href="/marketplace" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">MarketPlace</a></li>
+              <li><a href="/Courses" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Courses</a></li>
+              <li><a href="/Marketplace" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">MarketPlace</a></li>
             </ul>
           </div>
           <div className="resources-section">
             <h3 className="text-xl font-semibold mb-4 md:text-lg">Resources</h3>
             <ul>
-              <li><a href="https://www.theblockchainhive.com/ambassador" className="hover:text-gray-300 hover:ease-in-out duration-300 text-wrap opacity-70">Campus Ambassador</a></li>
+              <li><a href="https://ca.swapso.io/" className="hover:text-gray-300 hover:ease-in-out duration-300 text-wrap opacity-70">Campus Ambassador</a></li>
               <li><a href="/blog" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70"><Link href="https://blogs.swapso.io" target='_blank'>Blogs</Link></a></li>
-              <li><a href="/events" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Events</a></li>
+              <li><a href="/" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Events</a></li>
             </ul>
           </div>
           <div className="support-section">
             <h3 className="text-xl font-semibold mb-4 md:text-lg">Support</h3>
             <ul>
-              <li><a href="/contacts" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Contacts</a></li>
+              <li><a href="/" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Contacts</a></li>
               <li><a href="/faq" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">FAQ</a></li>
-              <li><a href="/privacy" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Privacy</a></li>
+              <li><a href="/privacy" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Privacy Policy</a></li>
               <li><a href="/terms" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Terms and Conditions</a></li>
             </ul>
           </div>

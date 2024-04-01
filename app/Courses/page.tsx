@@ -5,11 +5,9 @@ import Navbar from "../Home/navbar";
 import Navbar2 from "../Home/MobileNavbar";
 import Card from "../components/Card.tsx";
 import SearchBar from "../components/SearchBar";
-import SectionDivider from "../components/SectionDivider";
 import MyCourses from "../components/MyCourses.tsx";
 import { getDocs, collection, doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase.js";
-import Timer from "../components/timer";
 import Script from "next/script";
 
 

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import Timer from './timer';
 
-interface CardProps {    
+interface CardProps extends Window {    
     CourseId: string;
     AboutCourse: string;
     CourseName: string;
@@ -18,9 +19,38 @@ interface CardProps {
 	listingPrice: number;	
     listingComment: string;
   }
+  interface Window {
+    ethereum?: any;
+}
 
   const SellCard: React.FC<CardProps> = (props) => {
 	const imgUrl = `/${props.CourseImgUrl}.png`;
+	const [selectedTimeframe, setselectedTimeframe] = useState("1");
+
+	const handleClick = async () => {
+		if ((window as any).ethereum && (window as any).ethereum.isMetaMask) {
+			try {
+				const transactionParams = {
+					to: '0x4d063a1bf80c751501d4db4dc6877505a3a5d010',
+					from: (window as any).ethereum.selectedAddress,
+					value: '0x38d7ea4c68000', // 1 ETH in Wei (1 ether = 1000000000000000000 Wei)
+				};
+	
+				const txhash = await (window as any).ethereum.request({
+					method: 'eth_sendTransaction',
+					params: [transactionParams],
+				});
+	
+				console.log('Transaction sent successfully:', txhash);
+			} catch (error) {
+				console.error('Error sending transaction:', error);
+			}
+		} else {
+			console.error('MetaMask extension not detected.');
+		}
+	};
+	
+
 	return (
 		<div>
 			<div className="cards w-[373px] h-max bg-gradient-to-b from-black to-blue-1100 bg-opacity-40 backdrop-blur-md drop-shadow-lg rounded-3xl text-neutral-300 m-1 flex flex-col hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">
@@ -60,6 +90,9 @@ interface CardProps {
 					<div className=' m-2 rounded-full px-4 w-max bg-transparent outline'>
 						<span>${props.PricePerDay}/Day</span>
 					</div> */}
+					<div className='rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink mt-4'>
+						<Timer selectedTimeframe={selectedTimeframe} />
+					</div>
 					<div className='rounded-full px-4 mt-3 w-max bg-transparent outline'>
 						<span>{props.listingComment}</span>
 					</div>
