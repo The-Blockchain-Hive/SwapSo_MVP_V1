@@ -48,7 +48,7 @@ const MyCourses = () => {
 
   useEffect(()=>{
      fetchData();
-  },[])
+  },[fetchData])
 
 
   return (

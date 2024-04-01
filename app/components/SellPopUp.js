@@ -12,7 +12,7 @@ const SellPopUp = ({handleClose, currentCourse}) => {
 
     const handleSell = async(course) => {
         console.log('Course Sold', listingAmount);
-        console.log(course);
+        console.log(course.id);
         // console.log(courseComment);
 
         const userId = user.uid;

@@ -65,7 +65,7 @@ interface CardProps {
 					</div>
 				</div>
 				<div className='flex justify-between px-4'>
-					<Link href='/'><button className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl w-full">About</button></Link>
+					<Link href='/AboutCourse'><button className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl w-full">About</button></Link>
 					<button className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl w-1/3">Buy</button>
 				</div>
 			</div>

@@ -6,6 +6,7 @@ import Timer from './timer';
 import { getDocs, collection, serverTimestamp, deleteDoc, doc, setDoc } from "firebase/firestore";
 import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase.js";
+import CourseCurriculum from '../AboutCourse/curriculum.js';
 
 interface CardProps {    
     CourseId: string;
@@ -32,7 +33,11 @@ interface CardProps {
 	const { user } = UserAuth();
 	
 
+
 	async function toggleWithdraw (course: CardProps){
+
+		console.log(course.CourseId);
+		const courseId = course.CourseId;
 		const userId = user.uid;
 	
 		const userRef = doc(db, "Users", userId);
@@ -40,15 +45,15 @@ interface CardProps {
 		const coursesRef = collection(userRef,"My_Courses");
 	
 		try {
-			await setDoc(doc(coursesRef,userId), {
+			await setDoc(doc(coursesRef,courseId), {
 			  ...course,
 			  withdrawDate: serverTimestamp(),			  			  
 			});
 
-			await deleteDoc(doc(marketRef,userId));
+			await deleteDoc(doc(marketRef,courseId));
             console.log("course deleted from My Listings");
 
-			await deleteDoc(doc(db,"Marketplace",userId));
+			await deleteDoc(doc(db,"Marketplace",courseId));
 			console.log("Course Deleted from Marketplace");
 
 	}catch(error){
