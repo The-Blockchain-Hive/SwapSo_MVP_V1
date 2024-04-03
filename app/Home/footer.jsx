@@ -1,7 +1,8 @@
 "use client"
 import React from "react";
 import Link from "next/link";
-import {FaTwitter, FaInstagram, FaLinkedin, FaDiscord, FaWhatsapp, FaTelegram, FaArrowAltCircleLeft, FaArrowLeft} from 'react-icons/fa';
+import { Link as ScrollLink } from 'react-scroll';
+import { FaTwitter, FaInstagram, FaLinkedin, FaDiscord, FaWhatsapp, FaTelegram } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -11,10 +12,10 @@ const Footer = () => {
           <div className="company-section">
             <h3 className="text-xl font-semibold mb-4 md:text-lg">Company</h3>
             <ul>
-              <li><a href="/" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">About Us</a></li>
+              <li><a href=''className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70"><ScrollLink to='about'>About Us</ScrollLink></a></li>
               <li><a href="/team" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Team</a></li>
               {/* <li><a href="/mission" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Mission</a></li> */}
-              <li><a href="/" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Partners</a></li>
+              <li><a href='' className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70"><ScrollLink to='partners'>Partners</ScrollLink></a></li>
             </ul>
           </div>
           <div className="quick-links-section">
@@ -29,7 +30,7 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4 md:text-lg">Resources</h3>
             <ul>
               <li><a href="https://ca.swapso.io/" className="hover:text-gray-300 hover:ease-in-out duration-300 text-wrap opacity-70">Campus Ambassador</a></li>
-              <li><a href="/blog" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70"><Link href="https://blogs.swapso.io" target='_blank'>Blogs</Link></a></li>
+              <li><a href="https://blogs.swapso.io" target='_blank' className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Blogs</a></li>
               <li><a href="/" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Events</a></li>
             </ul>
           </div>
@@ -39,7 +40,7 @@ const Footer = () => {
               <li><a href="/" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Contacts</a></li>
               <li><a href="/faq" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">FAQ</a></li>
               <li><a href="/privacy" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Privacy Policy</a></li>
-              <li><a href="/terms" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Terms and Conditions</a></li>
+              <li><a href="/t&c" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Terms and Conditions</a></li>
             </ul>
           </div>
         </div>
