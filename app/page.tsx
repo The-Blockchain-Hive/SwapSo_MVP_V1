@@ -68,16 +68,15 @@ export default function Home() {
                     .start();
                 }} />
             </h1>
-            <h1 className='text-xl text-justify w-2/3 md:w-1/2 lg:w-1/2 xl:w-1/2 xl:mr-40'>
+            <h1 className='text-xl w-9/10 md:w-1/2 lg:w-1/2 xl:w-1/2 xl:mr-40'>
               Creating a new educational system which is decentralised, transparent & open to all.
             </h1>
-            <div className="bg-cyan-950 text-cyan-400 border border-cyan-400 border-b-4 overflow-hidden relative px-8 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group mt-8 font-bold xl:mr-48">
-              <button className="bg-cyan-400 shadow-cyan-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)] ml-20">name</button>
+            <div className="bg-cyan-950 text-cyan-400 border border-cyan-400 border-b-4 relative px-8 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group mt-8 font-bold xl:mr-48">
               <Link href="/wl" target='_blank'>Join Waitlist</Link>
             </div>
           </div>
         </div>
-        <video autoPlay muted loop playsInline controls={false} height="100vh" className="absolute z-[-1] w-full lg:w-1/2 lg:mr-64 mx-auto xl:w-1/2 object-cover md:h-full lg:h-3/4 xl:h-3/4 lg:mt-32 xl:mt-32 right-0">
+        <video autoPlay muted loop playsInline controls={false} height="100vh" className="absolute z-[-1] w-full lg:w-1/2 lg:mr-64 mx-auto xl:w-1/2 object-cover md:h-3/4 lg:h-3/4 xl:h-3/4 lg:mt-32 xl:mt-32 right-0">
           <source src="/cubic.mp4" type="video/mp4" />
         </video>
       </div>

@@ -89,11 +89,11 @@ function MobileNavbar() {
             <li className='p-1'><Link onClick={handleMenuClose} href="/Marketplace">Market Place</Link><hr /></li>
             { <div>
          {!(user)?
-            (<button className='ml-8 font-bold bg-purple-500 w-40 p-1 rounded-lg font-bold mt-4'><a href="/signup">Sign in</a></button>):(<button className='ml-8 bg-purple-500 w-40 p-1 rounded-lg font-bold mt-4' onClick={handleSignOut}>Sign Out</button>)}
+            (<button className='ml-4 font-bold bg-purple-500 w-40 p-1 rounded-lg font-bold mt-4'><a href="/signup">Sign in</a></button>):(<button className='ml-4 bg-purple-500 w-40 p-1 rounded-lg font-bold mt-4' onClick={handleSignOut}>Sign Out</button>)}
         </div> }
           </ul>
           <div>
-          <div className="dropdown ml-8 mt-4">
+          <div className="dropdown ml-4 mt-4">
             <ConnectButton />
           </div>
         </div>
