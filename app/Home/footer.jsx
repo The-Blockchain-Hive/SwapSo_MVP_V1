@@ -13,7 +13,7 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4 md:text-lg">Company</h3>
             <ul>
               <li><a href=''className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70"><ScrollLink to='about'>About Us</ScrollLink></a></li>
-              <li><a href="/team" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Team</a></li>
+              <li><a href="/" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Team</a></li>
               {/* <li><a href="/mission" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Mission</a></li> */}
               <li><a href='' className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70"><ScrollLink to='partners'>Partners</ScrollLink></a></li>
             </ul>

@@ -3,44 +3,19 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../Home/navbar";
 import { metadata } from "./metadata.ts";
 import Navbar2 from '../Home/MobileNavbar.jsx';
-import SellCard from "../components/SellCard.tsx";
-import SearchBar from "../components/SearchBar";
 import MyListings from "../components/MyListings.tsx"
 import SectionDivider from "../components/SectionDivider";
-import { getDocs, collection, doc, setDoc } from "firebase/firestore";
+import { getDocs, collection } from "firebase/firestore";
 import { db } from "../firebase.js";
 import Script from "next/script";
+import SearchBar from "../components/SearchBar.js";
+import SellCard from "../components/SellCard.tsx";
 
 const MarketPlace = () => {
-  const[isPopupVisible, setIsPopupVisible] = useState(false);
-
-  // const togglePopup = () => {
-  //   setIsPopupVisible(!isPopupVisible);
-  // };
-
-  // const handlePurchase = () => {
-  //   setIsPopupVisible(false);
-  // }
-  
-  interface Course {    
-    
-    AboutCourse: string;
-    CourseName: string;
-    short_desc: string;
-    CourseDuration: number;
-    CourseImgUrl: number;
-    CourseEducator: string;
-    EducatorImgUrl: string;
-    EducatorSocials: string;
-    Educator_desc: string;
-    PricePerDay: number;
-    WhatLearn: string;
-    listingPrice: number;
-    
-  }
-
-  const [coursesData, setCoursesData] = useState<Course[]>([]);
-
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [coursesData, setCoursesData] = useState<{ ids: string }[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [showListingsPage, setShowListingsPage] = useState(false);
 
   const fetchData = async () => {
     try {
@@ -49,57 +24,37 @@ const MarketPlace = () => {
 
       const courses = coursesSnapshot.docs.map((doc) => {
         const ids = doc.id;
-        const courseData = doc.data() as Course;
+        const courseData = doc.data();
         return { ids, ...courseData };
       });
 
       setCoursesData(courses);
-      // console.log(courses);  
     } catch (error) {
       console.error('Error fetching data:', error);
-      throw error;
     }
   };
 
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-      const [isMobile, setIsMobile] = useState(false);
-      const [showMarketPlace, setShowMarketPlace] = useState(true);
-      const [showYourListings, setShowYourListings] = useState(false);
-    
-      useEffect(() => {
-        const handleResize = () => {
-          setIsMobile(window.innerWidth <= 900);
-        };
-    
-        handleResize();
-        fetchData();
-    
-        window.addEventListener('resize', handleResize);
-    
-        return () => {
-          window.removeEventListener('resize', handleResize);
-        };
-      }, []);
-    
-      const toggleMarketPlace = () => {
-        setShowMarketPlace(true);
-        setShowYourListings(false);
-      };
-    
-      const toggleYourListings = () => {
-        setShowMarketPlace(false);
-        setShowYourListings(true);
-      };
+  const itemsPerPage = 9;
+  const totalPages = Math.ceil(coursesData.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentItems = coursesData.slice(startIndex, endIndex);
 
-      
-    
-      return (
-        <main className={`bg-gradient-to-b from-blue-1125 to-blue-1150 ${isPopupVisible ? 'blurred' : ''}`}>
-          <head>
-            <title>{metadata.title}</title>
-            <meta name="description" content={metadata.description} />
-          </head>
-          <Script id="ga-script" async src="https://www.googletagmanager.com/gtag/js?id=G-21492NPCH3"></Script>
+  const handlePageChange = (page: React.SetStateAction<number>) => {
+    setCurrentPage(page);
+  };
+
+  return (
+    <main className={`bg-gradient-to-b from-blue-1125 to-blue-1150 ${isPopupVisible ? 'blurred' : ''}`}>
+      <head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+      </head>
+      <Script id="ga-script" async src="https://www.googletagmanager.com/gtag/js?id=G-21492NPCH3"></Script>
       <Script id="ga-script">
         {`
           window.dataLayer = window.dataLayer || [];
@@ -109,56 +64,60 @@ const MarketPlace = () => {
           gtag('config', 'G-21492NPCH3');
         `}
       </Script>
-          <div className='nav1'>
-            {isMobile ? <Navbar2 /> : <Navbar />}
+      <div className='nav1'>
+        {typeof window !== 'undefined' && window.innerWidth <= 900 ? <Navbar2 /> : <Navbar />}
+      </div>
+      <div className="py-5 mb-10">
+        <SearchBar />
+      </div>
+      <div className="flex justify-center">
+        <button
+          onClick={() => setShowListingsPage(false)}
+          className={`text-white px-3 py-1 rounded-md bg-${!showListingsPage ? 'blue-700' : 'gray-400'}`}
+        >
+          Market Place
+        </button>
+        <button
+          onClick={() => setShowListingsPage(true)}
+          className={`ml-4 text-white px-3 py-1 rounded-md bg-${showListingsPage ? 'blue-700' : 'gray-400'}`}
+        >
+          Your Listings
+        </button>
+      </div>
+      {showListingsPage ? (
+        <div>
+          <div className="bg-transparent">
+            <SectionDivider label="Your Listings" />
           </div>
-          <div className="py-5 mb-10">
-            <SearchBar />
-          </div>
-          <div className="flex justify-center">
-            <button
-              onClick={toggleMarketPlace}
-              className={`text-white px-3 py-1 rounded-md ${showMarketPlace ? 'bg-blue-700' : 'bg-gray-400'}`}
-            >
-              Market Place
-            </button>
-            <button
-              onClick={toggleYourListings}
-              className={`ml-4 text-white px-3 py-1 rounded-md ${showYourListings ? 'bg-blue-700' : 'bg-gray-400'}`}
-            >
-              Your Listings
-            </button>
-          </div>
-          {showMarketPlace && (
-            <div>
-              <div className="bg-transparent">
-                <SectionDivider label="Market Place" />
-              </div>
-            </div>
-          )}
-          {showYourListings && (
-            <div><div className="bg-transparent">
-            <SectionDivider label="Your Listings"/>                
-          </div>
-          <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 h-screen">
-            <MyListings/>
-          </div></div>            
-              
-          )}
-          {showMarketPlace&&(
           <div className="w-screen flex flex-wrap gap-5 justify-center py-5">
-              {coursesData.map((course, index) => (
-                <SellCard                            
-                  CourseId={""} listingComment={""} key={index} {...course}                      />
-                ))
-              }
-              </div>
-              )}
-              
-            
-          
-          
-        </main>
-    )
+            <MyListings/>
+          </div>
+        </div>
+      ) : (
+        <div>
+          <div className="bg-transparent">
+            <SectionDivider label="Market Place" />
+          </div>
+          <div className="w-screen flex flex-wrap gap-5 justify-center py-5">
+            {currentItems.map((course, index) => (
+              <SellCard AboutCourse={""} CourseName={""} CourseImgUrl={0} short_desc={""} CourseDuration={0} CourseEducator={""} EducatorImgUrl={""} EducatorSocials={""} Educator_desc={""} PricePerDay={0} WhatLearn={""} listingPrice={0} CourseId={""} listingComment={""} key={index} {...course} />
+            ))}
+          </div>
+          <div className="flex justify-center space-x-2">
+            {[...Array(totalPages).keys()].map((page) => (
+              <button
+                key={page}
+                onClick={() => handlePageChange(page + 1)}
+                className={`px-3 py-1 rounded-md ${currentPage === page + 1 ? 'bg-blue-700 text-white' : 'bg-gray-400 text-black'}`}
+              >
+                {page + 1}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </main>
+  )
 }
+
 export default MarketPlace;

@@ -84,16 +84,16 @@ function MobileNavbar() {
             <FontAwesomeIcon icon={'times'} size="2x" />
           </button>
           <ul className="inner__mobile__navbar__menu no-bullet">
-            <li><Link onClick={handleMenuClose} href="/">Home</Link></li>
-            <li><Link onClick={handleMenuClose} href="/Courses">Courses</Link></li>
-            <li><Link onClick={handleMenuClose} href="/Marketplace">Market Place</Link></li>
+            <li className='p-1'><Link onClick={handleMenuClose} href="/">Home</Link><hr /></li>
+            <li className='p-1'><Link onClick={handleMenuClose} href="/Courses">Courses</Link><hr /></li>
+            <li className='p-1'><Link onClick={handleMenuClose} href="/Marketplace">Market Place</Link><hr /></li>
             { <div>
          {!(user)?
-            (<button className='ml-12 font-bold'><a href="/signup">Sign in</a></button>):(<button className='ml-12' onClick={handleSignOut}>Sign Out</button>)}
+            (<button className='ml-8 font-bold bg-purple-500 w-40 p-1 rounded-lg font-bold mt-4'><a href="/signup">Sign in</a></button>):(<button className='ml-8 bg-purple-500 w-40 p-1 rounded-lg font-bold mt-4' onClick={handleSignOut}>Sign Out</button>)}
         </div> }
           </ul>
           <div>
-          <div className="dropdown">
+          <div className="dropdown ml-8 mt-4">
             <ConnectButton />
           </div>
         </div>
