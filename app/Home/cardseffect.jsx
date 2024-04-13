@@ -5,7 +5,7 @@ import Image from "next/image";
 const CardEffect = () => {
 
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto mt-16">
      <div className="card">
        <div className="face face1"> 
          <div className="content">

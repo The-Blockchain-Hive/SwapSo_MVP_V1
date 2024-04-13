@@ -31,7 +31,7 @@ function PopUp({ handleClose, currentCourse, courseName }) {
 	  setselectedDay(inputDays);
 	}
 
-  async function handlePay(course, selectedTimeframe, price) {
+  async function handlePay({course, selectedTimeframe, price}) {
     try {
         const userId = user.uid;
         const userRef = doc(db, "Users", userId);
@@ -82,6 +82,8 @@ function PopUp({ handleClose, currentCourse, courseName }) {
     handleClose();
 }
 
+console.log('Selected Time:', selectedTimeframe);
+		console.log('price:', Price)
     return (
         <>
         <div className="flex justify-between p-4">

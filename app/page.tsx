@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect} from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { metadata } from './metadata.ts';
 import Navbar from './Home/navbar.jsx';
 import Navbar2 from './Home/MobileNavbar.jsx';
@@ -10,7 +11,6 @@ import JoinUs from './Home/JoinUs.jsx';
 import CardEffect from './Home/cardseffect.jsx';
 import ContactForm from './Home/contact.jsx';
 import Footer from './Home/footer.jsx';
-// import Desktop from './Home/desktop.jsx'
 import Typewriter from 'typewriter-effect';
 import Script from 'next/script';
 
@@ -80,24 +80,25 @@ export default function Home() {
           <source src="/cubic.mp4" type="video/mp4" />
         </video>
       </div>
-      <h2 className="text-6xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-100">About Us</h2>
-      <div className="relative" id='about'>
-        <div className='mt-16 w-full mx-auto rounded-lg text-center flex flex-col xl:flex-row lg:flex-row'>
-          <div className='w-screen lg:ml-12 xl:ml-32 mx-auto md:w-1/2 overflow-hidden'>
-            <video autoPlay muted loop playsInline controls={false} height="100vh" className="w-full z-[-2] h-auto">
-              <source src="/about.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div className='w-2/3 lg:mt-16 mx-auto sm:w-1/2 md:w-3/5 lg:w-1/2 lg:mr-32 xl:w-2/3 xl:mr-80'>
-            <h1 className='text-md text-white mx-auto text-justify font-semibold'>
+      <div className="relative border border-cyan-400 w-4/5 mx-auto rounded-lg mb-16" id='about'>
+        <h2 className="mt-16 text-5xl mb-4 text-left text-transparent text-white ml-8 lg:ml-32 lg:ml-32 font-comfortaa">About <span className='text-cyan-300'>Swapso</span></h2>
+        <div className='mt-24 mx-auto rounded-lg text-center flex flex-col xl:flex-row lg:flex-row'>
+          {isMobile ? <div></div>: 
+            <div className='w-screen lg:mt-16 lg:ml-32 xl:ml-32 mx-auto md:w-1/2 overflow-hidden'>
+              <Image src='/newlogo.svg' alt='logo' height={150} width={150} className="shadow-lg" />
+            </div>
+          }
+          <div className='lg:mt-16 mx-auto ml-8 lg:ml-24 xl:ml-24'>
+            <h1 className='text-md text-white mx-auto text-justify font-comfortaa mr-16 mb-24'>
               SwapSo, part of Microsoft for “startups founder hub” & incubated at WISE incubator is an initiative founded by IIT Bombay students. In SwapSo, we are bridging educational institutes on a single decentralised network for an open and transparent global education, accessible to everyone. A platform by the learners, for the learners which focuses on increasing completion rates in the edtech industry and incentivizes aka reward people for quick completion of courses.Tailored for skill development courses created by top educators.
             </h1>
           </div>
         </div>
       </div>
-      <h2 className="text-5xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-100 p-5"> Highlight Courses</h2>
+
+      <h2 className="mt-16 text-5xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-white p-5"> Highlight Courses</h2>
       <CardEffect />
-      <h2 className="text-6xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-100 mt-12"> Road Map</h2>
+      <h2 className="text-6xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-white mt-12"> Road Map</h2>
       <div className='mt-12'>
         <TrackPath />
       </div>

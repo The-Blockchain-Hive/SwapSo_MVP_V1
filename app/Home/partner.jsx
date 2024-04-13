@@ -7,7 +7,7 @@ const Partner = () => {
 
     return(
             <main className="body1">
-            <h2 className="text-6xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-100"> Our Supporters</h2>
+            <h2 className="text-6xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-cyan-100"> Our Supporters</h2>
             <div className="slider">
                 <div className="slide-track">
                     <div className="slide">
