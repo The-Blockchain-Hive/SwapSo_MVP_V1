@@ -83,13 +83,13 @@ export default function Home() {
       <div className="relative border border-cyan-400 w-4/5 mx-auto rounded-lg mb-16" id='about'>
         <h2 className="mt-16 text-5xl mb-4 text-left text-transparent text-white ml-8 lg:ml-32 lg:ml-32 font-comfortaa">About <span className='text-cyan-300'>Swapso</span></h2>
         <div className='mt-24 mx-auto rounded-lg text-center flex flex-col xl:flex-row lg:flex-row'>
-          {isMobile ? <div></div>: 
-            <div className='w-screen lg:mt-16 lg:ml-32 xl:ml-32 mx-auto md:w-1/2 overflow-hidden'>
+          {isMobile ? <p></p>: 
+            <div className='w-screen lg:mt-16 lg:ml-32 xl:ml-32 mx-auto md:w-1/2'>
               <Image src='/newlogo.svg' alt='logo' height={150} width={150} className="shadow-lg" />
             </div>
           }
-          <div className='lg:mt-16 mx-auto ml-8 lg:ml-24 xl:ml-24'>
-            <h1 className='text-md text-white mx-auto text-justify font-comfortaa mr-16 mb-24'>
+          <div className='lg:mt-16 mx-auto ml-8 mr-8 lg:ml-24 xl:ml-24'>
+            <h1 className='w-full text-md text-white mx-auto text-justify font-comfortaa mb-8 lg:mb-24 xl:mb-24'>
               SwapSo, part of Microsoft for “startups founder hub” & incubated at WISE incubator is an initiative founded by IIT Bombay students. In SwapSo, we are bridging educational institutes on a single decentralised network for an open and transparent global education, accessible to everyone. A platform by the learners, for the learners which focuses on increasing completion rates in the edtech industry and incentivizes aka reward people for quick completion of courses.Tailored for skill development courses created by top educators.
             </h1>
           </div>
