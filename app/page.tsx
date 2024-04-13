@@ -89,7 +89,7 @@ export default function Home() {
             </div>
           }
           <div className='lg:mt-16 mx-auto ml-8 mr-8 lg:ml-24 xl:ml-24'>
-            <h1 className='w-full xl:text-2xl text-xl text-white mx-auto text-justify font-comfortaa mb-8 lg:mb-24 xl:mb-24'>
+            <h1 className='w-full text-xl text-white mx-auto text-justify font-comfortaa mb-8 lg:mb-24 xl:mb-24'>
               SwapSo, part of Microsoft for “startups founder hub” & incubated at WISE incubator is an initiative founded by IIT Bombay students. In SwapSo, we are bridging educational institutes on a single decentralised network for an open and transparent global education, accessible to everyone. A platform by the learners, for the learners which focuses on increasing completion rates in the edtech industry and incentivizes aka reward people for quick completion of courses.Tailored for skill development courses created by top educators.
             </h1>
           </div>
