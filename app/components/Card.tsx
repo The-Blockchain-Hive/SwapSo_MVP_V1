@@ -33,35 +33,6 @@ interface CardProps {
 	}
 	const handlePurchase = async (course: CardProps) => {			
 		setIsPopupVisible(false);
-		if ((window as any).ethereum && (window as any).ethereum.isMetaMask) {
-		  try {
-			const fromAddress = (window as any).ethereum.selectedAddress;
-			if (!fromAddress) {
-			  throw new Error('MetaMask selected address is undefined.');
-			}
-			
-			const transactionParams = {
-			  to: '0x4D063a1bF80c751501d4DB4dC6877505A3a5D010',
-			  from: fromAddress,
-			  value: '1',
-			};
-	  
-			const txhash = await (window as any).ethereum.request({
-			  method: 'eth_sendTransaction',
-			  params: [transactionParams],
-			});
-	  
-			console.log('Transaction sent successfully:', txhash);
-		  } catch (error) {
-			console.error('Error sending transaction:');
-
-			alert('Error sending transaction. Please try again later.');
-		  }
-		} else {
-		  console.error('MetaMask extension not detected.');
-
-		  alert('MetaMask extension is required to complete this transaction.');
-		}
 	};
 
 	const handleAboutClick = () => {

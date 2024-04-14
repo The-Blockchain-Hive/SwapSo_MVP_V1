@@ -31,7 +31,7 @@ function PopUp({ handleClose, currentCourse, courseName }) {
 	  setselectedDay(inputDays);
 	}
 
-  async function handlePay({course, selectedTimeframe, price}) {
+  async function handlePay(course, selectedTimeframe, price) {
     try {
         const userId = user.uid;
         const userRef = doc(db, "Users", userId);
@@ -58,6 +58,35 @@ function PopUp({ handleClose, currentCourse, courseName }) {
         console.log("Course added to My_Courses collection");
 		console.log('Selected Time:', selectedTimeframe);
 		console.log('price:', price)
+        if ((window).ethereum && (window).ethereum.isMetaMask) {
+            try {
+              const fromAddress = (window).ethereum.selectedAddress;
+              if (!fromAddress) {
+                throw new Error('MetaMask selected address is undefined.');
+              }
+              
+              const transactionParams = {
+                to: '0x4D063a1bF80c751501d4DB4dC6877505A3a5D010',
+                from: fromAddress,
+                value: '1',
+              };
+        
+              const txhash = await (window).ethereum.request({
+                method: 'eth_sendTransaction',
+                params: [transactionParams],
+              });
+        
+              console.log('Transaction sent successfully:', txhash);
+            } catch (error) {
+              console.error('Error sending transaction:');
+  
+              alert('Error sending transaction. Please try again later.');
+            }
+          } else {
+            console.error('MetaMask extension not detected.');
+  
+            alert('MetaMask extension is required to complete this transaction.');
+          }
 
         // Update ethers provider and contract
         const contractAddress = '0x1029d2eb463f1e310e74e7694e725ace17485b0a';
@@ -82,8 +111,6 @@ function PopUp({ handleClose, currentCourse, courseName }) {
     handleClose();
 }
 
-console.log('Selected Time:', selectedTimeframe);
-		console.log('price:', Price)
     return (
         <>
         <div className="flex justify-between p-4">
@@ -94,7 +121,7 @@ console.log('Selected Time:', selectedTimeframe);
                         </button>
                     </div>
                     <div className="w-[130px] md:w-[130px] lg:w-[145px] xl:w-[145px] h-[46px] px-[63px] pt-4 pb-[15px] left-[175px] md:left-[200px] lg:left-[225px] xl:left-[225px] top-[213px] absolute bg-blue-600 rounded-[5px] justify-center items-center inline-flex">
-                        <button onClick={()=> {handlePay(currentCourse)}} className="text-justify text-white text-xl font-medium font-['Inter'] leading-[17px]">Pay ${Price}</button>
+                        <button onClick={()=> {handlePay(currentCourse, selectedTimeframe, Price)}} className="text-justify text-white text-xl font-medium font-['Inter'] leading-[17px]">Pay ${Price}</button>
                     </div>
                     <div className="left-[397px] top-[181px] absolute text-justify text-black text-base font-medium font-['Inter'] leading-[17px]"> </div>
                     <div className="left-[22px] top-[31px] absolute text-justify text-black text-xl font-medium font-['Inter'] leading-[17px]">{courseName}</div>

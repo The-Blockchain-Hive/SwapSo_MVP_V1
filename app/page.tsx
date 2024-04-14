@@ -14,6 +14,7 @@ import Footer from './Home/footer.jsx';
 import Typewriter from 'typewriter-effect';
 import Script from 'next/script';
 
+
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
