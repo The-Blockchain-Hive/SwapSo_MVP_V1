@@ -110,6 +110,8 @@ function PopUp({ handleClose, currentCourse, courseName }) {
 
     handleClose();
 }
+console.log('Selected Time:', selectedTimeframe);
+
 
     return (
         <>
@@ -160,7 +162,6 @@ function PopUp({ handleClose, currentCourse, courseName }) {
                 </div>
             </div>
         </div>
-        {/* <NewCard selectedTimeframe={selectedTimeframe} /> */}
         </>
 
     );
