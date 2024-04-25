@@ -12,7 +12,7 @@ const JoinUs = () => {
                 <div className="join-us w-screen">
                     <div className="ca w-1/2 md:w-2/5 lg:w-1/3 xl:w-1/3 mx-auto">
                         <p className="font-bold mr-2"> <br /> <FaChalkboardTeacher />Join us and build web3 education&apos;s future</p>
-                        <br /> <h1 className="fill-form"><a href="https://h3sy8tusoyk.typeform.com/to/ZScdGa5l?typeform-source=www.theblockchainhive.com">Fill Campus ambassador form➔</a></h1>
+                        <br /> <h1 className="fill-form"><a href="https://cip.swapso.io">Join our Campus Influencers Program➔</a></h1>
                     </div>
                     <div className="educator w-1/2 md:w-2/5 lg:w-1/3 xl:w-1/3 mx-auto">
                         <p className="font-bold mr-2"> <br /><FaUserGraduate />Educate community with us</p>

@@ -68,27 +68,21 @@ interface CardProps extends Window {
 					<Image src={imgUrl} width={300} height={100} alt='courses' className='object-cover object-top w-full h-1/2 rounded-tr-3xl rounded-tl-3xl' loading='lazy' />
 					<div className='w-full h-1/2 rounded-tr-3xl rounded-tl-3xl'></div>
 				</div>
-				<div className="flex justify-between p-4">
-					<p className="font-extrabold text-2xl">{props.CourseName}</p>
-				</div>
-				<p className="px-4 py-2">{props.short_desc}</p>
-				<div className='flex flex-wrap justify-between px-4'>
-					<div className=' bg-white px-4 w-max  text-black rounded-full'>
+				<div className='flex flex-row justify-between mt-4 m-2'>
+					<div className=' bg-white px-4 w-max text-black rounded-full'>
 						<span>{props.CourseDuration} Hours Total</span>
 					</div>
 					<div className='rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500'>
 						<span>Selling Price: {props.listingPrice}$</span>
 					</div>
-{/* 					
-					<div className=' m-2 rounded-full px-4 w-max bg-transparent outline'>
-						<span>${props.PricePerDay}/Day</span>
-					</div> */}
-					<div className='rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink mt-4'>
+					</div>
+					<div className='justify-center'>
+					<div className='rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink mt-4 ml-8'>
 						<Timer selectedTimeframe={selectedTimeframe} />
 					</div>
-					<div className='rounded-full px-4 mt-3 w-max bg-transparent outline'>
+					{/* <div className='rounded-full px-4 mt-4 ml-32 justify-center w-max bg-transparent outline'>
 						<span>{props.listingComment}</span>
-					</div>
+					</div> */}
 				</div>
 				<div className='flex justify-between px-4'>
 					<Link href='/AboutCourse'><button className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl w-full">About</button></Link>

@@ -140,3 +140,81 @@ const TrackPath = () => {
 };
 
 export default TrackPath;
+// 'use client'
+// import { useState } from 'react';
+
+// export default function TrackPath() {
+//   const [activeIndex, setActiveIndex] = useState(0);
+
+//   const handleDotClick = (index) => {
+//     setActiveIndex(index);
+//   };
+
+//   const handleScroll = (scrollOffset) => {
+//     setActiveIndex(Math.floor(scrollOffset / window.innerWidth));
+//   };
+
+//   return (
+//     <div>
+//       <div className="cards-container" onScroll={(e) => handleScroll(e.target.scrollLeft)}>
+//         <div className="card">Card 1</div>
+//         <div className="card">Card 2</div>
+//         <div className="card">Card 3</div>
+//         <div className="card">Card 4</div>
+//         <div className="card">Card 5</div>
+//         <div className="card">Card 6</div>
+//       </div>
+//       <div className="dots-container">
+//         {[0, 1, 2, 3, 4, 5].map((index) => (
+//           <span
+//             key={index}
+//             className={`dot ${activeIndex === index ? 'active' : ''}`}
+//             onClick={() => handleDotClick(index)}
+//           />
+//         ))}
+//       </div>
+//       <style jsx>{`
+//         .cards-container {
+//           display: flex;
+//           overflow-x: scroll;
+//           scroll-snap-type: x mandatory;
+//           padding-bottom: 10px;
+//           margin-bottom: 20px;
+//         }
+        
+//         .card {
+//           flex: 0 0 auto;
+//           width: 300px;
+//           height: 200px;
+//           margin-right: 20px;
+//           background-color: #f0f0f0;
+//           scroll-snap-align: start;
+//           display: flex;
+//           justify-content: center;
+//           align-items: center;
+//           font-size: 24px;
+//           border-radius: 10px;
+//         }
+        
+//         .dots-container {
+//           display: flex;
+//           justify-content: center;
+//         }
+        
+//         .dot {
+//           width: 10px;
+//           height: 10px;
+//           border-radius: 50%;
+//           background-color: #ccc;
+//           margin: 0 5px;
+//           cursor: pointer;
+//         }
+        
+//         .dot.active {
+//           background-color: #000;
+//         }
+//       `}</style>
+//     </div>
+//   );
+// }
+

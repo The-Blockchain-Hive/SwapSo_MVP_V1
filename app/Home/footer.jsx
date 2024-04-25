@@ -8,8 +8,8 @@ const Footer = () => {
   return (
     <footer className="bg-[#00000] w-screen text-white pt-8 pb-5">
       <div className="container">
-        <div className="flex flex-wrap  text-lg w-screen justify-between px-10 gap-8 md:flex-row md:text-sm">
-          <div className="company-section">
+        <div className="flex flex-wrap justify-center text-lg w-screen justify-between px-10 gap-8 md:flex-row md:text-sm">
+          <div className="company-section ml-8 xl:ml-12 lg:ml-12">
             <h3 className="text-xl font-semibold mb-4 md:text-lg">Company</h3>
             <ul>
               <li><ScrollLink to='about' className="hover:text-gray-300 hover:ease-in-out hover:cursor-pointer duration-300 opacity-70">About Us</ScrollLink></li>
@@ -18,7 +18,7 @@ const Footer = () => {
               <li><ScrollLink to='partners' className="hover:text-gray-300 hover:ease-in-out hover:cursor-pointer duration-300 opacity-70">Partners</ScrollLink></li>
             </ul>
           </div>
-          <div className="quick-links-section">
+          <div className="quick-links-section ml-8 xl:ml-12 lg:ml-12">
             <h3 className="text-xl font-semibold mb-4 md:text-lg">Quick Links</h3>
             <ul>
               <li><a href="/" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Home</a></li>
@@ -26,15 +26,15 @@ const Footer = () => {
               <li><a href="/Marketplace" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">MarketPlace</a></li>
             </ul>
           </div>
-          <div className="resources-section">
+          <div className="resources-section ml-8 xl:ml-12 lg:ml-12">
             <h3 className="text-xl font-semibold mb-4 md:text-lg">Resources</h3>
             <ul>
-              <li><a href="https://ci.swapso.io/" className="hover:text-gray-300 hover:ease-in-out duration-300 text-wrap opacity-70">Campus Influencer</a></li>
+              <li><a href="https://cip.swapso.io/" className="hover:text-gray-300 hover:ease-in-out duration-300 text-wrap opacity-70">Campus Influencer</a></li>
               <li><a href="https://blogs.swapso.io" target='_blank' className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Blogs</a></li>
               <li><a href="/" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Events</a></li>
             </ul>
           </div>
-          <div className="support-section">
+          <div className="support-section ml-8 xl:ml-12 lg:ml-12">
             <h3 className="text-xl font-semibold mb-4 md:text-lg">Support</h3>
             <ul>
               <li><a href="/" className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70">Contacts</a></li>
@@ -48,12 +48,12 @@ const Footer = () => {
         <div className="flex flex-wrap justify-between">
         <div className="social-media-section px-20 mt-12">
             <div className="flex space-x-10 flex flex-row flex-wrap">
-              <a href="https://twitter.com/theblock_chive" aria-label="Twitter"><FaTwitter size={36} /></a>
-              <a href="https://www.instagram.com/theblockchainhive/" aria-label="Instagram"><FaInstagram size={36} /></a>
-              <a href="https://www.linkedin.com/company/theblockchainhivee/" aria-label="LinkedIn"><FaLinkedin size={36} /></a>
-              <a href="https://discord.com/invite/6CjRfUSds7" aria-label="Discord"><FaDiscord size={36} /></a>
-              <a href="https://chat.whatsapp.com/B7H7elZHya6HzlvQ0gXJS8" aria-label="Whatsapp"><FaWhatsapp size={36} /></a>
-              <a href="https://chat.whatsapp.com/B7H7elZHya6HzlvQ0gXJS8" aria-label="Telegram"><FaTelegram size={36}/></a>
+              <a href="https://twitter.com/swapso_" target="_blank" aria-label="Twitter"><FaTwitter size={36} /></a>
+              <a href="https://www.instagram.com/swapso.io/" target="_blank" aria-label="Instagram"><FaInstagram size={36} /></a>
+              <a href="https://www.linkedin.com/company/theblockchainhivee/" target="_blank" aria-label="LinkedIn"><FaLinkedin size={36} /></a>
+              <a href="https://discord.com/invite/6CjRfUSds7" target="_blank" aria-label="Discord"><FaDiscord size={36} /></a>
+              <a href="https://chat.whatsapp.com/B7H7elZHya6HzlvQ0gXJS8" target="_blank" aria-label="Whatsapp"><FaWhatsapp size={36} /></a>
+              <a href="https://chat.whatsapp.com/B7H7elZHya6HzlvQ0gXJS8" target="_blank" aria-label="Telegram"><FaTelegram size={36}/></a>
             </div>
         </div>
           <div className="px-20 mt-8 rounded-lg text-blue-900">
@@ -65,6 +65,9 @@ const Footer = () => {
           </div>
           </div>
         </div>
+      </div>
+      <div className="flex justify-center mt-8 text-xl text-cyan-500">
+        <p>© 2024 SwapSo | All rights reserved.</p>
       </div>
     </footer>
   );

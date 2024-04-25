@@ -61,20 +61,14 @@ interface CardProps {
 		<div className="flex justify-between p-4">
 			<p className="font-extrabold text-2xl">{props.CourseName}</p>		
 		</div>
-		<p className="px-4 py-2">{props.short_desc}</p>
+		{/* <p className="px-4 py-2">{props.short_desc}</p> */}
 		<div className='flex flex-wrap justify-between px-4'>
 			<div className=' bg-white px-4 w-max text-black rounded-full'>
 				<span>${props.PricePerDay}/day</span>
 			</div>
-			{/* <div className='rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500'>
-				<span></span>
-			</div> */}
 			<div className='rounded-full px-4 w-max bg-transparent outline'>
 				<span>{props.CourseDuration} Hours Total</span>
 			</div>
-			{/* <div className='rounded-full px-4 mt-3 w-max bg-transparent outline'>
-				<span>{props.courseExpiry}</span>
-			</div> */}
 		</div>	
 		<div className='flex justify-between px-4'>
 			<Link href='/AboutCourse'><button onClick={handleAboutClick} className="bg-blue-400 font-extrabold p-2 m-4 rounded-xl">About</button></Link>
@@ -82,8 +76,7 @@ interface CardProps {
 		</div>
 		{isPopupVisible && (
 		<div className='fixed inset-0 z-100 backdrop-filter backdrop-blur-md flex items-center justify-center'> 
-		<PopUp handleClose={handlePurchase} currentCourse={currentCourse} courseName={currentCourse?. CourseName || ''}></PopUp>
-		  
+		<PopUp handleClose={handlePurchase} currentCourse={currentCourse} courseName={currentCourse?. CourseName || ''}></PopUp>	  
 		</div>
 )}
 		</div>
