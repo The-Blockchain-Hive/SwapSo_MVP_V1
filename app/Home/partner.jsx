@@ -22,9 +22,9 @@ const Partner = () => {
                     <div className="slide">
                         <Image className="logo2" src="/blvckpixel.svg" width={150} height={100} alt="blackpixel"  />
                     </div>
-                    {/* <div className="slide">
-                        <Image className="logo2 mb-12" src="/WISE.png" width={200} height={100} alt="WISE"  />
-                    </div> */}
+                    <div className="slide">
+                        <Image className="logo2 mb-12 ml-12" src="/wise.png" width={70} height={100} alt="wise"  />
+                    </div>
                     <div className="slide">
                         <Image className="logo2 ml-4" src="/stackos1.png" width={150} height={100} alt="stackos1"  /> 
                     </div>
@@ -37,9 +37,9 @@ const Partner = () => {
                     <div className="slide">
                         <Image className="logo2" src="/blvckpixel.svg" width={150} height={100} alt="blackpixel1"  />
                     </div>
-                    {/* <div className="slide">
-                        <Image className="logo2 mb-4" src="/WISE.png" width={200} height={100} alt="WISE1"  />
-                    </div> */}
+                    <div className="slide">
+                        <Image className="logo2 mb-4 ml-12" src="/wise.png" width={70} height={100} alt="wise1"  />
+                    </div>
                 </div>
             </div>
             {/* <div className="slider-2">

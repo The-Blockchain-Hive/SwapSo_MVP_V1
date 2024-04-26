@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import React, { useState, useEffect} from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -14,9 +14,10 @@ import Footer from './Home/footer.jsx';
 import Typewriter from 'typewriter-effect';
 import Script from 'next/script';
 
-
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
+  const [showFullText, setShowFullText] = useState(false);
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 900);
@@ -28,6 +29,10 @@ export default function Home() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  const handleReadMore = () => {
+    setShowFullText(!showFullText);
+  };
 
   return (
     <main className="gradient-bg">
@@ -90,13 +95,33 @@ export default function Home() {
             </div>
           }
           <div className='lg:mt-16 mx-auto ml-8 mr-8 lg:ml-24 xl:ml-24'>
-            <h1 className='w-full text-xl text-white mx-auto text-justify font-comfortaa mb-8 lg:mb-24 xl:mb-24'>
-              SwapSo, part of Microsoft for “startups founder hub” & incubated at WISE incubator is an initiative founded by IIT Bombay students. In SwapSo, we are bridging educational institutes on a single decentralised network for an open and transparent global education, accessible to everyone. A platform by the learners, for the learners which focuses on increasing completion rates in the edtech industry and incentivizes aka reward people for quick completion of courses.Tailored for skill development courses created by top educators.
-            </h1>
+            {isMobile ?
+              <div className='text-justify'>
+                {showFullText ? (
+                  <>
+                    SwapSo, part of Microsoft for “startups founder hub” & incubated at WISE incubator is an initiative founded by IIT Bombay students. In SwapSo, we are bridging educational institutes on a single decentralised network for an open and transparent global education, accessible to everyone. A platform by the learners, for the learners which focuses on increasing completion rates in the edtech industry and incentivizes aka reward people for quick completion of courses. Tailored for skill development courses created by top educators.
+                  </>
+                ) : (
+                  <>
+                    SwapSo, part of Microsoft for “startups founder hub” & incubated at WISE incubator is an initiative founded by IIT Bombay students. In SwapSo, we are bridging educational institutes on a single decentralised network for an open and transparent global education, accessible to everyone . 
+                  </>
+                )}
+                {!showFullText && (
+                  <button
+                    className="text-blue-500 hover:underline focus:outline-none"
+                    onClick={handleReadMore}
+                  >
+                    Read more...
+                  </button>
+                )}
+              </div> :
+              <h1 className='w-full text-xl text-white mx-auto text-justify font-comfortaa mb-8 lg:mb-24 xl:mb-24'>
+                SwapSo, part of Microsoft for “startups founder hub” & incubated at WISE incubator is an initiative founded by IIT Bombay students. In SwapSo, we are bridging educational institutes on a single decentralised network for an open and transparent global education, accessible to everyone. A platform by the learners, for the learners which focuses on increasing completion rates in the edtech industry and incentivizes aka reward people for quick completion of courses.Tailored for skill development courses created by top educators.
+              </h1>
+            }
           </div>
         </div>
       </div>
-
       <h2 className="mt-16 text-5xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-white p-5"> Highlight Courses</h2>
       <CardEffect />
       <h2 className="text-6xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-white mt-12"> Road Map</h2>
