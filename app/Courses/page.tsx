@@ -15,8 +15,8 @@ import Script from "next/script";
 const Courses = () => {
 
   const [isPopupVisible, setIsPopupVisible] = useState(false);
-  const [showMyCourses, setShowMyCourses] = useState(true);
-  const [showAllCourses, setShowAllCourses] = useState(false);
+  const [showMyCourses, setShowMyCourses] = useState(false);
+  const [showAllCourses, setShowAllCourses] = useState(true);
 
   interface Course {    
     
@@ -121,24 +121,19 @@ const Courses = () => {
         </div>
         <div className="flex justify-center">
             <button
-              onClick={toggleMyCourses}
-              className={`text-white px-3 py-1 rounded-md ${showMyCourses ? 'bg-blue-700' : 'bg-gray-400'}`}
-            >
-              My Courses
-            </button>
-            <button
               onClick={toggleAllCourses}
-              className={`ml-4 text-white px-3 py-1 rounded-md ${showAllCourses ? 'bg-blue-700' : 'bg-gray-400'}`}
+              className={`text-white px-3 py-1 rounded-md ${showAllCourses ? 'bg-blue-700' : 'bg-gray-400'}`}
             >
               All Courses
             </button>
+            <button
+              onClick={toggleMyCourses}
+              className={`ml-4 text-white px-3 py-1 rounded-md ${showMyCourses ? 'bg-blue-700' : 'bg-gray-400'}`}
+            >
+              My Courses
+            </button>
           </div>
-          {showMyCourses && (            
-        <div className="w-screen flex flex-wrap justify-center py-5 h-screen">
-              <MyCourses />
-        </div>
-          )}
-        {showAllCourses && (
+          {showAllCourses && (
         <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
             {coursesData.map((course, index) => (
               <Card                    
@@ -147,6 +142,11 @@ const Courses = () => {
             }
         </div>
         )}
+          {showMyCourses && (            
+        <div className="w-screen flex flex-wrap justify-center py-5 h-screen">
+              <MyCourses />
+        </div>
+          )}
         </main>
     )
 }
