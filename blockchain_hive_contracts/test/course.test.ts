@@ -1,149 +1,99 @@
+import { loadFixture } from "@nomicfoundation/hardhat-toolbox/network-helpers";
 import { expect, assert, use } from "chai";
-import { time, loadFixture } from "@nomicfoundation/hardhat-network-helpers";
-import { ethers } from "hardhat";
+import { ethers, upgrades } from "hardhat";
 
-function getSecondsOfDays(day: number) {
-  return day * 24 * 60 * 60;
-}
-describe("Course-Sell", function () {
+import { courseDetailsObject } from "./utils";
+
+describe("Course", () => {
   async function runEveryTime() {
-    const [owner, otherAccount, user1] = await ethers.getSigners();
+    const signers = await ethers.getSigners();
+    const owner = signers[0];
 
     const baseUri = "https://gateway.pinata.cloud/ipfs/QmZ/";
 
-    // TOKEN SETUP
-    const testUSDCContract = await ethers.getContractFactory("TestToken");
-    const testUSDC1 = await testUSDCContract.deploy();
-
-    console.log("USDC deployed.");
-
-    const testUSDCAddress1 = await testUSDC1.getAddress();
-
-    const amountToTransfer = ethers.parseUnits("1000", 18);
-
-    await testUSDC1.transfer(otherAccount, amountToTransfer);
-    await testUSDC1.transfer(user1, amountToTransfer);
-
-    console.log("Tokens transfered from main account to otherAccount.");
-
     // MAIN Contract Setup
-    const CourseSellContract = await ethers.getContractFactory("CourseSell");
-    const CourseSell = await CourseSellContract.connect(owner).deploy(
-      testUSDCAddress1,
-      baseUri
-    );
-    const courseSellAddress = await CourseSell.getAddress();
-    console.log("CourseSell deployed.");
+
+    const Course = await ethers.getContractFactory("Course");
+    const course = await upgrades.deployProxy(Course, [owner.address, baseUri]);
+
+    await course.waitForDeployment();
+
+    const courseAddress = await course.getAddress();
+    console.log(`Course deployed at: ${courseAddress}`);
     const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 
     return {
       owner,
-      otherAccount,
-      CourseSell,
-      testUSDCAddress1,
-      courseSellAddress,
-      testUSDC1,
+      signers,
       ZERO_ADDRESS,
-      user1,
+      course,
     };
   }
 
   describe("Deployment", async () => {
     it("[Deployment] : Should Deploy the Course Contract", async () => {
-      const { CourseSell } = await loadFixture(runEveryTime);
-      expect(await CourseSell.getAddress()).to.not.null;
+      const { course } = await loadFixture(runEveryTime);
+      expect(await course.getAddress()).to.not.null;
     });
 
-    it("[Deployment] : Should Deploy the Course Contract with correct SwapSo Address", async () => {
-      const { CourseSell, testUSDCAddress1 } = await loadFixture(runEveryTime);
-      expect(await CourseSell.swapTokenAddress()).equals(testUSDCAddress1);
+    it("[Deployment] : Should Deploy the Course Contract with correct Owner", async () => {
+      const { course, owner } = await loadFixture(runEveryTime);
+      expect(await course.owner()).equals(owner.address);
+    });
+  });
+
+  describe("Function", async () => {
+    it("Should fail to allow NFT transfer.", async () => {
+      const { course } = await loadFixture(runEveryTime);
+      await expect(course.setAllowTransfer(111)).to.be.reverted;
     });
 
-    it("[Add Course] : Owner should be able to add a course", async () => {
-      const { CourseSell, owner } = await loadFixture(runEveryTime);
-      await CourseSell.connect(owner).addCourse(200, getSecondsOfDays(10));
-      const course = await CourseSell.courses(0);
-      expect(+course.price.toString()).to.equal(200);
+    it("Should fail to safeTransferFrom.", async () => {
+      const { course, owner, signers } = await loadFixture(runEveryTime);
+      await expect(
+        course.safeTransferFrom(owner.address, signers[1].address, 1, 1, "0x00")
+      ).to.be.reverted;
     });
 
-    it("[Buying Course] : Should be able to buy a course", async () => {
-      const { CourseSell, owner, otherAccount, testUSDC1, courseSellAddress } =
-        await loadFixture(runEveryTime);
-      await CourseSell.connect(owner).addCourse(200, getSecondsOfDays(10));
-      const spender_amount = ethers.parseUnits("1000", 18);
-      await testUSDC1
-        .connect(otherAccount)
-        .approve(courseSellAddress, spender_amount);
-
-      await CourseSell.connect(otherAccount).buyCourse(0);
-      const course = await CourseSell.courses(0);
-      expect(course.holder).to.equal(otherAccount.address);
+    it("Should fail to setCourseDetails.", async () => {
+      const { course, owner, signers } = await loadFixture(runEveryTime);
+      await expect(
+        course.setCourseDetails(
+          "0x01",
+          courseDetailsObject(
+            "0x01",
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            false,
+            signers[1].address,
+            signers[2].address
+          )
+        )
+      ).to.be.reverted;
     });
 
-    it("[Sell Course]: Should be able to sell a course", async () => {
-      const {
-        CourseSell,
-        owner,
-        otherAccount,
-        testUSDC1,
-        courseSellAddress,
-        ZERO_ADDRESS,
-      } = await loadFixture(runEveryTime);
-      await CourseSell.connect(owner).addCourse(200, getSecondsOfDays(10));
-      const spender_amount = ethers.parseUnits("1000", 18);
-      await testUSDC1
-        .connect(otherAccount)
-        .approve(courseSellAddress, spender_amount);
-
-      await CourseSell.connect(otherAccount).buyCourse(0);
-
-      // time elapsed
-      const unlockTime = (await time.latest()) + getSecondsOfDays(5);
-      await time.increaseTo(unlockTime);
-
-      await CourseSell.connect(otherAccount).sellCourse(0, 300);
-      const course = await CourseSell.courses(0);
-     
-      expect(course.holder).to.equal(ZERO_ADDRESS);
-      expect(+course.price.toString()).to.equal(300);
-      expect(course.reSell).to.equal(true);
+    it("Should get getUserCourse.", async () => {
+      const { course, owner } = await loadFixture(runEveryTime);
+      const data = await course.getUserCourse(owner);
+      expect(data.length).to.eq(0);
     });
 
-    it("[Buy Resell Course]: Should be able to buy a resell course", async () => {
-      const {
-        CourseSell,
-        owner,
-        otherAccount,
-        testUSDC1,
-        courseSellAddress,
-        user1,
-      } = await loadFixture(runEveryTime);
-      await CourseSell.connect(owner).addCourse(200, getSecondsOfDays(10));
-      const spender_amount = ethers.parseUnits("1000", 18);
-      await testUSDC1
-        .connect(otherAccount)
-        .approve(courseSellAddress, spender_amount);
+    it("Should get courseDetails.", async () => {
+      const { course } = await loadFixture(runEveryTime);
+      const data = await course.getCourseDetails("0x02");
+      expect(data.id).to.eq(0);
+    });
 
-      await CourseSell.connect(otherAccount).buyCourse(0);
-
-      // time elapsed
-      const unlockTime = (await time.latest()) + getSecondsOfDays(5);
-      await time.increaseTo(unlockTime);
-
-      await CourseSell.connect(otherAccount).sellCourse(0, 300);
-
-      await testUSDC1.connect(user1).approve(courseSellAddress, spender_amount);
-
-      await CourseSell.connect(user1).buyCourse(0);
-
-      const course = await CourseSell.courses(0);
-
-      expect(course.holder).to.equal(user1.address);
-
-      console.log(
-        "Contract Balance",
-        await testUSDC1.balanceOf(courseSellAddress)
-      );
+    it("Should set correct MarketContract address", async () => {
+      const { course, signers } = await loadFixture(runEveryTime);
+      await course.setMarketplaceContract(signers[6].address);
+      const marketAddress = await course.Marketplace();
+      expect(marketAddress).to.eq(signers[6].address);
     });
   });
 });
