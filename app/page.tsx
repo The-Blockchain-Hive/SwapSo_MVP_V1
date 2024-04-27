@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { metadata } from './metadata.ts';
@@ -31,7 +31,11 @@ export default function Home() {
   }, []);
 
   const handleReadMore = () => {
-    setShowFullText(!showFullText);
+    setShowFullText(true);
+  };
+
+  const handleViewLess = () => {
+    setShowFullText(false);
   };
 
   return (
@@ -88,8 +92,8 @@ export default function Home() {
       </div>
       <div className="relative border border-cyan-400 w-4/5 mx-auto rounded-lg mb-16" id='about'>
         <h2 className="mt-16 text-5xl mb-4 text-left text-transparent text-white ml-8 lg:ml-32 lg:ml-32 font-comfortaa">About <span className='text-cyan-300'>Swapso</span></h2>
-        <div className='mt-24 mx-auto rounded-lg text-center flex flex-col xl:flex-row lg:flex-row'>
-          {isMobile ? <p></p>: 
+        <div className='mt-12 mx-auto rounded-lg text-center flex flex-col xl:flex-row lg:flex-row'>
+          {isMobile ? <p></p> :
             <div className='w-screen lg:mt-16 lg:ml-32 xl:ml-32 mx-auto md:w-1/2'>
               <Image src='/newlogo.svg' alt='logo' height={150} width={150} className="shadow-lg" />
             </div>
@@ -100,19 +104,25 @@ export default function Home() {
                 {showFullText ? (
                   <>
                     SwapSo, part of Microsoft for “startups founder hub” & incubated at WISE incubator is an initiative founded by IIT Bombay students. In SwapSo, we are bridging educational institutes on a single decentralised network for an open and transparent global education, accessible to everyone. A platform by the learners, for the learners which focuses on increasing completion rates in the edtech industry and incentivizes aka reward people for quick completion of courses. Tailored for skill development courses created by top educators.
+                    <button
+                      className="text-blue-500 hover:underline focus:outline-none"
+                      onClick={handleViewLess}
+                    >
+                      View Less...
+                    </button>
                   </>
                 ) : (
                   <>
-                    SwapSo, part of Microsoft for “startups founder hub” & incubated at WISE incubator is an initiative founded by IIT Bombay students. In SwapSo, we are bridging educational institutes on a single decentralised network for an open and transparent global education, accessible to everyone . 
+                    SwapSo, part of Microsoft for “startups founder hub” & incubated at WISE incubator is an initiative founded by IIT Bombay students. In SwapSo, we are bridging educational institutes on a single decentralised network for an open and transparent global education, accessible to everyone.
+                    {!showFullText && (
+                      <button
+                        className="text-blue-500 hover:underline focus:outline-none"
+                        onClick={handleReadMore}
+                      >
+                        Read more...
+                      </button>
+                    )}
                   </>
-                )}
-                {!showFullText && (
-                  <button
-                    className="text-blue-500 hover:underline focus:outline-none"
-                    onClick={handleReadMore}
-                  >
-                    Read more...
-                  </button>
                 )}
               </div> :
               <h1 className='w-full text-xl text-white mx-auto text-justify font-comfortaa mb-8 lg:mb-24 xl:mb-24'>

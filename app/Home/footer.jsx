@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#00000] w-screen text-white pt-8 pb-5">
       <div className="container">
-        <div className="flex flex-wrap justify-center text-lg w-screen justify-between px-10 gap-8 md:flex-row md:text-sm">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 justify-center text-lg w-screen justify-between px-10 gap-8">
           <div className="company-section ml-8 xl:ml-12 lg:ml-12">
             <h3 className="text-xl font-semibold mb-4 md:text-lg">Company</h3>
             <ul>
@@ -47,8 +47,8 @@ const Footer = () => {
         <div className=" flex-row flex-wrap">
         <div className="flex flex-wrap justify-between">
         <div className="social-media-section px-20 mt-12">
-            <div className="flex space-x-10 flex flex-row flex-wrap">
-              <a href="https://twitter.com/swapso_" target="_blank" aria-label="Twitter"><FaTwitter size={36} /></a>
+            <div className="grid space-x-10 grid-cols-3 sm:grid-cols-6 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-6">
+              <a href="https://twitter.com/swapso_" target="_blank" aria-label="Twitter" className="ml-8"><FaTwitter size={36} /></a>
               <a href="https://www.instagram.com/swapso.io/" target="_blank" aria-label="Instagram"><FaInstagram size={36} /></a>
               <a href="https://www.linkedin.com/company/theblockchainhivee/" target="_blank" aria-label="LinkedIn"><FaLinkedin size={36} /></a>
               <a href="https://discord.com/invite/6CjRfUSds7" target="_blank" aria-label="Discord"><FaDiscord size={36} /></a>
