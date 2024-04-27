@@ -47,8 +47,8 @@ const Footer = () => {
         <div className=" flex-row flex-wrap">
         <div className="flex flex-wrap justify-between">
         <div className="social-media-section px-20 mt-12">
-            <div className="grid space-x-10 grid-cols-3 sm:grid-cols-6 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-6">
-              <a href="https://twitter.com/swapso_" target="_blank" aria-label="Twitter" className="ml-8"><FaTwitter size={36} /></a>
+            <div className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-6 gap-x-16 gap-y-4">
+              <a href="https://twitter.com/swapso_" target="_blank" aria-label="Twitter"><FaTwitter size={36} /></a>
               <a href="https://www.instagram.com/swapso.io/" target="_blank" aria-label="Instagram"><FaInstagram size={36} /></a>
               <a href="https://www.linkedin.com/company/theblockchainhivee/" target="_blank" aria-label="LinkedIn"><FaLinkedin size={36} /></a>
               <a href="https://discord.com/invite/6CjRfUSds7" target="_blank" aria-label="Discord"><FaDiscord size={36} /></a>
