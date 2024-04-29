@@ -70,6 +70,21 @@ contract Market is
         CourseNft.setCourseDetails(courseId, _course);
     }
 
+    function removeFromMarket(bytes memory courseId) public {
+        ICourse.Course memory _course = CourseNft.getCourseDetails(courseId);
+        require(compareBytes(courseId, _course.courseId), "Invalid courseId");
+        require(_course.holder == msg.sender, "You don't hold this course");
+        require(_course.isListed == true, "Course is not listed");
+        require(_course.pausedTime > 0, "Course is not paused");
+        require(_course.secondHolder == address(0), "Course already resold");
+
+        _course.isListed = false;
+        _course.pausedTime = 0;
+        _course.startTime = block.timestamp;
+
+        CourseNft.setCourseDetails(courseId, _course);
+    }
+
     // buy course from swapso
     function buyCourse(
         BuyCourseRequest calldata course,

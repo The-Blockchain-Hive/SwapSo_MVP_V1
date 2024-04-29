@@ -21,6 +21,12 @@ interface IMarket {
     function sellCourse(bytes memory courseId, uint256 price) external;
 
     /**
+     * @dev Remove the course on the marketplace
+     * @param courseId Id of the course to sell
+     */
+    function removeFromMarket(bytes memory courseId) external;
+
+    /**
      * @dev Buy the course from SwapSo
      * @param course BuyCourseRequest object for course details to mint new course
      * @param duration Duration for which the user wants to buy the course

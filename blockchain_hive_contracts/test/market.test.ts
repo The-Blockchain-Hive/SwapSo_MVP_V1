@@ -444,4 +444,63 @@ describe("Market", function () {
       )
     ).to.be.reverted;
   });
+
+  it("Buy course from SwapSo and mint and put on sale after 10 days and remove from sale after 5 days", async () => {
+    const { course, market, signers, owner, ZERO_ADDRESS } = await loadFixture(
+      runEveryTime
+    );
+    const NEW_PRICE = 38;
+    const INITIAL_DURATION = 20;
+    const PAUSE_TIME = 10;
+    const REMOVE_SALE_TIME = 5;
+    await market.connect(signers[1]).buyCourse(
+      {
+        courseId: Course1.courseId,
+        details: {
+          id: Course1.id,
+          price: Course1.price,
+          recommendedDuration: Course1.recommendedDuration,
+        },
+      },
+      getSecondsOfDays(INITIAL_DURATION),
+      { value: Course1.price * getSecondsOfDays(INITIAL_DURATION) }
+    );
+
+    const courseData = await course.getUserCourse(signers[1].address);
+    expect(courseData.length).to.eq(1);
+    expect(courseData[0]).to.eq(Course1.courseId);
+    await network.provider.send("evm_increaseTime", [
+      getSecondsOfDays(PAUSE_TIME),
+    ]);
+
+    await market.connect(signers[1]).sellCourse(Course1.courseId, NEW_PRICE);
+
+    await network.provider.send("evm_increaseTime", [
+      getSecondsOfDays(REMOVE_SALE_TIME),
+    ]);
+
+    await market.connect(signers[1]).removeFromMarket(Course1.courseId);
+
+    const royalty = await market.getRoyaltyPercentage();
+    const ownerOldBalance = await ethers.provider.getBalance(owner.address);
+    const signerOldBalance = await ethers.provider.getBalance(
+      signers[1].address
+    );
+
+    const courseDetails = await course.getCourseDetails(Course1.courseId);
+
+    expect(courseDetails[0]).to.eq(Course1.courseId);
+    expect(courseDetails[1]).to.eq(Course1.id);
+    expect(courseDetails[2]).to.eq(1);
+    expect(courseDetails[3]).to.eq(NEW_PRICE);
+    expect(courseDetails[4]).to.eq(
+      getSecondsOfDays(INITIAL_DURATION - PAUSE_TIME)
+    );
+    expect(courseDetails[5]).to.eq(Course1.recommendedDuration);
+    expect(courseDetails[6]).to.lt(Date.now());
+    expect(courseDetails[7]).to.eq(0);
+    expect(courseDetails[8]).to.false;
+    expect(courseDetails[9]).to.eq(signers[1].address);
+    expect(courseDetails[10]).to.eq(ZERO_ADDRESS);
+  });
 });
