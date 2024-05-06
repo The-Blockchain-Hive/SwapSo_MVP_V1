@@ -86,7 +86,7 @@ const SellCard: React.FC<CardProps> = (props) => {
         abi: MarketABI.abi,
         functionName: "buyFromMarket",
         args: [props.CourseId],
-        // value: utils.parseEther(`${totalPrice}`),
+        value: utils.parseEther(`${totalPrice}`),
       });
 
       console.log({ buyCourseFromMarket });
