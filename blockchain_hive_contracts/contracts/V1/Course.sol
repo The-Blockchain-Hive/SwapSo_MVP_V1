@@ -24,6 +24,7 @@ contract Course is
     string private baseURI;
     Market public Marketplace;
 
+    bytes[] public listOfCourses;
     mapping(bytes => Course) public courses;
     mapping(address => bytes[]) public userCourses;
 
@@ -116,7 +117,7 @@ contract Course is
 
     function getCourseDetails(
         bytes memory _id
-    ) public view returns(Course memory) {
+    ) public view returns (Course memory) {
         Course memory data = courses[_id];
         return data;
     }
@@ -133,9 +134,7 @@ contract Course is
         courses[_id] = course;
     }
 
-    function getUserCourse(
-        address _user
-    ) public view returns (bytes[] memory) {
+    function getUserCourse(address _user) public view returns (bytes[] memory) {
         return userCourses[_user];
     }
 
@@ -160,6 +159,14 @@ contract Course is
     function setAllowTransfer(uint256 id) public {
         require(balanceOf(msg.sender, id) > 0, "You don't own this NFT");
         allowNftTransfer[id] = true;
+    }
+
+    function setListOfCourses(bytes memory _courseId) public onlyMarket {
+        listOfCourses.push(_courseId);
+    }
+
+    function getListOfCourses() public view returns (bytes[] memory) {
+        return listOfCourses;
     }
 
     function compareBytes(
