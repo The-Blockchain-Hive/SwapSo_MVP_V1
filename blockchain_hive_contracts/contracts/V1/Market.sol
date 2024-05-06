@@ -27,7 +27,7 @@ contract Market is
     IMarket,
     CustomErrors
 {
-    Course public CourseNft;
+    Course CourseNft;
     uint256 royaltyPercentage; // 1000 means 10% -> 1 means 0.01%
 
     /// @custom:oz-upgrades-unsafe-allow constructor
@@ -110,7 +110,7 @@ contract Market is
                 "Course details cannot be changed"
             );
             require(
-                msg.value == _course.price * (duration / 1 days),
+                msg.value == _course.price * duration,
                 "Insufficient amount"
             );
             require(
@@ -137,10 +137,7 @@ contract Market is
             );
         }
 
-        require(
-            msg.value == _course.price * (duration / 1 days),
-            "Insufficient amount"
-        );
+        require(msg.value == _course.price * duration, "Insufficient amount");
 
         if (CourseNft.balanceOf(owner(), course.details.id) > 0) {
             uint256[] memory ids = new uint256[](1);
@@ -161,7 +158,6 @@ contract Market is
         CourseNft.setCourseDetails(course.courseId, _course);
         CourseNft.addUserCourse(msg.sender, _course.courseId);
 
-        CourseNft.setListOfCourses(_course.courseId);
         payable(CourseNft.owner()).transfer(msg.value);
     }
 
@@ -177,7 +173,7 @@ contract Market is
         require(_course.secondHolder == address(0), "Course already sold");
 
         require(
-            msg.value == (_course.duration / 1 days) * _course.price,
+            msg.value == _course.duration * _course.price,
             "Insufficient amount"
         );
 

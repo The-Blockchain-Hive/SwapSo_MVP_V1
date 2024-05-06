@@ -1,116 +1,87 @@
-"use client";
-import React, { useState } from "react";
-import { useAccount } from "wagmi";
-import {
-  readContract,
-  readContracts,
-  writeContract,
-  getNetwork,
-} from "@wagmi/core";
-import CourseABI from "../../blockchain_hive_contracts/artifacts/contracts/V1/Course.sol/Course.json";
-import "../Home/courses.css";
-import Link from "next/link";
-import Image from "next/image";
-import PopUp from "./PopUp";
+'use client'
+import React, { useState } from 'react';
+import '../Home/courses.css';
+import Link from 'next/link';
+import Image from 'next/image';
+import PopUp from './PopUp';
 
-interface CardProps {
-  CourseId: string;
-  AboutCourse: string;
-  CourseName: string;
-  CourseImgUrl: number;
-  short_desc: string;
-  CourseDuration: number;
-  CourseEducator: string;
-  EducatorImgUrl: string;
-  EducatorSocials: string;
-  Educator_desc: string;
-  PricePerDay: number;
-  WhatLearn: string;
-}
+interface CardProps {    
+    CourseId: string;
+    AboutCourse: string;
+    CourseName: string;
+	CourseImgUrl: number;
+    short_desc: string;
+    CourseDuration: number;
+    CourseEducator: string;
+    EducatorImgUrl: string;
+    EducatorSocials: string;
+    Educator_desc: string;
+    PricePerDay: number;
+    WhatLearn: string;	
+  }
 
-const Card: React.FC<CardProps> = (props) => {
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
-  const { isConnected, address } = useAccount();
-  const [currentCourse, setCurrentCourse] = useState<CardProps | null>(null);
+  const Card: React.FC<CardProps> = (props) => {
 
-  const togglePopup = async () => {
-    setCurrentCourse(props);
-    setIsPopupVisible(!isPopupVisible);
 
-    const continentId = await readContract({
-      address: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
-      abi: CourseABI.abi,
-      functionName: "allowNftTransfer",
-      args: [address],
-    });
+	const [isPopupVisible, setIsPopupVisible] = useState(false);
+	
+	const [currentCourse, setCurrentCourse] = useState<CardProps | null>(null);
 
-	console.log({continentId})
+	const togglePopup = () => {
+		setCurrentCourse(props);
+		setIsPopupVisible(!isPopupVisible);
+	}
+	const handlePurchase = async (course: CardProps) => {			
+		setIsPopupVisible(false);
+	};
 
-  };
-  const handlePurchase = async (course: CardProps) => {
-    setIsPopupVisible(false);
-  };
+	const handleAboutClick = () => {
+		// Use Next.js router to navigate to the AboutCourse page with query parameters
+		window.location.href = `/AboutCourse?CourseName=${props.CourseName}`;
+	  };
+	
 
-  const handleAboutClick = () => {
-    // Use Next.js router to navigate to the AboutCourse page with query parameters
-    window.location.href = `/AboutCourse?CourseName=${props.CourseName}`;
-  };
-
-  const imgUrl = `/${props.CourseImgUrl}.png`;
-
+	const imgUrl = `/${props.CourseImgUrl}.png`;
+	
+	
   return (
-    <div>
-      <div className="cards w-[310px] sm:w-[350px] md:w-[350px] lg:w-[373px] xl:w-[373px] h-max bg-gradient-to-b from-black to-blue-1100 bg-opacity-40 backdrop-blur-md drop-shadow-lg rounded-3xl text-neutral-300 m-1 flex flex-col hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">
-        <div>
-          <Image
-            src={imgUrl}
-            width={300}
-            height={100}
-            alt="courses"
-            className="object-cover object-top w-full h-1/2 rounded-tr-3xl rounded-tl-3xl"
-          />
-          <div className="w-full h-1/2 rounded-tr-3xl rounded-tl-3xl"></div>
-        </div>
-        <div className="flex justify-between p-4">
-          <p className="font-extrabold text-2xl">{props.CourseName}</p>
-        </div>
-        {/* <p className="px-4 py-2">{props.short_desc}</p> */}
-        <div className="flex flex-wrap justify-between px-4">
-          <div className=" bg-white px-4 w-max text-black rounded-full">
-            <span>${props.PricePerDay}/day</span>
-          </div>
-          <div className="rounded-full px-4 w-max bg-transparent outline">
-            <span>{props.CourseDuration} Hours Total</span>
-          </div>
-        </div>
-        <div className="flex justify-between px-4">
-          <Link href="/AboutCourse">
-            <button
-              onClick={handleAboutClick}
-              className="bg-blue-400 font-extrabold p-2 m-4 rounded-xl"
-            >
-              About
-            </button>
-          </Link>
-          <button
-            onClick={togglePopup}
-            className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl"
-          >
-            Buy Course
-          </button>
-        </div>
-        {isPopupVisible && (
-          <div className="fixed inset-0 z-100 backdrop-filter backdrop-blur-md flex items-center justify-center">
-            <PopUp
-              handleClose={handlePurchase}
-              currentCourse={currentCourse}
-              courseName={currentCourse?.CourseName || ""}
-            ></PopUp>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
+	<div>
+	  <div className="cards w-[310px] sm:w-[350px] md:w-[350px] lg:w-[373px] xl:w-[373px] h-max bg-gradient-to-b from-black to-blue-1100 bg-opacity-40 backdrop-blur-md drop-shadow-lg rounded-3xl text-neutral-300 m-1 flex flex-col hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">
+	  <div>
+	  
+			<Image
+			  src={imgUrl}
+			  width={300} 
+			  height={100} 
+			  alt='courses' 
+			  className='object-cover object-top w-full h-1/2 rounded-tr-3xl rounded-tl-3xl'			  
+			 />
+			<div className='w-full h-1/2 rounded-tr-3xl rounded-tl-3xl'></div>
+		</div>
+		<div className="flex justify-between p-4">
+			<p className="font-extrabold text-2xl">{props.CourseName}</p>		
+		</div>
+		{/* <p className="px-4 py-2">{props.short_desc}</p> */}
+		<div className='flex flex-wrap justify-between px-4'>
+			<div className=' bg-white px-4 w-max text-black rounded-full'>
+				<span>${props.PricePerDay}/day</span>
+			</div>
+			<div className='rounded-full px-4 w-max bg-transparent outline'>
+				<span>{props.CourseDuration} Hours Total</span>
+			</div>
+		</div>	
+		<div className='flex justify-between px-4'>
+			<Link href='/AboutCourse'><button onClick={handleAboutClick} className="bg-blue-400 font-extrabold p-2 m-4 rounded-xl">About</button></Link>
+			<button onClick={togglePopup} className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl">Buy Course</button>
+		</div>
+		{isPopupVisible && (
+		<div className='fixed inset-0 z-100 backdrop-filter backdrop-blur-md flex items-center justify-center'> 
+		<PopUp handleClose={handlePurchase} currentCourse={currentCourse} courseName={currentCourse?. CourseName || ''}></PopUp>	  
+		</div>
+)}
+		</div>
+	</div>
+  )
+}
 
 export default Card;
