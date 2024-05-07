@@ -37,15 +37,6 @@ export default function Team() {
         </div>
       </div>
       <div className='ml-12 mt-12 p-3 h-1/2 w-1/4 bg-blue-1000 rounded-lg mx-auto'>
-        <Image className='mx-auto rounded-lg' src='/mudassir.png' alt='CTO' height={150} width={175} />
-        <p className='text-center font-comfortaa'>Md. Mudassir</p>
-        <p className='text-center font-comfortaa'>CTO</p>
-        <div className='flex flex-row justify-around'>
-          <FaTwitter size={32} />
-          <FaLinkedin size={32} />
-        </div>
-      </div>
-      <div className='ml-12 mt-12 p-3 h-1/2 w-1/4 bg-blue-1000 rounded-lg mx-auto'>
         <Image className='mx-auto rounded-lg' src='/swayam.jpg' alt='CPO' height={150} width={150} />
         <p className='text-center font-comfortaa'>Swayam Sharma</p>
         <p className='text-center font-comfortaa'>CPO</p>
@@ -55,10 +46,10 @@ export default function Team() {
         </div>
       </div>
       <div className='ml-12 mt-12 p-3 h-1/2 w-1/4 bg-blue-1000 rounded-lg mx-auto'>
-        <Image className='mx-auto rounded-lg' src='/bhargav.jpg' alt='Technical Director' height={150} width={150} />
-        <p className='text-center font-comfortaa'>Bhargav Pandit</p>
-        <p className='text-center font-comfortaa'>Technical Director</p>
-        <div className='flex flex-row justify-around'>
+        <Image className='mx-auto rounded-lg' src='/mudassir.png' alt='CTO' height={150} width={175} />
+        <p className='text-center font-comfortaa'>Suraj Singla</p>
+        <p className='text-center font-comfortaa'>Founding Member</p>
+        <div className='flex flex-row'>
           <FaTwitter size={32} />
           <FaLinkedin size={32} />
         </div>
