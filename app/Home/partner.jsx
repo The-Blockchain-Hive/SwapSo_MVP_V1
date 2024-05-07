@@ -14,7 +14,7 @@ const Partner = () => {
                         <Image className="logo2 ml-4" src="/startupIndia.png" width={150} height={100} alt="StartupIndia"  />
                     </div>
                     <div className="slide">
-                        <Image className="logo2 mb-12 ml-12" src="/wise.png" width={100} height={100} alt="wise"  />
+                        <Image className="logo2 mb-12 ml-12" src="/wiselogo.png" width={100} height={100} alt="wiselogo"  />
                     </div>
                     <div className="slide">
                         <Image className="logo2" src="/blvckpixel.svg" width={150} height={100} alt="blackpixel"  />
@@ -23,7 +23,7 @@ const Partner = () => {
                         <Image className="logo2 ml-4" src="/startupIndia.png" width={150} height={100} alt="StartupIndia1"  />
                     </div>
                     <div className="slide">
-                        <Image className="logo2 mb-4 ml-12" src="/wise.png" width={100} height={100} alt="wise1"  />
+                        <Image className="logo2 mb-4 ml-12" src="/wiselogo.png" width={100} height={100} alt="wiselogo1"  />
                     </div>
                     <div className="slide">
                         <Image className="logo2" src="/blvckpixel.svg" width={150} height={100} alt="blackpixel1"  />
