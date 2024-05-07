@@ -57,7 +57,7 @@ export default function Home() {
           gtag('config', 'G-21492NPCH3');
         `}
       </Script>
-      <div className='nav1 mt-10'>
+      <div className='nav1'>
         {isMobile ? <Navbar2 /> : <Navbar />}
       </div>
       <div className='flex flex-row'>
