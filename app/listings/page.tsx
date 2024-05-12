@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect } from "react";
-import Navbar from "../Home/navbar";
+import Navbar from "../Home/navbar.jsx";
 import Navbar2 from '../Home/MobileNavbar.tsx';
 import MyListings from "../components/MyListings.tsx"
 import SectionDivider from "../components/SectionDivider";
