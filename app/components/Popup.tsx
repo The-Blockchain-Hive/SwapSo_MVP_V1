@@ -123,7 +123,7 @@ function Popup({ handleClose, currentCourse, courseName }: PopupType) {
                 }}
                 className="text-justify text-white text-xl font-medium font-['Inter'] leading-[17px]"
               >
-                Pay ${price}
+                Pay
               </button>
             </div>
             <div className="left-[397px] top-[181px] absolute text-justify text-black text-base font-medium font-['Inter'] leading-[17px]">
@@ -166,7 +166,7 @@ function Popup({ handleClose, currentCourse, courseName }: PopupType) {
             </div>
             <div className="w-[108px] h-[40px] py-[11px] left-[160px] top-[133px] absolute bg-gradient-to-r from-orange-100 via-white to-blue-700 rounded border border-neutral-400 justify-center items-center inline-flex">
               <div className="text-justify text-gray-900 text-base font-medium font-['Inter'] leading-[17px]">
-                ${price}
+                {price} MATIC
               </div>
             </div>
             <Timer selectedTimeFrame={selectedTimeFrame} />

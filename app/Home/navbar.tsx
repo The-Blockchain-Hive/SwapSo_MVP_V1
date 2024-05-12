@@ -70,32 +70,18 @@ const Navbar = () => {
           <li className="nav-list">
             <p>Courses</p>
             <div className="dropdown-content">
+              <Link href="/allCourses">Buy Courses</Link>
               <Link href="/myCourses">My Courses</Link>
-              <Link href="/allCourses">All Courses</Link>
             </div>
           </li>
           <li className="nav-list">
             <Link href="/Marketplace">Market Place</Link>
           </li>
         </ul>
-        {
-          <div>
-            {!user ? (
-              <button className="sign-in bg-purple-500 w-40 p-2 rounded-lg">
-                <a href="/signup" className="font-bold">
-                  Sign in
-                </a>
-              </button>
-            ) : (
-              <button
-                className="font-bold  bg-purple-500 w-40 p-2 rounded-lg"
-                onClick={handleSignOut}
-              >
-                Sign Out
-              </button>
-            )}
-          </div>
-        }
+        {/* { <div>
+         {!(user)?
+            (<button className="sign-in bg-purple-500 w-40 p-2 rounded-lg"><a href="/signup" className="font-bold">Sign in</a></button>):(<button className="font-bold  bg-purple-500 w-40 p-2 rounded-lg" onClick={handleSignOut}>Sign Out</button>)}
+        </div> } */}
         <div className="dropdown">
           <ConnectButton />
         </div>

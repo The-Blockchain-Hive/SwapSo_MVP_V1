@@ -99,8 +99,14 @@ function MobileNavbar() {
               <hr />
             </li>
             <li className="p-1">
-              <Link onClick={handleMenuClose} href="/Courses">
-                Courses
+              <Link onClick={handleMenuClose} href="/allCourses">
+                Buy Courses
+              </Link>
+              <hr />
+            </li>
+            <li className="p-1">
+              <Link onClick={handleMenuClose} href="/allCourses">
+                My Courses
               </Link>
               <hr />
             </li>
@@ -112,7 +118,7 @@ function MobileNavbar() {
             </li>
             {
               <div>
-                {!user ? (
+                {/* {!user ? (
                   <button className="ml-4 font-bold bg-purple-500 w-40 p-1 rounded-lg font-bold mt-4">
                     <a href="/signup">Sign in</a>
                   </button>
@@ -123,7 +129,7 @@ function MobileNavbar() {
                   >
                     Sign Out
                   </button>
-                )}
+                )} */}
               </div>
             }
           </ul>
