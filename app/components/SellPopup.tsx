@@ -149,12 +149,12 @@ const SellPopup = ({ handleClose, currentCourse }: SellPopupType) => {
           Course duration : 10 hrs
         </div>
       </div>
-      <p className="text-gray-900">Enter your listing amount</p>
+      <p className="text-gray-900 top-[108px]">Enter your listing amount</p>
       <input
         type="number"
         value={listingAmount}
         onChange={handleAmountChange}
-        className="w-[325px] left-[22px] top-[120px] absolute text-red-600 text-xl font-normal font-['Inter'] leading-[17px]"
+        className="w-[325px] left-[22px] top-[120px] absolute text-red-600 text-xl font-normal font-['Inter'] leading-[17px] border border-gray-900 rounded-md p-2"
         placeholder="Listing Amount"
       />
       <div className="pl-2.5 pr-[23px] pt-[9px] pb-2.5 left-[235px] top-[62px] absolute rounded border border-gray-400 justify-start items-center inline-flex">
