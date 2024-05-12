@@ -110,9 +110,7 @@ const SellPopup = ({ handleClose, currentCourse }: SellPopupType) => {
   const handleAmountChange = (event: any) => {
     setListingAmount(event.target.value);
   };
-  const handleCommentChange = (event: any) => {
-    setCourseComment(event.target.value);
-  };
+
 
   return (
     <div className="w-[486px] h-[300px] relative bg-white rounded-2xl">
@@ -151,19 +149,6 @@ const SellPopup = ({ handleClose, currentCourse }: SellPopupType) => {
           Course duration : 10 hrs
         </div>
       </div>
-      <div className="w-[374px] left-[22px] top-[105px] absolute text-red-600 text-xs font-normal font-['Inter'] leading-[17px]">
-        Comment
-      </div>
-      <textarea
-        className="w-[325px] left-[22px] top-[120px] absolute text-red-600 text-xl font-normal font-['Inter'] leading-[17px]"
-        value={courseComment}
-        onChange={handleCommentChange}
-        placeholder="Comment..."
-        rows={4}
-        cols={25}
-        maxLength={165}
-        style={{ resize: "none" }}
-      />
       <input
         type="number"
         value={listingAmount}
@@ -173,7 +158,7 @@ const SellPopup = ({ handleClose, currentCourse }: SellPopupType) => {
       />
       <div className="pl-2.5 pr-[23px] pt-[9px] pb-2.5 left-[235px] top-[62px] absolute rounded border border-gray-400 justify-start items-center inline-flex">
         <div className="text-justify text-black text-base font-normal font-['Inter'] leading-[17px]">
-          150D:12H:52M
+          {/* timer */}
         </div>
       </div>
     </div>

@@ -110,12 +110,7 @@ const NewSellerCard: React.FC<NewSellerCardType> = ({
 						{/* <span>{courseExpiry}</span> /}
 					</div> */}
         </div>
-        <div className="flex justify-between px-4">
-          <Link href="/LearnCourse">
-            <button className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl">
-              Learn
-            </button>
-          </Link>
+        <div className="flex items-center justify-between px-4">
           <button
             // onClick={() => toggleWithdraw(currentCourse?)}
             onClick={toggleWithdraw}
