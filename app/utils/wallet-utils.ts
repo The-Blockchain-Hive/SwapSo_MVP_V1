@@ -32,46 +32,59 @@ function getRpc(chain: Chain) {
   return null;
 }
 
-const activeChains =
-  process.env.ENV === "production"
-    ? [polygon, arbitrum]
-    : [
-        {
-          id: 80002,
-          name: "Polygon Amoy",
-          network: "amoy",
-          nativeCurrency: {
-            decimals: 18,
-            name: "MATIC",
-            symbol: "MATIC",
-          },
-          rpcUrls: {
-            default: { http: ["https://rpc-amoy.polygon.technology/"] },
-            public: { http: ["https://rpc-amoy.polygon.technology/"] },
-          },
-        },
-        localhost,
-        {
-          id: 3_1337,
-          name: "Localhost",
-          network: "localhost",
-          nativeCurrency: {
-            decimals: 18,
-            name: "Ether",
-            symbol: "ETH",
-          },
-          rpcUrls: {
-            default: { http: ["http://127.0.0.1:8545"] },
-            public: { http: ["http://127.0.0.1:8545"] },
-          },
-        },
-      ];
+const productionChains = [polygon, arbitrum];
+const devChains = [
+  {
+    id: 80002,
+    name: "Polygon Amoy",
+    network: "amoy",
+    nativeCurrency: {
+      decimals: 18,
+      name: "MATIC",
+      symbol: "MATIC",
+    },
+    rpcUrls: {
+      default: { http: ["https://rpc-amoy.polygon.technology/"] },
+      public: { http: ["https://rpc-amoy.polygon.technology/"] },
+    },
+  },
+  localhost,
+  {
+    id: 31337,
+    name: "Localhost",
+    network: "localhost",
+    nativeCurrency: {
+      decimals: 18,
+      name: "Ether",
+      symbol: "ETH",
+    },
+    rpcUrls: {
+      default: { http: ["http://127.0.0.1:8545"] },
+      public: { http: ["http://127.0.0.1:8545"] },
+    },
+  },
+];
 
-const { chains, publicClient } = configureChains(activeChains, [
-  jsonRpcProvider({
-    rpc: (chainId) => getRpc(chainId),
-  }),
-]);
+let chains: any;
+let publicClient;
+
+if (process.env.ENV === "production") {
+  const config = configureChains(productionChains, [
+    jsonRpcProvider({
+      rpc: (chainId) => getRpc(chainId),
+    }),
+  ]);
+  chains = config.chains;
+  publicClient = config.publicClient;
+} else {
+  const config = configureChains(devChains, [
+    jsonRpcProvider({
+      rpc: (chainId) => getRpc(chainId),
+    }),
+  ]);
+  chains = config.chains;
+  publicClient = config.publicClient;
+}
 
 const { connectors } = getDefaultWallets({
   appName: "Everything Gas Less",

@@ -64,7 +64,7 @@ const SellCard: React.FC<SellCardType> = ({ course, selectedTimeFrame }) => {
         abi: MarketABI.abi,
         functionName: "buyFromMarket",
         args: [course.CourseId],
-        value: utils.parseEther(`${totalPrice}`),
+        value: BigInt(`${utils.parseEther(`${totalPrice}`)}`),
       });
 
       console.log({ buyCourseFromMarket });

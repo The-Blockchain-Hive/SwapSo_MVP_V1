@@ -92,7 +92,7 @@ function Popup({ handleClose, currentCourse, courseName }: PopupType) {
           [courseId, [...courseData]],
           getSecondsOfDays(Number(selectedTimeFrame)),
         ],
-        value: utils.parseEther(`${price}`),
+        value: BigInt(`${utils.parseEther(`${price}`)}`),
       });
 
       console.log({ buyCourseAndMint });
