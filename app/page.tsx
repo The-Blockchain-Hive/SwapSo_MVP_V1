@@ -12,7 +12,7 @@ import CardEffect from './Home/cardseffect.tsx';
 import ContactForm from './Home/contact.tsx';
 import Footer from './Home/footer.tsx';
 import Typewriter from 'typewriter-effect';
-import Script from 'next/script';
+import Script from "next/script";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
