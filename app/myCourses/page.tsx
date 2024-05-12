@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import Navbar from "../Home/navbar";
-import Navbar2 from "../Home/MobileNavbar";
+import Navbar2 from "../Home/MobileNavbar.tsx";
 // import SearchBar from "../components/SearchBar";
 import MyCourses from "../components/MyCourses.tsx";
 import { getDocs, collection, doc, setDoc } from "firebase/firestore";

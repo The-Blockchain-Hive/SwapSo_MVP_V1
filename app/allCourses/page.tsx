@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from "react";
 import{ metadata } from './metadata.ts';
 import Navbar from "../Home/navbar.jsx";
-import Navbar2 from "../Home/MobileNavbar.jsx";
+import Navbar2 from "../Home/MobileNavbar.tsx";
 import Card from "../components/Card.tsx";
-import SearchBar from "../components/SearchBar.js";
+// import SearchBar from "../components/SearchBar.js";
 import { getDocs, collection, doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase.js";
 import Script from "next/script";
@@ -79,7 +79,7 @@ const Courses = () => {
             {isMobile ? <Navbar2 /> : <Navbar />}
           </div>
         <div className="py-5 mb-10">  
-          <SearchBar/>
+          {/* <SearchBar/> */}
           {/* <button onClick={fetchData}>Testing</button>  */}
         </div>
         <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
