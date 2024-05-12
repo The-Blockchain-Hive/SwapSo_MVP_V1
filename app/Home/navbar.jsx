@@ -62,8 +62,8 @@ const Navbar = () => {
           <li className="nav-list">
             <p>Courses</p>
             <div className="dropdown-content">
+            <Link href='/allCourses'>Buy Courses</Link>
               <Link href='/myCourses'>My Courses</Link>
-              <Link href='/allCourses'>All Courses</Link>
             </div>
           </li>
           <li className="nav-list">
