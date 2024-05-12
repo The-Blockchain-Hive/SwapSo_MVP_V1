@@ -10,7 +10,6 @@ import MarketABI from "../constants/ABI/Market.json";
 import { ContractAddress } from "../config/config.ts";
 import { getSecondsOfDays, getSecondsOfHours } from "../utils/utils.ts";
 import { PopupType } from "../constants/Types.ts";
-// import NewCard from "./newCard.tsx";
 
 function Popup({ handleClose, currentCourse, courseName }: PopupType) {
   // const [isPurchaseComplete, setPurchaseComplete] = useState(false);
