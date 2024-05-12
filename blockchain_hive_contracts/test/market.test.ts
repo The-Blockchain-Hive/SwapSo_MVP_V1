@@ -67,7 +67,7 @@ describe("Market", function () {
         },
       },
       getSecondsOfDays(20),
-      { value: Course1.price * getSecondsOfDays(20) }
+      { value: Course1.price * 20 }
     );
 
     const courseData = await course.getUserCourse(signers[1].address);
@@ -94,10 +94,10 @@ describe("Market", function () {
     );
 
     expect(signerNewBalance).to.lt(
-      BigInt(signerOldBalance) - BigInt(Course1.price * getSecondsOfDays(20))
+      BigInt(signerOldBalance) - BigInt(Course1.price * 20)
     );
     expect(ownerNewBalance).to.eq(
-      BigInt(ownerOldBalance) + BigInt(Course1.price * getSecondsOfDays(20))
+      BigInt(ownerOldBalance) + BigInt(Course1.price * 20)
     );
   });
 
@@ -118,7 +118,7 @@ describe("Market", function () {
         },
       },
       getSecondsOfDays(INITIAL_DURATION),
-      { value: Course1.price * getSecondsOfDays(INITIAL_DURATION) }
+      { value: Course1.price * INITIAL_DURATION }
     );
 
     const courseData = await course.getUserCourse(signers[1].address);
@@ -165,7 +165,7 @@ describe("Market", function () {
         },
       },
       getSecondsOfDays(INITIAL_DURATION),
-      { value: Course1.price * getSecondsOfDays(INITIAL_DURATION) }
+      { value: Course1.price * INITIAL_DURATION }
     );
 
     const courseData = await course.getUserCourse(signers[1].address);
@@ -191,7 +191,7 @@ describe("Market", function () {
     );
 
     await market.connect(signers[2]).buyFromMarket(Course1.courseId, {
-      value: getSecondsOfDays(INITIAL_DURATION - PAUSE_TIME) * NEW_PRICE,
+      value: (INITIAL_DURATION - PAUSE_TIME) * NEW_PRICE,
     });
 
     const courseDetails = await course.getCourseDetails(Course1.courseId);
@@ -220,15 +220,13 @@ describe("Market", function () {
 
     expect(newSignerNewBalance).to.lt(
       BigInt(newSignerOldBalance) -
-        BigInt(NEW_PRICE * getSecondsOfDays(INITIAL_DURATION - PAUSE_TIME))
+        BigInt(NEW_PRICE * (INITIAL_DURATION - PAUSE_TIME))
     );
 
     expect(signerNewBalance).to.eq(
       BigInt(signerOldBalance) +
         BigInt(
-          (NEW_PRICE *
-            getSecondsOfDays(INITIAL_DURATION - PAUSE_TIME) *
-            Number(royalty)) /
+          (NEW_PRICE * (INITIAL_DURATION - PAUSE_TIME) * Number(royalty)) /
             10000
         )
     );
@@ -236,7 +234,7 @@ describe("Market", function () {
       BigInt(ownerOldBalance) +
         BigInt(
           (NEW_PRICE *
-            getSecondsOfDays(INITIAL_DURATION - PAUSE_TIME) *
+            (INITIAL_DURATION - PAUSE_TIME) *
             (10000 - Number(royalty))) /
             10000
         )
@@ -263,7 +261,7 @@ describe("Market", function () {
         },
       },
       getSecondsOfDays(20),
-      { value: Course1.price * getSecondsOfDays(20) }
+      { value: Course1.price * 20 }
     );
 
     const courseData = await course.getUserCourse(signers[1].address);
@@ -294,10 +292,10 @@ describe("Market", function () {
     );
 
     expect(signerNewBalance).to.lt(
-      BigInt(signerOldBalance) - BigInt(Course1.price * getSecondsOfDays(20))
+      BigInt(signerOldBalance) - BigInt(Course1.price * 20)
     );
     expect(ownerNewBalance).to.eq(
-      BigInt(ownerOldBalance) + BigInt(Course1.price * getSecondsOfDays(20))
+      BigInt(ownerOldBalance) + BigInt(Course1.price * 20)
     );
 
     // Same course buy from SwapSo
@@ -316,7 +314,7 @@ describe("Market", function () {
         },
       },
       getSecondsOfDays(20),
-      { value: Course1.price * getSecondsOfDays(20) }
+      { value: Course1.price * 20 }
     );
 
     const courseData2 = await course.getUserCourse(signers[2].address);
@@ -349,10 +347,10 @@ describe("Market", function () {
     );
 
     expect(signer2NewBalance).to.lt(
-      BigInt(signer2OldBalance) - BigInt(Course1.price * getSecondsOfDays(20))
+      BigInt(signer2OldBalance) - BigInt(Course1.price * 20)
     );
     expect(ownerOtherNewBalance).to.eq(
-      BigInt(ownerNewBalance) + BigInt(Course1.price * getSecondsOfDays(20))
+      BigInt(ownerNewBalance) + BigInt(Course1.price * 20)
     );
   });
 
@@ -376,7 +374,7 @@ describe("Market", function () {
         },
       },
       getSecondsOfDays(20),
-      { value: Course1.price * getSecondsOfDays(20) }
+      { value: Course1.price * 20 }
     );
 
     const courseData = await course.getUserCourse(signers[1].address);
@@ -407,10 +405,10 @@ describe("Market", function () {
     );
 
     expect(signerNewBalance).to.lt(
-      BigInt(signerOldBalance) - BigInt(Course1.price * getSecondsOfDays(20))
+      BigInt(signerOldBalance) - BigInt(Course1.price * 20)
     );
     expect(ownerNewBalance).to.eq(
-      BigInt(ownerOldBalance) + BigInt(Course1.price * getSecondsOfDays(20))
+      BigInt(ownerOldBalance) + BigInt(Course1.price * 20)
     );
 
     // Same course buy from SwapSo
@@ -425,7 +423,7 @@ describe("Market", function () {
           },
         },
         getSecondsOfDays(20),
-        { value: Course1.price * getSecondsOfDays(20) }
+        { value: Course1.price * 20 }
       )
     ).to.be.reverted;
 
@@ -440,7 +438,7 @@ describe("Market", function () {
           },
         },
         getSecondsOfDays(20),
-        { value: Course1.price * getSecondsOfDays(20) }
+        { value: Course1.price * 20 }
       )
     ).to.be.reverted;
   });
@@ -463,7 +461,7 @@ describe("Market", function () {
         },
       },
       getSecondsOfDays(INITIAL_DURATION),
-      { value: Course1.price * getSecondsOfDays(INITIAL_DURATION) }
+      { value: Course1.price * INITIAL_DURATION }
     );
 
     const courseData = await course.getUserCourse(signers[1].address);

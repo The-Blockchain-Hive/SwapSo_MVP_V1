@@ -25,6 +25,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/PopUp.js", "app/components/Card.jsx", "public/csp.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/PopUp.tsx", "app/components/Card.tsx", "public/csp.js", "app/context/DataContextProvider.tsx"],
   "exclude": ["node_modules"]
 }

@@ -1,23 +1,23 @@
- "use client"
- // components/SearchBar.js
+"use client";
+// components/SearchBar.js
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const SearchBar = () => {
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [selectedFilter, setSelectedFilter] = useState('low-to-high');
+  const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
+  const [selectedFilter, setSelectedFilter] = useState<string>("low-to-high");
 
   const filterOptions = [
-    { value: 'low-to-high', label: 'Price: Low - High' },
-    { value: 'high-to-low', label: 'Price: High - Low' },
-    { value: 'student-reviews', label: 'Student Reviews' },
+    { value: "low-to-high", label: "Price: Low - High" },
+    { value: "high-to-low", label: "Price: High - Low" },
+    { value: "student-reviews", label: "Student Reviews" },
   ];
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
 
-  const handleFilterChange = (value) => {
+  const handleFilterChange = (value: string) => {
     setSelectedFilter(value);
     setDropdownOpen(false);
   };
@@ -28,7 +28,7 @@ const SearchBar = () => {
         {/* Search Bar */}
         <input
           type="text"
-          placeholder="Search Your Favourite Courses..."
+          placeholder="Search Your Favorite Courses..."
           className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 bg-transparent focus:backdrop-filter focus:backdrop-blur-md"
         />
 
@@ -38,8 +38,17 @@ const SearchBar = () => {
             onClick={toggleDropdown}
             className="flex items-center px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
           >
-            <svg className="h-4 w-4 mr-2 stroke-current text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            <svg
+              className="h-4 w-4 mr-2 stroke-current text-gray-600"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
             </svg>
             Filter
           </button>
@@ -53,7 +62,9 @@ const SearchBar = () => {
                     key={option.value}
                     onClick={() => handleFilterChange(option.value)}
                     className={`px-4 py-2 cursor-pointer ${
-                      selectedFilter === option.value ? 'bg-blue-500 text-white' : 'text-gray-800'
+                      selectedFilter === option.value
+                        ? "bg-blue-500 text-white"
+                        : "text-gray-800"
                     } hover:bg-blue-500 hover:text-white transition`}
                   >
                     {option.label}
@@ -69,4 +80,3 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
-
