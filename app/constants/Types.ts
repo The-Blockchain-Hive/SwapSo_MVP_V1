@@ -14,6 +14,8 @@ export type CourseType = {
   PricePerDay: number;
   WhatLearn: string[];
   isListed?: boolean;
+  listingPrice?: any;
+  listingComment?: any;
 };
 
 export type WhatWillYouLearnSectionType = {

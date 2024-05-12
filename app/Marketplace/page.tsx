@@ -14,29 +14,12 @@ import SellCard from "../components/SellCard.tsx";
 import { ContractAddress } from "../config/config.ts";
 import CourseABI from "../constants/ABI/Course.json";
 import { useAccount } from "wagmi";
-
-type CardProps = {
-  CourseId: string;
-  AboutCourse: string;
-  CourseName: string;
-  CourseImgUrl: number;
-  short_desc: string;
-  CourseDuration: number;
-  CourseEducator: string;
-  EducatorImgUrl: string;
-  EducatorSocials: string;
-  Educator_desc: string;
-  PricePerDay: number;
-  WhatLearn: string;
-  listingPrice: number;
-  listingComment: string;
-};
+import { CourseType } from "../constants/Types.ts";
 
 const MarketPlace = () => {
   const { address } = useAccount();
   const [isPopupVisible, setIsPopupVisible] = useState(false);
-  // const [coursesData, setCoursesData] = useState<CardProps[]>([]);
-  const [coursesData, setCoursesData] = useState<any[]>([]);
+  const [coursesData, setCoursesData] = useState<CourseType[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [showListingsPage, setShowListingsPage] = useState(false);
 
@@ -45,7 +28,7 @@ const MarketPlace = () => {
       console.log("Fetching data");
       const coursesSnapshot = await getDocs(collection(db, "Marketplace"));
 
-      const courses = coursesSnapshot.docs.map((doc) => {
+      const courses: any = coursesSnapshot.docs.map((doc) => {
         const ids = doc.id;
         const courseData = doc.data();
         return { ids, ...courseData };
@@ -88,7 +71,7 @@ const MarketPlace = () => {
           resp.isListed &&
           resp.holder.toLowerCase() !== address?.toLowerCase()
         ) {
-          const r: CardProps = {
+          const r: CourseType = {
             CourseId: resp.courseId,
             CourseImgUrl: resp.courseNumber,
             CourseDuration: resp.duration,
@@ -109,7 +92,7 @@ const MarketPlace = () => {
             EducatorSocials: "string",
             Educator_desc: "string",
 
-            WhatLearn: "string",
+            WhatLearn: ["string"],
 
             listingPrice: resp.price,
             listingComment: "string",
@@ -131,7 +114,7 @@ const MarketPlace = () => {
     fetchListedCourses();
 
     // fetchData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const itemsPerPage = 9;

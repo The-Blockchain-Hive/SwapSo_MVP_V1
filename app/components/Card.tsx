@@ -7,7 +7,7 @@ import PopUp from "./Popup";
 
 import { CourseType, CardType } from "../constants/Types";
 
-// const Card: React.FC<CardType> = (props) => {
+// const Card: React.FC<CardType> = (course) => {
 const Card = ({ course }: CardType) => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [currentCourse, setCurrentCourse] = useState<CourseType>(course);
@@ -41,15 +41,15 @@ const Card = ({ course }: CardType) => {
           <div className="w-full h-1/2 rounded-tr-3xl rounded-tl-3xl"></div>
         </div>
         <div className="flex justify-between p-4">
-          <p className="font-extrabold text-2xl">{currentCourse?.CourseName}</p>
+          <p className="font-extrabold text-2xl">{course.CourseName}</p>
         </div>
-        {/* <p className="px-4 py-2">{currentCourse?.short_desc}</p> */}
+        {/* <p className="px-4 py-2">{course.short_desc}</p> */}
         <div className="flex flex-wrap justify-between px-4">
           <div className=" bg-white px-4 w-max text-black rounded-full">
-            <span>${currentCourse?.PricePerDay}/day</span>
+            <span>${course.PricePerDay}/day</span>
           </div>
           <div className="rounded-full px-4 w-max bg-transparent outline">
-            <span>{currentCourse?.CourseDuration} Hours Total</span>
+            <span>{course.CourseDuration} Hours Total</span>
           </div>
         </div>
         <div className="flex justify-between px-4">

@@ -44,9 +44,9 @@ export default function Home() {
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
       </head>
-      <div className="bg-black bg-opacity-90 text-slate-400 text-center text-xl xl:text-2xl lg:text-2xl md:text-xl p-3 border-white-2 border-t-0 fixed top-0 left-0 right-0 z-50 font-comfortaa">
+      {/* <div className="bg-black bg-opacity-90 text-slate-400 text-center text-xl xl:text-2xl lg:text-2xl md:text-xl p-3 border-white-2 border-t-0 fixed top-0 left-0 right-0 z-50 font-comfortaa">
         Our waiting list is live... <a href="/wl" className="text-pink-500 hover:text-pink-300">Join now!</a>
-      </div>
+      </div> */}
       <Script id="ga-script" async src="https://www.googletagmanager.com/gtag/js?id=G-21492NPCH3"></Script>
       <Script id="ga-script">
         {`
@@ -57,7 +57,7 @@ export default function Home() {
           gtag('config', 'G-21492NPCH3');
         `}
       </Script>
-      <div className='nav1 mt-10'>
+      <div className='nav1'>
         {isMobile ? <Navbar2 /> : <Navbar />}
       </div>
       <div className='flex flex-row'>
