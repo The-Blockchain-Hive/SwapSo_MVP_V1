@@ -123,7 +123,7 @@ function Popup({ handleClose, currentCourse, courseName }: PopupType) {
                 }}
                 className="text-justify text-white text-xl font-medium font-['Inter'] leading-[17px]"
               >
-                Pay MATIC{price}
+                Pay {price} MATIC
               </button>
             </div>
             <div className="left-[397px] top-[181px] absolute text-justify text-black text-base font-medium font-['Inter'] leading-[17px]">
