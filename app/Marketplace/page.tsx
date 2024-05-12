@@ -162,14 +162,9 @@ const MarketPlace = () => {
       </div>
       <div className="flex justify-center">
         <Link href='/listings'>
-        <button className="bg-indigo-500 text-black rounded-lg">Your Listings</button>
+        <button className="bg-indigo-500 text-black rounded-lg p-2">Your Listings</button>
         </Link>
       </div>
-        <div>
-          <div className="bg-transparent">
-            <SectionDivider label="Your Listings" />
-          </div>
-        </div>
         <div>
           <div className="bg-transparent">
             <SectionDivider label="Market Place" />

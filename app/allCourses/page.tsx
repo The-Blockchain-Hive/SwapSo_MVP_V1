@@ -82,7 +82,7 @@ const Courses = () => {
           {/* <SearchBar/> */}
           {/* <button onClick={fetchData}>Testing</button>  */}
         </div>
-        <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
+        <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 mt-24">
           {coursesData.map((course: any, index) => (
             <Card key={index} course={course} />
           ))}

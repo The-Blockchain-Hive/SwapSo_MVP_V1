@@ -70,10 +70,10 @@ const Navbar = () => {
             <Link href="/Marketplace">Market Place</Link>
           </li>
         </ul>
-        { <div>
+        {/* { <div>
          {!(user)?
             (<button className="sign-in bg-purple-500 w-40 p-2 rounded-lg"><a href="/signup" className="font-bold">Sign in</a></button>):(<button className="font-bold  bg-purple-500 w-40 p-2 rounded-lg" onClick={handleSignOut}>Sign Out</button>)}
-        </div> }
+        </div> } */}
           <div className="dropdown">
             <ConnectButton/>       
         </div>
