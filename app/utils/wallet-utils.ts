@@ -20,9 +20,7 @@ function getRpc(chain: Chain) {
     };
   } else if (chain.id == 80002) {
     return {
-      http: "https://polygon-amoy.g.alchemy.com/v2/EaKu789oxhWzYFvzEzOPAkCqIl2CwKj5",
-      webSocket:
-        "wss://polygon-amoy.g.alchemy.com/v2/EaKu789oxhWzYFvzEzOPAkCqIl2CwKj5",
+      http: "https://rpc-amoy.polygon.technology/",
     };
   } else if (chain.id == 31337 || chain.id == 1337) {
     return {

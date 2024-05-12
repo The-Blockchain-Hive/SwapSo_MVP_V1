@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import{ metadata } from './metadata.ts';
-import Navbar from "../Home/navbar.jsx";
+import Navbar from "../Home/navbar.tsx";
 import Navbar2 from "../Home/MobileNavbar.tsx";
 import Card from "../components/Card.tsx";
 // import SearchBar from "../components/SearchBar.js";

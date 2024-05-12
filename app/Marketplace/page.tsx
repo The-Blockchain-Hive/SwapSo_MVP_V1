@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { readContract, getNetwork } from "@wagmi/core";
-import Navbar from "../Home/navbar.jsx";
+import Navbar from "../Home/navbar.tsx";
 import { metadata } from "./metadata.ts";
 import Navbar2 from "../Home/MobileNavbar.tsx";
 import SectionDivider from "../components/SectionDivider";
@@ -158,7 +158,7 @@ const MarketPlace = () => {
         )}
       </div>
       <div className="py-5 mb-10">
-        <SearchBar />
+        {/* <SearchBar /> */}
       </div>
       <div className="flex justify-center">
         <Link href='/listings'>
