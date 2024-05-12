@@ -1,10 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { readContract, getNetwork } from "@wagmi/core";
-import Navbar from "../Home/navbar";
+import Navbar from "../Home/navbar.jsx";
 import { metadata } from "./metadata.ts";
 import Navbar2 from "../Home/MobileNavbar.tsx";
-import MyListings from "../components/MyListings.tsx";
 import SectionDivider from "../components/SectionDivider";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../firebase.js";
@@ -15,13 +14,13 @@ import { ContractAddress } from "../config/config.ts";
 import CourseABI from "../constants/ABI/Course.json";
 import { useAccount } from "wagmi";
 import { CourseType } from "../constants/Types.ts";
+import Link from "next/link";
 
 const MarketPlace = () => {
   const { address } = useAccount();
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [coursesData, setCoursesData] = useState<CourseType[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [showListingsPage, setShowListingsPage] = useState(false);
 
   const fetchData = async () => {
     try {
@@ -159,36 +158,13 @@ const MarketPlace = () => {
         )}
       </div>
       <div className="py-5 mb-10">
-        <SearchBar />
+        {/* <SearchBar /> */}
       </div>
       <div className="flex justify-center">
-        <button
-          onClick={() => setShowListingsPage(false)}
-          className={`text-white px-3 py-1 rounded-md bg-${
-            !showListingsPage ? "blue-700" : "gray-400"
-          }`}
-        >
-          Market Place
-        </button>
-        <button
-          onClick={() => setShowListingsPage(true)}
-          className={`ml-4 text-white px-3 py-1 rounded-md bg-${
-            showListingsPage ? "blue-700" : "gray-400"
-          }`}
-        >
-          Your Listings
-        </button>
+        <Link href='/listings'>
+        <button className="bg-indigo-500 text-black rounded-lg p-2">Your Listings</button>
+        </Link>
       </div>
-      {showListingsPage ? (
-        <div>
-          <div className="bg-transparent">
-            <SectionDivider label="Your Listings" />
-          </div>
-          <div className="w-screen flex flex-wrap gap-5 justify-center py-5">
-            <MyListings />
-          </div>
-        </div>
-      ) : (
         <div>
           <div className="bg-transparent">
             <SectionDivider label="Market Place" />
@@ -214,7 +190,6 @@ const MarketPlace = () => {
             ))}
           </div>
         </div>
-      )}
     </main>
   );
 };

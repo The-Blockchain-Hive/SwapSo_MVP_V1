@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { metadata } from './metadata.ts';
-import Navbar from './Home/navbar.tsx';
+import Navbar from './Home/navbar.jsx';
 import Navbar2 from './Home/MobileNavbar.tsx';
 import TrackPath from './Home/TrackPath.tsx';
 import Partner from './Home/partner.tsx';
@@ -12,7 +12,7 @@ import CardEffect from './Home/cardseffect.tsx';
 import ContactForm from './Home/contact.tsx';
 import Footer from './Home/footer.tsx';
 import Typewriter from 'typewriter-effect';
-import Script from 'next/script';
+import Script from "next/script";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
