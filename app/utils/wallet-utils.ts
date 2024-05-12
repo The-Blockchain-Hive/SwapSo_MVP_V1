@@ -76,6 +76,32 @@ if (process.env.ENV === "production") {
   ]);
   chains = config.chains;
   publicClient = config.publicClient;
+} else if (process.env.ENV === "test") {
+  const config = configureChains(
+    [
+      {
+        id: 80002,
+        name: "Polygon Amoy",
+        network: "amoy",
+        nativeCurrency: {
+          decimals: 18,
+          name: "MATIC",
+          symbol: "MATIC",
+        },
+        rpcUrls: {
+          default: { http: ["https://rpc-amoy.polygon.technology/"] },
+          public: { http: ["https://rpc-amoy.polygon.technology/"] },
+        },
+      },
+    ],
+    [
+      jsonRpcProvider({
+        rpc: (chainId) => getRpc(chainId),
+      }),
+    ]
+  );
+  chains = config.chains;
+  publicClient = config.publicClient;
 } else {
   const config = configureChains(devChains, [
     jsonRpcProvider({

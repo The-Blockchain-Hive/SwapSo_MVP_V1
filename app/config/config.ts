@@ -3,10 +3,14 @@ export const ContractAddress: any = {
     course:
       process.env.ENV === "production"
         ? process.env.COURSE_POLYGON_ADDRESS
+        : process.env.ENV === "test"
+        ? process.env.COURSE_POLYGON_AMOY_ADDRESS
         : process.env.COURSE_LOCAL_ADDRESS,
     market:
       process.env.ENV === "production"
         ? process.env.MARKET_POLYGON_ADDRESS
+        : process.env.ENV === "test"
+        ? process.env.MARKET_POLYGON_AMOY_ADDRESS
         : process.env.MARKET_LOCAL_ADDRESS,
   },
   31337: {
