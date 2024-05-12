@@ -40,8 +40,8 @@ const config: CustomHardhatUserConfig = {
           "0x33ed347ec39864cc65576d3ed8eafc96dd4d8f8e3f122f32e2f9d74e5aaab19f",
       ], // Provide a default value for PRIVATE_KEY if it is undefined
     },
-    matic: {
-      url: "https://rpc-mainnet.maticvigil.com",
+    amoy: {
+      url: "https://rpc-amoy.polygon.technology/",
       accounts: [
         PRIVATE_KEY ||
           "0x33ed347ec39864cc65576d3ed8eafc96dd4d8f8e3f122f32e2f9d74e5aaab19f",
