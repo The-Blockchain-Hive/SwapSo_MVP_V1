@@ -3,33 +3,17 @@ import React, { useEffect, useState } from "react";
 import { getDocs, collection, doc, setDoc } from "firebase/firestore";
 import { useAccount } from "wagmi";
 import { readContract, getNetwork } from "@wagmi/core";
-import NewCard from "./newCard";
 import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase.js";
 import { ContractAddress } from "../config/config.ts";
-import CourseABI from "../../blockchain_hive_contracts/artifacts/contracts/V1/Course.sol/Course.json";
-import MarketABI from "../../blockchain_hive_contracts/artifacts/contracts/V1/Market.sol/Market.json";
-
-interface Course {
-  CourseId: string;
-  AboutCourse: string;
-  CourseName: string;
-  short_desc: string;
-  CourseImgUrl: number;
-  CourseDuration: number;
-  CourseEducator: string;
-  EducatorImgUrl: string;
-  EducatorSocials: string;
-  Educator_desc: string;
-  PricePerDay: number;
-  WhatLearn: string;
-  isListed: boolean;
-}
+import CourseABI from "../constants/ABI/Course.json";
+import { CourseType } from "../constants/Types.ts";
+import NewCard from "./NewCard.tsx";
 
 // import this down { selectedTimeframe }: { selectedTimeframe: string }
 const MyCourses = () => {
   const { isConnected, address } = useAccount();
-  const [coursesData, setCoursesData] = useState<Course[]>([]);
+  const [coursesData, setCoursesData] = useState<CourseType[]>([]);
   const { user } = UserAuth();
 
   const fetchData = async () => {
@@ -40,9 +24,9 @@ const MyCourses = () => {
 
       // Fetch all courses for the user
       const querySnapshot = await getDocs(coursesRef);
-      const coursessData: Course[] = querySnapshot.docs.map((doc) => {
+      const coursessData: CourseType[] = querySnapshot.docs.map((doc) => {
         const courseId = doc.id; // Get the ID of the document
-        const courseData = doc.data() as Course; // Cast to Course type
+        const courseData = doc.data() as CourseType; // Cast to Course type
         return { id: courseId, ...courseData }; // Combine ID and course data
       });
 
@@ -70,7 +54,7 @@ const MyCourses = () => {
 
     console.log({ userCourses });
 
-    const data = [];
+    const data: CourseType[] = [];
 
     if (userCourses && userCourses?.length) {
       for (let i = 0; i < userCourses?.length; i++) {
@@ -82,7 +66,7 @@ const MyCourses = () => {
         });
 
         console.log({ resp });
-        const r = {
+        const r: CourseType = {
           CourseId: resp.courseId,
           CourseImgUrl: resp.courseNumber,
           CourseDuration: resp.duration,
@@ -103,7 +87,7 @@ const MyCourses = () => {
           EducatorSocials: "string",
           Educator_desc: "string",
 
-          WhatLearn: "string",
+          WhatLearn: ["string"],
 
           isListed: resp.isListed,
         };
@@ -118,8 +102,8 @@ const MyCourses = () => {
     fetchUserCourses();
 
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coursesData.length]);
-  // console.log('my courses time frame',selectedTimeframe);
 
   return (
     <div className="flex flex-wrap justify-center gap-4 py-5">
@@ -129,7 +113,7 @@ const MyCourses = () => {
         </p>
       ) : (
         coursesData.map((course, index) => (
-          <NewCard selectedTimeframe="1" key={index} {...course} />
+          <NewCard selectedTimeFrame="1" key={index} course={course} />
         ))
       )}
     </div>

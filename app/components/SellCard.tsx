@@ -4,35 +4,14 @@ import { writeContract, readContract, getNetwork } from "@wagmi/core";
 import Link from "next/link";
 import Image from "next/image";
 import Timer from "./timer";
-import CourseABI from "../../blockchain_hive_contracts/artifacts/contracts/V1/Course.sol/Course.json";
-import MarketABI from "../../blockchain_hive_contracts/artifacts/contracts/V1/Market.sol/Market.json";
+import MarketABI from "../constants/ABI/Market.json";
 import { ContractAddress } from "../config/config.ts";
 import { getSecondsOfDays, getSecondsOfHours } from "../utils/utils.ts";
+import { SellCardType } from "../constants/Types.ts";
 
-interface CardProps extends Window {
-  CourseId: string;
-  AboutCourse: string;
-  CourseName: string;
-  CourseImgUrl: number;
-  short_desc: string;
-  CourseDuration: number;
-  CourseEducator: string;
-  EducatorImgUrl: string;
-  EducatorSocials: string;
-  Educator_desc: string;
-  PricePerDay: number;
-  WhatLearn: string;
-  listingPrice: number;
-  listingComment: string;
-}
-interface Window {
-  ethereum?: any;
-}
-
-const SellCard: React.FC<CardProps> = (props) => {
-  console.log("hgfdhgfc", { props });
-  const imgUrl = `/${props.CourseImgUrl}.png`;
-  const [selectedTimeframe, setselectedTimeframe] = useState("1");
+const SellCard: React.FC<SellCardType> = ({ course, selectedTimeFrame }) => {
+  console.log("hgfdhgfc", { course });
+  const imgUrl = `/${course.CourseImgUrl}.png`;
 
   // const handleClick = async () => {
   //   if ((window as any).ethereum && (window as any).ethereum.isMetaMask) {
@@ -45,7 +24,7 @@ const SellCard: React.FC<CardProps> = (props) => {
   //       const transactionParams = {
   //         to: "0x4D063a1bF80c751501d4DB4dC6877505A3a5D010",
   //         from: fromAddress,
-  //         value: props.listingPrice,
+  //         value: course.listingPrice,
   //       };
 
   //       const txhash = await (window as any).ethereum.request({
@@ -68,16 +47,15 @@ const SellCard: React.FC<CardProps> = (props) => {
 
   const handleClick = async () => {
     try {
- 
       const network = getNetwork()?.chain?.id
         ? getNetwork()?.chain?.id
         : "default";
 
-      console.log({ props });
+      console.log({ course });
 
       const totalPrice: any =
-        ((Number(props.CourseDuration) * 1000) / getSecondsOfDays(1)) *
-        Number(utils.formatEther(`${props.PricePerDay}`));
+        ((Number(course.CourseDuration) * 1000) / getSecondsOfDays(1)) *
+        Number(utils.formatEther(`${course.PricePerDay}`));
 
       console.log({ totalPrice });
 
@@ -85,7 +63,7 @@ const SellCard: React.FC<CardProps> = (props) => {
         address: ContractAddress[`${network}`].market,
         abi: MarketABI.abi,
         functionName: "buyFromMarket",
-        args: [props.CourseId],
+        args: [course.CourseId],
         value: utils.parseEther(`${totalPrice}`),
       });
 
@@ -111,18 +89,18 @@ const SellCard: React.FC<CardProps> = (props) => {
         </div>
         <div className="flex flex-row justify-between mt-4 m-2">
           <div className=" bg-white px-4 w-max text-black rounded-full">
-            <span>{props.CourseDuration} Hours Total</span>
+            <span>{course.CourseDuration} Hours Total</span>
           </div>
           <div className="rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500">
-            <span>Selling Price: {props.listingPrice}$</span>
+            <span>Selling Price: {course.listingPrice}$</span>
           </div>
         </div>
         <div className="justify-center">
           <div className="rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink mt-4 ml-8">
-            <Timer selectedTimeframe={selectedTimeframe} />
+            <Timer selectedTimeFrame={selectedTimeFrame} />
           </div>
           {/* <div className='rounded-full px-4 mt-4 ml-32 justify-center w-max bg-transparent outline'>
-						<span>{props.listingComment}</span>
+						<span>{course.listingComment}</span>
 					</div> */}
         </div>
         <div className="flex justify-between px-4">

@@ -2,43 +2,42 @@ import React, { useState, useEffect } from "react";
 import { utils } from "ethers";
 import { writeContract, readContract, getNetwork } from "@wagmi/core";
 import Timer from "./timer.tsx";
-import { useDataContext } from "../context/DataContextProvider.jsx";
 import { UserAuth } from "../context/AuthContext.js";
 import { db } from "../firebase.js";
 import { doc, collection, serverTimestamp, setDoc } from "firebase/firestore";
-import Abi from "./abi.json";
-import CourseABI from "../../blockchain_hive_contracts/artifacts/contracts/V1/Course.sol/Course.json";
-import MarketABI from "../../blockchain_hive_contracts/artifacts/contracts/V1/Market.sol/Market.json";
+import CourseABI from "../constants/ABI/Course.json";
+import MarketABI from "../constants/ABI/Market.json";
 import { ContractAddress } from "../config/config.ts";
 import { getSecondsOfDays, getSecondsOfHours } from "../utils/utils.ts";
+import { PopupType } from "../constants/Types.ts";
 // import NewCard from "./newCard.tsx";
 
-function PopUp({ handleClose, currentCourse, courseName }) {
+function Popup({ handleClose, currentCourse, courseName }: PopupType) {
   // const [isPurchaseComplete, setPurchaseComplete] = useState(false);
-  const { address, chain, payFees } = useDataContext();
   const { user } = UserAuth();
   const [provider, setProvider] = useState(null);
   const [signer, setSigner] = useState(null);
   const [contract, setContract] = useState(null);
 
-  const [price, setPrice] = useState(Number(currentCourse.PricePerDay));
-  const [selectedDay, setselectedDay] = useState("1 day");
-  const [selectedTimeframe, setselectedTimeframe] = useState("1");
+  const [price, setPrice] = useState<number>(Number(currentCourse.PricePerDay));
+  const [selectedDay, setSelectedDay] = useState<string>("1 day");
+  const [selectedTimeFrame, setSelectedTimeFrame] = useState<string>("1");
 
-  const handleTimeframeChange = (e) => {
+  const handleTimeFrameChange = (e: any) => {
+    e.preventDefault();
     const inputDays = parseInt(e.target.value);
-    setselectedTimeframe(inputDays ? inputDays.toString() : "0");
+    setSelectedTimeFrame(inputDays ? inputDays.toString() : "0");
     const calculatedPrice =
       Number(inputDays || 0) * Number(currentCourse.PricePerDay);
     setPrice(calculatedPrice);
-    setselectedDay(inputDays);
+    setSelectedDay(inputDays == 1 ? `${inputDays} day` : `${inputDays} days`);
   };
 
   useEffect(() => {
     console.log({ currentCourse });
   });
 
-  async function handlePay(course, selectedTimeframe, price) {
+  async function handlePay(selectedTimeFrame: string, price: number) {
     try {
       // UNCOMMENT DB INTERACTIONS
       /*
@@ -65,12 +64,12 @@ function PopUp({ handleClose, currentCourse, courseName }) {
       });
 
       console.log("Course added to My_Courses collection");
-      console.log("Selected Time:", selectedTimeframe);
+      console.log("Selected Time:", selectedTimeFrame);
       console.log("price:", price);
  */
 
-      console.log("ADFSa", utils.parseEther(`${currentCourse.PricePerDay}`),)
-      console.log("ADFSa3333", utils.parseEther(`${price}`),)
+      console.log("ADFSa", utils.parseEther(`${currentCourse.PricePerDay}`));
+      console.log("ADFSa3333", utils.parseEther(`${price}`));
       const courseData = [
         Number(currentCourse.CourseId),
         utils.parseEther(`${currentCourse.PricePerDay}`),
@@ -91,7 +90,7 @@ function PopUp({ handleClose, currentCourse, courseName }) {
         functionName: "buyCourse",
         args: [
           [courseId, [...courseData]],
-          getSecondsOfDays(selectedTimeframe),
+          getSecondsOfDays(Number(selectedTimeFrame)),
         ],
         value: utils.parseEther(`${price}`),
       });
@@ -103,7 +102,7 @@ function PopUp({ handleClose, currentCourse, courseName }) {
 
     handleClose();
   }
-  console.log("Selected Time:", selectedTimeframe);
+  console.log("Selected Time:", selectedTimeFrame);
 
   return (
     <>
@@ -121,7 +120,7 @@ function PopUp({ handleClose, currentCourse, courseName }) {
             <div className="w-[130px] md:w-[130px] lg:w-[145px] xl:w-[145px] h-[46px] px-[63px] pt-4 pb-[15px] left-[175px] md:left-[200px] lg:left-[225px] xl:left-[225px] top-[213px] absolute bg-blue-600 rounded-[5px] justify-center items-center inline-flex">
               <button
                 onClick={() => {
-                  handlePay(currentCourse, selectedTimeframe, price);
+                  handlePay(selectedTimeFrame, price);
                 }}
                 className="text-justify text-white text-xl font-medium font-['Inter'] leading-[17px]"
               >
@@ -149,8 +148,8 @@ function PopUp({ handleClose, currentCourse, courseName }) {
               <div>
                 <input
                   type="number"
-                  value={selectedTimeframe}
-                  onChange={handleTimeframeChange}
+                  value={selectedTimeFrame}
+                  onChange={handleTimeFrameChange}
                   className="text-justify text-gray-900 text-base font-medium font-['Inter'] leading-[17px] border border-gray-300 rounded-md p-2"
                 ></input>
               </div>
@@ -171,13 +170,13 @@ function PopUp({ handleClose, currentCourse, courseName }) {
                 ${price}
               </div>
             </div>
-            <Timer selectedTimeframe={selectedTimeframe} />
+            <Timer selectedTimeFrame={selectedTimeFrame} />
           </div>
         </div>
       </div>
     </>
   );
 }
-export default PopUp;
+export default Popup;
 
 // smart contract address: 0x1029d2eb463f1e310e74e7694e725ace17485b0a

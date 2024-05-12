@@ -3,7 +3,7 @@ import { utils } from "ethers";
 import { writeContract, readContract, getNetwork } from "@wagmi/core";
 import Link from "next/link";
 import Image from "next/image";
-import SellPopUp from "./SellPopUp";
+import SellPopUp from "./SellPopup.tsx";
 import Timer from "./timer";
 import {
   getDocs,
@@ -15,33 +15,21 @@ import {
 } from "firebase/firestore";
 import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase.js";
-import CourseCurriculum from "../AboutCourse/curriculum.js";
+import CourseCurriculum from "../AboutCourse/curriculum.tsx";
 import { ContractAddress } from "../config/config.ts";
-import MarketABI from "../../blockchain_hive_contracts/artifacts/contracts/V1/Market.sol/Market.json";
+import MarketABI from "../constants/ABI/Market.json";
+import { NewSellerCardType, CourseType } from "../constants/Types.ts";
 
-interface CardProps {
-  CourseId: string;
-  AboutCourse: string;
-  CourseName: string;
-  short_desc: string;
-  CourseImgUrl: number;
-  CourseDuration: number;
-  CourseEducator: string;
-  EducatorImgUrl: string;
-  EducatorSocials: string;
-  Educator_desc: string;
-  PricePerDay: number;
-  WhatLearn: string;
-}
-
-const NewCard: React.FC<CardProps> = (props) => {
+const NewSellerCard: React.FC<NewSellerCardType> = ({
+  course,
+  selectedTimeFrame,
+}) => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
-  const [currentCourse, setCurrentCourse] = useState<CardProps | null>(null);
-  const [selectedTimeframe, setselectedTimeframe] = useState("1");
+  const [currentCourse, setCurrentCourse] = useState<CourseType | null>(course);
 
   const { user } = UserAuth();
 
-  // 	async function toggleWithdraw (course: CardProps){
+  // 	async function toggleWithdraw (course: CourseType){
 
   // 		console.log(course.CourseId);
   // 		const courseId = course.CourseId;
@@ -70,7 +58,7 @@ const NewCard: React.FC<CardProps> = (props) => {
 
   async function toggleWithdraw() {
     try {
-      console.log("ADFSa", utils.parseEther(`${props.PricePerDay}`));
+      console.log("ADFSa", utils.parseEther(`${currentCourse?.PricePerDay}`));
 
       const network = getNetwork()?.chain?.id
         ? getNetwork()?.chain?.id
@@ -80,7 +68,7 @@ const NewCard: React.FC<CardProps> = (props) => {
         address: ContractAddress[`${network}`].market,
         abi: MarketABI.abi,
         functionName: "removeFromMarket",
-        args: [props.CourseId],
+        args: [currentCourse?.CourseId],
       });
 
       console.log({ removeCourse });
@@ -89,10 +77,10 @@ const NewCard: React.FC<CardProps> = (props) => {
     }
   }
 
-  // const handlePurchase = (course: CardProps) => {
+  // const handlePurchase = (course: CourseType) => {
   // 	setIsPopupVisible(false);
   // };
-  const imgUrl = `/${props.CourseImgUrl}.png`;
+  const imgUrl = `/${currentCourse?.CourseImgUrl}.png`;
 
   return (
     <div>
@@ -107,16 +95,16 @@ const NewCard: React.FC<CardProps> = (props) => {
           />
           <div className="w-full h-1/2 rounded-tr-3xl rounded-tl-3xl"></div>
         </div>
-        {/* <p className="px-4 py-2">{props.short_desc}</p> */}
+        {/* <p className="px-4 py-2">{currentCourse?.short_desc}</p> */}
         <div className="flex flex-wrap justify-between px-4">
           <div className=" bg-white px-4 m-2 w-max  text-black rounded-full">
-            <span>{props.CourseDuration} Hours Total</span>
+            <span>{currentCourse?.CourseDuration} Hours Total</span>
           </div>
           <div className="rounded-full px-4 m-2 w-max bg-gradient-to-r from-purple-500 to-pink-500">
-            <span>${props.PricePerDay}/Day</span>
+            <span>${currentCourse?.PricePerDay}/Day</span>
           </div>
           <div className="rounded-full px-4 m-4 w-max bg-gradient-to-r from-purple-500 to-pink-500">
-            <Timer selectedTimeframe={selectedTimeframe} />
+            <Timer selectedTimeFrame={selectedTimeFrame || "1"} />
           </div>
           {/* <div className='rounded-full px-4 mt-3 w-max bg-transparent outline'>
 						{/* <span>{courseExpiry}</span> /}
@@ -129,7 +117,7 @@ const NewCard: React.FC<CardProps> = (props) => {
             </button>
           </Link>
           <button
-            // onClick={() => toggleWithdraw(props)}
+            // onClick={() => toggleWithdraw(currentCourse?)}
             onClick={toggleWithdraw}
             className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl"
           >
@@ -146,7 +134,7 @@ const NewCard: React.FC<CardProps> = (props) => {
     </div>
   );
 };
-export default NewCard;
+export default NewSellerCard;
 //Next steps to do
 //Pass the object courseCopy inside an array
-//Then try to update the <NewCard /> component inside the courses.tsx on popup visible..
+//Then try to update the <NewSellerCard /> component inside the courses.tsx on popup visible..

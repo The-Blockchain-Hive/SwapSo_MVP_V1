@@ -1,10 +1,28 @@
 export const ContractAddress: any = {
   default: {
-    course: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
-    market: "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+    course:
+      process.env.ENV === "production"
+        ? process.env.COURSE_POLYGON_ADDRESS
+        : process.env.COURSE_LOCAL_ADDRESS,
+    market:
+      process.env.ENV === "production"
+        ? process.env.MARKET_POLYGON_ADDRESS
+        : process.env.MARKET_LOCAL_ADDRESS,
   },
   31337: {
-    course: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
-    market: "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+    course: process.env.COURSE_LOCAL_ADDRESS,
+    market: process.env.MARKET_LOCAL_ADDRESS,
+  },
+  137: {
+    course: process.env.COURSE_POLYGON_ADDRESS,
+    market: process.env.MARKET_POLYGON_ADDRESS,
+  },
+  42161: {
+    course: process.env.COURSE_ARBITRUM_ADDRESS,
+    market: process.env.MARKET_ARBITRUM_ADDRESS,
+  },
+  80002: {
+    course: process.env.COURSE_POLYGON_AMOY_ADDRESS,
+    market: process.env.MARKET_POLYGON_AMOY_ADDRESS,
   },
 };

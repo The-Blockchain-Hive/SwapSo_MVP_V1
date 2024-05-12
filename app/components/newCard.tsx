@@ -4,42 +4,23 @@ import { writeContract, readContract, getNetwork } from "@wagmi/core";
 import Timer from "./timer.tsx";
 import Link from "next/link";
 import Image from "next/image";
-import SellPopUp from "./SellPopUp";
+import SellPopUp from "./SellPopup.tsx";
 import { ContractAddress } from "../config/config.ts";
-import MarketABI from "../../blockchain_hive_contracts/artifacts/contracts/V1/Market.sol/Market.json";
+import MarketABI from "../constants/ABI/Market.json";
+import { NewCardType, CourseType } from "../constants/Types.ts";
 
-interface CardProps {
-  CourseId: string;
-  AboutCourse: string;
-  CourseName: string;
-  CourseImgUrl: number;
-  short_desc: string;
-  CourseDuration: number;
-  CourseEducator: string;
-  EducatorImgUrl: string;
-  EducatorSocials: string;
-  Educator_desc: string;
-  PricePerDay: number;
-  WhatLearn: string;
-  isListed: boolean;
-}
-interface TimerProps {
-  selectedTimeframe: string;
-}
-
-interface NewCardProps extends CardProps, TimerProps {}
-const NewCard: React.FC<NewCardProps> = (props) => {
+const NewCard = ({ course, selectedTimeFrame }: NewCardType) => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
-  const [currentCourse, setCurrentCourse] = useState<CardProps | null>(null);
+  const [currentCourse, setCurrentCourse] = useState<CourseType>(course);
 
   function togglePopup() {
-    setCurrentCourse(props);
+    setCurrentCourse(course);
     setIsPopupVisible(!isPopupVisible);
   }
 
   async function unListCourse() {
     try {
-      console.log("ADFSa", utils.parseEther(`${props.PricePerDay}`));
+      console.log("ADFSa", utils.parseEther(`${currentCourse?.PricePerDay}`));
 
       const network = getNetwork()?.chain?.id
         ? getNetwork()?.chain?.id
@@ -49,7 +30,7 @@ const NewCard: React.FC<NewCardProps> = (props) => {
         address: ContractAddress[`${network}`].market,
         abi: MarketABI.abi,
         functionName: "removeFromMarket",
-        args: [props.CourseId],
+        args: [currentCourse?.CourseId],
       });
 
       console.log({ removeCourse });
@@ -58,12 +39,12 @@ const NewCard: React.FC<NewCardProps> = (props) => {
     }
   }
 
-  const handlePurchase = (course: CardProps) => {
+  const handlePurchase = () => {
     setIsPopupVisible(false);
   };
 
-  const imgUrl = `/${props.CourseImgUrl}.png`;
-  // console.log(' time frame of new card',props.selectedTimeframe);
+  const imgUrl = `/${currentCourse?.CourseImgUrl}.png`;
+  // console.log(' time frame of new card',selectedTimeframe);
 
   return (
     <div>
@@ -79,18 +60,18 @@ const NewCard: React.FC<NewCardProps> = (props) => {
           <div className="w-full h-1/2 rounded-tr-3xl rounded-tl-3xl"></div>
         </div>
         <div className="flex justify-between p-4">
-          <p className="font-extrabold text-2xl">{props.CourseName}</p>
+          <p className="font-extrabold text-2xl">{currentCourse?.CourseName}</p>
         </div>
-        {/* <p className="px-4 py-2">{props.short_desc}</p> */}
+        {/* <p className="px-4 py-2">{currentCourse?.short_desc}</p> */}
         <div className="flex flex-wrap justify-between px-4">
           <div className=" bg-white px-4 w-max text-black rounded-full">
-            <span>{props.CourseDuration} Hours Total</span>
+            <span>{currentCourse?.CourseDuration} Hours Total</span>
           </div>
           <div className="rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500">
-            <span>${props.PricePerDay}/Day</span>
+            <span>${currentCourse?.PricePerDay}/Day</span>
           </div>
           <div className="mt-2 rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500">
-            <Timer selectedTimeframe="1" />
+            <Timer selectedTimeFrame={selectedTimeFrame || "1"} />
           </div>
           {/* <div className='rounded-full px-4 w-max bg-transparent outline'>
 						<span>50$</span>
@@ -106,7 +87,7 @@ const NewCard: React.FC<NewCardProps> = (props) => {
             </button>
           </Link>
 
-          {props.isListed ? (
+          {currentCourse?.isListed ? (
             <button
               onClick={() => {
                 unListCourse();

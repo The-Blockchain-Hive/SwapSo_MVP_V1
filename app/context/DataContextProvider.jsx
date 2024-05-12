@@ -8,7 +8,7 @@ import {
   course_abi,
   usdc_address,
   usdc_abi,
-} from "../constants";
+} from "../constants/index.ts";
 const DataContext = createContext();
 const DataContextProvider = ({ children }) => {
   const { address } = useAccount();

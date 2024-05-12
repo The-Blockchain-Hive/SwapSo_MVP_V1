@@ -1,34 +1,19 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { utils } from "ethers";
+import { useAccount } from "wagmi";
 import { writeContract, readContract, getNetwork } from "@wagmi/core";
-import { useDataContext } from "../context/DataContextProvider.jsx";
 import NewSellCard from "./NewSellCard";
 import { getDocs, collection, doc, setDoc } from "firebase/firestore";
 import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase.js";
 import { ContractAddress } from "../config/config.ts";
-import CourseABI from "../../blockchain_hive_contracts/artifacts/contracts/V1/Course.sol/Course.json";
-import MarketABI from "../../blockchain_hive_contracts/artifacts/contracts/V1/Market.sol/Market.json";
-
-interface Course {
-  CourseId: string;
-  AboutCourse: string;
-  CourseName: string;
-  short_desc: string;
-  CourseDuration: number;
-  CourseImgUrl: number;
-  CourseEducator: string;
-  EducatorImgUrl: string;
-  EducatorSocials: string;
-  Educator_desc: string;
-  PricePerDay: number;
-  WhatLearn: string;
-}
+import CourseABI from "../constants/ABI/Course.json";
+import { CourseType } from "../constants/Types.ts";
 
 const MyCourses = () => {
-  const { address } = useDataContext();
-  const [coursesData, setCoursesData] = useState<Course[]>([]);
+  const { address } = useAccount();
+
+  const [coursesData, setCoursesData] = useState<CourseType[]>([]);
   const { user } = UserAuth();
 
   const fetchData = async () => {
@@ -40,7 +25,7 @@ const MyCourses = () => {
 
       const courses = coursesSnapshot.docs.map((doc) => {
         const ids = doc.id;
-        const courseData = doc.data() as Course;
+        const courseData = doc.data() as CourseType;
         return { ids, ...courseData };
       });
 
@@ -67,7 +52,7 @@ const MyCourses = () => {
 
     console.log({ allCourses });
 
-    const data = [];
+    const data: CourseType[] = [];
 
     if (allCourses && allCourses?.length) {
       for (let i = 0; i < allCourses?.length; i++) {
@@ -81,9 +66,9 @@ const MyCourses = () => {
         console.log({ resp });
         if (
           resp.isListed &&
-          resp.holder.toLowerCase() === address.toLowerCase()
+          resp.holder.toLowerCase() === address?.toLowerCase()
         ) {
-          const r = {
+          const r: CourseType = {
             CourseId: resp.courseId,
             CourseImgUrl: resp.courseNumber,
             CourseDuration: resp.duration,
@@ -104,7 +89,7 @@ const MyCourses = () => {
             EducatorSocials: "string",
             Educator_desc: "string",
 
-            WhatLearn: "string",
+            WhatLearn: ["string"],
 
             // isListed: resp.isListed,
           };
@@ -121,6 +106,7 @@ const MyCourses = () => {
   useEffect(() => {
     fetchMyListings();
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coursesData.length]);
 
   return (
@@ -129,7 +115,7 @@ const MyCourses = () => {
         <p className="font-bold text-3xl font-comfortaa">NOTHING LISTED </p>
       ) : (
         coursesData.map((course, index) => (
-          <NewSellCard key={index} {...course} />
+          <NewSellCard key={index} course={course} selectedTimeFrame="1" />
         ))
       )}
     </div>

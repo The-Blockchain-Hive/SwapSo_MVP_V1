@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { utils } from "ethers";
 import { writeContract, readContract, getNetwork } from "@wagmi/core";
-import { UserAuth } from "../context/AuthContext";
+import { UserAuth } from "../context/AuthContext.js";
 import { db } from "../firebase.js";
 import {
   doc,
@@ -11,16 +11,16 @@ import {
   setDoc,
 } from "firebase/firestore";
 import { ethers } from "ethers";
-import Abi from "./abi.json";
 import { ContractAddress } from "../config/config.ts";
-import MarketABI from "../../blockchain_hive_contracts/artifacts/contracts/V1/Market.sol/Market.json";
+import MarketABI from "../constants/ABI/Market.json";
+import { SellPopupType } from "../constants/Types.ts";
 
-const SellPopUp = ({ handleClose, currentCourse }) => {
+const SellPopup = ({ handleClose, currentCourse }: SellPopupType) => {
   const [provider, setProvider] = useState(null);
   const [signer, setSigner] = useState(null);
   const [contract, setContract] = useState(null);
-  const [listingAmount, setListingAmount] = useState("");
-  const [courseComment, setCourseComment] = useState("");
+  const [listingAmount, setListingAmount] = useState<number>(0);
+  const [courseComment, setCourseComment] = useState<string>("");
 
   const { user } = UserAuth();
 
@@ -76,10 +76,9 @@ const SellPopUp = ({ handleClose, currentCourse }) => {
   //     handleClose();
   // }
 
-  const handleSell = async (course) => {
+  const handleSell = async () => {
     if (Number(listingAmount <= 0)) return;
     console.log("Course Sold", listingAmount);
-    console.log(course.id);
     // console.log(courseComment);
 
     try {
@@ -108,10 +107,10 @@ const SellPopUp = ({ handleClose, currentCourse }) => {
 
     handleClose();
   };
-  const handleAmountChange = (event) => {
-    let listingAmount = setListingAmount(event.target.value);
+  const handleAmountChange = (event: any) => {
+    setListingAmount(event.target.value);
   };
-  const handleCommentChange = (event) => {
+  const handleCommentChange = (event: any) => {
     setCourseComment(event.target.value);
   };
 
@@ -127,9 +126,7 @@ const SellPopUp = ({ handleClose, currentCourse }) => {
       </div>
       <div className="w-[130px] md:w-[130px] lg:w-[145px] xl:w-[145px] h-[46px] px-[63px] pt-4 pb-[15px] left-[220px] md:left-[200px] lg:left-[200px] xl:left-[200px] top-[230px] absolute bg-blue-600 rounded-[5px] justify-center items-center inline-flex">
         <button
-          onClick={() => {
-            handleSell(currentCourse);
-          }}
+          onClick={handleSell}
           className="text-justify text-white text-xl font-medium font-['Inter'] leading-[17px]"
         >
           List
@@ -162,8 +159,8 @@ const SellPopUp = ({ handleClose, currentCourse }) => {
         value={courseComment}
         onChange={handleCommentChange}
         placeholder="Comment..."
-        rows="4"
-        cols="25"
+        rows={4}
+        cols={25}
         maxLength={165}
         style={{ resize: "none" }}
       />
@@ -182,4 +179,4 @@ const SellPopUp = ({ handleClose, currentCourse }) => {
     </div>
   );
 };
-export default SellPopUp;
+export default SellPopup;

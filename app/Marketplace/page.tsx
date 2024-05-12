@@ -1,19 +1,19 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { readContract, getNetwork } from "@wagmi/core";
-import { useDataContext } from "../context/DataContextProvider.jsx";
 import Navbar from "../Home/navbar";
 import { metadata } from "./metadata.ts";
-import Navbar2 from "../Home/MobileNavbar.jsx";
+import Navbar2 from "../Home/MobileNavbar.tsx";
 import MyListings from "../components/MyListings.tsx";
 import SectionDivider from "../components/SectionDivider";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../firebase.js";
 import Script from "next/script";
-import SearchBar from "../components/SearchBar.js";
+import SearchBar from "../components/SearchBar.tsx";
 import SellCard from "../components/SellCard.tsx";
 import { ContractAddress } from "../config/config.ts";
-import CourseABI from "../../blockchain_hive_contracts/artifacts/contracts/V1/Course.sol/Course.json";
+import CourseABI from "../constants/ABI/Course.json";
+import { useAccount } from "wagmi";
 
 type CardProps = {
   CourseId: string;
@@ -33,7 +33,7 @@ type CardProps = {
 };
 
 const MarketPlace = () => {
-  const { address } = useDataContext();
+  const { address } = useAccount();
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   // const [coursesData, setCoursesData] = useState<CardProps[]>([]);
   const [coursesData, setCoursesData] = useState<any[]>([]);
@@ -86,7 +86,7 @@ const MarketPlace = () => {
         console.log({ resp });
         if (
           resp.isListed &&
-          resp.holder.toLowerCase() !== address.toLowerCase()
+          resp.holder.toLowerCase() !== address?.toLowerCase()
         ) {
           const r: CardProps = {
             CourseId: resp.courseId,
@@ -131,6 +131,7 @@ const MarketPlace = () => {
     fetchListedCourses();
 
     // fetchData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const itemsPerPage = 9;
@@ -211,23 +212,7 @@ const MarketPlace = () => {
           </div>
           <div className="w-screen flex flex-wrap gap-5 justify-center py-5">
             {currentItems.map((course: any, index: number) => (
-              <SellCard
-                AboutCourse={course?.AboutCourse || ""}
-                CourseName={course?.CourseName || ""}
-                CourseImgUrl={course?.CourseImgUrl || 0}
-                short_desc={course?.short_desc || ""}
-                CourseDuration={course?.CourseDuration || 0}
-                CourseEducator={course?.CourseEducator || ""}
-                EducatorImgUrl={course?.EducatorImgUrl || ""}
-                EducatorSocials={course?.EducatorSocials || ""}
-                Educator_desc={course?.Educator_desc || ""}
-                PricePerDay={course?.PricePerDay || 0}
-                WhatLearn={course?.WhatLearn || ""}
-                listingPrice={course?.listingPrice || 0}
-                CourseId={course?.CourseId || ""}
-                listingComment={course?.listingComment || ""}
-                key={index}
-              />
+              <SellCard course={course} selectedTimeFrame={"1"} key={index} />
             ))}
           </div>
           <div className="flex justify-center space-x-2">
