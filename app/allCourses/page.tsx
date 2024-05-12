@@ -1,11 +1,10 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import{ metadata } from './metadata.ts';
-import Navbar from "../Home/navbar";
-import Navbar2 from "../Home/MobileNavbar";
+import Navbar from "../Home/navbar.jsx";
+import Navbar2 from "../Home/MobileNavbar.jsx";
 import Card from "../components/Card.tsx";
-import SearchBar from "../components/SearchBar";
-import MyCourses from "../components/MyCourses.tsx";
+import SearchBar from "../components/SearchBar.js";
 import { getDocs, collection, doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase.js";
 import Script from "next/script";
@@ -14,9 +13,6 @@ import Script from "next/script";
 
 const Courses = () => {
 
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
-  const [showMyCourses, setShowMyCourses] = useState(false);
-  const [showAllCourses, setShowAllCourses] = useState(true);
 
   interface Course {    
     
@@ -86,15 +82,6 @@ const Courses = () => {
       };
       // console.log('Main page', selectedTimeframe);
 
-      const toggleMyCourses = () => {
-        setShowMyCourses(true);
-        setShowAllCourses(false);
-      }
-
-      const toggleAllCourses = () => {
-        setShowMyCourses(false);
-        setShowAllCourses(true);
-      }
 
     return(
         <main className="bg-gradient-to-b from-blue-1125 to-blue-1150">
@@ -119,7 +106,7 @@ const Courses = () => {
           <SearchBar/>
           {/* <button onClick={fetchData}>Testing</button>  */}
         </div>
-        <div className="flex justify-center">
+        {/* <div className="flex justify-center">
             <button
               onClick={toggleAllCourses}
               className={`text-white px-3 py-1 rounded-md ${showAllCourses ? 'bg-blue-700' : 'bg-gray-400'}`}
@@ -132,8 +119,7 @@ const Courses = () => {
             >
               My Courses
             </button>
-          </div>
-          {showAllCourses && (
+          </div> */}
         <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 ">
             {coursesData.map((course, index) => (
               <Card                    
@@ -141,12 +127,6 @@ const Courses = () => {
               ))
             }
         </div>
-        )}
-          {showMyCourses && (            
-        <div className="w-screen flex flex-wrap justify-center py-5 h-screen">
-              <MyCourses />
-        </div>
-          )}
         </main>
     )
 }

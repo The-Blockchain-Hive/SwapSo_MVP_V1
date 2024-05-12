@@ -53,7 +53,6 @@ const Navbar = () => {
 
   return (
     <>
-      
       <nav id="navbar1" className="sticky mx-auto" ref={navbarRef}>
           <Image className="logo1" src="/newlogo.svg" alt="" width={150} height={100} />
         <ul className="nav-links">
@@ -61,7 +60,11 @@ const Navbar = () => {
             <Link href="/">Home</Link>
           </li>
           <li className="nav-list">
-            <Link href='/Courses'>Courses</Link>
+            <p>Courses</p>
+            <div className="dropdown-content">
+              <Link href='/myCourses'>My Courses</Link>
+              <Link href='/allCourses'>All Courses</Link>
+            </div>
           </li>
           <li className="nav-list">
             <Link href="/Marketplace">Market Place</Link>
