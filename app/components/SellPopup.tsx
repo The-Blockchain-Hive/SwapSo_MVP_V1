@@ -113,8 +113,8 @@ const SellPopup = ({ handleClose, currentCourse }: SellPopupType) => {
 
 
   return (
-    <div className="w-[486px] h-[300px] relative bg-white rounded-2xl">
-      <div className="w-[130px] md:w-[130px] lg:w-[145px] xl:w-[150px] h-[46px] px-[69px] pt-4 pb-[15px] left-[22px] top-[230px] absolute rounded-[5px] border border-red-600 justify-center items-center inline-flex">
+    <div className="w-[486px] h-[0px] relative bg-white rounded-2xl">
+      <div className="w-[130px] md:w-[130px] lg:w-[145px] xl:w-[150px] h-[46px] px-[69px] pt-4 pb-[15px] left-[22px] top-[180px] absolute rounded-[5px] border border-red-600 justify-center items-center inline-flex">
         <button
           onClick={handleClose}
           className="text-justify text-red-600 text-xl font-medium font-['Inter'] leading-[17px]"
@@ -122,7 +122,7 @@ const SellPopup = ({ handleClose, currentCourse }: SellPopupType) => {
           Cancel
         </button>
       </div>
-      <div className="w-[130px] md:w-[130px] lg:w-[145px] xl:w-[145px] h-[46px] px-[63px] pt-4 pb-[15px] left-[220px] md:left-[200px] lg:left-[200px] xl:left-[200px] top-[230px] absolute bg-blue-600 rounded-[5px] justify-center items-center inline-flex">
+      <div className="w-[130px] md:w-[130px] lg:w-[145px] xl:w-[145px] h-[46px] px-[63px] pt-4 pb-[15px] left-[220px] md:left-[200px] lg:left-[200px] xl:left-[200px] top-[180px] absolute bg-blue-600 rounded-[5px] justify-center items-center inline-flex">
         <button
           onClick={handleSell}
           className="text-justify text-white text-xl font-medium font-['Inter'] leading-[17px]"
@@ -149,7 +149,6 @@ const SellPopup = ({ handleClose, currentCourse }: SellPopupType) => {
           Course duration : 10 hrs
         </div>
       </div>
-      <p className="text-gray-900 top-[108px]">Enter your listing amount</p>
       <input
         type="number"
         value={listingAmount}

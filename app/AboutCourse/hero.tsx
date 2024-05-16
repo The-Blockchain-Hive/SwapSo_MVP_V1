@@ -37,12 +37,12 @@ export default function HeroSection(props: HeroSectionType) {
           ))}
         </div>
 
-        <button
+        {/* <button
           onClick={test}
           className="w-2/3 relative border hover:border-sky-600 duration-500 group cursor-pointer text-sky-50  overflow-hidden h-14 rounded-md bg-sky-800 font-extrabold"
         >
           Start Learning
-        </button>
+        </button> */}
       </div>
 
       <div className="w-full lg:w-1/2 xl:w-1/2 p-8 flex justify-center items-center">

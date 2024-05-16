@@ -160,13 +160,8 @@ const MarketPlace = () => {
       <div className="py-5 mb-10">
         {/* <SearchBar /> */}
       </div>
-      <div className="flex justify-center">
-        <Link href='/listings'>
-        <button className="bg-indigo-500 text-black rounded-lg p-2">Your Listings</button>
-        </Link>
-      </div>
         <div>
-          <div className="bg-transparent">
+          <div className="bg-transparent mt-24">
             <SectionDivider label="Market Place" />
           </div>
           <div className="w-screen flex flex-wrap gap-5 justify-center py-5">

@@ -2,22 +2,15 @@ import React, { useEffect, useState } from "react";
 import { TimerType } from "../constants/Types";
 
 const Timer: React.FC<TimerType> = ({ selectedTimeFrame }) => {
-  const [timeLeft, setTimeLeft] = useState(() => {
+  const [timeLeft, setTimeLeft] = useState<number>(() => {
     const storedTimeLeft = localStorage.getItem("timeLeft");
-    const currentTime = Date.now();
-    const storedTimestamp = localStorage.getItem("timestamp");
-    const elapsedTime = storedTimestamp
-      ? currentTime - parseInt(storedTimestamp)
-      : 0;
-    const remainingTime = storedTimeLeft
-      ? Math.max(0, parseInt(storedTimeLeft) - Math.floor(elapsedTime / 1000))
-      : 0;
-    return remainingTime;
+    return storedTimeLeft ? parseInt(storedTimeLeft) : 0;
   });
 
   useEffect(() => {
     const daysInSelectedTimeFrame = parseInt(selectedTimeFrame);
     const timeFrameInSeconds = daysInSelectedTimeFrame * 24 * 60 * 60;
+
     setTimeLeft((prevTime) => {
       const storedTimestamp = localStorage.getItem("timestamp");
       const currentTime = Date.now();

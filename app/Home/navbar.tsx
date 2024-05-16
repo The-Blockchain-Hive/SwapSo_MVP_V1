@@ -12,12 +12,18 @@ const Navbar = () => {
   const { user, LogOut } = UserAuth();
   const delta = 5;
 
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
   const handleSignOut = async () => {
     try {
       await LogOut();
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleDropdownToggle = (dropdown: string) => {
+    setActiveDropdown((prev) => (prev === dropdown ? null : dropdown));
   };
 
   useEffect(() => {
@@ -31,10 +37,7 @@ const Navbar = () => {
 
       if (Math.abs(lastScrollTop - currentScroll) <= delta) return;
 
-      if (
-        currentScroll > lastScrollTop &&
-        currentScroll > navbar.offsetHeight
-      ) {
+      if (currentScroll > lastScrollTop && currentScroll > navbar.offsetHeight) {
         navbar.style.transform = "translateY(-100%)";
       } else {
         navbar.style.transform = "translateY(0)";
@@ -67,21 +70,27 @@ const Navbar = () => {
           <li className="nav-list">
             <Link href="/">Home</Link>
           </li>
-          <li className="nav-list">
+          <li
+            className={`nav-list ${activeDropdown === "courses" ? "active" : ""}`}
+            onClick={() => handleDropdownToggle("courses")}
+          >
             <p>Courses</p>
             <div className="dropdown-content">
               <Link href="/allCourses">Buy Courses</Link>
               <Link href="/myCourses">My Courses</Link>
             </div>
           </li>
-          <li className="nav-list">
-            <Link href="/Marketplace">Market Place</Link>
+          <li
+            className={`nav-list ${activeDropdown === "market" ? "active" : ""}`}
+            onClick={() => handleDropdownToggle("market")}
+          >
+            <p>Market Place</p>
+            <div className="dropdown-content">
+              <Link href="/Marketplace">Main Marketplace</Link>
+              <Link href="/listings">Your Listings</Link>
+            </div>
           </li>
         </ul>
-        {/* { <div>
-         {!(user)?
-            (<button className="sign-in bg-purple-500 w-40 p-2 rounded-lg"><a href="/signup" className="font-bold">Sign in</a></button>):(<button className="font-bold  bg-purple-500 w-40 p-2 rounded-lg" onClick={handleSignOut}>Sign Out</button>)}
-        </div> } */}
         <div className="dropdown">
           <ConnectButton />
         </div>

@@ -46,7 +46,7 @@ const Card = ({ course }: CardType) => {
         {/* <p className="px-4 py-2">{course.short_desc}</p> */}
         <div className="flex flex-wrap justify-between px-4">
           <div className=" bg-white px-4 w-max text-black rounded-full">
-            <span>${course.PricePerDay}/day</span>
+            <span>{course.PricePerDay} MATIC/day</span>
           </div>
           <div className="rounded-full px-4 w-max bg-transparent outline">
             <span>{course.CourseDuration} Hours Total</span>
