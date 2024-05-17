@@ -32,9 +32,6 @@ function Popup({ handleClose, currentCourse, courseName }: PopupType) {
     setSelectedDay(inputDays == 1 ? `${inputDays} day` : `${inputDays} days`);
   };
 
-  useEffect(() => {
-    console.log({ currentCourse });
-  });
 
   async function handlePay(selectedTimeFrame: string, price: number) {
     try {
@@ -169,7 +166,7 @@ function Popup({ handleClose, currentCourse, courseName }: PopupType) {
                 {price} MATIC
               </div>
             </div>
-            <Timer selectedTimeFrame={selectedTimeFrame} />
+            {/* <Timer selectedTimeFrame={selectedTimeFrame} /> */}
           </div>
         </div>
       </div>

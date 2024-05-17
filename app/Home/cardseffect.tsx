@@ -10,12 +10,12 @@ const CardEffect = () => {
        <div className="face face1"> 
          <div className="content">
             <i className="fab fa-windows"></i>            
-           <Image className="mb-6" src='/blockchain.jpg' height={100} width={250} alt="" />
+           <Image className="mb-6" src='/4.png' height={100} width={250} alt="" />
          </div>
        </div>
        <div className="face face2">
          <div className="content">
-           <p className="font-bold"> In this course, take an exciting stroll with us through the world of Blockchain - discovering how it&apos;s changing things around us</p>
+           <p className="font-bold"> In this course, take an exciting stroll with us through the world of deCentralised Apps and make your own DApp.</p>
            <a href="/Courses">Read more about Blockchain course</a>
          </div>
        </div>
@@ -41,13 +41,13 @@ const CardEffect = () => {
        <div className="face face1">
          <div className="content">
            <i className="fab fa-apple"></i>
-           <Image className="mb-6 opacity" src='/entrepreneurship.jpg' height={100} width={250} alt="" />
+           <Image className="mb-6 opacity" src='/5.png' height={100} width={250} alt="" />
          </div>
        </div>
        <div className="face face2">
          <div className="content">
-           <p className="font-bold"> An entrepreneur&apos;s Guide: learn the art required for successful startup building</p>
-           <a href="/Courses">Read more about Entrepreneurship course</a>
+           <p className="font-bold"> Learn how to connect wallet and use our Platform</p>
+           <a href="/Courses">Read more about Know Your SwapSo</a>
          </div>
        </div>
     </div>
