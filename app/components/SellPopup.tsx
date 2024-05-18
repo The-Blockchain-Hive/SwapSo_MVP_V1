@@ -135,7 +135,7 @@ const SellPopup = ({ handleClose, currentCourse }: SellPopupType) => {
         {" "}
       </div>
       <div className="left-[22px] top-[29px] absolute text-justify text-black text-xl font-medium font-['Inter'] leading-[17px]">
-        Basics of Metaverse
+        {/* Basics of Metaverse */}
       </div>
       <div className="left-[343px] top-[26px] absolute justify-start items-start inline-flex">
         <div className="w-6 h-6 relative" />
@@ -166,11 +166,11 @@ const SellPopup = ({ handleClose, currentCourse }: SellPopupType) => {
         className="w-[325px] left-[22px] top-[120px] absolute text-red-600 text-xl font-normal font-['Inter'] leading-[17px] border border-gray-900 rounded-md p-2"
         placeholder="Listing Amount"
       />
-      <div className="pl-2.5 pr-[23px] pt-[9px] pb-2.5 left-[235px] top-[62px] absolute rounded border border-gray-400 justify-start items-center inline-flex">
+      {/* <div className="pl-2.5 pr-[23px] pt-[9px] pb-2.5 left-[235px] top-[62px] absolute rounded border border-gray-400 justify-start items-center inline-flex">
         <div className="text-justify text-black text-base font-normal font-['Inter'] leading-[17px]">
-          {/* timer */}
+          timer
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

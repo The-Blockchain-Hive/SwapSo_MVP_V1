@@ -126,7 +126,7 @@ contract Market is
                 _course.duration + _course.startTime < block.timestamp,
                 "Course is still active, you can't buy now."
             );
-
+//buyfromMarket
             _course.duration = duration;
             _course.startTime = block.timestamp;
             _course.isListed = false;

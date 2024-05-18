@@ -66,7 +66,7 @@ const NewCard = ({ course }: NewCardType) => {
 
   return (
     <div>
-      <div className="cards w-[373px] h-max bg-gradient-to-b from-black to-blue-1100 bg-opacity-40 backdrop-blur-md drop-shadow-lg rounded-3xl text-neutral-300 m-1 flex flex-col hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">
+      <div className="cards w-[320] md:w-[373px] lg:w-[373px] xl:w-[373px] h-max bg-gradient-to-b from-black to-blue-1100 bg-opacity-40 backdrop-blur-md drop-shadow-lg rounded-3xl text-neutral-300 m-1 flex flex-col hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">
         <div>
           <Image
             src={imgUrl}
@@ -82,14 +82,14 @@ const NewCard = ({ course }: NewCardType) => {
         </div>
         {/* <p className="px-4 py-2">{currentCourse?.short_desc}</p> */}
         <div className="flex flex-wrap justify-between px-4">
-          <div className=" bg-white px-4 w-max text-black rounded-full">
+          {/* <div className=" bg-white px-4 w-max text-black rounded-full">
             <span>
               {convertSecondsToHours(currentCourse?.CourseDuration)} Hours Total
             </span>
-          </div>
-          <div className="rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500">
+          </div> */}
+          {/* <div className="rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500">
             <span>{convertWeiToEth(`${currentCourse?.PricePerDay}`)}/Day</span>
-          </div>
+          </div> */}
           <div className="mt-2 rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500">
             {!currentCourse?.isListed ? (
               <CountDown

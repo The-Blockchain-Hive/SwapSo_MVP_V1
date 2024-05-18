@@ -85,7 +85,7 @@ const NewSellerCard: React.FC<NewSellerCardType> = ({
 
   return (
     <div>
-      <div className="cards w-[373px] h-max bg-gradient-to-b from-black to-blue-1100 bg-opacity-40 backdrop-blur-md drop-shadow-lg rounded-3xl text-neutral-300 m-1 flex flex-col hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">
+      <div className="cards w-[320] md:w-[373px] lg:w-[373px] xl:w-[373px] h-max bg-gradient-to-b from-black to-blue-1100 bg-opacity-40 backdrop-blur-md drop-shadow-lg rounded-3xl text-neutral-300 m-1 flex flex-col hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">
         <div>
           <Image
             src={imgUrl}
@@ -103,11 +103,11 @@ const NewSellerCard: React.FC<NewSellerCardType> = ({
         <div className="flex flex-wrap justify-between px-4">
           <div className=" bg-white px-4 m-2 w-max  text-black rounded-full">
             <span>
-              {convertSecondsToHours(currentCourse?.CourseDuration)} Hours{" "}
+              {convertSecondsToHours(currentCourse?.CourseDuration)} Hours Validity Remaining{" "}
             </span>
           </div>
           <div className="rounded-full px-4 m-2 w-max bg-gradient-to-r from-purple-500 to-pink-500">
-            <span>{convertWeiToEth(`${currentCourse?.PricePerDay}`)}/Day</span>
+            <span>Selling Price {convertWeiToEth(`${currentCourse?.PricePerDay}`)} MATIC</span>
           </div>
           <div className="rounded-full px-4 m-4 w-max bg-gradient-to-r from-purple-500 to-pink-500">
             Listed course
@@ -136,6 +136,3 @@ const NewSellerCard: React.FC<NewSellerCardType> = ({
   );
 };
 export default NewSellerCard;
-//Next steps to do
-//Pass the object courseCopy inside an array
-//Then try to update the <NewSellerCard /> component inside the courses.tsx on popup visible..

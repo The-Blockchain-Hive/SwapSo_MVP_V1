@@ -79,7 +79,7 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
 
   return (
     <div>
-      <div className="cards w-[373px] h-max bg-gradient-to-b from-black to-blue-1100 bg-opacity-40 backdrop-blur-md drop-shadow-lg rounded-3xl text-neutral-300 m-1 flex flex-col hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">
+      <div className="cards w-[320] md:w-[373px] lg:w-[373px] xl:w-[373px] h-max bg-gradient-to-b from-black to-blue-1100 bg-opacity-40 backdrop-blur-md drop-shadow-lg rounded-3xl text-neutral-300 m-1 flex flex-col hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">
         <div>
           <Image
             src={imgUrl}
@@ -94,7 +94,7 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
         <div className="flex justify-between p-4">
           <p className="font-extrabold text-2xl">{course.CourseName}</p>
         </div>
-        <p className="px-4 py-2">{course?.short_desc}</p>
+        {/* <p className="px-4 py-2">{course?.short_desc}</p> */}
         <div className="flex flex-row justify-between mt-4 m-2">
           <div className=" bg-white px-4 w-max text-black rounded-full">
             <span>
@@ -103,7 +103,7 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
           </div>
           <div className="rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500">
             <span>
-              Selling Price: {convertWeiToEth(`${course.PricePerDay}`)}$
+              Price: {convertWeiToEth(`${course.PricePerDay}`)} MATIC
             </span>
           </div>
         </div>
