@@ -8,6 +8,7 @@ const Courses = () => {
     {
       CourseImgUrl: "/meta.png",
       CourseName: "Introduction to Programming",
+      CourseDbId:"Swap1",
       short_desc:
         "Learn the basics of programming with this comprehensive introductory course.",
       CourseDuration: 4,
@@ -23,6 +24,7 @@ const Courses = () => {
     {
       CourseImgUrl: "/metaverse2.png",
       CourseName: "Web Development Fundamentals",
+      CourseDbId:"Swap2",
       short_desc:
         "Explore the fundamentals of web development, including HTML, CSS.",
       CourseDuration: 6,
@@ -38,6 +40,7 @@ const Courses = () => {
     {
       CourseImgUrl: "/js1.png",
       CourseName: "Data Science Essentials",
+      CourseDbId:"Swap3",
       short_desc:
         "Dive into the world of data science and learn essential skills for data analysis.",
       CourseDuration: 9,
