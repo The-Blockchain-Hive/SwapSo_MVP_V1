@@ -62,6 +62,7 @@ describe("Market", function () {
         courseId: Course1.courseId,
         details: {
           id: Course1.id,
+          dbId: Course1.dbId,
           price: Course1.price,
           recommendedDuration: Course1.recommendedDuration,
         },
@@ -78,15 +79,16 @@ describe("Market", function () {
 
     expect(courseDetails[0]).to.eq(Course1.courseId);
     expect(courseDetails[1]).to.eq(Course1.id);
-    expect(courseDetails[2]).to.eq(1);
-    expect(courseDetails[3]).to.eq(Course1.price);
-    expect(courseDetails[4]).to.eq(getSecondsOfDays(20));
-    expect(courseDetails[5]).to.eq(Course1.recommendedDuration);
-    expect(courseDetails[6]).to.lt(Date.now());
-    expect(courseDetails[7]).to.eq(0);
-    expect(courseDetails[8]).to.false;
-    expect(courseDetails[9]).to.eq(signers[1].address);
-    expect(courseDetails[10]).to.eq(ZERO_ADDRESS);
+    expect(courseDetails[2]).to.eq(Course1.dbId);
+    expect(courseDetails[2 + 1]).to.eq(1);
+    expect(courseDetails[3 + 1]).to.eq(Course1.price);
+    expect(courseDetails[4 + 1]).to.eq(getSecondsOfDays(20));
+    expect(courseDetails[5 + 1]).to.eq(Course1.recommendedDuration);
+    expect(courseDetails[6 + 1]).to.lt(Date.now());
+    expect(courseDetails[7 + 1]).to.eq(0);
+    expect(courseDetails[8 + 1]).to.false;
+    expect(courseDetails[9 + 1]).to.eq(signers[1].address);
+    expect(courseDetails[10 + 1]).to.eq(ZERO_ADDRESS);
 
     const ownerNewBalance = await ethers.provider.getBalance(owner.address);
     const signerNewBalance = await ethers.provider.getBalance(
@@ -113,6 +115,7 @@ describe("Market", function () {
         courseId: Course1.courseId,
         details: {
           id: Course1.id,
+          dbId: Course1.dbId,
           price: Course1.price,
           recommendedDuration: Course1.recommendedDuration,
         },
@@ -134,17 +137,18 @@ describe("Market", function () {
 
     expect(courseDetails[0]).to.eq(Course1.courseId);
     expect(courseDetails[1]).to.eq(Course1.id);
-    expect(courseDetails[2]).to.eq(1);
-    expect(courseDetails[3]).to.eq(NEW_PRICE);
-    expect(courseDetails[4]).to.eq(
+    expect(courseDetails[2]).to.eq(Course1.dbId);
+    expect(courseDetails[2 + 1]).to.eq(1);
+    expect(courseDetails[3 + 1]).to.eq(NEW_PRICE);
+    expect(courseDetails[4 + 1]).to.eq(
       getSecondsOfDays(INITIAL_DURATION - PAUSE_TIME)
     );
-    expect(courseDetails[5]).to.eq(Course1.recommendedDuration);
-    expect(courseDetails[6]).to.lt(Date.now());
-    expect(courseDetails[7]).to.lt(Date.now());
-    expect(courseDetails[8]).to.true;
-    expect(courseDetails[9]).to.eq(signers[1].address);
-    expect(courseDetails[10]).to.eq(ZERO_ADDRESS);
+    expect(courseDetails[5 + 1]).to.eq(Course1.recommendedDuration);
+    expect(courseDetails[6 + 1]).to.lt(Date.now());
+    expect(courseDetails[7 + 1]).to.lt(Date.now());
+    expect(courseDetails[8 + 1]).to.true;
+    expect(courseDetails[9 + 1]).to.eq(signers[1].address);
+    expect(courseDetails[10 + 1]).to.eq(ZERO_ADDRESS);
   });
 
   it("Buy course from SwapSo and mint and put on sale after 10 days and other user buys it", async () => {
@@ -160,6 +164,7 @@ describe("Market", function () {
         courseId: Course1.courseId,
         details: {
           id: Course1.id,
+          dbId: Course1.dbId,
           price: Course1.price,
           recommendedDuration: Course1.recommendedDuration,
         },
@@ -198,17 +203,18 @@ describe("Market", function () {
 
     expect(courseDetails[0]).to.eq(Course1.courseId);
     expect(courseDetails[1]).to.eq(Course1.id);
-    expect(courseDetails[2]).to.eq(1);
-    expect(courseDetails[3]).to.eq(NEW_PRICE);
-    expect(courseDetails[4]).to.eq(
+    expect(courseDetails[2]).to.eq(Course1.dbId);
+    expect(courseDetails[2 + 1]).to.eq(1);
+    expect(courseDetails[3 + 1]).to.eq(NEW_PRICE);
+    expect(courseDetails[4 + 1]).to.eq(
       getSecondsOfDays(INITIAL_DURATION - PAUSE_TIME)
     );
-    expect(courseDetails[5]).to.eq(Course1.recommendedDuration);
-    expect(courseDetails[6]).to.lt(Date.now());
-    expect(courseDetails[7]).to.eq(0);
-    expect(courseDetails[8]).to.false;
-    expect(courseDetails[9]).to.eq(signers[1].address);
-    expect(courseDetails[10]).to.eq(signers[2].address);
+    expect(courseDetails[5 + 1]).to.eq(Course1.recommendedDuration);
+    expect(courseDetails[6 + 1]).to.lt(Date.now());
+    expect(courseDetails[7 + 1]).to.eq(0);
+    expect(courseDetails[8 + 1]).to.false;
+    expect(courseDetails[9 + 1]).to.eq(signers[1].address);
+    expect(courseDetails[10 + 1]).to.eq(signers[2].address);
 
     const ownerNewBalance = await ethers.provider.getBalance(owner.address);
     const signerNewBalance = await ethers.provider.getBalance(
@@ -256,6 +262,7 @@ describe("Market", function () {
         courseId: Course1.courseId,
         details: {
           id: Course1.id,
+          dbId: Course1.dbId,
           price: Course1.price,
           recommendedDuration: Course1.recommendedDuration,
         },
@@ -276,15 +283,16 @@ describe("Market", function () {
 
     expect(courseDetails[0]).to.eq(Course1.courseId);
     expect(courseDetails[1]).to.eq(Course1.id);
-    expect(courseDetails[2]).to.eq(1);
-    expect(courseDetails[3]).to.eq(Course1.price);
-    expect(courseDetails[4]).to.eq(getSecondsOfDays(20));
-    expect(courseDetails[5]).to.eq(Course1.recommendedDuration);
-    expect(courseDetails[6]).to.lt(Date.now());
-    expect(courseDetails[7]).to.eq(0);
-    expect(courseDetails[8]).to.false;
-    expect(courseDetails[9]).to.eq(signers[1].address);
-    expect(courseDetails[10]).to.eq(ZERO_ADDRESS);
+    expect(courseDetails[2]).to.eq(Course1.dbId);
+    expect(courseDetails[2 + 1]).to.eq(1);
+    expect(courseDetails[3 + 1]).to.eq(Course1.price);
+    expect(courseDetails[4 + 1]).to.eq(getSecondsOfDays(20));
+    expect(courseDetails[5 + 1]).to.eq(Course1.recommendedDuration);
+    expect(courseDetails[6 + 1]).to.lt(Date.now());
+    expect(courseDetails[7 + 1]).to.eq(0);
+    expect(courseDetails[8 + 1]).to.false;
+    expect(courseDetails[9 + 1]).to.eq(signers[1].address);
+    expect(courseDetails[10 + 1]).to.eq(ZERO_ADDRESS);
 
     const ownerNewBalance = await ethers.provider.getBalance(owner.address);
     const signerNewBalance = await ethers.provider.getBalance(
@@ -309,6 +317,7 @@ describe("Market", function () {
         courseId: Course2.courseId,
         details: {
           id: Course1.id,
+          dbId: Course1.dbId,
           price: Course1.price,
           recommendedDuration: Course1.recommendedDuration,
         },
@@ -329,15 +338,16 @@ describe("Market", function () {
 
     expect(courseDetails2[0]).to.eq(Course2.courseId);
     expect(courseDetails2[1]).to.eq(Course1.id);
-    expect(courseDetails2[2]).to.eq(2);
-    expect(courseDetails2[3]).to.eq(Course1.price);
-    expect(courseDetails2[4]).to.eq(getSecondsOfDays(20));
-    expect(courseDetails2[5]).to.eq(Course1.recommendedDuration);
-    expect(courseDetails2[6]).to.lt(Date.now());
-    expect(courseDetails2[7]).to.eq(0);
-    expect(courseDetails2[8]).to.false;
-    expect(courseDetails2[9]).to.eq(signers[2].address);
-    expect(courseDetails2[10]).to.eq(ZERO_ADDRESS);
+    expect(courseDetails[2]).to.eq(Course1.dbId);
+    expect(courseDetails2[2 + 1]).to.eq(2);
+    expect(courseDetails2[3 + 1]).to.eq(Course1.price);
+    expect(courseDetails2[4 + 1]).to.eq(getSecondsOfDays(20));
+    expect(courseDetails2[5 + 1]).to.eq(Course1.recommendedDuration);
+    expect(courseDetails2[6 + 1]).to.lt(Date.now());
+    expect(courseDetails2[7 + 1]).to.eq(0);
+    expect(courseDetails2[8 + 1]).to.false;
+    expect(courseDetails2[9 + 1]).to.eq(signers[2].address);
+    expect(courseDetails2[10 + 1]).to.eq(ZERO_ADDRESS);
 
     const ownerOtherNewBalance = await ethers.provider.getBalance(
       owner.address
@@ -369,6 +379,7 @@ describe("Market", function () {
         courseId: Course1.courseId,
         details: {
           id: Course1.id,
+          dbId: Course1.dbId,
           price: Course1.price,
           recommendedDuration: Course1.recommendedDuration,
         },
@@ -389,15 +400,16 @@ describe("Market", function () {
 
     expect(courseDetails[0]).to.eq(Course1.courseId);
     expect(courseDetails[1]).to.eq(Course1.id);
-    expect(courseDetails[2]).to.eq(1);
-    expect(courseDetails[3]).to.eq(Course1.price);
-    expect(courseDetails[4]).to.eq(getSecondsOfDays(20));
-    expect(courseDetails[5]).to.eq(Course1.recommendedDuration);
-    expect(courseDetails[6]).to.lt(Date.now());
-    expect(courseDetails[7]).to.eq(0);
-    expect(courseDetails[8]).to.false;
-    expect(courseDetails[9]).to.eq(signers[1].address);
-    expect(courseDetails[10]).to.eq(ZERO_ADDRESS);
+    expect(courseDetails[2]).to.eq(Course1.dbId);
+    expect(courseDetails[2 + 1]).to.eq(1);
+    expect(courseDetails[3 + 1]).to.eq(Course1.price);
+    expect(courseDetails[4 + 1]).to.eq(getSecondsOfDays(20));
+    expect(courseDetails[5 + 1]).to.eq(Course1.recommendedDuration);
+    expect(courseDetails[6 + 1]).to.lt(Date.now());
+    expect(courseDetails[7 + 1]).to.eq(0);
+    expect(courseDetails[8 + 1]).to.false;
+    expect(courseDetails[9 + 1]).to.eq(signers[1].address);
+    expect(courseDetails[10 + 1]).to.eq(ZERO_ADDRESS);
 
     const ownerNewBalance = await ethers.provider.getBalance(owner.address);
     const signerNewBalance = await ethers.provider.getBalance(
@@ -418,6 +430,7 @@ describe("Market", function () {
           courseId: Course1.courseId,
           details: {
             id: Course1.id,
+            dbId: Course1.dbId,
             price: Course1.price,
             recommendedDuration: Course1.recommendedDuration,
           },
@@ -433,6 +446,7 @@ describe("Market", function () {
           courseId: Course1.courseId,
           details: {
             id: Course1.id,
+            dbId: Course1.dbId,
             price: Course1.price,
             recommendedDuration: Course1.recommendedDuration,
           },
@@ -456,6 +470,7 @@ describe("Market", function () {
         courseId: Course1.courseId,
         details: {
           id: Course1.id,
+          dbId: Course1.dbId,
           price: Course1.price,
           recommendedDuration: Course1.recommendedDuration,
         },
@@ -489,16 +504,17 @@ describe("Market", function () {
 
     expect(courseDetails[0]).to.eq(Course1.courseId);
     expect(courseDetails[1]).to.eq(Course1.id);
-    expect(courseDetails[2]).to.eq(1);
-    expect(courseDetails[3]).to.eq(NEW_PRICE);
-    expect(courseDetails[4]).to.eq(
+    expect(courseDetails[2]).to.eq(Course1.dbId);
+    expect(courseDetails[2 + 1]).to.eq(1);
+    expect(courseDetails[3 + 1]).to.eq(NEW_PRICE);
+    expect(courseDetails[4 + 1]).to.eq(
       getSecondsOfDays(INITIAL_DURATION - PAUSE_TIME)
     );
-    expect(courseDetails[5]).to.eq(Course1.recommendedDuration);
-    expect(courseDetails[6]).to.lt(Date.now());
-    expect(courseDetails[7]).to.eq(0);
-    expect(courseDetails[8]).to.false;
-    expect(courseDetails[9]).to.eq(signers[1].address);
-    expect(courseDetails[10]).to.eq(ZERO_ADDRESS);
+    expect(courseDetails[5 + 1]).to.eq(Course1.recommendedDuration);
+    expect(courseDetails[6 + 1]).to.lt(Date.now());
+    expect(courseDetails[7 + 1]).to.eq(0);
+    expect(courseDetails[8 + 1]).to.false;
+    expect(courseDetails[9 + 1]).to.eq(signers[1].address);
+    expect(courseDetails[10 + 1]).to.eq(ZERO_ADDRESS);
   });
 });

@@ -12,7 +12,7 @@ async function main() {
 
   const baseUri = "https://resources.zoth.io/nft/652e8634c9e1df8d9f6f85d6";
 
-  console.log("Deploying ZothPool Contract...");
+  console.log("Deploying SwapSo Contracts...");
 
   const Course = await ethers.getContractFactory("Course");
   const course = await upgrades.deployProxy(Course, [

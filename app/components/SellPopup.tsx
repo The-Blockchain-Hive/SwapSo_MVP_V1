@@ -3,6 +3,7 @@ import { utils } from "ethers";
 import { writeContract, readContract, getNetwork } from "@wagmi/core";
 import { UserAuth } from "../context/AuthContext.js";
 import { db } from "../firebase.js";
+import CountDown from "./countdown.tsx";
 import {
   doc,
   collection,
@@ -14,6 +15,7 @@ import { ethers } from "ethers";
 import { ContractAddress } from "../config/config.ts";
 import MarketABI from "../constants/ABI/Market.json";
 import { SellPopupType } from "../constants/Types.ts";
+import { convertSecondsToHours } from "../utils/utils.ts";
 
 const SellPopup = ({ handleClose, currentCourse }: SellPopupType) => {
   const [provider, setProvider] = useState(null);
@@ -111,7 +113,6 @@ const SellPopup = ({ handleClose, currentCourse }: SellPopupType) => {
     setListingAmount(event.target.value);
   };
 
-
   return (
     <div className="w-[486px] h-[0px] relative bg-white rounded-2xl">
       <div className="w-[130px] md:w-[130px] lg:w-[145px] xl:w-[150px] h-[46px] px-[69px] pt-4 pb-[15px] left-[22px] top-[180px] absolute rounded-[5px] border border-red-600 justify-center items-center inline-flex">
@@ -145,8 +146,17 @@ const SellPopup = ({ handleClose, currentCourse }: SellPopupType) => {
       </div>
 
       <div className="px-[9px] pt-[9px] pb-2.5 left-[22px] top-[62px] absolute bg-gradient-to-r from-green-300 via-orange-100 to-white rounded-[3px] border border-neutral-400 justify-center items-center inline-flex">
+        {/* <div className="text-justify text-black text-base font-normal font-['Inter'] leading-[17px]">
+          Course duration :{" "}
+          {convertSecondsToHours(currentCourse?.CourseDuration)} hrs
+        </div> */}
         <div className="text-justify text-black text-base font-normal font-['Inter'] leading-[17px]">
-          Course duration : 10 hrs
+          <CountDown
+            startTime={currentCourse.startTime || 0}
+            duration={currentCourse.CourseDuration}
+            showTime={false}
+          />{" "}
+          time remaining
         </div>
       </div>
       <input

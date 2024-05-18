@@ -4,7 +4,6 @@ import { writeContract, readContract, getNetwork } from "@wagmi/core";
 import Link from "next/link";
 import Image from "next/image";
 import SellPopUp from "./SellPopup.tsx";
-import Timer from "./timer";
 import {
   getDocs,
   collection,
@@ -19,13 +18,15 @@ import CourseCurriculum from "../AboutCourse/curriculum.tsx";
 import { ContractAddress } from "../config/config.ts";
 import MarketABI from "../constants/ABI/Market.json";
 import { NewSellerCardType, CourseType } from "../constants/Types.ts";
+import { convertSecondsToHours, convertWeiToEth } from "../utils/utils.ts";
+import CountDown from "./countdown.tsx";
 
 const NewSellerCard: React.FC<NewSellerCardType> = ({
   course,
   selectedTimeFrame,
 }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
-  const [currentCourse, setCurrentCourse] = useState<CourseType | null>(course);
+  const [currentCourse, setCurrentCourse] = useState<CourseType>(course);
 
   const { user } = UserAuth();
 
@@ -95,16 +96,21 @@ const NewSellerCard: React.FC<NewSellerCardType> = ({
           />
           <div className="w-full h-1/2 rounded-tr-3xl rounded-tl-3xl"></div>
         </div>
-        {/* <p className="px-4 py-2">{currentCourse?.short_desc}</p> */}
+        <div className="flex justify-between p-4">
+          <p className="font-extrabold text-2xl">{course.CourseName}</p>
+        </div>
+        <p className="px-4 py-2">{currentCourse?.short_desc}</p>
         <div className="flex flex-wrap justify-between px-4">
           <div className=" bg-white px-4 m-2 w-max  text-black rounded-full">
-            <span>{currentCourse?.CourseDuration} Hours Total</span>
+            <span>
+              {convertSecondsToHours(currentCourse?.CourseDuration)} Hours{" "}
+            </span>
           </div>
           <div className="rounded-full px-4 m-2 w-max bg-gradient-to-r from-purple-500 to-pink-500">
-            <span>${currentCourse?.PricePerDay}/Day</span>
+            <span>{convertWeiToEth(`${currentCourse?.PricePerDay}`)}/Day</span>
           </div>
           <div className="rounded-full px-4 m-4 w-max bg-gradient-to-r from-purple-500 to-pink-500">
-            <Timer selectedTimeFrame={selectedTimeFrame || "1"} />
+            Listed course
           </div>
           {/* <div className='rounded-full px-4 mt-3 w-max bg-transparent outline'>
 						{/* <span>{courseExpiry}</span> /}

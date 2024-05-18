@@ -5,6 +5,7 @@ export const getSecondsOfDays = (day: number) => day * 24 * 60 * 60;
 export const courseDetailsObject = (
   courseId: string,
   id: number,
+  dbId: string,
   courseNumber: number,
   price: number,
   duration: number,
@@ -17,6 +18,7 @@ export const courseDetailsObject = (
 ) => ({
   courseId,
   id,
+  dbId,
   courseNumber,
   price,
   duration,

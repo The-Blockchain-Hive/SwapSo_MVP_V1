@@ -9,6 +9,7 @@ interface IMarket {
 
     struct CourseDetails {
         uint256 id;
+        string dbId;
         uint256 price;
         uint256 recommendedDuration;
     }

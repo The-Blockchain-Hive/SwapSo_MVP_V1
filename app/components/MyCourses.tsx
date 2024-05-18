@@ -9,6 +9,7 @@ import { ContractAddress } from "../config/config.ts";
 import CourseABI from "../constants/ABI/Course.json";
 import { CourseType } from "../constants/Types.ts";
 import NewCard from "./NewCard.tsx";
+import { getCourseWithId } from "../utils/firebase.ts";
 
 // import this down { selectedTimeframe }: { selectedTimeframe: string }
 const MyCourses = () => {
@@ -43,7 +44,7 @@ const MyCourses = () => {
       ? getNetwork()?.chain?.id
       : "default";
 
-    console.log({ network });
+    console.log({ network, ca: ContractAddress[`${network}`], address });
 
     const userCourses: any = await readContract({
       address: ContractAddress[`${network}`].course,
@@ -65,33 +66,24 @@ const MyCourses = () => {
           args: [userCourses[i]],
         });
 
+        const courseDetails: CourseType = await getCourseWithId(resp.dbId);
         console.log({ resp });
-        const r: CourseType = {
-          CourseId: resp.courseId,
-          CourseImgUrl: resp.courseNumber,
-          CourseDuration: resp.duration,
-          PricePerDay: resp.price,
-          // "e": resp.holder,
-          // "e": resp.id,
-          // "e": resp.isListed,
-          // "e": resp.pausedTime,
-          // "e": resp.recommendedDuration,
-          // "e": resp.secondHolder,
-          // "e": resp.startTime,
 
-          AboutCourse: "string",
-          CourseName: "string",
-          short_desc: "string",
-          CourseEducator: "string",
-          EducatorImgUrl: "string",
-          EducatorSocials: "string",
-          Educator_desc: "string",
+        console.log({ courseDetails });
 
-          WhatLearn: ["string"],
+        courseDetails.CourseDbId = resp.dbId;
+        courseDetails.CourseId = resp.courseId;
+        courseDetails.CourseDuration = Number(resp.duration);
+        courseDetails.PricePerDay = Number(resp.price);
 
-          isListed: resp.isListed,
-        };
-        data.push(r);
+        courseDetails.startTime = Number(resp.startTime);
+        courseDetails.isListed = resp.isListed;
+        courseDetails.pausedTime = Number(resp.pausedTime);
+        courseDetails.holder = resp.holder;
+        courseDetails.secondHolder = resp.secondHolder;
+
+        // console.log({ r });
+        data.push(courseDetails);
       }
     }
 
@@ -101,7 +93,7 @@ const MyCourses = () => {
   useEffect(() => {
     fetchUserCourses();
 
-    fetchData();
+    // fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coursesData.length]);
 

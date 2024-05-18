@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { utils } from "ethers";
 import { writeContract, readContract, getNetwork } from "@wagmi/core";
-import Timer from "./timer.tsx";
 import { UserAuth } from "../context/AuthContext.js";
 import { db } from "../firebase.js";
 import { doc, collection, serverTimestamp, setDoc } from "firebase/firestore";
 import CourseABI from "../constants/ABI/Course.json";
 import MarketABI from "../constants/ABI/Market.json";
 import { ContractAddress } from "../config/config.ts";
-import { getSecondsOfDays, getSecondsOfHours } from "../utils/utils.ts";
+import {
+  convertSecondsToHours,
+  getSecondsOfDays,
+  getSecondsOfHours,
+} from "../utils/utils.ts";
 import { PopupType } from "../constants/Types.ts";
 
 function Popup({ handleClose, currentCourse, courseName }: PopupType) {
@@ -18,7 +21,9 @@ function Popup({ handleClose, currentCourse, courseName }: PopupType) {
   const [signer, setSigner] = useState(null);
   const [contract, setContract] = useState(null);
 
-  const [price, setPrice] = useState<number>(Number(currentCourse.PricePerDay));
+  const [price, setPrice] = useState<number>(
+    Number(currentCourse?.PricePerDay || 0)
+  );
   const [selectedDay, setSelectedDay] = useState<string>("1 day");
   const [selectedTimeFrame, setSelectedTimeFrame] = useState<string>("1");
 
@@ -64,11 +69,15 @@ function Popup({ handleClose, currentCourse, courseName }: PopupType) {
       console.log("price:", price);
  */
 
-      console.log("ADFSa", utils.parseEther(`${currentCourse.PricePerDay}`));
+      console.log({ currentCourse });
+      // console.log("ADFSa", utils.parseEther(`${currentCourse.PricePerDay}`));
       console.log("ADFSa3333", utils.parseEther(`${price}`));
+
+      console.log({ ID: currentCourse, s: `${currentCourse.CourseDbId}` });
       const courseData = [
         Number(currentCourse.CourseId),
-        utils.parseEther(`${currentCourse.PricePerDay}`),
+        `${currentCourse.CourseDbId}`,
+        utils.parseEther(`${currentCourse?.PricePerDay || 0}`),
         getSecondsOfHours(currentCourse.CourseDuration),
       ];
 
@@ -155,7 +164,7 @@ function Popup({ handleClose, currentCourse, courseName }: PopupType) {
             </div>
             <div className="px-[9px] pt-[9px] pb-2.5 left-[22px] top-[62px] absolute bg-gradient-to-r from-green-300 via-orange-100 to-white rounded-[3px] border border-neutral-400 justify-center items-center inline-flex">
               <div className="text-justify text-black text-base font-normal font-['Inter'] leading-[17px]">
-                Course duration : 10 hrs
+                Course duration : {currentCourse.CourseDuration} hrs
               </div>
             </div>
             <div className="w-[374px] left-[22px] top-[195px] absolute text-red-600 text-xs font-normal font-['Inter'] leading-[17px]">
@@ -166,7 +175,6 @@ function Popup({ handleClose, currentCourse, courseName }: PopupType) {
                 {price} MATIC
               </div>
             </div>
-            {/* <Timer selectedTimeFrame={selectedTimeFrame} /> */}
           </div>
         </div>
       </div>

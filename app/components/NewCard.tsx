@@ -1,17 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useAccount } from "wagmi";
 import { utils } from "ethers";
 import { writeContract, readContract, getNetwork } from "@wagmi/core";
-import Timer from "./timer.tsx";
+import CountDown from "./countdown.tsx";
 import Link from "next/link";
 import Image from "next/image";
 import SellPopUp from "./SellPopup.tsx";
 import { ContractAddress } from "../config/config.ts";
 import MarketABI from "../constants/ABI/Market.json";
 import { NewCardType, CourseType } from "../constants/Types.ts";
+import { convertSecondsToHours, convertWeiToEth } from "../utils/utils.ts";
+import { getLmsUrl } from "../utils/utils.ts";
 
-const NewCard = ({ course, selectedTimeFrame }: NewCardType) => {
+const NewCard = ({ course }: NewCardType) => {
+  const { address } = useAccount();
+  const [lmsUrl, setLmsUrl] = useState<string>("");
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [currentCourse, setCurrentCourse] = useState<CourseType>(course);
+
+  useEffect(() => {
+    async function fetchLmsUrl() {
+      setLmsUrl(
+        await getLmsUrl(
+          address || "",
+          currentCourse.CourseDbId,
+          currentCourse.lmsUrl || ""
+        )
+      );
+    }
+    fetchLmsUrl();
+  }, [lmsUrl, address, currentCourse.CourseDbId, currentCourse.lmsUrl]);
 
   function togglePopup() {
     setCurrentCourse(course);
@@ -65,27 +83,33 @@ const NewCard = ({ course, selectedTimeFrame }: NewCardType) => {
         {/* <p className="px-4 py-2">{currentCourse?.short_desc}</p> */}
         <div className="flex flex-wrap justify-between px-4">
           <div className=" bg-white px-4 w-max text-black rounded-full">
-            <span>{currentCourse?.CourseDuration} Hours Total</span>
+            <span>
+              {convertSecondsToHours(currentCourse?.CourseDuration)} Hours Total
+            </span>
           </div>
           <div className="rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500">
-            <span>${currentCourse?.PricePerDay}/Day</span>
+            <span>{convertWeiToEth(`${currentCourse?.PricePerDay}`)}/Day</span>
           </div>
           <div className="mt-2 rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500">
-            <Timer selectedTimeFrame={selectedTimeFrame || "1"} />
+            {!currentCourse?.isListed ? (
+              <CountDown
+                startTime={currentCourse.startTime || 0}
+                duration={currentCourse.CourseDuration}
+                showTime={true}
+              />
+            ) : (
+              "Course is listed for sale"
+            )}
           </div>
-          {/* <div className='rounded-full px-4 w-max bg-transparent outline'>
-						<span>50$</span>
-					</div> */}
-          {/* <div className='rounded-full px-4 mt-3 w-max bg-transparent outline'>
-						<span>{courseExpiry}</span>
-					</div> */}
         </div>
         <div className="flex justify-between px-4">
-          <Link href="/LearnCourse">
-            <button className="bg-blue-400 font-extrabold p-2 m-4 rounded-xl">
-              Learn
-            </button>
-          </Link>
+          {!currentCourse?.isListed && (
+            <a target="blank" href={`${lmsUrl}`}>
+              <button className="bg-blue-400 font-extrabold p-2 m-4 rounded-xl">
+                Learn
+              </button>
+            </a>
+          )}
 
           {currentCourse?.isListed ? (
             <button
