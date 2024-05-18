@@ -66,7 +66,7 @@ const devChains = [
 let chains: any;
 let publicClient;
 
-if (process.env.ENV === "production") {
+if (process.env.NEXT_PUBLIC_ENV === "production") {
   const config = configureChains(productionChains, [
     jsonRpcProvider({
       rpc: (chainId) => getRpc(chainId),
@@ -74,7 +74,7 @@ if (process.env.ENV === "production") {
   ]);
   chains = config.chains;
   publicClient = config.publicClient;
-} else if (process.env.ENV === "test") {
+} else if (process.env.NEXT_PUBLIC_ENV === "test") {
   const config = configureChains(
     [
       {

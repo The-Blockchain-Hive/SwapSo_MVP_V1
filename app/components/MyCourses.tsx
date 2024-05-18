@@ -44,7 +44,7 @@ const MyCourses = () => {
       ? getNetwork()?.chain?.id
       : "default";
 
-    console.log({ env: process.env.ENV, p: process.env, ContractAddress, network, ca: ContractAddress[`${network}`], address });
+    console.log({ env: process.env.NEXT_PUBLIC_ENV, p: process.env, ContractAddress, network, ca: ContractAddress[`${network}`], address });
 
     const userCourses: any = await readContract({
       address: ContractAddress[`${network}`].course,
