@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import{ metadata } from './metadata.ts';
+import { metadata } from "./metadata.ts";
 import Navbar from "../Home/navbar.tsx";
 import Navbar2 from "../Home/MobileNavbar.tsx";
 import Card from "../components/Card.tsx";
@@ -8,28 +8,17 @@ import Card from "../components/Card.tsx";
 import { getDocs, collection, doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase.js";
 import Script from "next/script";
-
 import { CourseType } from "../constants/Types.ts";
+import { getCourses } from "../utils/firebase.ts";
 
 const Courses = () => {
-
-  interface TimerProps {
-    selectedTimeframe: string;
-  }
-
   const [coursesData, setCoursesData] = useState<CourseType[]>([]);
 
   const fetchData = async () => {
     try {
-      const coursesSnapshot = await getDocs(collection(db, "Courses"));
+      const coursesSnapshot = await getCourses();
 
-      const courses = coursesSnapshot.docs.map((doc) => {
-        const ids = doc.id;
-        const courseData = doc.data() as CourseType;
-        return { ids, ...courseData };
-      });
-
-      setCoursesData(courses);
+      setCoursesData(coursesSnapshot);
       // console.log(courses);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -54,7 +43,6 @@ const Courses = () => {
     };
   }, []);
 
-
   return (
     <main className="bg-gradient-to-b from-blue-1125 to-blue-1150">
       <head>
@@ -75,19 +63,17 @@ const Courses = () => {
           gtag('config', 'G-21492NPCH3');
         `}
       </Script>
-          <div className='nav1'>
-            {isMobile ? <Navbar2 /> : <Navbar />}
-          </div>
-        <div className="py-5 mb-10">  
-          {/* <SearchBar/> */}
-          {/* <button onClick={fetchData}>Testing</button>  */}
-        </div>
-        <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 mt-24">
-          {coursesData.map((course: any, index) => (
-            <Card key={index} course={course} />
-          ))}
-        </div>
-        </main>
-    )
-}
+      <div className="nav1">{isMobile ? <Navbar2 /> : <Navbar />}</div>
+      <div className="py-5 mb-10">
+        {/* <SearchBar/> */}
+        {/* <button onClick={fetchData}>Testing</button>  */}
+      </div>
+      <div className=" w-screen flex flex-wrap gap-5 justify-center py-5 mt-24">
+        {coursesData.map((course: CourseType, index) => (
+          <Card key={index} course={course} />
+        ))}
+      </div>
+    </main>
+  );
+};
 export default Courses;

@@ -5,7 +5,7 @@
   "scripts": {
     "rm_cp_market": "rm app/constants/ABI/Market.json && cp blockchain_hive_contracts/artifacts/contracts/V1/Market.sol/Market.json app/constants/ABI/Market.json",
     "rm_cp_course": "rm app/constants/ABI/Course.json && cp blockchain_hive_contracts/artifacts/contracts/V1/Course.sol/Course.json app/constants/ABI/Course.json",
-    "dev": "npm run rm_cp_market && npm run rm_cp_market && next dev",
+    "dev": "npm run rm_cp_market && npm run rm_cp_course && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

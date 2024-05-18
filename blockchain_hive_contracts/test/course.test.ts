@@ -63,6 +63,7 @@ describe("Course", () => {
           courseDetailsObject(
             "0x01",
             1,
+            "",
             1,
             1,
             1,

@@ -3,13 +3,17 @@ import { utils } from "ethers";
 import { writeContract, readContract, getNetwork } from "@wagmi/core";
 import Link from "next/link";
 import Image from "next/image";
-import Timer from "./timer";
 import MarketABI from "../constants/ABI/Market.json";
 import { ContractAddress } from "../config/config.ts";
-import { getSecondsOfDays, getSecondsOfHours } from "../utils/utils.ts";
+import {
+  convertSecondsToHours,
+  convertWeiToEth,
+  getSecondsOfDays,
+  getSecondsOfHours,
+} from "../utils/utils.ts";
 import { SellCardType } from "../constants/Types.ts";
 
-const SellCard: React.FC<SellCardType> = ({ course, selectedTimeFrame }) => {
+const SellCard: React.FC<SellCardType> = ({ course }) => {
   console.log("hgfdhgfc", { course });
   const imgUrl = `/${course.CourseImgUrl}.png`;
 
@@ -54,7 +58,7 @@ const SellCard: React.FC<SellCardType> = ({ course, selectedTimeFrame }) => {
       console.log({ course });
 
       const totalPrice: any =
-        ((Number(course.CourseDuration) * 1000) / getSecondsOfDays(1)) *
+        ((Number(course.CourseDuration)) / getSecondsOfDays(1)) *
         Number(utils.formatEther(`${course.PricePerDay}`));
 
       console.log({ totalPrice });
@@ -87,21 +91,28 @@ const SellCard: React.FC<SellCardType> = ({ course, selectedTimeFrame }) => {
           />
           <div className="w-full h-1/2 rounded-tr-3xl rounded-tl-3xl"></div>
         </div>
+        <div className="flex justify-between p-4">
+          <p className="font-extrabold text-2xl">{course.CourseName}</p>
+        </div>
+        <p className="px-4 py-2">{course?.short_desc}</p>
         <div className="flex flex-row justify-between mt-4 m-2">
           <div className=" bg-white px-4 w-max text-black rounded-full">
-            <span>{course.CourseDuration} Hours Total</span>
+            <span>
+              {convertSecondsToHours(course.CourseDuration)} Hours Total
+            </span>
           </div>
           <div className="rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500">
-            <span>Selling Price: {course.listingPrice}$</span>
+            <span>
+              Selling Price: {convertWeiToEth(`${course.PricePerDay}`)}$
+            </span>
           </div>
         </div>
         <div className="justify-center">
           <div className="rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink mt-4 ml-8">
-            <Timer selectedTimeFrame={selectedTimeFrame} />
           </div>
-          {/* <div className='rounded-full px-4 mt-4 ml-32 justify-center w-max bg-transparent outline'>
-						<span>{course.listingComment}</span>
-					</div> */}
+          {/* <div className="rounded-full px-4 mt-4 ml-32 justify-center w-max bg-transparent outline">
+            <span>{course.listingComment}</span>
+          </div> */}
         </div>
         <div className="flex justify-between px-4">
           <Link href="/AboutCourse">

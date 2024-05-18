@@ -5,6 +5,7 @@ interface ICourse {
     struct Course {
         bytes courseId;
         uint256 id;
+        string dbId;
         uint256 courseNumber;
         uint256 price; // 23
         uint256 duration; // 30, 15

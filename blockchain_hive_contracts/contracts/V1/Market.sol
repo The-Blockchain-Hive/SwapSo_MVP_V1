@@ -97,6 +97,7 @@ contract Market is
         if (compareBytes(_course.courseId, "")) {
             _course.courseId = course.courseId;
             _course.id = course.details.id;
+            _course.dbId = course.details.dbId;
             _course.price = course.details.price; // default price needs to be checked
             _course.recommendedDuration = course.details.recommendedDuration; // default value needs to check
         } else if (
@@ -106,7 +107,11 @@ contract Market is
                 _course.id == course.details.id &&
                     _course.price == course.details.price &&
                     _course.recommendedDuration ==
-                    course.details.recommendedDuration,
+                    course.details.recommendedDuration &&
+                    compareBytes(
+                        bytes(_course.dbId),
+                        bytes(course.details.dbId)
+                    ),
                 "Course details cannot be changed"
             );
             require(

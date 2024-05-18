@@ -1,6 +1,7 @@
 /* /AboutCourse/* */
 
 export type CourseType = {
+  CourseDbId: string;
   CourseId: string;
   AboutCourse: string;
   CourseName: string;
@@ -16,6 +17,10 @@ export type CourseType = {
   isListed?: boolean;
   listingPrice?: any;
   listingComment?: any;
+  startTime?: number;
+  pausedTime?: number;
+  holder?: string;
+  secondHolder?: string;
 };
 
 export type WhatWillYouLearnSectionType = {
@@ -57,16 +62,14 @@ export type NewSellerCardType = {
   selectedTimeFrame: string;
 };
 
-export type TimerType = {
-  selectedTimeFrame: string;
+export type CountDownType = {
+  startTime: number;
+  duration: number;
+  showTime: boolean;
 };
 
 export type SellCardType = {
-  course: CourseType & {
-    listingPrice: number;
-    listingComment: string;
-  };
-  selectedTimeFrame: string;
+  course: CourseType;
 };
 
 export type PopupType = {

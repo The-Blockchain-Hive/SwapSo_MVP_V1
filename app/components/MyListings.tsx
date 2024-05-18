@@ -9,6 +9,7 @@ import { db } from "../firebase.js";
 import { ContractAddress } from "../config/config.ts";
 import CourseABI from "../constants/ABI/Course.json";
 import { CourseType } from "../constants/Types.ts";
+import { getCourseWithId } from "../utils/firebase.ts";
 
 const MyCourses = () => {
   const { address } = useAccount();
@@ -63,38 +64,30 @@ const MyCourses = () => {
           args: [allCourses[i]],
         });
 
-        console.log({ resp });
         if (
           resp.isListed &&
           resp.holder.toLowerCase() === address?.toLowerCase()
         ) {
-          const r: CourseType = {
-            CourseId: resp.courseId,
-            CourseImgUrl: resp.courseNumber,
-            CourseDuration: resp.duration,
-            PricePerDay: resp.price,
-            // "e": resp.holder,
-            // "e": resp.id,
-            // "e": resp.isListed,
-            // "e": resp.pausedTime,
-            // "e": resp.recommendedDuration,
-            // "e": resp.secondHolder,
-            // "e": resp.startTime,
+          const courseDetails: CourseType = await getCourseWithId(resp.dbId);
+          console.log({ resp });
 
-            AboutCourse: "string",
-            CourseName: "string",
-            short_desc: "string",
-            CourseEducator: "string",
-            EducatorImgUrl: "string",
-            EducatorSocials: "string",
-            Educator_desc: "string",
+          console.log({ resp });
+          console.log({ courseDetails });
 
-            WhatLearn: ["string"],
+          courseDetails.CourseDbId = resp.dbId;
+          courseDetails.CourseId = resp.courseId;
+          courseDetails.CourseDuration = Number(resp.duration);
+          courseDetails.PricePerDay = Number(resp.price);
 
-            // isListed: resp.isListed,
-          };
+          courseDetails.startTime = Number(resp.startTime);
+          courseDetails.isListed = resp.isListed;
+          courseDetails.pausedTime = Number(resp.pausedTime);
+          courseDetails.holder = resp.holder;
+          courseDetails.secondHolder = resp.secondHolder;
 
-          data.push(r);
+          // console.log({ r });
+          data.push(courseDetails);
+
         }
       }
     }
