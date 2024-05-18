@@ -14,6 +14,7 @@ export type CourseType = {
   Educator_desc: string;
   PricePerDay: number;
   WhatLearn: string[];
+  lmsUrl?: string;
   isListed?: boolean;
   listingPrice?: any;
   listingComment?: any;

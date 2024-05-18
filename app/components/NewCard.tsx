@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useAccount } from "wagmi";
 import { utils } from "ethers";
 import { writeContract, readContract, getNetwork } from "@wagmi/core";
 import CountDown from "./countdown.tsx";
@@ -9,10 +10,26 @@ import { ContractAddress } from "../config/config.ts";
 import MarketABI from "../constants/ABI/Market.json";
 import { NewCardType, CourseType } from "../constants/Types.ts";
 import { convertSecondsToHours, convertWeiToEth } from "../utils/utils.ts";
+import { getLmsUrl } from "../utils/utils.ts";
 
-const NewCard = ({ course, selectedTimeFrame }: NewCardType) => {
+const NewCard = ({ course }: NewCardType) => {
+  const { address } = useAccount();
+  const [lmsUrl, setLmsUrl] = useState<string>("");
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [currentCourse, setCurrentCourse] = useState<CourseType>(course);
+
+  useEffect(() => {
+    async function fetchLmsUrl() {
+      setLmsUrl(
+        await getLmsUrl(
+          address || "",
+          currentCourse.CourseDbId,
+          currentCourse.lmsUrl || ""
+        )
+      );
+    }
+    fetchLmsUrl();
+  }, [lmsUrl, address, currentCourse.CourseDbId, currentCourse.lmsUrl]);
 
   function togglePopup() {
     setCurrentCourse(course);
@@ -86,11 +103,13 @@ const NewCard = ({ course, selectedTimeFrame }: NewCardType) => {
           </div>
         </div>
         <div className="flex justify-between px-4">
-          <Link href="/LearnCourse">
-            <button className="bg-blue-400 font-extrabold p-2 m-4 rounded-xl">
-              Learn
-            </button>
-          </Link>
+          {!currentCourse?.isListed && (
+            <a target="blank" href={`${lmsUrl}`}>
+              <button className="bg-blue-400 font-extrabold p-2 m-4 rounded-xl">
+                Learn
+              </button>
+            </a>
+          )}
 
           {currentCourse?.isListed ? (
             <button

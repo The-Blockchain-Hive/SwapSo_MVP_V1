@@ -23,6 +23,7 @@ const setCourseObject = (data: any): CourseType => {
     listingComment: data.listingComment,
   };
 
+  if (data.lmsUrl) course.lmsUrl = data.lmsUrl;
   if (data.isListed) course.isListed = data.isListed;
   if (data.listingPrice) course.listingPrice = data.listingPrice;
   if (data.listingComment) course.listingComment = data.listingComment;
@@ -49,4 +50,13 @@ export const getCourseWithId = async (docId: string): Promise<CourseType> => {
   const course = coursesSnapshot.data() as CourseType;
 
   return setCourseObject({ dbId: docId, ...course });
+};
+
+export const fetchLmsUrl = async (docId: string): Promise<any> => {
+  const ref = doc(db, `Courses`, docId);
+  const coursesSnapshot = await getDoc(ref);
+
+  const course = coursesSnapshot.data() as CourseType;
+
+  return course.lmsUrl;
 };
