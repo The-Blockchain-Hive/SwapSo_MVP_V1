@@ -116,6 +116,12 @@ function MobileNavbar() {
               </Link>
               <hr />
             </li>
+            <li className="p-1">
+              <Link onClick={handleMenuClose} href="/listings">
+                Your Listings
+              </Link>
+              <hr />
+            </li>
             {
               <div>
                 {/* {!user ? (

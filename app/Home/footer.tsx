@@ -98,7 +98,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="/"
+                  href="/events"
                   className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70"
                 >
                   Events

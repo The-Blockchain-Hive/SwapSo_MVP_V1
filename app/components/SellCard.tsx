@@ -98,7 +98,7 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
         <div className="flex flex-row justify-between mt-4 m-2">
           <div className=" bg-white px-4 w-max text-black rounded-full">
             <span>
-              {convertSecondsToHours(course.CourseDuration)} Hours Total
+            Validity "{convertSecondsToHours(course.CourseDuration)} Hours"
             </span>
           </div>
           <div className="rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500">
