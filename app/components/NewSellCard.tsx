@@ -103,7 +103,7 @@ const NewSellerCard: React.FC<NewSellerCardType> = ({
         <div className="flex flex-wrap justify-between px-4">
           <div className=" bg-white px-4 m-2 w-max  text-black rounded-full">
             <span>
-            Validity "{convertSecondsToHours(currentCourse?.CourseDuration)} Hours"{" "}
+            Validity &quot;{convertSecondsToHours(currentCourse?.CourseDuration)} Hours&quot;{" "}
             </span>
           </div>
           <div className="rounded-full px-4 m-2 w-max bg-gradient-to-r from-purple-500 to-pink-500">
