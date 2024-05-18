@@ -4,129 +4,135 @@ import Link from "next/link";
 
 const EventCard = () => {
   return (
-    <div className="grid xl:grid-cols-3  h-screen">
-    <div className="bg-gray-800 rounded-lg mx-auto shadow-lg w-1/2 xl:w-4/5 mt-4">
-        <h1>.</h1>
+    <>
+      <head>
+        <title>Events</title>
+        <meta name="Events Page" content="All the events, past or upcoming can be seen here." />
+      </head>
+    <div className="grid xl:grid-cols-3 h-screen">
+    <div className="bg-black rounded-lg mx-auto shadow-lg w-1/2 xl:w-4/5 mt-4 text-center">
+        <h1 className="m-4">MUMBAI</h1>
       <div className="relative">
         <Image
-          src='/metaverse2.png'
+          src='/events.png'
           alt="Event Image"
           className="rounded-t-lg mx-auto"
-          width={300}
+          width={330}
           height={200}
         />
       </div>
       <div className="p-4">
         <p className="text-white"> </p>
-        <div className="mt-4">
+        <div className="mt-4 text-center">
           <Link href="#"
-             className="text-blue-500 hover:text-blue-700">Register Now
+             className="text-black hover:text-white"><button className="bg-cyan-400 p-3 rounded-lg">Register Now</button>
           </Link>
         </div>
       </div>
     </div>
-    <div className="bg-gray-800 rounded-lg mx-auto shadow-lg w-1/2 xl:w-4/5 mt-4">
-        <h1>.</h1>
+    <div className="bg-black rounded-lg mx-auto shadow-lg w-1/2 xl:w-4/5 mt-4 text-center">
+        <h1 className="text-xl m-4">DELHI</h1>
       <div className="relative">
         <Image
-          src='/metaverse2.png'
+          src='/events.png'
           alt="Event Image"
           className="rounded-t-lg mx-auto"
-          width={300}
+          width={330}
           height={200}
         />
       </div>
       <div className="p-4">
         <p className="text-white"> </p>
-        <div className="mt-4">
+        <div className="mt-4 text-center">
           <Link href="#"
-             className="text-blue-500 hover:text-blue-700">Register Now
+             className="text-black hover:text-white"><button className="bg-cyan-400 p-3 rounded-lg">Register Now</button>
           </Link>
         </div>
       </div>
     </div>
 
-    <div className="bg-gray-800 rounded-lg mx-auto shadow-lg w-1/2 xl:w-4/5 mt-4">
-        <h1>.</h1>
+    <div className="bg-black rounded-lg mx-auto shadow-lg w-1/2 xl:w-4/5 mt-4 text-center">
+        <h1 className="m-4">BENGALURU</h1>
       <div className="relative">
         <Image
-          src='/metaverse2.png'
+          src='/events.png'
           alt="Event Image"
           className="rounded-t-lg mx-auto"
-          width={300}
+          width={330}
           height={200}
         />
       </div>
       <div className="p-4">
         <p className="text-white"> </p>
-        <div className="mt-4">
+        <div className="mt-4 text-center">
           <Link href="#"
-             className="text-blue-500 hover:text-blue-700">Register Now
+             className="text-black hover:text-white"><button className="bg-cyan-400 p-3 rounded-lg">Register Now</button>
           </Link>
         </div>
       </div>
     </div>
-    <div className="bg-gray-800 rounded-lg mx-auto shadow-lg w-1/2 xl:w-4/5 mt-4">
-        <h1>.</h1>
+    <div className="bg-black rounded-lg mx-auto shadow-lg w-1/2 xl:w-4/5 mt-4 text-center">
+        <h1 className="m-4">PUNE</h1>
       <div className="relative">
         <Image
-          src='/metaverse2.png'
+          src='/events.png'
           alt="Event Image"
           className="rounded-t-lg mx-auto"
-          width={300}
+          width={330}
           height={200}
         />
       </div>
       <div className="p-4">
         <p className="text-white"> </p>
-        <div className="mt-4">
+        <div className="mt-4 text-center">
           <Link href="#"
-             className="text-blue-500 hover:text-blue-700">Register Now
+             className="text-black hover:text-white"><button className="bg-cyan-400 p-3 rounded-lg">Register Now</button>
           </Link>
         </div>
       </div>
     </div>
-    <div className="bg-gray-800 rounded-lg mx-auto shadow-lg w-1/2 xl:w-4/5 mt-4">
-        <h1>.</h1>
+    <div className="bg-black rounded-lg mx-auto shadow-lg w-1/2 xl:w-4/5 mt-4 text-center">
+        <h1 className="m-4">JAIPUR</h1>
       <div className="relative">
         <Image
-          src='/metaverse2.png'
+          src='/events.png'
           alt="Event Image"
           className="rounded-t-lg mx-auto"
-          width={300}
+          width={330}
           height={200}
         />
       </div>
       <div className="p-4">
         <p className="text-white"> </p>
-        <div className="mt-4">
+        <div className="mt-4 text-center">
           <Link href="#"
-             className="text-blue-500 hover:text-blue-700">Register Now
+             className="text-black hover:text-white"><button className="bg-cyan-400 p-3 rounded-lg">Register Now</button>
           </Link>
         </div>
       </div>
     </div>
-    <div className="bg-gray-800 rounded-lg mx-auto shadow-lg w-1/2 xl:w-4/5 mt-4">
-        <h1>.</h1>
+    <div className="bg-black rounded-lg mx-auto shadow-lg w-1/2 xl:w-4/5 mt-4 text-center">
+        <h1 className="m-4">CHENNAI</h1>
       <div className="relative">
         <Image
-          src='/metaverse2.png'
+          src='/events.png'
           alt="Event Image"
           className="rounded-t-lg mx-auto"
-          width={300}
+          width={330}
           height={200}
         />
       </div>
       <div className="p-4">
         <p className="text-white"> </p>
-        <div className="mt-4">
+        <div className="mt-4 text-center">
           <Link href="#"
-             className="text-blue-500 hover:text-blue-700">Register Now
+             className="text-black hover:text-white"><button className="bg-cyan-400 p-3 rounded-lg">Register Now</button>
           </Link>
         </div>
       </div>
     </div>
     </div>
+    </>
   );
 };
 

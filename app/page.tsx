@@ -78,11 +78,11 @@ export default function Home() {
                     .start();
                 }} />
             </h1>
-            <h1 className='text-xl w-9/10 md:w-1/2 lg:w-1/2 xl:w-1/2 xl:mr-40'>
+            <h1 className='text-xl w-9/10 md:w-1/2 lg:w-1/2 xl:w-1/2 xl:mr-40 font-comfortaa'>
               Creating a new educational system which is decentralised, transparent & open to all.
             </h1>
             <div className="bg-cyan-950 text-cyan-400 border border-cyan-400 border-b-4 relative px-8 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group mt-8 font-bold xl:mr-48">
-              <Link href="/wl" target='_blank'>Join Waitlist</Link>
+              <Link href="/events" target='_blank'>Register for Events</Link>
             </div>
           </div>
         </div>
@@ -126,7 +126,7 @@ export default function Home() {
                 )}
               </div> :
               <h1 className='w-full text-xl text-white mx-auto text-justify font-comfortaa mb-8 lg:mb-24 xl:mb-24'>
-                SwapSo, part of Microsoft for “startups founder hub” & incubated at WISE incubator is an initiative founded by IIT Bombay students. In SwapSo, we are bridging educational institutes on a single decentralised network for an open and transparent global education, accessible to everyone. A platform by the learners, for the learners which focuses on increasing completion rates in the edtech industry and incentivizes aka reward people for quick completion of courses.Tailored for skill development courses created by top educators.
+                SwapSo, part of Microsoft for “startups founder hub” & incubated at WISE incubator is an initiative founded by IIT Bombay students. In SwapSo, we are bridging educational institutes on a single decentralised network for an open and transparent global education, accessible to everyone. A platform by the learners, for the learners which focuses on increasing completion rates in the edtech industry and incentivizes aka reward people for quick completion of courses. Tailored for skill development courses created by top educators.
               </h1>
             }
           </div>
