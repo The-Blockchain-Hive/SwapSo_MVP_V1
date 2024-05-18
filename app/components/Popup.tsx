@@ -13,6 +13,7 @@ import {
   getSecondsOfHours,
 } from "../utils/utils.ts";
 import { PopupType } from "../constants/Types.ts";
+import { useError } from "./errorContext.tsx";
 
 function Popup({ handleClose, currentCourse, courseName }: PopupType) {
   // const [isPurchaseComplete, setPurchaseComplete] = useState(false);
@@ -20,6 +21,7 @@ function Popup({ handleClose, currentCourse, courseName }: PopupType) {
   const [provider, setProvider] = useState(null);
   const [signer, setSigner] = useState(null);
   const [contract, setContract] = useState(null);
+  const { setError } = useError();
 
   const [price, setPrice] = useState<number>(
     Number(currentCourse?.PricePerDay || 0)
@@ -102,7 +104,12 @@ function Popup({ handleClose, currentCourse, courseName }: PopupType) {
 
       console.log({ buyCourseAndMint });
     } catch (error) {
-      console.error("Error purchasing course:", error);
+      // Type guard to check if error is an instance of Error
+      if (error instanceof Error) {
+        setError('Error purchasing course: ' + 'Please make sure you have connected wallet and have got enough balance');
+      } else {
+        setError('An unknown error occurred.');
+      }
     }
 
     handleClose();
