@@ -1,39 +1,39 @@
 import React from "react";
 import { metadata } from "./metadata";
 import Button from "./button";
-import { prisma } from "@/prisma";
+// import { prisma } from "@/prisma";
 import { redirect } from "next/navigation";
-import { Prisma } from "@prisma/client";
+// import { Prisma } from "@prisma/client";
 import Script from "next/script";
 // import { randomUUID } from "crypto";
 // import Mailgun from 'mailgun-js';
 // import formData from 'form-data';
 
-// const API_KEY = process.env.MAILGUN_API_KEY || ''
-// const DOMAIN = process.env.MAILGUN_DOMAIN || ''
+// const API_KEY = process.env.NEXT_PUBLIC_MAILGUN_API_KEY || ''
+// const DOMAIN = process.env.NEXT_PUBLIC_MAILGUN_DOMAIN || ''
 
 export default function WaitingList() {
   async function registerUser(data: FormData) {
     "use server";
     console.log("DATA", data);
 
-    try {
-      const user = await prisma.user.create({
-        data: {
-          name: data.get("name") as string,
-          email: data.get("email") as string,
-          phone: data.get("contact") as string,
-        },
-      });
-      // redirect('/successful');
-    } catch (error: any) {
-      if (error?.code === "P2002") {
-        // redirect('/successful');
-      } else {
-        // Handle other errors
-        // redirect('/successful');
-      }
-    }
+    // try {
+    //   const user = await prisma.user.create({
+    //     data: {
+    //       name: data.get("name") as string,
+    //       email: data.get("email") as string,
+    //       phone: data.get("contact") as string,
+    //     },
+    //   });
+    //   // redirect('/successful');
+    // } catch (error: any) {
+    //   if (error?.code === "P2002") {
+    //     // redirect('/successful');
+    //   } else {
+    //     // Handle other errors
+    //     // redirect('/successful');
+    //   }
+    // }
   }
   //       <------------ TOKEN GENERATION ----------------> to be included inside the try block
 
