@@ -44,7 +44,14 @@ const MyCourses = () => {
       ? getNetwork()?.chain?.id
       : "default";
 
-    console.log({ env: process.env.NEXT_PUBLIC_ENV, p: process.env, ContractAddress, network, ca: ContractAddress[`${network}`], address });
+    console.log({
+      env: process.env.NEXT_PUBLIC_ENV,
+      p: process.env,
+      ContractAddress,
+      network,
+      ca: ContractAddress[`${network}`],
+      address,
+    });
 
     const userCourses: any = await readContract({
       address: ContractAddress[`${network}`].course,
@@ -66,24 +73,30 @@ const MyCourses = () => {
           args: [userCourses[i]],
         });
 
-        const courseDetails: CourseType = await getCourseWithId(resp.dbId);
-        console.log({ resp });
+        if (
+          !resp.secondHolder ||
+          (resp.secondHolder &&
+            resp.secondHolder.toLowerCase() === address?.toLowerCase())
+        ) {
+          const courseDetails: CourseType = await getCourseWithId(resp.dbId);
+          console.log({ resp });
 
-        console.log({ courseDetails });
+          console.log({ courseDetails });
 
-        courseDetails.CourseDbId = resp.dbId;
-        courseDetails.CourseId = resp.courseId;
-        courseDetails.CourseDuration = Number(resp.duration);
-        courseDetails.PricePerDay = Number(resp.price);
+          courseDetails.CourseDbId = resp.dbId;
+          courseDetails.CourseId = resp.courseId;
+          courseDetails.CourseDuration = Number(resp.duration);
+          courseDetails.PricePerDay = Number(resp.price);
 
-        courseDetails.startTime = Number(resp.startTime);
-        courseDetails.isListed = resp.isListed;
-        courseDetails.pausedTime = Number(resp.pausedTime);
-        courseDetails.holder = resp.holder;
-        courseDetails.secondHolder = resp.secondHolder;
+          courseDetails.startTime = Number(resp.startTime);
+          courseDetails.isListed = resp.isListed;
+          courseDetails.pausedTime = Number(resp.pausedTime);
+          courseDetails.holder = resp.holder;
+          courseDetails.secondHolder = resp.secondHolder;
 
-        // console.log({ r });
-        data.push(courseDetails);
+          // console.log({ r });
+          data.push(courseDetails);
+        }
       }
     }
 

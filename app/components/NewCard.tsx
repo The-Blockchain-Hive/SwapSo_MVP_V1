@@ -120,6 +120,15 @@ const NewCard = ({ course }: NewCardType) => {
             >
               Unlist Course
             </button>
+          ) : currentCourse?.secondHolder &&
+            currentCourse?.secondHolder.toLowerCase() ===
+              address?.toLowerCase() ? (
+            <button
+              disabled={true}
+              className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl"
+            >
+              Cannot resell course
+            </button>
           ) : (
             <button
               onClick={() => {
