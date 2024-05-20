@@ -126,7 +126,7 @@ contract Market is
                 _course.duration + _course.startTime < block.timestamp,
                 "Course is still active, you can't buy now."
             );
-//buyfromMarket
+            //buyfromMarket
             _course.duration = duration;
             _course.startTime = block.timestamp;
             _course.isListed = false;
@@ -195,10 +195,10 @@ contract Market is
         CourseNft.addUserCourse(msg.sender, courseId);
 
         payable(_course.holder).transfer(
-            (msg.value * royaltyPercentage) / 10000
+            (msg.value * (10000 - royaltyPercentage)) / 10000
         );
         payable(CourseNft.owner()).transfer(
-            (msg.value * (10000 - royaltyPercentage)) / 10000
+            (msg.value * royaltyPercentage) / 10000
         );
     }
 

@@ -232,16 +232,16 @@ describe("Market", function () {
     expect(signerNewBalance).to.eq(
       BigInt(signerOldBalance) +
         BigInt(
-          (NEW_PRICE * (INITIAL_DURATION - PAUSE_TIME) * Number(royalty)) /
+          (NEW_PRICE *
+            (INITIAL_DURATION - PAUSE_TIME) *
+            (10000 - Number(royalty))) /
             10000
         )
     );
     expect(ownerNewBalance).to.eq(
       BigInt(ownerOldBalance) +
         BigInt(
-          (NEW_PRICE *
-            (INITIAL_DURATION - PAUSE_TIME) *
-            (10000 - Number(royalty))) /
+          (NEW_PRICE * (INITIAL_DURATION - PAUSE_TIME) * Number(royalty)) /
             10000
         )
     );
