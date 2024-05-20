@@ -115,7 +115,7 @@ contract Market is
                 "Course details cannot be changed"
             );
             require(
-                msg.value == _course.price * (duration / 1 days),
+                msg.value >= _course.price * (duration / 1 days),
                 "Insufficient amount"
             );
             require(
@@ -143,7 +143,7 @@ contract Market is
         }
 
         require(
-            msg.value == _course.price * (duration / 1 days),
+            msg.value >= _course.price * (duration / 1 days),
             "Insufficient amount"
         );
 
@@ -182,7 +182,7 @@ contract Market is
         require(_course.secondHolder == address(0), "Course already sold");
 
         require(
-            msg.value == (_course.duration / 1 days) * _course.price,
+            msg.value >= (_course.duration / 1 days) * _course.price,
             "Insufficient amount"
         );
 

@@ -20,6 +20,16 @@
       "address": "0x5a33708821BE54536aC1379651494306b775E209",
       "txHash": "0xce55bda206c585f0c985f11238703cded5f99a48ab9d37692274adf4098cb620",
       "kind": "uups"
+    },
+    {
+      "address": "0x631cc8A401E8fd6Ca7ff99D0175e607d6260b98D",
+      "txHash": "0x3f735a28317284b8ec5dcf4e7d98e591b4e4deb8cffbaff74f6719092e147787",
+      "kind": "uups"
+    },
+    {
+      "address": "0x34950f9a5A63e94a6247120C91C6a7806e577b0e",
+      "txHash": "0x10d5f2496d28684111c8ca8f422e30901a28a58984f872f7fff551ab1ae42377",
+      "kind": "uups"
     }
   ],
   "impls": {
@@ -909,6 +919,113 @@
     "f960eeed4a3a6643b00c70b24c73b070c06cdaffed626949840dc0ef6509257c": {
       "address": "0x494B6AAC3227d2A0Ad647543A5f24e6D79551a5B",
       "txHash": "0x1db48ebfde2be689228ab10a18b8fc43dd4d660f6a0e5f745bab51a6ffc094a1",
+      "layout": {
+        "solcVersion": "0.8.25",
+        "storage": [
+          {
+            "label": "CourseNft",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_contract(Course)5334",
+            "contract": "Market",
+            "src": "contracts/V1/Market.sol:30"
+          },
+          {
+            "label": "royaltyPercentage",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256",
+            "contract": "Market",
+            "src": "contracts/V1/Market.sol:31"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_struct(InitializableStorage)65_storage": {
+            "label": "struct Initializable.InitializableStorage",
+            "members": [
+              {
+                "label": "_initialized",
+                "type": "t_uint64",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "_initializing",
+                "type": "t_bool",
+                "offset": 8,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(OwnableStorage)14_storage": {
+            "label": "struct OwnableUpgradeable.OwnableStorage",
+            "members": [
+              {
+                "label": "_owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_uint64": {
+            "label": "uint64",
+            "numberOfBytes": "8"
+          },
+          "t_contract(Course)5334": {
+            "label": "contract Course",
+            "numberOfBytes": "20"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        },
+        "namespaces": {
+          "erc7201:openzeppelin.storage.Ownable": [
+            {
+              "contract": "OwnableUpgradeable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:24",
+              "offset": 0,
+              "slot": "0"
+            }
+          ],
+          "erc7201:openzeppelin.storage.Initializable": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_uint64",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:69",
+              "offset": 0,
+              "slot": "0"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:73",
+              "offset": 8,
+              "slot": "0"
+            }
+          ]
+        }
+      }
+    },
+    "3cc236cfbbfe618d2e00dc9a63062b875454a3bb69eabf5b878816267e3ac5b3": {
+      "address": "0x49E96a71524576BC92889FB1B3bC2D0Bb42d78d1",
+      "txHash": "0xbd5e86753e1f5d4b9c459ff436c269c2d72e937adbcb295a0a0e5704885730ef",
       "layout": {
         "solcVersion": "0.8.25",
         "storage": [
