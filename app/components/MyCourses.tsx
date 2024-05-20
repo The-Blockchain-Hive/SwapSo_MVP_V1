@@ -10,6 +10,7 @@ import CourseABI from "../constants/ABI/Course.json";
 import { CourseType } from "../constants/Types.ts";
 import NewCard from "./NewCard.tsx";
 import { getCourseWithId } from "../utils/firebase.ts";
+import { ZERO_ADDRESS } from "../constants/index.ts";
 
 // import this down { selectedTimeframe }: { selectedTimeframe: string }
 const MyCourses = () => {
@@ -44,15 +45,6 @@ const MyCourses = () => {
       ? getNetwork()?.chain?.id
       : "default";
 
-    console.log({
-      env: process.env.NEXT_PUBLIC_ENV,
-      p: process.env,
-      ContractAddress,
-      network,
-      ca: ContractAddress[`${network}`],
-      address,
-    });
-
     const userCourses: any = await readContract({
       address: ContractAddress[`${network}`].course,
       abi: CourseABI.abi,
@@ -75,6 +67,7 @@ const MyCourses = () => {
 
         if (
           !resp.secondHolder ||
+          resp.secondHolder === ZERO_ADDRESS ||
           (resp.secondHolder &&
             resp.secondHolder.toLowerCase() === address?.toLowerCase())
         ) {
