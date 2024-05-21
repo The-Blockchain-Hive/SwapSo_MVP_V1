@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { utils } from "ethers";
 import { writeContract, readContract, getNetwork } from "@wagmi/core";
 import Link from "next/link";
@@ -20,11 +21,14 @@ import MarketABI from "../constants/ABI/Market.json";
 import { NewSellerCardType, CourseType } from "../constants/Types.ts";
 import { convertSecondsToHours, convertWeiToEth } from "../utils/utils.ts";
 import CountDown from "./countdown.tsx";
+import { useError } from "./errorContext.tsx";
 
 const NewSellerCard: React.FC<NewSellerCardType> = ({
   course,
   selectedTimeFrame,
 }) => {
+  const router = useRouter();
+  const { setError } = useError();
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [currentCourse, setCurrentCourse] = useState<CourseType>(course);
 
@@ -73,8 +77,17 @@ const NewSellerCard: React.FC<NewSellerCardType> = ({
       });
 
       console.log({ removeCourse });
+      router.refresh();
     } catch (error) {
       console.error("Error purchasing course:", error);
+      if (error instanceof Error) {
+        setError(
+          "Error purchasing course: " +
+            "Please make sure you have connected wallet and have got enough balance"
+        );
+      } else {
+        setError("An unknown error occurred.");
+      }
     }
   }
 
@@ -103,11 +116,15 @@ const NewSellerCard: React.FC<NewSellerCardType> = ({
         <div className="flex flex-wrap justify-between px-4">
           <div className=" bg-white px-4 m-2 w-max  text-black rounded-full">
             <span>
-            Validity : {convertSecondsToHours(currentCourse?.CourseDuration)} Hours{" "}
+              Validity : {convertSecondsToHours(currentCourse?.CourseDuration)}{" "}
+              Hours{" "}
             </span>
           </div>
           <div className="rounded-full px-4 m-2 w-max bg-gradient-to-r from-purple-500 to-pink-500">
-            <span>Selling Price : {convertWeiToEth(`${currentCourse?.PricePerDay}`)} MATIC</span>
+            <span>
+              Selling Price : {convertWeiToEth(`${currentCourse?.PricePerDay}`)}{" "}
+              MATIC
+            </span>
           </div>
           <div className="rounded-full px-4 m-4 w-max bg-gradient-to-r from-purple-500 to-pink-500">
             Listed course

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { utils } from "ethers";
 import { writeContract, readContract, getNetwork } from "@wagmi/core";
 import Link from "next/link";
@@ -12,8 +13,11 @@ import {
   getSecondsOfHours,
 } from "../utils/utils.ts";
 import { SellCardType } from "../constants/Types.ts";
+import { useError } from "./errorContext.tsx";
 
 const SellCard: React.FC<SellCardType> = ({ course }) => {
+  const router = useRouter();
+  const { setError } = useError();
   console.log("hgfdhgfc", { course });
   const imgUrl = `/${course.CourseImgUrl}.png`;
 
@@ -58,7 +62,7 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
       console.log({ course });
 
       const totalPrice: any =
-        ((Number(course.CourseDuration)) / getSecondsOfDays(1)) *
+        (Number(course.CourseDuration) / getSecondsOfDays(1)) *
         Number(utils.formatEther(`${course.PricePerDay}`));
 
       console.log({ totalPrice });
@@ -72,8 +76,17 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
       });
 
       console.log({ buyCourseFromMarket });
+      router.refresh();
     } catch (error) {
       console.error("Error purchasing course:", error);
+      if (error instanceof Error) {
+        setError(
+          "Error purchasing course: " +
+            "Please make sure you have connected wallet and have got enough balance"
+        );
+      } else {
+        setError("An unknown error occurred.");
+      }
     }
   };
 
@@ -98,18 +111,15 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
         <div className="flex flex-row justify-between mt-4 m-2">
           <div className=" bg-white px-4 w-max text-black rounded-full">
             <span>
-            Validity : {convertSecondsToHours(course.CourseDuration)} Hours
+              Validity : {convertSecondsToHours(course.CourseDuration)} Hours
             </span>
           </div>
           <div className="rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink-500">
-            <span>
-              Price: {convertWeiToEth(`${course.PricePerDay}`)} MATIC
-            </span>
+            <span>Price: {convertWeiToEth(`${course.PricePerDay}`)} MATIC</span>
           </div>
         </div>
         <div className="justify-center">
-          <div className="rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink mt-4 ml-8">
-          </div>
+          <div className="rounded-full px-4 w-max bg-gradient-to-r from-purple-500 to-pink mt-4 ml-8"></div>
           {/* <div className="rounded-full px-4 mt-4 ml-32 justify-center w-max bg-transparent outline">
             <span>{course.listingComment}</span>
           </div> */}

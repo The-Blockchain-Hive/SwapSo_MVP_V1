@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { utils } from "ethers";
 import { writeContract, readContract, getNetwork } from "@wagmi/core";
 import { UserAuth } from "../context/AuthContext.js";
@@ -16,6 +17,7 @@ import { PopupType } from "../constants/Types.ts";
 import { useError } from "./errorContext.tsx";
 
 function Popup({ handleClose, currentCourse, courseName }: PopupType) {
+  const router = useRouter();
   // const [isPurchaseComplete, setPurchaseComplete] = useState(false);
   const { user } = UserAuth();
   const [provider, setProvider] = useState(null);
@@ -38,7 +40,6 @@ function Popup({ handleClose, currentCourse, courseName }: PopupType) {
     setPrice(calculatedPrice);
     setSelectedDay(inputDays == 1 ? `${inputDays} day` : `${inputDays} days`);
   };
-
 
   async function handlePay(selectedTimeFrame: string, price: number) {
     try {
@@ -103,12 +104,16 @@ function Popup({ handleClose, currentCourse, courseName }: PopupType) {
       });
 
       console.log({ buyCourseAndMint });
+      router.refresh();
     } catch (error) {
       // Type guard to check if error is an instance of Error
       if (error instanceof Error) {
-        setError('Error purchasing course: ' + 'Please make sure you have connected wallet and have got enough balance');
+        setError(
+          "Error purchasing course: " +
+            "Please make sure you have connected wallet and have got enough balance"
+        );
       } else {
-        setError('An unknown error occurred.');
+        setError("An unknown error occurred.");
       }
     }
 

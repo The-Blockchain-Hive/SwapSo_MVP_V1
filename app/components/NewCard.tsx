@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { useAccount } from "wagmi";
 import { utils } from "ethers";
 import { writeContract, readContract, getNetwork } from "@wagmi/core";
@@ -11,8 +12,11 @@ import MarketABI from "../constants/ABI/Market.json";
 import { NewCardType, CourseType } from "../constants/Types.ts";
 import { convertSecondsToHours, convertWeiToEth } from "../utils/utils.ts";
 import { getLmsUrl } from "../utils/utils.ts";
+import { useError } from "./errorContext.tsx";
 
 const NewCard = ({ course }: NewCardType) => {
+  const router = useRouter();
+  const { setError } = useError();
   const { address } = useAccount();
   const [lmsUrl, setLmsUrl] = useState<string>("");
   const [isPopupVisible, setIsPopupVisible] = useState(false);
@@ -52,8 +56,17 @@ const NewCard = ({ course }: NewCardType) => {
       });
 
       console.log({ removeCourse });
+      router.refresh();
     } catch (error) {
       console.error("Error purchasing course:", error);
+      if (error instanceof Error) {
+        setError(
+          "Error purchasing course: " +
+            "Please make sure you have connected wallet and have got enough balance"
+        );
+      } else {
+        setError("An unknown error occurred.");
+      }
     }
   }
 

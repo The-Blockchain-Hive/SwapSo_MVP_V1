@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { utils } from "ethers";
 import { writeContract, readContract, getNetwork } from "@wagmi/core";
 import { UserAuth } from "../context/AuthContext.js";
@@ -16,8 +17,11 @@ import { ContractAddress } from "../config/config.ts";
 import MarketABI from "../constants/ABI/Market.json";
 import { SellPopupType } from "../constants/Types.ts";
 import { convertSecondsToHours } from "../utils/utils.ts";
+import { useError } from "./errorContext.tsx";
 
 const SellPopup = ({ handleClose, currentCourse }: SellPopupType) => {
+  const router = useRouter();
+  const { setError } = useError();
   const [provider, setProvider] = useState(null);
   const [signer, setSigner] = useState(null);
   const [contract, setContract] = useState(null);
@@ -103,8 +107,17 @@ const SellPopup = ({ handleClose, currentCourse }: SellPopupType) => {
       });
 
       console.log({ sellCourse });
+      router.refresh();
     } catch (error) {
       console.error("Error purchasing course:", error);
+      if (error instanceof Error) {
+        setError(
+          "Error purchasing course: " +
+            "Please make sure you have connected wallet and have got enough balance"
+        );
+      } else {
+        setError("An unknown error occurred.");
+      }
     }
 
     handleClose();
