@@ -4,7 +4,7 @@ import "../globals.css";
 
 export default function MyApp({ Component, pageProps }) {
   useEffect(() => {
-    const images = ["/1.png", "/2.png", "/3.png", "/4.png", "/5.png"];
+    const images = ["/1.png", "/2.png", "/3.png", "/4.png", "/5.png", "/bangalore.png", "/chennai.png", "/delhi.png", "/jaipur.png", "/mumbai.png", "/Pune.png"];
     images.forEach((image) => {
       const preload = new Image();
       preload.src = image;

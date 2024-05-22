@@ -100,6 +100,7 @@ const Footer = () => {
                 <a
                   href="/events"
                   className="hover:text-gray-300 hover:ease-in-out duration-300 opacity-70"
+                  target="_blank"
                 >
                   Events
                 </a>

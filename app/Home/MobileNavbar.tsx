@@ -105,7 +105,7 @@ function MobileNavbar() {
               <hr />
             </li>
             <li className="p-1">
-              <Link onClick={handleMenuClose} href="/allCourses">
+              <Link onClick={handleMenuClose} href="/myCourses">
                 My Courses
               </Link>
               <hr />
