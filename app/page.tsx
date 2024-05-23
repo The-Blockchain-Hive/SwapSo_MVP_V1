@@ -93,13 +93,13 @@ export default function Home() {
                 Register for Events
               </Link>
             </div>
-            <button
+            {/* <button
                 onClick={() => {
                   Router.reload();
                 }}
               >
                 Click to reload
-              </button>
+              </button> */}
           </div>
         </div>
         <video

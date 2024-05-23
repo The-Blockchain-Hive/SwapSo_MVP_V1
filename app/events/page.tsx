@@ -30,7 +30,7 @@ const EventCard = () => {
         </div>
         <div className="flex item-center mt-4">
           <span className="mt-1"><FaRegCalendarAlt /></span>
-          <p className="ml-4 font-comfortaa font-comfortaa">DATE: 8th JUNE</p>
+          <p className="ml-4 font-comfortaa font-comfortaa">DATE: 8th JUNE 2024</p>
         </div>
         <div className="mt-8 text-center">
           <Link href="https://mint.nuvo.bi/ax/061922729d10448ca70e5edcec3f77c63" target="_blank"
@@ -99,7 +99,7 @@ const EventCard = () => {
     <div className="bg-gradient-to-b from-green-800 to-blue-1150 rounded-3xl mx-auto  border border-white shadow-lg xl:w-4/5 mt-8 text-center mb-8">
       <div className="relative">
         <Image
-          src='/pune.png'
+          src='/Pune.png'
           alt="Event Image"
           className="object-cover object-top w-full rounded-3xl mx-auto"
           width={330}
@@ -115,7 +115,7 @@ const EventCard = () => {
         </div>
         <div className="flex item-center mt-4">
           <span className="mt-1">     <span className="mt-1"><FaRegCalendarAlt /></span></span>
-          <p className="ml-4 font-comfortaa">DATE: 5th JUNE</p>
+          <p className="ml-4 font-comfortaa">DATE: 5th JUNE 2024</p>
         </div>
         <div className="mt-8 text-center">
           <Link href="https://mint.nuvo.bi/ax/75ba42b9d92d44e9bf1143215360d3907" target="_blank"
@@ -171,7 +171,7 @@ const EventCard = () => {
         </div>
         <div className="flex item-center mt-4">
           <span className="mt-1"><FaRegCalendarAlt /></span>
-          <p className="ml-4 font-comfortaa">DATE: 1st JUNE</p>
+          <p className="ml-4 font-comfortaa">DATE: 1st JUNE 2024</p>
         </div>
         <div className="mt-8 text-center">
           <Link href="https://mint.nuvo.bi/ax/786fea0ab8564e54bab442c1216b340e4" target="_blank"
