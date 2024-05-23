@@ -125,17 +125,26 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
           </div> */}
         </div>
         <div className="flex justify-between px-4">
-          <Link href="/AboutCourse">
-            <button className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl w-full">
-              About
-            </button>
-          </Link>
-          <button
-            onClick={handleClick}
-            className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl w-1/3"
-          >
-            Buy
-          </button>
+          {(course.startTime || 0) + course.CourseDuration <=
+          parseInt(`${Number(new Date()) / 1000}`) ? (
+            <div className="rounded-full p-2 m-4 rounded-xl w-full bg-gradient-to-r from-purple-500 to-pink-500">
+              Course is expired.
+            </div>
+          ) : (
+            <>
+              <Link href="/AboutCourse">
+                <button className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl w-full">
+                  About
+                </button>
+              </Link>
+              <button
+                onClick={handleClick}
+                className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl w-1/3"
+              >
+                Buy
+              </button>
+            </>
+          )}
         </div>
       </div>
     </div>
