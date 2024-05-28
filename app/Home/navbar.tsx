@@ -70,25 +70,13 @@ const Navbar = () => {
           <li className="nav-list">
             <Link href="/">Home</Link>
           </li>
-          <li
-            className={`nav-list ${activeDropdown === "courses" ? "active" : ""}`}
-            onClick={() => handleDropdownToggle("courses")}
-          >
-            <p>Courses</p>
-            <div className="dropdown-content">
-              <Link href="/allCourses">Buy Courses</Link>
-              <Link href="/myCourses">My Courses</Link>
-            </div>
+          <li className="nav-list">
+              <Link href="/allCourses">Courses</Link>
+              {/* <Link href="/myCourses" className="ml-4">My Courses</Link> */}
           </li>
-          <li
-            className={`nav-list ${activeDropdown === "market" ? "active" : ""}`}
-            onClick={() => handleDropdownToggle("market")}
-          >
-            <p>Market Place</p>
-            <div className="dropdown-content">
-              <Link href="/Marketplace">Main Marketplace</Link>
-              <Link href="/listings">Your Listings</Link>
-            </div>
+          <li className='nav-list'>
+              <Link href="/Marketplace" className="ml-4">Market Place</Link>
+              {/* <Link href="/listings">Your Listings</Link> */}
           </li>
         </ul>
         <div className="dropdown">
