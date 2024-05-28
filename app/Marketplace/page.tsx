@@ -69,7 +69,9 @@ const MarketPlace = () => {
         console.log({ resp });
         if (
           resp.isListed &&
-          resp.holder.toLowerCase() !== address?.toLowerCase()
+          resp.holder.toLowerCase() !== address?.toLowerCase() &&
+          (Number(resp.startTime) || 0) + Number(resp.duration) >
+            parseInt(`${Number(new Date()) / 1000}`)
         ) {
           const courseDetails: CourseType = await getCourseWithId(resp.dbId);
           console.log({ resp });
