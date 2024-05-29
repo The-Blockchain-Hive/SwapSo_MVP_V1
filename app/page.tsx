@@ -125,12 +125,12 @@ export default function Home() {
           {isMobile ? (
             <p></p>
           ) : (
-            <div className="w-screen lg:mt-16 lg:ml-32 xl:ml-32 mx-auto md:w-1/2">
+            <div className="w-screen lg:mt-16 lg:ml-32 xl:ml-32 md:w-1/2">
               <Image
-                src="/newlogo.svg"
+                src="/about2.png"
                 alt="logo"
                 height={150}
-                width={150}
+                width={200}
                 className="shadow-lg"
               />
             </div>
@@ -154,7 +154,7 @@ export default function Home() {
                       className="text-blue-500 hover:underline focus:outline-none"
                       onClick={handleViewLess}
                     >
-                      View Less...
+                      View Less
                     </button>
                   </>
                 ) : (
@@ -169,7 +169,7 @@ export default function Home() {
                         className="text-blue-500 hover:underline focus:outline-none"
                         onClick={handleReadMore}
                       >
-                        Read more...
+                        Read more
                       </button>
                     )}
                   </>

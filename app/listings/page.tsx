@@ -36,7 +36,7 @@ const Listings = () => {
 
 
   return (
-    <main className={`bg-gradient-to-b from-blue-1125 to-blue-1150 ${isPopupVisible ? 'blurred' : ''}`}>
+    <main className={`bg-black ${isPopupVisible ? 'blurred' : ''}`}>
       <head>
         <title>Your Listings</title>
         <meta name="description" content='All of your listed courses over here' />
@@ -65,6 +65,9 @@ const Listings = () => {
             <MyListings/>
           </div>
         </div>
+        <div className="flex justify-center mt-8 text-2xl text-cyan-500">
+          <p>© 2024 SwapSo | All rights reserved.</p>
+      </div>
     </main>
   )
 }

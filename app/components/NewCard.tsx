@@ -93,7 +93,7 @@ const NewCard = ({ course }: NewCardType) => {
         <div className="flex justify-between p-4">
           <p className="font-extrabold text-2xl">{currentCourse?.CourseName}</p>
         </div>
-        {/* <p className="px-4 py-2">{currentCourse?.short_desc}</p> */}
+        <p className="px-4 py-2">#{course?.CourseId}</p>
         <div className="flex flex-wrap justify-between px-4">
           {/* <div className=" bg-white px-4 w-max text-black rounded-full">
             <span>

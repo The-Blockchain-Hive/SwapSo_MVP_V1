@@ -10,11 +10,13 @@ const TrackPath = () => {
         {/* stack 1 */}
         <div className="col-span-4 w-full h-full">
           <div className="w-full h-full bg-gradient-to-b from-slate-900 to-cyan-900 rounded-xl p-2 md:pl-4">
-            <h1 className="text-white text-xl font-bold py-2 text-center">Q1-2024</h1>
+            <h1 className="text-white text-xl font-bold py-2 text-center">Phase 1</h1>
             <ul className="list-disc ml-4 font-comfortaa">
-              <li>Initial Website Launch</li>
-              <li>Initial Course Onboarding</li>
-              <li>Swapso EdTech Launch</li>
+              <li>Launching Edtech platform: 22nd May, 2024 </li>
+              <li>UI Changes on website: till June End </li>
+              <li>Inhouse LMS creation: till July </li>
+              <li>Web2 Payment Layer: Simplifying payment methods</li>
+              <li>New Course onboarding</li> 
             </ul>
           </div>
         </div>
@@ -31,10 +33,16 @@ const TrackPath = () => {
           </div>
           <div className="col-span-4 w-full h-full">
           <div className="w-full h-full bg-gradient-to-b from-slate-900 to-cyan-900 rounded-xl p-2 md:pl-4">
-            <h1 className="text-white text-xl font-bold py-2 text-center">Q2-2024</h1>
+            <h1 className="text-white text-xl font-bold py-2 text-center">Phase 2</h1>
             <ul className="list-disc ml-4 font-comfortaa">
-              <li>Swapso Ecosystem Lite Paper</li>
-              <li>EdTech model expansion</li>
+              <li>Certification:</li>
+              <p className="ml-4">- Exam Setup</p>
+              <p className="ml-4">- Exam Portal</p>
+              <p className="ml-4">- University partner certificates</p>
+              <li>Decentralised documentation(one stop solution for all kinds of docs. & related verifications)</li>
+              <li>Whitepaper & tokenomics release</li>
+              <li>Smart wallet: identity linked decentralised wallets </li>
+              <li>Hiring partner & portal </li>
             </ul>
           </div>
         </div>
@@ -42,11 +50,14 @@ const TrackPath = () => {
           {/* stack3 */}
           <div className="col-span-4 w-full h-full">
           <div className="w-full h-full bg-gradient-to-b from-slate-900 to-cyan-900 rounded-xl p-2 md:pl-4">
-            <h1 className="text-white text-xl font-bold py-2 text-center"> Q3-2024</h1>
+            <h1 className="text-white text-xl font-bold py-2 text-center"> Phase 3</h1>
             <ul className="list-disc ml-4 font-comfortaa">
-              <li>Tokenomics announcement</li>
-              <li>Start Building a L2 Blockchain</li>
-              <li>EdTech model expansion</li>
+              <li>Token Launch</li>
+              <li>Education Loans pool</li>
+              <li>Scholarship pool</li>
+              <li>Donation portal & Pool</li>
+              <li>Education consultation</li>
+              <li>Tie-up university for accepting crypto payment</li>
             </ul>
           </div>
         </div>
@@ -63,76 +74,17 @@ const TrackPath = () => {
           </div>
           <div className="col-span-4 w-full h-full">
           <div className="w-full h-full bg-gradient-to-b from-slate-900 to-cyan-900 rounded-xl p-2 md:pl-4">
-            <h1 className="text-white text-xl font-bold py-2 text-center"> Q4-2024</h1>
+            <h1 className="text-white text-xl font-bold py-2 text-center"> Phase 4</h1>
             <ul className="list-disc ml-4 font-comfortaa">
-              <li>Testnet Launch</li>
-              <li>University Partnerships</li>
+              <li>University of SwapSo- might be an International institute running complete degrees on chain.</li>
+              <li>SwapSo L2 plan </li>
+              <li>Open learning protocol</li>
+              <li>S-Pay: Student pay: for small loans and finance management.</li>
+              <li>SwapSo decentralised Credit system</li>
+              <li>Common hiring portal for all partner institutes & Colleges.</li>
             </ul>
           </div>
-        </div>
-          {/* stack5 */}
-          <div className="col-span-4 w-full h-full">
-          <div className="w-full h-full bg-gradient-to-b from-slate-900 to-cyan-900 rounded-xl p-2 md:pl-4">
-            <h1 className="text-white text-xl font-bold py-2 text-center">Q1-2025</h1>
-            <ul className="list-disc ml-4 font-comfortaa">
-              <li>Token Public Launch</li>
-              <li>Staking pool announcement</li>
-              <li>Scholarship pool announcement</li>
-              <li>Bridge and Multiple Dex Listing</li>
-            </ul>
-          </div>
-        </div>
-          <div className="relative col-span-1 w-full h-full flex justify-center items-center">
-            <div className="h-full w-1 bg-cyan-300"></div>
-            <div className="absolute w-6 h-6 rounded-full bg-cyan-400 z-4 text-white text-center">5</div>
-          </div>
-          <div className="col-span-4 w-full h-full"></div> 
-          {/* stack6 */}
-          <div className="col-span-4 w-full h-full"></div>
-          <div className="relative col-span-1 w-full h-full flex justify-center items-center">
-            <div className="h-full w-1 bg-cyan-300"></div>
-            <div className="absolute w-6 h-6 rounded-full bg-cyan-400 z-4 text-white text-center">6</div>
-          </div>
-          <div className="col-span-4 w-full h-full">
-          <div className="w-full h-full bg-gradient-to-b from-slate-900 to-cyan-900 rounded-xl p-2 md:pl-4">
-            <h1 className="text-white text-xl font-bold py-2 text-center"> Q2-2025</h1>
-            <ul className="list-disc ml-4 font-comfortaa">
-              <li>Mainnet Launch</li>
-              <li>On-chain Certification</li>
-              <li>Centralized Exchange (CEX) Listing</li>
-            </ul>
-          </div>
-        </div>
-        
-          <div className="col-span-4 w-full h-full">
-          <div className="w-full h-full bg-gradient-to-b from-slate-900 to-cyan-900 rounded-xl p-2 md:pl-4">
-            <h1 className="text-white text-xl font-bold py-2 text-center"> Q3-2025</h1>
-            <ul className="list-disc ml-4 font-comfortaa">
-              <li>Launch Smart wallets</li>
-            </ul>
-          </div>
-        </div>
-        <div className="relative col-span-1 w-full h-full flex justify-center items-center">
-            <div className="h-full w-1 bg-cyan-300"></div>
-            <div className="absolute w-6 h-6 rounded-full bg-cyan-400 z-4 text-white text-center">7</div>
-          </div>
-        <div className="col-span-4 w-full h-full"></div>
-
-        <div className="col-span-4 w-full h-full"></div>
-          <div className="relative col-span-1 w-full h-full flex justify-center items-center">
-            <div className="h-full w-1 bg-cyan-300"></div>
-            <div className="absolute w-6 h-6 rounded-full bg-cyan-400 z-4 text-white text-center">8</div>
-          </div>
-        <div className="col-span-4 w-full h-full">
-          <div className="w-full h-full bg-gradient-to-b from-slate-900 to-cyan-900 rounded-xl p-2 md:pl-4">
-            <h1 className="text-white text-xl font-bold py-2 text-center"> Q4-2025</h1>
-            <ul className="list-disc ml-4 font-comfortaa">
-              <li>On-chain Univeristy Trials</li>
-              <li>S-pay Launch</li>
-              <li>Token Trading Launch</li>
-            </ul>
-          </div>
-        </div>
+        </div>          
       </div>
     </div>
 

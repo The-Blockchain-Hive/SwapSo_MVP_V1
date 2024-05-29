@@ -96,6 +96,9 @@ const BuyCourses = () => {
       <div className="w-screen flex flex-wrap justify-center py-5 h-screen mt-24">
         <MyCourses />
       </div>
+      <div className="flex justify-center mt-8 text-2xl text-cyan-500">
+        <p>© 2024 SwapSo | All rights reserved.</p>
+      </div>
     </main>
   );
 };

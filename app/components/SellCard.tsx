@@ -12,7 +12,7 @@ import {
   getSecondsOfDays,
   getSecondsOfHours,
 } from "../utils/utils.ts";
-import { SellCardType } from "../constants/Types.ts";
+import { SellCardType, CourseType } from "../constants/Types.ts";
 import { useError } from "./errorContext.tsx";
 
 const SellCard: React.FC<SellCardType> = ({ course }) => {
@@ -20,6 +20,8 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
   const { setError } = useError();
   console.log("hgfdhgfc", { course });
   const imgUrl = `/${course.CourseImgUrl}.png`;
+  const [currentCourse, setCurrentCourse] = useState<CourseType>(course);
+
 
   // const handleClick = async () => {
   //   if ((window as any).ethereum && (window as any).ethereum.isMetaMask) {
@@ -89,6 +91,10 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
       }
     }
   };
+   const handleAboutClick = () => {
+    // Use Next.js router to navigate to the AboutCourse page with query parameters
+    window.location.href = `/AboutCourse?CourseName=${currentCourse?.CourseName}`;
+  };
 
   return (
     <div>
@@ -107,7 +113,7 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
         <div className="flex justify-between p-4">
           <p className="font-extrabold text-2xl">{course.CourseName}</p>
         </div>
-        {/* <p className="px-4 py-2">{course?.short_desc}</p> */}
+        <p className="px-4 py-2">#{course?.CourseId}</p>
         <div className="flex flex-row justify-between mt-4 m-2">
           <div className=" bg-white px-4 w-max text-black rounded-full">
             <span>

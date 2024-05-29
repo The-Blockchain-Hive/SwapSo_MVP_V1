@@ -120,7 +120,7 @@ const MarketPlace = () => {
 
   return (
     <main
-      className={`bg-gradient-to-b from-blue-1125 to-blue-1150 ${
+      className={`bg-black h-max ${
         isPopupVisible ? "blurred" : ""
       }`}
     >
@@ -154,6 +154,11 @@ const MarketPlace = () => {
         <div className="bg-transparent mt-24">
           <SectionDivider label="Market Place" />
         </div>
+        <div>
+          <Link href="/listings">
+            <button className="bg-indigo-500 rounded-lg p-2 fixed right-0 xl:right-10 lg:right-10 md:right-10">Your Listings</button>
+          </Link>
+        </div>
         <div className="w-screen flex flex-wrap gap-5 justify-center py-5">
           {currentItems.map((course: CourseType, index: number) => (
             <SellCard course={course} key={index} />
@@ -174,6 +179,9 @@ const MarketPlace = () => {
             </button>
           ))}
         </div>
+      </div>
+      <div className="flex justify-center mt-8 text-2xl text-cyan-500">
+        <p>© 2024 SwapSo | All rights reserved.</p>
       </div>
     </main>
   );
