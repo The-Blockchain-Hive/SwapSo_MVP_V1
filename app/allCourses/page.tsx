@@ -71,7 +71,7 @@ const Courses = () => {
         {/* <button onClick={fetchData}>Testing</button>  */}
       </div>
       <div className="mt-32">
-          <Link href="/listings">
+          <Link href="/myCourses">
             <button className="bg-indigo-500 rounded-lg p-2 fixed right-0 xl:right-10 lg:right-10 md:right-10">Purchased Courses</button>
           </Link>
         </div>

@@ -54,11 +54,11 @@ const EventCard = () => {
 
         <div className="flex items-center mt-4">
           <FaMapMarkerAlt />
-          <p className="ml-4 font-comfortaa"> TBA</p>
+          <p className="ml-4 font-comfortaa">Microsoft Noida, KP Towers</p>
         </div>
         <div className="flex item-center mt-4">
           <span className="mt-1"><FaRegCalendarAlt /></span>
-          <p className="ml-4 font-comfortaa">DATE: TBA</p>
+          <p className="ml-4 font-comfortaa">DATE: 7th June</p>
         </div>
         <div className="mt-8 text-center">
           <Link href="https://mint.nuvo.bi/ax/d23cfe7c419544a380b42147b434e41e8" target="_blank"
