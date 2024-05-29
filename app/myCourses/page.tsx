@@ -69,7 +69,7 @@ const BuyCourses = () => {
   // console.log('Main page', selectedTimeframe);
 
   return (
-    <main className="bg-gradient-to-b from-blue-1125 to-blue-1150">
+    <main className="bg-black">
       <head>
         <title>Purchased Courses</title>
         <meta name="description" content="ALl the buyed courses stored here" />

@@ -22,6 +22,16 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
   const imgUrl = `/${course.CourseImgUrl}.png`;
   const [currentCourse, setCurrentCourse] = useState<CourseType>(course);
 
+  const handleCopy = () => {
+    if(course?.CourseId){
+      navigator.clipboard.writeText(course.CourseId);
+      alert('Course ID copied to clipboard');
+    }
+  }
+  const truncatedCourseId = (id:any, length = 15) => {
+    return id.length > length ? `${id.substring(0, length)}...` : id;
+  };
+
 
   // const handleClick = async () => {
   //   if ((window as any).ethereum && (window as any).ethereum.isMetaMask) {
@@ -113,7 +123,19 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
         <div className="flex justify-between p-4">
           <p className="font-extrabold text-2xl">{course.CourseName}</p>
         </div>
-        <p className="px-4 py-2">#{course?.CourseId}</p>
+        <div className="px-4 py-2 flex items-center">
+          <p className="mr-2">
+            NFT ID: {course?.CourseId ? truncatedCourseId(course.CourseId) : 'No Course ID'}
+          </p>
+          {course?.CourseId && (
+            <button
+              onClick={handleCopy}
+              className="bg-blue-500 text-white px-2 py-1 rounded"
+            >
+              Copy
+            </button>
+          )}
+        </div>
         <div className="flex flex-row justify-between mt-4 m-2">
           <div className=" bg-white px-4 w-max text-black rounded-full">
             <span>
