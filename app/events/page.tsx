@@ -15,6 +15,34 @@ const EventCard = () => {
     <div className="bg-gradient-to-b from-yellow-500 to-blue-1150 rounded-3xl mx-auto  border border-white shadow-lg xl:w-4/5 mt-8 text-center mb-8">
       <div className="relative">
         <Image
+          src='/noida.jpg'
+          alt="Event Image"
+          className="object-cover object-top w-full rounded-3xl mx-auto"
+          width={330}
+          height={200}
+        />
+      </div>
+      <div className="p-4">
+      <p className="font-bold text-xl">SwapSo Community Call, Noida</p>
+
+        {/* <div className="flex items-center mt-4">
+          <FaMapMarkerAlt />
+          <p className="ml-4 font-comfortaa"> SBG Hall</p>
+        </div>
+        <div className="flex item-center mt-4">
+          <span className="mt-1"><FaRegCalendarAlt /></span>
+          <p className="ml-4 font-comfortaa">DATE: 12th June</p>
+        </div> */}
+        {/* <div className="mt-8 text-center">
+          <Link href="https://mint.nuvo.bi/ax/786fea0ab8564e54bab442c1216b340e4" target="_blank"
+             className="text-white"><button className="bg-cyan-500 p-3 rounded-3xl">Register Now</button>
+          </Link>
+        </div> */}
+      </div>
+    </div>
+    <div className="bg-gradient-to-b from-yellow-500 to-blue-1150 rounded-3xl mx-auto  border border-white shadow-lg xl:w-4/5 mt-8 text-center mb-8">
+      <div className="relative">
+        <Image
           src='/chennai.png'
           alt="Event Image"
           className="object-cover object-top w-full rounded-3xl mx-auto"
@@ -89,7 +117,7 @@ const EventCard = () => {
           <p className="ml-4 font-comfortaa font-comfortaa">DATE: 8th JUNE 2024</p>
         </div>
         <div className="mt-8 text-center">
-          <button className="bg-cyan-500 p-3 rounded-3xl">Registerations Closed</button>
+          <button className="bg-cyan-500 p-3 rounded-3xl">Concluded</button>
         </div>
       </div>
     </div>
