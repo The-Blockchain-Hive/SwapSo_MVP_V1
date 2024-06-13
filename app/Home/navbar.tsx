@@ -1,7 +1,9 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useTransition } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from 'next/navigation';
+import { Puff } from 'react-loader-spinner';
 import "./navbar.css";
 import { UserAuth } from "../context/AuthContext";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
@@ -13,6 +15,8 @@ const Navbar = () => {
   const delta = 5;
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isPending, startTransition] = useTransition();
+  const router = useRouter();
 
   const handleSignOut = async () => {
     try {
@@ -56,8 +60,19 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollTop]);
 
+  const handleRouteChange = (url : any) => {
+    startTransition(() => {
+      router.push(url);
+    });
+  };
+
   return (
     <>
+      {isPending && (
+        <div className="loader-container">
+          <Puff color="#00BFFF" height={100} width={100} />
+        </div>
+      )}
       <nav id="navbar1" className="sticky mx-auto" ref={navbarRef}>
         <Image
           className="logo1"
@@ -68,15 +83,13 @@ const Navbar = () => {
         />
         <ul className="nav-links">
           <li className="nav-list">
-            <Link href="/">Home</Link>
+            <a onClick={() => handleRouteChange("/")}>Home</a>
           </li>
           <li className="nav-list">
-              <Link href="/allCourses">Courses</Link>
-              {/* <Link href="/myCourses" className="ml-4">My Courses</Link> */}
+            <a onClick={() => handleRouteChange("/allCourses")}>Courses</a>
           </li>
           <li className='nav-list'>
-              <Link href="/Marketplace" className="ml-4">Market Place</Link>
-              {/* <Link href="/listings">Your Listings</Link> */}
+            <a onClick={() => handleRouteChange("/Marketplace")} className="ml-4">Market Place</a>
           </li>
         </ul>
         <div className="dropdown">
