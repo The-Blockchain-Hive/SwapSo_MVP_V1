@@ -179,9 +179,9 @@ function Popup({ handleClose, currentCourse, courseName }: PopupType) {
                 Course duration : {currentCourse.CourseDuration} hrs
               </div>
             </div>
-            <div className="w-[374px] left-[22px] top-[195px] absolute text-red-600 text-xs font-normal font-['Inter'] leading-[17px]">
+            {/* <div className="w-[374px] left-[22px] top-[195px] absolute text-red-600 text-xs font-normal font-['Inter'] leading-[17px]">
               mostly students take 3 weeks to complete this course
-            </div>
+            </div> */}
             <div className="w-[108px] h-[40px] py-[11px] left-[160px] top-[133px] absolute bg-gradient-to-r from-orange-100 via-white to-blue-700 rounded border border-neutral-400 justify-center items-center inline-flex">
               <div className="text-justify text-gray-900 text-base font-medium font-['Inter'] leading-[17px]">
                 {price} MATIC

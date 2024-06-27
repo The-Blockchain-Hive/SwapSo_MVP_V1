@@ -15,6 +15,7 @@ import { getCourses } from "../utils/firebase.ts";
 
 const Courses = () => {
   const [coursesData, setCoursesData] = useState<CourseType[]>([]);
+  const [showLoader, setShowLoader] = useState(false);
 
   const fetchData = async () => {
     try {
@@ -113,7 +114,7 @@ const Courses = () => {
             </div>
           </div>
         </div>
-        <div className="cards w-[310px] sm:w-[350px] md:w-[350px] lg:w-[373px] xl:w-[373px] h-max bg-gradient-to-b from-black to-blue-1100 rounded-3xl text-neutral-300 m-1 flex flex-col hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">
+        {/* <div className="cards w-[310px] sm:w-[350px] md:w-[350px] lg:w-[373px] xl:w-[373px] h-max bg-gradient-to-b from-black to-blue-1100 rounded-3xl text-neutral-300 m-1 flex flex-col hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">
             <div>
               <Image
                 src="/9.png"
@@ -127,7 +128,7 @@ const Courses = () => {
             <div className="flex justify-between p-4">
               <p className="font-extrabold text-2xl">Crypto Trading</p>
             </div>
-            {/* <p className="px-4 py-2">{course.short_desc}</p> */}
+            <p className="px-4 py-2">{course.short_desc}</p>
             <div className="flex flex-wrap justify-between px-4">
               <div className=" bg-white px-4 w-max text-black rounded-full">
                 <span>1 MATIC/DAY</span>
@@ -144,7 +145,7 @@ const Courses = () => {
                 Coming Soon..
               </button>
             </div>
-          </div>   
+          </div> */}
           <div className="cards w-[310px] sm:w-[350px] md:w-[350px] lg:w-[373px] xl:w-[373px] h-max bg-gradient-to-b from-black to-blue-1100 rounded-3xl text-neutral-300 m-1 flex flex-col hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">
             <div>
               <Image
@@ -177,8 +178,7 @@ const Courses = () => {
               </button>
             </div>
           </div>
-      </div>
-      
+      </div> 
       <div className="flex justify-center mt-8 text-2xl text-cyan-500">
         <p>© 2024 SwapSo | All rights reserved.</p>
       </div>

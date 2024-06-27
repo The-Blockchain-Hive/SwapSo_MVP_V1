@@ -21,6 +21,8 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
   console.log("hgfdhgfc", { course });
   const imgUrl = `/${course.CourseImgUrl}.png`;
   const [currentCourse, setCurrentCourse] = useState<CourseType>(course);
+  const [showLoader, setShowLoader] = useState(false);
+
 
   const handleCopy = () => {
     if(course?.CourseId){
@@ -100,6 +102,9 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
         setError("An unknown error occurred.");
       }
     }
+    const showLoad = () => {
+      setShowLoader(true);
+    };
   };
    const handleAboutClick = () => {
     // Use Next.js router to navigate to the AboutCourse page with query parameters
@@ -164,7 +169,16 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
             onClick={handleClick}
             className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl w-1/3"
           >
+          { showLoader ? (
+            <>
+            Loading
+            </>
+          ):(
+            <>
             Buy
+            </>
+          )
+}
           </button>
         </div>
       </div>
