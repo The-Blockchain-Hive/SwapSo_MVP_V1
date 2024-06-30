@@ -208,6 +208,9 @@ export default function Home() {
         Highlight Courses
       </h2>
       <CardEffect />
+      <h2 className="text-5xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-white p-5 mt-8 mb-8">
+        Insights
+      </h2>
       <div className="flex flex row space-x-16 m-8">
       <blockquote className="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/%F0%9D%90%8A%F0%9D%90%A7%F0%9D%90%A8%F0%9D%90%B0?src=hash&amp;ref_src=twsrc%5Etfw">#𝐊𝐧𝐨𝐰</a> 𝐘𝐨𝐮𝐫 𝐒𝐰𝐚𝐩𝐒𝐨<br /><br />Hello everyone,<br />Thank you for visiting the SwapSo. In this thread, we will share the complete journey of SwapSo. <a href="https://t.co/bKQRlecfFm">pic.twitter.com/bKQRlecfFm</a></p>&mdash; SwapSo (@swapso_) <a href="https://twitter.com/swapso_/status/1795197225234022632?ref_src=twsrc%5Etfw">May 27, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js"></script>
       <blockquote className="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">What can be stored on a Blockchain? <br />Blockchain typically stores 3 kinds of records - <br />1. Smart contracts <br />2. Digital certificates and signatures <br />3.Asset transactions <br /><br />If you want to understand all these 3 points in detail,comment below.<br /><br /> <a href="https://twitter.com/hashtag/smartcontract?src=hash&amp;ref_src=twsrc%5Etfw">#smartcontract</a> <a href="https://twitter.com/hashtag/digital?src=hash&amp;ref_src=twsrc%5Etfw">#digital</a> <a href="https://twitter.com/hashtag/blockchain?src=hash&amp;ref_src=twsrc%5Etfw">#blockchain</a> <a href="https://t.co/kC4QttXkDW">pic.twitter.com/kC4QttXkDW</a></p>&mdash; SwapSo (@swapso_) <a href="https://twitter.com/swapso_/status/1807318205461057975?ref_src=twsrc%5Etfw">June 30, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" ></script>
