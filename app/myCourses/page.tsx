@@ -69,7 +69,7 @@ const BuyCourses = () => {
   // console.log('Main page', selectedTimeframe);
 
   return (
-    <main className="bg-gradient-to-b from-blue-1125 to-blue-1150">
+    <main className="bg-black">
       <head>
         <title>Purchased Courses</title>
         <meta name="description" content="ALl the buyed courses stored here" />
@@ -95,6 +95,9 @@ const BuyCourses = () => {
       </div>
       <div className="w-screen flex flex-wrap justify-center py-5 h-screen mt-24">
         <MyCourses />
+      </div>
+      <div className="flex justify-center mt-8 text-2xl text-cyan-500">
+        <p>© 2024 SwapSo | All rights reserved.</p>
       </div>
     </main>
   );

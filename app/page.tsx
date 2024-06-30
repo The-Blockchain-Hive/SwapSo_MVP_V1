@@ -84,22 +84,21 @@ export default function Home() {
                 }}
               />
             </h1>
-            <h1 className="text-xl w-9/10 md:w-1/2 lg:w-1/2 xl:w-1/2 xl:mr-40 font-comfortaa">
-              Creating a new educational system which is decentralised,
-              transparent & open to all.
+            <h1 className="text-xl w-9/10 md:w-1/2 lg:w-1/2 xl:w-1/2 font-comfortaa">
+              An initiative by SwapSo to create Web3 awareness
             </h1>
-            <div className="bg-cyan-950 text-cyan-400 border border-cyan-400 border-b-4 relative px-8 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group mt-8 font-bold xl:mr-48">
+            <div className="bg-cyan-950 text-cyan-400 border border-cyan-400 border-b-4 relative px-8 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group mt-8 font-bold xl:mr-64">
               <Link href="/events" target="_blank">
                 Register for Events
               </Link>
             </div>
-            <button
+            {/* <button
                 onClick={() => {
                   Router.reload();
                 }}
               >
                 Click to reload
-              </button>
+              </button> */}
           </div>
         </div>
         <video
@@ -114,7 +113,7 @@ export default function Home() {
           <source src="/cubic.mp4" type="video/mp4" />
         </video>
       </div>
-      <div
+      {/* <div
         className="relative border border-cyan-400 w-4/5 mx-auto rounded-lg mb-16"
         id="about"
       >
@@ -125,12 +124,12 @@ export default function Home() {
           {isMobile ? (
             <p></p>
           ) : (
-            <div className="w-screen lg:mt-16 lg:ml-32 xl:ml-32 mx-auto md:w-1/2">
+            <div className="w-screen lg:mt-16 lg:ml-32 xl:ml-32 md:w-1/2">
               <Image
-                src="/newlogo.svg"
+                src="/about2.png"
                 alt="logo"
                 height={150}
-                width={150}
+                width={200}
                 className="shadow-lg"
               />
             </div>
@@ -154,7 +153,7 @@ export default function Home() {
                       className="text-blue-500 hover:underline focus:outline-none"
                       onClick={handleViewLess}
                     >
-                      View Less...
+                      View Less
                     </button>
                   </>
                 ) : (
@@ -169,7 +168,7 @@ export default function Home() {
                         className="text-blue-500 hover:underline focus:outline-none"
                         onClick={handleReadMore}
                       >
-                        Read more...
+                        Read more
                       </button>
                     )}
                   </>
@@ -190,25 +189,59 @@ export default function Home() {
             )}
           </div>
         </div>
-      </div>
-      <h2 className="mt-16 text-5xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-white p-5">
+      </div> */}
+      <h2 className="text-5xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-white p-5">
         {" "}
         Highlight Courses
       </h2>
       <CardEffect />
-      <h2 className="text-6xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-white mt-12">
+      {/* <h2 className="text-6xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-white mt-12">
         {" "}
         Road Map
       </h2>
       <div className="mt-12">
         <TrackPath />
-      </div>
-      <div className="mt-24" id="partners">
+      </div> */}
+      {/* <div className="mt-24" id="partners">
         <Partner />
-      </div>
-      <div className="join_us-main">
+      </div> */}
+      {/* add a blog section over here and */}
+      {/* <h2 className="text-5xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-white p-5">
+        {" "}
+        Blogs
+      </h2> */}
+      {/* <div className="grid grid-cols-3 gap-36 h-[400px] mt-24">
+          <div className="border border-solid border-white ml-8 text-center rounded-2xl">
+      <Image src="/3.png" height={100} width={400} alt="3" className="rounded-3xl" />
+      <div className="bg-[#000000]">
+            <p className="font-bold text-cyan-500 text-2xl m-4">Web 3.0</p>
+            <p className="mt-4">
+              This specially designed course aims to transport you into the world of Web3, the next generation of the internet.
+            </p>
+          </div>
+          </div>
+          <div className="border border-solid border-white text-center rounded-2xl">
+          <Image src="/4.png" height={100} width={400} alt="4" className="rounded-3xl" />
+          <div className="bg-[#000000] text-center m-4">
+            <p className="font-bold text-cyan-500 text-2xl">Dapp store creation</p>
+            <p className="mt-4">
+              Unlock the power of blockchain technology by learning to build your own Decentralized Application DApp store.
+            </p>
+          </div>
+          </div>
+          <div className="border border-solid border-white mr-8 text-center rounded-2xl">
+          <Image src="/7.png" height={100} width={400} alt="7" className="rounded-2xl" />
+          <div className="bg-[#000000]">
+            <p className="font-bold text-cyan-500 text-2xl m-4">Blockchain Development</p>
+            <p className="mt-4">
+                A comprehensive course on development over Ethereum Blockchain and building applications on it.
+            </p>
+          </div>
+          </div>
+      </div> */}
+      {/* <div className="join_us-main">
         <JoinUs />
-      </div>
+      </div> */}
       <div>
         <ContactForm />
       </div>

@@ -12,7 +12,7 @@ import {
   getSecondsOfDays,
   getSecondsOfHours,
 } from "../utils/utils.ts";
-import { SellCardType } from "../constants/Types.ts";
+import { SellCardType, CourseType } from "../constants/Types.ts";
 import { useError } from "./errorContext.tsx";
 
 const SellCard: React.FC<SellCardType> = ({ course }) => {
@@ -20,6 +20,20 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
   const { setError } = useError();
   console.log("hgfdhgfc", { course });
   const imgUrl = `/${course.CourseImgUrl}.png`;
+  const [currentCourse, setCurrentCourse] = useState<CourseType>(course);
+  const [showLoader, setShowLoader] = useState(false);
+
+
+  const handleCopy = () => {
+    if(course?.CourseId){
+      navigator.clipboard.writeText(course.CourseId);
+      alert('Course ID copied to clipboard');
+    }
+  }
+  const truncatedCourseId = (id:any, length = 15) => {
+    return id.length > length ? `${id.substring(0, length)}...` : id;
+  };
+
 
   // const handleClick = async () => {
   //   if ((window as any).ethereum && (window as any).ethereum.isMetaMask) {
@@ -88,6 +102,13 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
         setError("An unknown error occurred.");
       }
     }
+    const showLoad = () => {
+      setShowLoader(true);
+    };
+  };
+   const handleAboutClick = () => {
+    // Use Next.js router to navigate to the AboutCourse page with query parameters
+    window.location.href = `/AboutCourse?CourseName=${currentCourse?.CourseName}`;
   };
 
   return (
@@ -107,7 +128,19 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
         <div className="flex justify-between p-4">
           <p className="font-extrabold text-2xl">{course.CourseName}</p>
         </div>
-        {/* <p className="px-4 py-2">{course?.short_desc}</p> */}
+        <div className="px-4 py-2 flex items-center">
+          <p className="mr-2">
+            NFT ID: {course?.CourseId ? truncatedCourseId(course.CourseId) : 'No Course ID'}
+          </p>
+          {course?.CourseId && (
+            <button
+              onClick={handleCopy}
+              className="bg-blue-500 text-white px-2 py-1 rounded"
+            >
+              Copy
+            </button>
+          )}
+        </div>
         <div className="flex flex-row justify-between mt-4 m-2">
           <div className=" bg-white px-4 w-max text-black rounded-full">
             <span>
@@ -126,7 +159,9 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
         </div>
         <div className="flex justify-between px-4">
           <Link href="/AboutCourse">
-            <button className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl w-full">
+            <button 
+            onClick={handleAboutClick}
+            className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl w-full">
               About
             </button>
           </Link>
@@ -134,7 +169,16 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
             onClick={handleClick}
             className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl w-1/3"
           >
+          { showLoader ? (
+            <>
+            Loading
+            </>
+          ):(
+            <>
             Buy
+            </>
+          )
+}
           </button>
         </div>
       </div>

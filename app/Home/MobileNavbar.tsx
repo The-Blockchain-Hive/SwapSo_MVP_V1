@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useTransition } from "react";
 import { UserAuth } from "../context/AuthContext";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from 'next/navigation';
+import { Puff } from 'react-loader-spinner';
 import "./MobileNavbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -13,6 +15,8 @@ library.add(faBars, faTimes);
 function MobileNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [isPending, startTransition] = useTransition();
+  const router = useRouter();
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -68,7 +72,20 @@ function MobileNavbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollTop]);
 
+
+  const handleRouteChange = (url : any) => {
+    startTransition(() => {
+      router.push(url);
+    });
+  };
+
   return (
+    <>
+    {isPending && (
+      <div className="loader-container1">
+        <Puff color="#00BFFF" height={100} width={100} />
+      </div>
+    )}
     <nav className="mobile__navbar">
       <div className="mobile__inner__navbar">
         <div className="left_navbar">
@@ -91,7 +108,7 @@ function MobileNavbar() {
           <button className="close__icon" onClick={handleMenuClose}>
             <FontAwesomeIcon icon={"times"} size="2x" />
           </button>
-          <ul className="inner__mobile__navbar__menu no-bullet">
+          <ul className="inner__mobile__navbar__menu no-bullet mt-4">
             <li className="p-1">
               <Link onClick={handleMenuClose} href="/">
                 Home
@@ -105,20 +122,8 @@ function MobileNavbar() {
               <hr />
             </li>
             <li className="p-1">
-              <Link onClick={handleMenuClose} href="/myCourses">
-                My Courses
-              </Link>
-              <hr />
-            </li>
-            <li className="p-1">
               <Link onClick={handleMenuClose} href="/Marketplace">
                 Market Place
-              </Link>
-              <hr />
-            </li>
-            <li className="p-1">
-              <Link onClick={handleMenuClose} href="/listings">
-                Your Listings
               </Link>
               <hr />
             </li>
@@ -147,6 +152,7 @@ function MobileNavbar() {
         </div>
       )}
     </nav>
+    </>
   );
 }
 
