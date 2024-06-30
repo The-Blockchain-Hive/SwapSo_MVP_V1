@@ -127,7 +127,10 @@ const NewSellerCard: React.FC<NewSellerCardType> = ({
             </span>
           </div>
           <div className="rounded-full px-4 m-4 w-max bg-gradient-to-r from-purple-500 to-pink-500">
-            Listed course
+            {(currentCourse.startTime || 0) + currentCourse.CourseDuration <=
+            parseInt(`${Number(new Date()) / 1000}`)
+              ? "Listed course is expired"
+              : "Listed course"}
           </div>
           {/* <div className='rounded-full px-4 mt-3 w-max bg-transparent outline'>
 						{/* <span>{courseExpiry}</span> /}
