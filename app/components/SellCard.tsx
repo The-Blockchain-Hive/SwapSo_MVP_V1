@@ -21,17 +21,17 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
   console.log("hgfdhgfc", { course });
   const imgUrl = `/${course.CourseImgUrl}.png`;
   const [currentCourse, setCurrentCourse] = useState<CourseType>(course);
+  const [showLoader, setShowLoader] = useState(false);
 
   const handleCopy = () => {
-    if(course?.CourseId){
+    if (course?.CourseId) {
       navigator.clipboard.writeText(course.CourseId);
-      alert('Course ID copied to clipboard');
+      alert("Course ID copied to clipboard");
     }
-  }
-  const truncatedCourseId = (id:any, length = 15) => {
+  };
+  const truncatedCourseId = (id: any, length = 15) => {
     return id.length > length ? `${id.substring(0, length)}...` : id;
   };
-
 
   // const handleClick = async () => {
   //   if ((window as any).ethereum && (window as any).ethereum.isMetaMask) {
@@ -100,8 +100,11 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
         setError("An unknown error occurred.");
       }
     }
+    const showLoad = () => {
+      setShowLoader(true);
+    };
   };
-   const handleAboutClick = () => {
+  const handleAboutClick = () => {
     // Use Next.js router to navigate to the AboutCourse page with query parameters
     window.location.href = `/AboutCourse?CourseName=${currentCourse?.CourseName}`;
   };
@@ -125,7 +128,10 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
         </div>
         <div className="px-4 py-2 flex items-center">
           <p className="mr-2">
-            NFT ID: {course?.CourseId ? truncatedCourseId(course.CourseId) : 'No Course ID'}
+            NFT ID:{" "}
+            {course?.CourseId
+              ? truncatedCourseId(course.CourseId)
+              : "No Course ID"}
           </p>
           {course?.CourseId && (
             <button
@@ -153,26 +159,20 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
           </div> */}
         </div>
         <div className="flex justify-between px-4">
-          {(course.startTime || 0) + course.CourseDuration <=
-          parseInt(`${Number(new Date()) / 1000}`) ? (
-            <div className="rounded-full p-2 m-4 rounded-xl w-full bg-gradient-to-r from-purple-500 to-pink-500">
-              Course is expired.
-            </div>
-          ) : (
-            <>
-              <Link href="/AboutCourse">
-                <button className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl w-full">
-                  About
-                </button>
-              </Link>
-              <button
-                onClick={handleClick}
-                className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl w-1/3"
-              >
-                Buy
-              </button>
-            </>
-          )}
+          <Link href="/AboutCourse">
+            <button
+              onClick={handleAboutClick}
+              className="bg-blue-600 font-extrabold p-2 m-4 rounded-xl w-full"
+            >
+              About
+            </button>
+          </Link>
+          <button
+            onClick={handleClick}
+            className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl w-1/3"
+          >
+            {showLoader ? <>Loading</> : <>Buy</>}
+          </button>
         </div>
       </div>
     </div>
