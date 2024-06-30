@@ -194,10 +194,9 @@ export default function Home() {
         How to use
       </h2>
       <iframe
-      className="mx-auto rounded-3xl mt-12"
-        width="300"
-        height="300"
-        src={`https://www.youtube.com/embed/gUmagAluXpk`}
+      className="mx-auto rounded-3xl mt-12 w-1/2 mx-auto"
+      height={500}
+        src={`https://www.youtube.com/embed/FEiN177H8_o`}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
         title="Embedded YouTube"
