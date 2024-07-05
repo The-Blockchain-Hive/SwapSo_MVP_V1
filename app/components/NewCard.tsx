@@ -74,6 +74,10 @@ const NewCard = ({ course }: NewCardType) => {
     setIsPopupVisible(false);
   };
 
+  const truncatedCourseId = (id: any, length = 15) => {
+    return id.length > length ? `${id.substring(0, length)}...` : id;
+  };
+
   const imgUrl = `/${currentCourse?.CourseImgUrl}.png`;
   // console.log(' time frame of new card',selectedTimeframe);
 
@@ -93,7 +97,12 @@ const NewCard = ({ course }: NewCardType) => {
         <div className="flex justify-between p-4">
           <p className="font-extrabold text-2xl">{currentCourse?.CourseName}</p>
         </div>
-        <p className="px-4 py-2">#{course?.CourseId}</p>
+        <p className="mr-2">
+            NFT ID:{" "}
+            {course?.CourseId
+              ? truncatedCourseId(course.CourseId)
+              : "No Course ID"}
+          </p>
         <div className="flex flex-wrap justify-between px-4">
           {/* <div className=" bg-white px-4 w-max text-black rounded-full">
             <span>
