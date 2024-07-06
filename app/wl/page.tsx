@@ -82,7 +82,7 @@ export default function WaitingList() {
         `}
       </Script>
       <div className="text-center">
-        <h1 className="text-gray-500 text-2xl">Join the waitlist to</h1>
+        {/* <h1 className="text-gray-500 text-2xl">Join the waitlist to</h1>
         <h1 className="text-2xl">
           Experience the World&apos;s{" "}
           <span className="text-blue-200"> 1st Decentralized</span>
@@ -110,21 +110,21 @@ export default function WaitingList() {
               placeholder="Email Address"
               className="w-80 mt-4 rounded-md text-white bg-gray-900 p-2"
               required
-            />
+            /> */}
             {/* <button
                     className="w-80 bg-gray-900 p-2 rounded-md mt-8 text-blue-400 transform transition-transform hover:scale-105 hover:bg-purple-900"
                     type="submit"
                 >
                     Join waiting list ➔
                 </button> */}
-            <Button />
+            {/* <Button />
             <p className="mt-12 text-gray-500">500+ joined till now</p>
             <button className="bg-blue-900 rounded-lg p-2 mt-4 transform transition-transform hover:scale-105 hover:opacity-90">
               <a href="https://swapso.io/">Return Back to Home Page</a>
             </button>
           </div>
-        </form>
-      </div>
+        </form> */}
+      </div> 
     </div>
   );
 }

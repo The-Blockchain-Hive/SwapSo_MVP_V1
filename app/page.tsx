@@ -88,7 +88,7 @@ export default function Home() {
               An initiative by SwapSo to create Web3 awareness
             </h1>
             <div className="bg-cyan-950 text-cyan-400 border border-cyan-400 border-b-4 relative px-8 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group mt-8 font-bold xl:mr-64">
-              <Link href="/events" target="_blank">
+              <Link href="https://www.swapso.io/events" target="_blank">
                 Register for Events
               </Link>
             </div>

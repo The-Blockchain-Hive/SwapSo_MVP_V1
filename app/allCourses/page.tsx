@@ -108,9 +108,11 @@ const Courses = () => {
               <button className="bg-blue-400 font-extrabold p-2 m-4 rounded-xl">
                 About
               </button>
-              <button className="bg-transparent font-extrabold p-2 m-4 outline rounded-xl">
-                Coming Soon..
+              <Link href="https://x.com/swapso_/status/1795197225234022632">
+              <button className="bg-transparent font-extrabold py-2 px-6 m-4 outline rounded-xl">
+                Learn
               </button>
+              </Link>
             </div>
           </div>
         </div>
