@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { utils } from "ethers";
+import { ethers, parseEther } from "ethers";
+import { formatBytes32String } from "@ethersproject/strings";
 import { writeContract, readContract, getNetwork } from "@wagmi/core";
 import { UserAuth } from "../context/AuthContext.js";
 import { db } from "../firebase.js";
@@ -74,13 +75,13 @@ function Popup({ handleClose, currentCourse, courseName }: PopupType) {
 
       console.log({ currentCourse });
       // console.log("ADFSa", utils.parseEther(`${currentCourse.PricePerDay}`));
-      console.log("ADFSa3333", utils.parseEther(`${price}`));
+      console.log("ADFSa3333", parseEther(`${price}`));
 
       console.log({ ID: currentCourse, s: `${currentCourse.CourseDbId}` });
       const courseData = [
         Number(currentCourse.CourseId),
         `${currentCourse.CourseDbId}`,
-        utils.parseEther(`${currentCourse?.PricePerDay || 0}`),
+        parseEther(`${currentCourse?.PricePerDay || 0}`),
         getSecondsOfHours(currentCourse.CourseDuration),
       ];
 
@@ -88,7 +89,7 @@ function Popup({ handleClose, currentCourse, courseName }: PopupType) {
         ? getNetwork()?.chain?.id
         : "default";
 
-      const courseId = utils.formatBytes32String(
+      const courseId = formatBytes32String(
         currentCourse.CourseId + `${new Date().getTime()}`
       );
 
@@ -100,7 +101,7 @@ function Popup({ handleClose, currentCourse, courseName }: PopupType) {
           [courseId, [...courseData]],
           getSecondsOfDays(Number(selectedTimeFrame)),
         ],
-        value: BigInt(`${utils.parseEther(`${price}`)}`),
+        value: BigInt(`${parseEther(`${price}`)}`),
       });
 
       console.log({ buyCourseAndMint });
@@ -108,6 +109,7 @@ function Popup({ handleClose, currentCourse, courseName }: PopupType) {
     } catch (error) {
       // Type guard to check if error is an instance of Error
       if (error instanceof Error) {
+        console.log('error:', error);
         setError(
           "Error purchasing course: " +
             "Please make sure you have connected wallet and have got enough balance"

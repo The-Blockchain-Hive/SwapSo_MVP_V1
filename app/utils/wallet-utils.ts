@@ -22,7 +22,12 @@ function getRpc(chain: Chain) {
     return {
       http: "https://rpc-amoy.polygon.technology/",
     };
-  } else if (chain.id == 31337 || chain.id == 1337) {
+  } else if (chain.id == 656476){
+    return {
+      http: "https://rpc.open-campus-codex.gelato.digital",
+    }
+  }
+   else if (chain.id == 31337 || chain.id == 1337) {
     return {
       http: "http://127.0.0.1:8545/",
     };
@@ -30,7 +35,25 @@ function getRpc(chain: Chain) {
   return null;
 }
 
-const productionChains = [polygon, arbitrum];
+const openCampusChain = {
+  id: 656476,
+  name: "OpenCampus",
+  network: "opencampus",
+  nativeCurrency: {
+    decimals: 18,
+    name: "OC Token",
+    symbol: "EDU",
+  },
+  rpcUrls: {
+    default: { http: ["https://rpc.open-campus-codex.gelato.digital/"] },
+    public: { http: ["https://rpc.open-campus-codex.gelato.digital/"] },
+  },
+  blockExplorers: {
+    default: { name: "OpenCampus Explorer", url: "https://explorer.opencampus.com" },
+  },
+};
+const productionChains = [polygon, arbitrum, openCampusChain];
+
 const devChains = [
   {
     id: 80002,
@@ -61,6 +84,7 @@ const devChains = [
       public: { http: ["http://127.0.0.1:8545"] },
     },
   },
+  openCampusChain,
 ];
 
 let chains: any;

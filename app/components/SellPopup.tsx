@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { utils } from "ethers";
+import { parseEther } from "ethers";
 import { writeContract, readContract, getNetwork } from "@wagmi/core";
 import { UserAuth } from "../context/AuthContext.js";
 import { db } from "../firebase.js";
@@ -88,11 +88,11 @@ const SellPopup = ({ handleClose, currentCourse }: SellPopupType) => {
     // console.log(courseComment);
 
     try {
-      console.log("ADFSa", utils.parseEther(`${currentCourse.PricePerDay}`));
+      console.log("ADFSa", parseEther(`${currentCourse.PricePerDay}`));
 
       const courseData = [
         currentCourse.CourseId,
-        utils.parseEther(`${listingAmount}`),
+        parseEther(`${listingAmount}`),
       ];
 
       const network = getNetwork()?.chain?.id

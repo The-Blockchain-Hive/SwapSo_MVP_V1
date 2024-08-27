@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { utils } from "ethers";
+import { parseEther, ethers } from "ethers";
 import { writeContract, readContract, getNetwork } from "@wagmi/core";
 import Link from "next/link";
 import Image from "next/image";
@@ -75,7 +75,7 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
 
       const totalPrice: any =
         (Number(course.CourseDuration) / getSecondsOfDays(1)) *
-        Number(utils.formatEther(`${course.PricePerDay}`));
+        Number(ethers.formatEther(`${course.PricePerDay}`));
 
       console.log({ totalPrice });
 
@@ -84,7 +84,7 @@ const SellCard: React.FC<SellCardType> = ({ course }) => {
         abi: MarketABI.abi,
         functionName: "buyFromMarket",
         args: [course.CourseId],
-        value: BigInt(`${utils.parseEther(`${totalPrice}`)}`),
+        value: BigInt(`${parseEther(`${totalPrice}`)}`),
       });
 
       console.log({ buyCourseFromMarket });

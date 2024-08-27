@@ -94,6 +94,7 @@ const Navbar = () => {
         </ul>
         <div className="dropdown">
           <ConnectButton />
+          {/* <Button2 /> */}
         </div>
       </nav>
     </>

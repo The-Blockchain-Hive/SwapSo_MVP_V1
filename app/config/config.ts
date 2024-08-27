@@ -29,4 +29,8 @@ export const ContractAddress: any = {
     course: process.env.NEXT_PUBLIC_COURSE_POLYGON_AMOY_ADDRESS,
     market: process.env.NEXT_PUBLIC_MARKET_POLYGON_AMOY_ADDRESS,
   },
+  656476: {
+    course: process.env.NEXT_PUBLIC_COURSE_OPEN_CAMPUS_ADDRESS,
+    market: process.env.NEXT_PUBLIC_MARKET_OPEN_CAMPUS_ADDRESS,
+  }
 };

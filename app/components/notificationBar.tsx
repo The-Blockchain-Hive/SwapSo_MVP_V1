@@ -10,7 +10,7 @@ const NotificationBar: React.FC = () => {
   return (
     <div className="fixed top-0 left-0 right-0 bg-red-600 text-white p-4 z-50">
       <p>{errorMessage}</p>
-      <button onClick={clearError} className="absolute top-2 right-2">Dismiss</button>
+      <button onClick={clearError} className="absolute top-4 right-2">Dismiss</button>
     </div>
   );
 };

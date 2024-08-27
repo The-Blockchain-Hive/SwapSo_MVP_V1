@@ -1,14 +1,18 @@
-const { ethers, upgrades } = require("hardhat");
+const hre = require("hardhat");
+const { ethers, upgrades } = hre;
 const swapSoTokenAddress = "";
+
 async function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 function getSecondsOfDays(day) {
   return day * 24 * 60 * 60;
 }
+
 async function main() {
-  const [deployer] = await ethers.getSigners();
-  console.log("Deploying contracts with the account:", deployer.address);
+  const { getNamedAccounts, ethers } = hre;
+  const { deployer } = await getNamedAccounts();
+  console.log("Deploying contracts with the account:", deployer);
 
   const baseUri = "https://resources.zoth.io/nft/652e8634c9e1df8d9f6f85d6";
 
@@ -16,7 +20,7 @@ async function main() {
 
   const Course = await ethers.getContractFactory("Course");
   const course = await upgrades.deployProxy(Course, [
-    deployer.address,
+    deployer,
     baseUri,
   ]);
   await course.waitForDeployment();
@@ -25,7 +29,7 @@ async function main() {
 
   const Market = await ethers.getContractFactory("Market");
   const market = await upgrades.deployProxy(Market, [
-    deployer.address,
+    deployer,
     courseAddress,
     1000,
   ]);
@@ -64,3 +68,4 @@ main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
+//npx hardhat run scripts/deployCourse.js --network openCampus

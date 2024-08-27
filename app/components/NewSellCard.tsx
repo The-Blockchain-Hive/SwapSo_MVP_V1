@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { utils } from "ethers";
+import { parseEther } from "ethers";
 import { writeContract, readContract, getNetwork } from "@wagmi/core";
 import Link from "next/link";
 import Image from "next/image";
@@ -63,7 +63,7 @@ const NewSellerCard: React.FC<NewSellerCardType> = ({
 
   async function toggleWithdraw() {
     try {
-      console.log("ADFSa", utils.parseEther(`${currentCourse?.PricePerDay}`));
+      console.log("ADFSa", parseEther(`${currentCourse?.PricePerDay}`));
 
       const network = getNetwork()?.chain?.id
         ? getNetwork()?.chain?.id

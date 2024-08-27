@@ -25,6 +25,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/PopUp.tsx", "app/components/Card.tsx", "public/csp.js", "app/context/DataContextProvider.tsx", "app/pages/_apps.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/PopUp.tsx", "app/components/Card.tsx", "public/csp.js", "app/context/DataContextProvider.tsx", "app/pages/_apps.js", "blockchain_hive_contracts/script/deployCourse.js", "app/Home/button.js"],
   "exclude": ["node_modules"]
 }

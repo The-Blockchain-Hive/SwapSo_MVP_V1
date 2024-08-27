@@ -4,6 +4,7 @@ export const ChainId = {
     POLYGON_MUMBAI: 80001,
     POLYGON_MAINNET: 137,
     ARBITRUM_ONE_MAINNET: 42161,
+    OPEN_CAMPUS: 656476
   };
   
   export let activeChainId = ChainId.ARBITRUM_ONE_MAINNET;
@@ -13,6 +14,7 @@ export const ChainId = {
     ChainId.POLYGON_MAINNET,
     ChainId.POLYGON_MUMBAI,
     ChainId.ARBITRUM_ONE_MAINNET,
+    ChainId.OPEN_CAMPUS
   ];
   
   export const getRPCProvider = (chainId: number) => {
@@ -27,6 +29,8 @@ export const ChainId = {
         return "https://polygon.llamarpc.com";
       case 42161:
         return "https://arb1.arbitrum.io/rpc";
+      case 656476:
+        return "https://rpc.open-campus-codex.gelato.digital";
       default:
         return "https://eth-mainnet.g.alchemy.com/v2/YMRFBPG1iyBwiRQIHThSWZanZj0NXUjv";
     }
@@ -44,6 +48,8 @@ export const ChainId = {
         return "https://polygonscan.com";
       case 42161:
         return "https://arbiscan.io";
+      case 656476:
+        return "https://rpc.open-campus-codex.gelato.digital";
       default:
         return "https://mumbai.polygonscan.com";
     }

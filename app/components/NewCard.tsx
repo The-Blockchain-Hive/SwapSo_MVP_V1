@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAccount } from "wagmi";
-import { utils } from "ethers";
+import { ethers, parseEther } from "ethers";
 import { writeContract, readContract, getNetwork } from "@wagmi/core";
 import CountDown from "./countdown.tsx";
 import Link from "next/link";
@@ -42,7 +42,7 @@ const NewCard = ({ course }: NewCardType) => {
 
   async function unListCourse() {
     try {
-      console.log("ADFSa", utils.parseEther(`${currentCourse?.PricePerDay}`));
+      console.log("ADFSa", parseEther(`${currentCourse?.PricePerDay}`));
 
       const network = getNetwork()?.chain?.id
         ? getNetwork()?.chain?.id
