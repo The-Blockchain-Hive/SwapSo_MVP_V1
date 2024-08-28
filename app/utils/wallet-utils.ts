@@ -52,7 +52,7 @@ const openCampusChain = {
     default: { name: "OpenCampus Explorer", url: "https://explorer.opencampus.com" },
   },
 };
-const productionChains = [openCampusChain, polygon, arbitrum];
+const productionChains = [openCampusChain];
 
 const devChains = [
   {
