@@ -52,9 +52,10 @@ const openCampusChain = {
     default: { name: "OpenCampus Explorer", url: "https://explorer.opencampus.com" },
   },
 };
-const productionChains = [openCampusChain];
+const productionChains = [openCampusChain, polygon, arbitrum];
 
 const devChains = [
+  openCampusChain,
   {
     id: 80002,
     name: "Polygon Amoy",
@@ -84,7 +85,6 @@ const devChains = [
       public: { http: ["http://127.0.0.1:8545"] },
     },
   },
-  openCampusChain,
 ];
 
 let chains: any;
@@ -101,6 +101,7 @@ if (process.env.NEXT_PUBLIC_ENV === "production") {
 } else if (process.env.NEXT_PUBLIC_ENV === "test") {
   const config = configureChains(
     [
+  openCampusChain,
       {
         id: 80002,
         name: "Polygon Amoy",

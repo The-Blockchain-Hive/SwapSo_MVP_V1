@@ -1,20 +1,20 @@
 export const ChainId = {
+  OPEN_CAMPUS: 656476,
     MAINNET: 1, // Ethereum
     GOERLI: 5,
     POLYGON_MUMBAI: 80001,
     POLYGON_MAINNET: 137,
     ARBITRUM_ONE_MAINNET: 42161,
-    OPEN_CAMPUS: 656476
   };
   
-  export let activeChainId = ChainId.ARBITRUM_ONE_MAINNET;
+  export let activeChainId = ChainId.OPEN_CAMPUS;
   
   export const supportedChains = [
+    ChainId.OPEN_CAMPUS,
     ChainId.GOERLI,
     ChainId.POLYGON_MAINNET,
     ChainId.POLYGON_MUMBAI,
     ChainId.ARBITRUM_ONE_MAINNET,
-    ChainId.OPEN_CAMPUS
   ];
   
   export const getRPCProvider = (chainId: number) => {
@@ -51,7 +51,7 @@ export const ChainId = {
       case 656476:
         return "https://rpc.open-campus-codex.gelato.digital";
       default:
-        return "https://mumbai.polygonscan.com";
+        return "https://rpc.open-campus-codex.gelato.digital";
     }
   };
   

@@ -2,13 +2,13 @@ export const ContractAddress: any = {
   default: {
     course:
       process.env.NEXT_PUBLIC_ENV === "production"
-        ? process.env.NEXT_PUBLIC_COURSE_POLYGON_ADDRESS
+        ? process.env.NEXT_PUBLIC_COURSE_OPEN_CAMPUS_ADDRESS
         : process.env.NEXT_PUBLIC_ENV === "test"
         ? process.env.NEXT_PUBLIC_COURSE_POLYGON_AMOY_ADDRESS
         : process.env.NEXT_PUBLIC_COURSE_LOCAL_ADDRESS,
     market:
       process.env.NEXT_PUBLIC_ENV === "production"
-        ? process.env.NEXT_PUBLIC_MARKET_POLYGON_ADDRESS
+        ? process.env.NEXT_PUBLIC_MARKET_OPEN_CAMPUS_ADDRESS
         : process.env.NEXT_PUBLIC_ENV === "test"
         ? process.env.NEXT_PUBLIC_MARKET_POLYGON_AMOY_ADDRESS
         : process.env.NEXT_PUBLIC_MARKET_LOCAL_ADDRESS,
